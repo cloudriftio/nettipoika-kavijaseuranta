@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Nettipoika Visitor Analytics"
+msgstr "Nettipoika Kävijäseuranta"
+
+msgid "Clear, privacy-friendly website analytics without cookies."
+msgstr "Selkeät ja yksityisyyttä kunnioittavat verkkosivujen kävijätilastot ilman evästeitä."
+
+msgid "Nettipoika Visitor Analytics is lightweight, open-source and privacy-friendly website analytics."
+msgstr "Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä kunnioittava verkkosivujen kävijäseuranta."
+
+msgid "Nettipoika Visitor Analytics · Clear analytics without cookies"
+msgstr "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"
+
+msgid "Clear analytics without cookies. The service runs on infrastructure managed by Nettipoika."
+msgstr "Selkeät kävijätilastot ilman evästeitä. Palvelu toimii Nettipojan hallinnoimalla infrastruktuurilla."
+
+msgid "Plausible CE documentation"
+msgstr "Plausible CE -ohjeet"
+
+msgid "Documentation"
+msgstr "Ohjeet"
+
+msgid "Source code (AGPL)"
+msgstr "Lähdekoodi (AGPL)"
+
+msgid "Enter your account credentials"
+msgstr "Syötä kirjautumistietosi"
+
+msgid "Email"
+msgstr "Sähköposti"
+
+msgid "Password"
+msgstr "Salasana"
+
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+msgid "Register"
+msgstr "Rekisteröidy"
+
+msgid "Sign up"
+msgstr "Rekisteröidy"
+
+msgid "Don't have an account?"
+msgstr "Eikö sinulla ole tiliä?"
+
+msgid "instead."
+msgstr "sen sijaan."
+
+msgid "Forgot password?"
+msgstr "Unohditko salasanasi?"
+
+msgid "Click here"
+msgstr "Napsauta tästä"
+
+msgid "to reset it."
+msgstr "vaihtaaksesi sen."
+
+msgid "Reset your password"
+msgstr "Vaihda salasana"
+
+msgid "Enter your email so we can send a password reset link"
+msgstr "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
+
+msgid "Send reset link"
+msgstr "Lähetä vaihtolinkki"
+
+msgid "Set password"
+msgstr "Aseta salasana →"
+
+msgid "Signed in as"
+msgstr "Kirjautuneena käyttäjänä"
+
+msgid "Account settings"
+msgstr "Tilin asetukset"
+
+msgid "Create a team"
+msgstr "Luo tiimi"
+
+msgid "Team settings"
+msgstr "Tiimin asetukset"
+
+msgid "Help center"
+msgstr "Ohjekeskus"
+
+msgid "Open source"
+msgstr "Avoin lähdekoodi"
+
+msgid "My personal sites"
+msgstr "Omat sivustoni"
+
+msgid "Add"
+msgstr "Lisää"
+
+msgid "Add website"
+msgstr "Lisää verkkosivusto"
+
+msgid "Add your first team site"
+msgstr "Lisää tiimin ensimmäinen sivusto"
+
+msgid "Add your first personal site"
+msgstr "Lisää ensimmäinen sivustosi"
+
+msgid "Collect simple, privacy-friendly stats to better understand your audience."
+msgstr "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+
+msgid "No sites found. Try a different search term."
+msgstr "Sivustoja ei löytynyt. Kokeile toista hakusanaa."
+
+msgid "Go to team sites"
+msgstr "Siirry tiimin sivustoihin"
+
+msgid "Search sites"
+msgstr "Hae sivustoja"
+
+msgid "Press / to search"
+msgstr "Paina / hakeaksesi"
+
+msgid "Total of"
+msgstr "Yhteensä"
+
+msgid "sites"
+msgstr "sivustoa"
+
+msgid "All sites"
+msgstr "Kaikki sivustot"
+
+msgid "Unique visitors"
+msgstr "Yksilölliset kävijät"
+
+msgid "Total visits"
+msgstr "Käynnit yhteensä"
+
+msgid "Total pageviews"
+msgstr "Sivulataukset yhteensä"
+
+msgid "Views per visit"
+msgstr "Sivulatauksia käyntiä kohden"
+
+msgid "No data yet"
+msgstr "Ei vielä tietoja"
+
+msgid "Details"
+msgstr "Näytä tarkemmin"
+
+msgid "visitor in the last 24h"
+msgid_plural "visitors in the last 24h"
+msgstr[0] "kävijä viimeisen 24 tunnin aikana"
+msgstr[1] "kävijää viimeisen 24 tunnin aikana"
+
+msgid "Oops! There's nothing here"
+msgstr "Hups! Täällä ei ole mitään"
+
+msgid "Trying to access your dashboard? You may need to log in again to see it"
+msgstr "Yritätkö avata hallintanäkymää? Sinun on ehkä kirjauduttava uudelleen."
+
+msgid "Go to homepage"
+msgstr "Siirry etusivulle"

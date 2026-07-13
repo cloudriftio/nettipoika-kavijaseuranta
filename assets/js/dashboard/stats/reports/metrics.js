@@ -1,6 +1,7 @@
 import React from 'react'
 import MetricValue from './metric-value'
 import { hasConversionGoalFilter } from '../../util/filters'
+import { t } from '../../../i18n'
 
 // Class representation of a metric.
 
@@ -73,9 +74,9 @@ export const createVisitors = (props) => {
     renderLabel = props.renderLabel
   } else {
     renderLabel = (query) => {
-      const defaultLabel = props.defaultLabel || 'Visitors'
-      const realtimeLabel = props.realtimeLabel || 'Current visitors'
-      const goalFilterLabel = props.goalFilterLabel || 'Conversions'
+      const defaultLabel = props.defaultLabel || t('visitors')
+      const realtimeLabel = props.realtimeLabel || t('currentVisitorsLabel')
+      const goalFilterLabel = props.goalFilterLabel || t('conversions')
 
       if (query.period === 'realtime') {
         return realtimeLabel
@@ -160,7 +161,7 @@ export const createVisits = (props) => {
 }
 
 export const createVisitDuration = (props) => {
-  const renderLabel = (_query) => 'Visit duration'
+  const renderLabel = (_query) => t('visitDuration')
   return new Metric({
     width: 'w-28 md:w-24',
     ...props,
@@ -171,7 +172,7 @@ export const createVisitDuration = (props) => {
 }
 
 export const createBounceRate = (props) => {
-  const renderLabel = (_query) => 'Bounce rate'
+  const renderLabel = (_query) => t('bounceRate')
   return new Metric({
     width: 'w-28 md:w-24',
     ...props,
@@ -182,7 +183,7 @@ export const createBounceRate = (props) => {
 }
 
 export const createPageviews = (props) => {
-  const renderLabel = (_query) => 'Pageviews'
+  const renderLabel = (_query) => t('pageviews')
   return new Metric({
     width: 'w-28',
     ...props,
@@ -193,7 +194,7 @@ export const createPageviews = (props) => {
 }
 
 export const createTimeOnPage = (props) => {
-  const renderLabel = (_query) => 'Time on page'
+  const renderLabel = (_query) => t('timeOnPage')
   return new Metric({
     width: 'w-28 md:w-24',
     ...props,
@@ -215,7 +216,7 @@ export const createExitRate = (props) => {
 }
 
 export const createScrollDepth = (props) => {
-  const renderLabel = (_query) => 'Scroll depth'
+  const renderLabel = (_query) => t('scrollDepth')
   return new Metric({
     width: 'w-28 md:w-24',
     ...props,

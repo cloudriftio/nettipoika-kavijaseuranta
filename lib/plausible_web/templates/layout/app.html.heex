@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä kunnioittava verkkosivujen kävijäseuranta."
+      content={gettext("Nettipoika Visitor Analytics is lightweight, open-source and privacy-friendly website analytics.")}
     />
     <%= if assigns[:connect_live_socket] do %>
       <meta name="csrf-token" content={Plug.CSRFProtection.get_csrf_token()} />
@@ -24,7 +24,7 @@
 
     <title>
       {assigns[:title] ||
-        "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"}
+        gettext("Nettipoika Visitor Analytics · Clear analytics without cookies")}
     </title>
     <link rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")} />
     <PlausibleWeb.Components.Layout.theme_script {Map.take(assigns, [:current_user, :theme])} />

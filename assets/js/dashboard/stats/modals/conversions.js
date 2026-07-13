@@ -6,6 +6,7 @@ import * as metrics from '../reports/metrics'
 import * as url from '../../util/url'
 import { useSiteContext } from '../../site-context'
 import { addFilter } from '../../query'
+import { t } from '../../../i18n'
 
 /*global BUILD_EXTRA*/
 function ConversionsModal() {
@@ -13,10 +14,10 @@ function ConversionsModal() {
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Goal conversions',
+    title: t('goalConversions'),
     dimension: 'goal',
     endpoint: url.apiPath(site, '/conversions'),
-    dimensionLabel: 'Goal'
+    dimensionLabel: t('goal')
   }
 
   const getFilterInfo = useCallback(
@@ -43,8 +44,8 @@ function ConversionsModal() {
 
   function chooseMetrics() {
     return [
-      metrics.createVisitors({ renderLabel: (_query) => 'Uniques' }),
-      metrics.createEvents({ renderLabel: (_query) => 'Total' }),
+      metrics.createVisitors({ renderLabel: (_query) => t('uniques') }),
+      metrics.createEvents({ renderLabel: (_query) => t('total') }),
       metrics.createConversionRate(),
       showRevenue && metrics.createAverageRevenue(),
       showRevenue && metrics.createTotalRevenue()

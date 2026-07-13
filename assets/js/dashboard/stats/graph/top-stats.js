@@ -12,6 +12,19 @@ import {
   MetricFormatterShort,
   MetricFormatterLong
 } from '../reports/metric-formatter'
+import { t } from '../../../i18n'
+
+const TOP_STAT_KEYS = {
+  visitors: 'uniqueVisitors',
+  visits: 'totalVisits',
+  pageviews: 'totalPageviews',
+  views_per_visit: 'viewsPerVisit',
+  bounce_rate: 'bounceRate',
+  visit_duration: 'visitDuration',
+  conversions: 'convertedVisitors',
+  conversion_rate: 'conversionRate',
+  events: 'totalConversions'
+}
 
 function topStatNumberShort(metric, value) {
   const formatter = MetricFormatterShort[metric]
@@ -123,7 +136,10 @@ export default function TopStats({
   function renderStatName(stat) {
     const isSelected = stat.graph_metric === getStoredMetric()
 
-    const [statDisplayName, statExtraName] = stat.name.split(/(\(.+\))/g)
+    const localizedName = TOP_STAT_KEYS[stat.graph_metric]
+      ? t(TOP_STAT_KEYS[stat.graph_metric])
+      : stat.name
+    const [statDisplayName, statExtraName] = localizedName.split(/(\(.+\))/g)
 
     const statDisplayNameClass = classNames(
       'text-xs font-bold tracking-wide text-gray-500 uppercase dark:text-gray-400 whitespace-nowrap flex w-fit border-b',

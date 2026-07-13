@@ -65,13 +65,13 @@ defmodule PlausibleWeb.Live.Sites do
 
         empty_state_title =
           if Teams.setup?(current_team) do
-            "Add your first team site"
+            gettext("Add your first team site")
           else
-            "Add your first personal site"
+            gettext("Add your first personal site")
           end
 
         empty_state_description =
-          "Collect simple, privacy-friendly stats to better understand your audience."
+          gettext("Collect simple, privacy-friendly stats to better understand your audience.")
 
         assign(socket,
           is_empty_state?: is_empty_state?,
@@ -102,7 +102,7 @@ defmodule PlausibleWeb.Live.Sites do
 
       <div class="group mt-6 pb-5 border-b border-gray-200 dark:border-gray-750 flex items-center gap-2">
         <h2 class="text-xl font-bold leading-7 text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl sm:leading-9 min-w-0 truncate">
-          {Teams.name(@current_team)}
+          {display_team_name(@current_team)}
         </h2>
         <.unstyled_link
           :if={Teams.setup?(@current_team)}
@@ -126,7 +126,7 @@ defmodule PlausibleWeb.Live.Sites do
           id="add-site-dropdown"
         >
           <PrimaDropdown.dropdown_trigger as={&button/1} mt?={false}>
-            <Heroicons.plus class="size-4" /> Add
+            <Heroicons.plus class="size-4" /> {gettext("Add")}
             <Heroicons.chevron_down mini class="size-4 mt-0.5" />
           </PrimaDropdown.dropdown_trigger>
 
@@ -135,7 +135,7 @@ defmodule PlausibleWeb.Live.Sites do
               as={&link/1}
               href={Routes.site_path(@socket, :new, %{flow: PlausibleWeb.Flows.provisioning()})}
             >
-              <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Add website
+              <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext("Add website")}
             </PrimaDropdown.dropdown_item>
             <PrimaDropdown.dropdown_item phx-click="consolidated-view-cta-restore">
               <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} />
@@ -149,12 +149,12 @@ defmodule PlausibleWeb.Live.Sites do
           href={"/sites/new?flow=#{PlausibleWeb.Flows.provisioning()}"}
           class="whitespace-nowrap truncate inline-flex items-center justify-center gap-x-2 max-w-fit font-medium rounded-md px-3.5 py-2.5 text-sm transition-all duration-150 cursor-pointer disabled:cursor-not-allowed bg-indigo-600 text-white hover:bg-indigo-700 focus-visible:outline-indigo-600 disabled:bg-indigo-400/60 disabled:dark:bg-indigo-600/30 disabled:dark:text-white/35"
         >
-          <Heroicons.plus class="size-4" /> Add website
+          <Heroicons.plus class="size-4" /> {gettext("Add website")}
         </a>
       </div>
 
       <p :if={@searching? and @sites.entries == []} class="mt-4 dark:text-gray-100 text-center">
-        No sites found. Try a different search term.
+        {gettext("No sites found. Try a different search term.")}
       </p>
       <div
         :if={@is_empty_state?}
@@ -172,7 +172,7 @@ defmodule PlausibleWeb.Live.Sites do
             theme="primary"
             mt?={false}
           >
-            <Heroicons.plus class="size-4" /> Add website
+            <Heroicons.plus class="size-4" /> {gettext("Add website")}
           </.button_link>
           <.button_link
             :if={not Teams.setup?(@current_team) and @has_sites?}
@@ -180,7 +180,7 @@ defmodule PlausibleWeb.Live.Sites do
             theme="secondary"
             mt?={false}
           >
-            Go to team sites
+            {gettext("Go to team sites")}
           </.button_link>
         </div>
       </div>
@@ -231,7 +231,7 @@ defmodule PlausibleWeb.Live.Sites do
           page_number={@sites.page_number}
           total_pages={@sites.total_pages}
         >
-          Total of <span class="font-medium">{@sites.total_entries}</span> sites
+          {gettext("Total of")} <span class="font-medium">{@sites.total_entries}</span> {gettext("sites")}
         </.pagination>
       </div>
     </div>
@@ -400,7 +400,7 @@ defmodule PlausibleWeb.Live.Sites do
               <.globe_icon />
             </span>
             <h3 class="text-gray-900 font-medium text-md sm:text-lg leading-tight dark:text-gray-100">
-              All sites
+              {gettext("All sites")}
             </h3>
           </div>
           <span
@@ -422,24 +422,24 @@ defmodule PlausibleWeb.Live.Sites do
           <div class="flex flex-col sm:flex-row justify-between gap-2.5 sm:gap-2 flex-1 w-full">
             <.consolidated_view_stat
               value={large_number_format(@consolidated_stats.visitors)}
-              label="Unique visitors"
+              label={gettext("Unique visitors")}
               change={@consolidated_stats.visitors_change}
             />
             <.consolidated_view_stat
               value={large_number_format(@consolidated_stats.visits)}
-              label="Total visits"
+              label={gettext("Total visits")}
               change={@consolidated_stats.visits_change}
             />
           </div>
           <div class="flex flex-col sm:flex-row justify-between gap-2.5 sm:gap-2 flex-1 w-full">
             <.consolidated_view_stat
               value={large_number_format(@consolidated_stats.pageviews)}
-              label="Total pageviews"
+              label={gettext("Total pageviews")}
               change={@consolidated_stats.pageviews_change}
             />
             <.consolidated_view_stat
               value={@consolidated_stats.views_per_visit}
-              label="Views per visit"
+              label={gettext("Views per visit")}
               change={@consolidated_stats.views_per_visit_change}
             />
           </div>
@@ -669,7 +669,11 @@ defmodule PlausibleWeb.Live.Sites do
               {large_number_format(@hourly_stats.visitors)}
             </p>
             <p class="text-gray-600 dark:text-gray-400">
-              visitor<span :if={@hourly_stats.visitors != 1}>s</span> in last 24h
+              {ngettext(
+                "visitor in the last 24h",
+                "visitors in the last 24h",
+                @hourly_stats.visitors
+              )}
             </p>
           </div>
 
@@ -836,8 +840,13 @@ defmodule PlausibleWeb.Live.Sites do
 
   def search_form(assigns) do
     ~H"""
-    <.filter_bar filter_text={@filter_text} placeholder="Search Sites"></.filter_bar>
+    <.filter_bar filter_text={@filter_text} placeholder={gettext("Search sites")}></.filter_bar>
     """
+  end
+
+  defp display_team_name(team) do
+    name = Teams.name(team)
+    if name == Teams.default_name(), do: gettext("My personal sites"), else: name
   end
 
   def favicon(assigns) do

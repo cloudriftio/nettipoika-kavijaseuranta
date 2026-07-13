@@ -15,6 +15,7 @@ import { useQueryContext } from '../../query-context'
 import { Metric } from './metrics'
 import { DrilldownLink, FilterInfo } from '../../components/drilldown-link'
 import { BreakdownResultMeta } from '../../query'
+import { t } from '../../../i18n'
 
 const MAX_ITEMS = 9
 export const MIN_HEIGHT = 380
@@ -400,7 +401,7 @@ export default function ListReport<
         style={{ minHeight: `${MIN_HEIGHT}px` }}
       >
         <div className="mx-auto font-medium text-gray-500 dark:text-gray-400">
-          No data yet
+          {t('noDataYet')}
         </div>
       </div>
     )

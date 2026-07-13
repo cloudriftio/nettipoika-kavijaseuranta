@@ -8,6 +8,7 @@ import * as url from '../../util/url'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { SortDirection } from '../../hooks/use-order-by'
+import { t } from '../../../i18n'
 
 function ExitPagesModal() {
   const { query } = useQueryContext()
@@ -17,10 +18,10 @@ function ExitPagesModal() {
   const showRevenueMetrics = BUILD_EXTRA && revenueAvailable(query, site)
 
   const reportInfo = {
-    title: 'Exit pages',
+    title: t('exitPages'),
     dimension: 'exit_page',
     endpoint: url.apiPath(site, '/exit-pages'),
-    dimensionLabel: 'Page url',
+    dimensionLabel: t('pageUrl'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 
@@ -51,7 +52,7 @@ function ExitPagesModal() {
       return [
         metrics.createTotalVisitors(),
         metrics.createVisitors({
-          renderLabel: (_query) => 'Conversions',
+          renderLabel: (_query) => t('conversions'),
           width: 'w-28'
         }),
         metrics.createConversionRate(),
@@ -63,7 +64,7 @@ function ExitPagesModal() {
     if (query.period === 'realtime') {
       return [
         metrics.createVisitors({
-          renderLabel: (_query) => 'Current visitors',
+          renderLabel: (_query) => t('currentVisitorsLabel'),
           width: 'w-32'
         })
       ]
@@ -71,11 +72,11 @@ function ExitPagesModal() {
 
     return [
       metrics.createVisitors({
-        renderLabel: (_query) => 'Visitors',
+        renderLabel: (_query) => t('visitors'),
         sortable: true
       }),
       metrics.createVisits({
-        renderLabel: (_query) => 'Total exits',
+        renderLabel: (_query) => t('totalExits'),
         width: 'w-32',
         sortable: true
       }),

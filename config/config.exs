@@ -74,6 +74,10 @@ config :ex_cldr,
   default_locale: "fi",
   default_backend: Plausible.Cldr
 
+config :plausible, PlausibleWeb.Gettext,
+  default_locale: "fi",
+  locales: ~w(fi en)
+
 config :sentry,
   enable_source_code_context: true,
   root_source_code_path: [File.cwd!()]

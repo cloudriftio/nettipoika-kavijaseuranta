@@ -12,6 +12,7 @@ import { useSiteContext } from '../../site-context'
 import { useQueryContext } from '../../query-context'
 import { useUserContext } from '../../user-context'
 import { DropdownTabButton, TabButton, TabWrapper } from '../../components/tabs'
+import { t } from '../../../i18n'
 
 /*global BUILD_EXTRA*/
 /*global require*/
@@ -31,9 +32,9 @@ export const PROPS = 'props'
 export const FUNNELS = 'funnels'
 
 export const sectionTitles = {
-  [CONVERSIONS]: 'Goal conversions',
-  [PROPS]: 'Custom properties',
-  [FUNNELS]: 'Funnels'
+  [CONVERSIONS]: t('goalConversions'),
+  [PROPS]: t('customProperties'),
+  [FUNNELS]: t('funnels')
 }
 
 export default function Behaviours({ importedDataInView }) {
@@ -147,12 +148,10 @@ export default function Behaviours({ importedDataInView }) {
       return (
         <FeatureSetupNotice
           feature={CONVERSIONS}
-          title={'Measure how often visitors complete specific actions'}
-          info={
-            'Goals allow you to track registrations, button clicks, form completions, external link clicks, file downloads, 404 error pages and more.'
-          }
+          title={t('measureGoalsTitle')}
+          info={t('measureGoalsInfo')}
           callToAction={{
-            action: 'Set up goals',
+            action: t('setUpGoals'),
             link: `/${encodeURIComponent(site.domain)}/settings/goals`
           }}
           onHideAction={onHideAction(CONVERSIONS)}
@@ -173,20 +172,18 @@ export default function Behaviours({ importedDataInView }) {
 
       if (site.funnelsAvailable) {
         callToAction = {
-          action: 'Set up funnels',
+          action: t('setUpFunnels'),
           link: `/${encodeURIComponent(site.domain)}/settings/funnels`
         }
       } else {
-        callToAction = { action: 'Upgrade', link: '/billing/choose-plan' }
+        callToAction = { action: t('upgrade'), link: '/billing/choose-plan' }
       }
 
       return (
         <FeatureSetupNotice
           feature={FUNNELS}
-          title={'Follow the visitor journey from entry to conversion'}
-          info={
-            'Funnels allow you to analyze the user flow through your website, uncover possible issues, optimize your site and increase the conversion rate.'
-          }
+          title={t('funnelTitle')}
+          info={t('funnelInfo')}
           callToAction={callToAction}
           onHideAction={onHideAction(FUNNELS)}
         />
@@ -204,20 +201,18 @@ export default function Behaviours({ importedDataInView }) {
 
       if (site.propsAvailable) {
         callToAction = {
-          action: 'Set up props',
+          action: t('setUpProperties'),
           link: `/${encodeURIComponent(site.domain)}/settings/properties`
         }
       } else {
-        callToAction = { action: 'Upgrade', link: '/billing/choose-plan' }
+        callToAction = { action: t('upgrade'), link: '/billing/choose-plan' }
       }
 
       return (
         <FeatureSetupNotice
           feature={PROPS}
-          title={'Send custom data to create your own metrics'}
-          info={
-            "You can attach custom properties when sending a pageview or event. This allows you to create custom metrics and analyze stats we don't track automatically."
-          }
+          title={t('propertiesTitle')}
+          info={t('propertiesInfo')}
           callToAction={callToAction}
           onHideAction={onHideAction(PROPS)}
         />
@@ -230,7 +225,7 @@ export default function Behaviours({ importedDataInView }) {
   function noDataYet() {
     return (
       <div className="font-medium text-gray-500 dark:text-gray-400 py-12 text-center">
-        No data yet
+        {t('noDataYet')}
       </div>
     )
   }
@@ -238,7 +233,7 @@ export default function Behaviours({ importedDataInView }) {
   function featureUnavailable() {
     return (
       <div className="font-medium text-gray-500 dark:text-gray-400 py-12 text-center">
-        This feature is unavailable
+        {t('unavailable')}
       </div>
     )
   }
@@ -361,12 +356,12 @@ export default function Behaviours({ importedDataInView }) {
                 active={mode === CONVERSIONS}
                 onClick={setTabFactory(CONVERSIONS)}
               >
-                Goals
+                {t('goals')}
               </TabButton>
             )}
             {isEnabled(PROPS) && (
               <TabButton active={mode === PROPS} onClick={setTabFactory(PROPS)}>
-                Properties
+                {t('properties')}
               </TabButton>
             )}
             {isEnabled(FUNNELS) &&
@@ -381,17 +376,17 @@ export default function Behaviours({ importedDataInView }) {
                     onClick: setFunnelFactory(name),
                     selected: mode === FUNNELS && selectedFunnel === name
                   }))}
-                  collectionTitle="Funnels"
+                  collectionTitle={t('funnels')}
                   searchable={true}
                 >
-                  Funnels
+                  {t('funnels')}
                 </DropdownTabButton>
               ) : (
                 <TabButton
                   active={mode === FUNNELS}
                   onClick={setTabFactory(FUNNELS)}
                 >
-                  Funnels
+                  {t('funnels')}
                 </TabButton>
               ))}
           </TabWrapper>

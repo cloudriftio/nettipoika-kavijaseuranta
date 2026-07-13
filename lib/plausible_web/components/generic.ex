@@ -3,6 +3,7 @@ defmodule PlausibleWeb.Components.Generic do
   Generic reusable components
   """
   use Phoenix.Component, global_prefixes: ~w(x-)
+  import PlausibleWeb.Gettext
 
   @notice_themes %{
     gray: %{
@@ -1108,7 +1109,7 @@ defmodule PlausibleWeb.Components.Generic do
               name="filter-text"
               id="filter-text"
               class="w-full max-w-80 pl-8 text-sm dark:bg-gray-750 dark:text-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block border-gray-300 dark:border-gray-750 rounded-md dark:placeholder:text-gray-400 focus:outline-none focus:ring-3 focus:ring-indigo-500/20 dark:focus:ring-indigo-500/25 focus:border-indigo-500"
-              placeholder="Press / to search"
+              placeholder={gettext("Press / to search")}
               x-ref="filter_text"
               phx-debounce={200}
               autocomoplete="off"
@@ -1116,7 +1117,7 @@ defmodule PlausibleWeb.Components.Generic do
               x-on:keydown.escape="$refs.filter_text.blur(); $refs.reset_filter?.dispatchEvent(new Event('click', {bubbles: true, cancelable: true}));"
               value={@filter_text}
               x-on:focus={"$refs.filter_text.placeholder = '#{@placeholder}';"}
-              x-on:blur="$refs.filter_text.placeholder = 'Press / to search';"
+              x-on:blur={"$refs.filter_text.placeholder = '#{gettext("Press / to search")}';"}
             />
 
             <Heroicons.backspace

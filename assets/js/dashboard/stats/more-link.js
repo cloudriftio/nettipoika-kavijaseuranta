@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppNavigationLink } from '../navigation/use-app-navigate'
+import { t } from '../../i18n'
 
 function detailsIcon() {
   return (
@@ -29,7 +30,7 @@ export default function MoreLink({ linkProps, list, className, onClick }) {
           onClick={onClick}
         >
           {detailsIcon()}
-          DETAILS
+          {t('details').toUpperCase()}
         </AppNavigationLink>
       </div>
     )

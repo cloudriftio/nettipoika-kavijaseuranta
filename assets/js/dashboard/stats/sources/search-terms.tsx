@@ -9,6 +9,7 @@ import LazyLoader from '../../components/lazy-loader'
 import { referrersGoogleRoute } from '../../router'
 import { useQueryContext } from '../../query-context'
 import { PlausibleSite, useSiteContext } from '../../site-context'
+import { t } from '../../../i18n'
 
 interface SearchTerm {
   name: string
@@ -162,7 +163,7 @@ export function SearchTerms() {
       return (
         <div className="text-center text-gray-700 dark:text-gray-300 ">
           <div className="mt-44 mx-auto font-medium text-gray-500 dark:text-gray-400">
-            No data yet
+            {t('noDataYet')}
           </div>
         </div>
       )

@@ -12,14 +12,15 @@ import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { SortDirection } from '../../hooks/use-order-by'
 import { SourceFavicon } from '../sources/source-favicon'
+import { t } from '../../../i18n'
 
 const VIEWS = {
   sources: {
     info: {
-      title: 'Top sources',
+      title: t('topSources'),
       dimension: 'source',
       endpoint: '/sources',
-      dimensionLabel: 'Source',
+      dimensionLabel: t('source'),
       defaultOrder: ['visitors', SortDirection.desc]
     },
     renderIcon: (listItem) => {
@@ -33,16 +34,16 @@ const VIEWS = {
   },
   channels: {
     info: {
-      title: 'Top acquisition channels',
+      title: t('topAcquisitionChannels'),
       dimension: 'channel',
       endpoint: '/channels',
-      dimensionLabel: 'Channel',
+      dimensionLabel: t('channel'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   },
   utm_mediums: {
     info: {
-      title: 'Top UTM mediums',
+      title: t('topUtmMediums'),
       dimension: 'utm_medium',
       endpoint: '/utm_mediums',
       dimensionLabel: 'UTM medium',
@@ -51,7 +52,7 @@ const VIEWS = {
   },
   utm_sources: {
     info: {
-      title: 'Top UTM sources',
+      title: t('topUtmSources'),
       dimension: 'utm_source',
       endpoint: '/utm_sources',
       dimensionLabel: 'UTM source',
@@ -60,7 +61,7 @@ const VIEWS = {
   },
   utm_campaigns: {
     info: {
-      title: 'Top UTM campaigns',
+      title: t('topUtmCampaigns'),
       dimension: 'utm_campaign',
       endpoint: '/utm_campaigns',
       dimensionLabel: 'UTM campaign',
@@ -69,7 +70,7 @@ const VIEWS = {
   },
   utm_contents: {
     info: {
-      title: 'Top UTM contents',
+      title: t('topUtmContents'),
       dimension: 'utm_content',
       endpoint: '/utm_contents',
       dimensionLabel: 'UTM content',
@@ -78,7 +79,7 @@ const VIEWS = {
   },
   utm_terms: {
     info: {
-      title: 'Top UTM terms',
+      title: t('topUtmTerms'),
       dimension: 'utm_term',
       endpoint: '/utm_terms',
       dimensionLabel: 'UTM term',

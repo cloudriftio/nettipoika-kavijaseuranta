@@ -24,29 +24,30 @@ import {
   utmTermsRoute
 } from '../../router'
 import { DropdownTabButton, TabButton, TabWrapper } from '../../components/tabs'
+import { t } from '../../../i18n'
 
 const UTM_TAGS = {
   utm_medium: {
-    title: 'UTM mediums',
-    label: 'Medium',
+    title: t('utmMediums'),
+    label: t('medium'),
     endpoint: '/utm_mediums'
   },
   utm_source: {
-    title: 'UTM sources',
-    label: 'Source',
+    title: t('utmSources'),
+    label: t('source'),
     endpoint: '/utm_sources'
   },
   utm_campaign: {
-    title: 'UTM campaigns',
-    label: 'Campaign',
+    title: t('utmCampaigns'),
+    label: t('campaign'),
     endpoint: '/utm_campaigns'
   },
   utm_content: {
-    title: 'UTM contents',
-    label: 'Content',
+    title: t('utmContents'),
+    label: t('content'),
     endpoint: '/utm_contents'
   },
-  utm_term: { title: 'UTM terms', label: 'Term', endpoint: '/utm_terms' }
+  utm_term: { title: t('utmTerms'), label: t('term'), endpoint: '/utm_terms' }
 }
 
 function AllSources({ afterFetchData }) {
@@ -81,7 +82,7 @@ function AllSources({ afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Source"
+      keyLabel={t('source')}
       metrics={chooseMetrics()}
       detailsLinkProps={{ path: sourcesRoute.path, search: (search) => search }}
       renderIcon={renderIcon}
@@ -119,7 +120,7 @@ function Channels({ onClick, afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Channel"
+      keyLabel={t('channel')}
       onClick={onClick}
       metrics={chooseMetrics()}
       detailsLinkProps={{
@@ -178,8 +179,8 @@ function UTMSources({ tab, afterFetchData }) {
 }
 
 const labelFor = {
-  channels: 'Top channels',
-  all: 'Top sources'
+  channels: t('topChannels'),
+  all: t('topSources')
 }
 
 for (const [key, utm_tag] of Object.entries(UTM_TAGS)) {
@@ -261,8 +262,8 @@ export default function SourceList() {
         </div>
         <TabWrapper>
           {[
-            { value: 'channels', label: 'Channels' },
-            { value: 'all', label: 'Sources' }
+            { value: 'channels', label: t('channels') },
+            { value: 'all', label: t('sources') }
           ].map(({ value, label }) => (
             <TabButton
               key={value}
@@ -283,7 +284,7 @@ export default function SourceList() {
               selected: currentTab === value
             }))}
           >
-            {UTM_TAGS[currentTab] ? UTM_TAGS[currentTab].title : 'Campaigns'}
+            {UTM_TAGS[currentTab] ? UTM_TAGS[currentTab].title : t('campaign')}
           </DropdownTabButton>
         </TabWrapper>
       </div>

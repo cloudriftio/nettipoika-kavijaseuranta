@@ -20,6 +20,7 @@ import {
   screenSizesRoute
 } from '../../router'
 import { TabButton, TabWrapper } from '../../components/tabs'
+import { t } from '../../../i18n'
 
 // Icons copied from https://github.com/alrra/browser-logos
 const BROWSER_ICONS = {
@@ -87,7 +88,7 @@ function Browsers({ afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Browser"
+      keyLabel={t('browser')}
       metrics={chooseMetrics()}
       renderIcon={renderIcon}
       detailsLinkProps={{
@@ -133,7 +134,7 @@ function BrowserVersions({ afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Browser version"
+      keyLabel={t('browserVersion')}
       metrics={chooseMetrics()}
       renderIcon={renderIcon}
       detailsLinkProps={{
@@ -207,7 +208,7 @@ function OperatingSystems({ afterFetchData }) {
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
       renderIcon={renderIcon}
-      keyLabel="Operating system"
+      keyLabel={t('operatingSystem')}
       metrics={chooseMetrics()}
       detailsLinkProps={{
         path: operatingSystemsRoute.path,
@@ -254,7 +255,7 @@ function OperatingSystemVersions({ afterFetchData }) {
       renderIcon={renderIcon}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Operating System Version"
+      keyLabel={t('operatingSystemVersion')}
       metrics={chooseMetrics()}
       detailsLinkProps={{
         path: operatingSystemVersionsRoute.path,
@@ -297,7 +298,7 @@ function ScreenSizes({ afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Screen size"
+      keyLabel={t('screenSize')}
       metrics={chooseMetrics()}
       renderIcon={renderIcon}
       detailsLinkProps={{
@@ -441,7 +442,7 @@ export default function Devices() {
     <div className="overflow-x-hidden">
       <div className="flex justify-between w-full">
         <div className="flex gap-x-1">
-          <h3 className="font-bold dark:text-gray-100">Devices</h3>
+          <h3 className="font-bold dark:text-gray-100">{t('devices')}</h3>
           <ImportedQueryUnsupportedWarning
             loading={loading}
             skipImportedReason={skipImportedReason}
@@ -449,9 +450,9 @@ export default function Devices() {
         </div>
         <TabWrapper>
           {[
-            { label: 'Browser', value: 'browser' },
-            { label: 'OS', value: 'os' },
-            { label: 'Size', value: 'size' }
+            { label: t('browser'), value: 'browser' },
+            { label: t('operatingSystem'), value: 'os' },
+            { label: t('screenSize'), value: 'size' }
           ].map(({ label, value }) => (
             <TabButton
               key={value}

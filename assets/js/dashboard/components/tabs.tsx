@@ -6,6 +6,7 @@ import { popover, BlurMenuButtonOnEscape } from './popover'
 import { useSearchableItems } from '../hooks/use-searchable-items'
 import { SearchInput } from './search-input'
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/solid'
+import { t } from '../../i18n'
 
 export const TabWrapper = ({
   className,
@@ -159,7 +160,7 @@ const Items = ({
           )}
           <SearchInput
             searchRef={searchRef}
-            placeholderUnfocused="Press / to search"
+            placeholderUnfocused={t('pressToSearch')}
             className="ml-auto w-full py-1"
             onSearch={handleSearchInput}
           />
