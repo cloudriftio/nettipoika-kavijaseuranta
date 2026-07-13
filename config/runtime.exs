@@ -74,6 +74,16 @@ if base_url.scheme not in ["http", "https"] do
   raise "BASE_URL must start with `http` or `https`. Currently configured as `#{System.get_env("BASE_URL")}`"
 end
 
+legacy_base_urls =
+  config_dir
+  |> get_var_from_path_or_env("LEGACY_BASE_URLS", "")
+  |> String.split(",", trim: true)
+  |> Enum.map(&String.trim/1)
+  |> Enum.reject(&(&1 == ""))
+
+config :plausible, :nettipoika,
+  legacy_base_urls: legacy_base_urls
+
 secret_key_base = get_var_from_path_or_env(config_dir, "SECRET_KEY_BASE", nil)
 
 case secret_key_base do

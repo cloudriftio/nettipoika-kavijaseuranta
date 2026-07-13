@@ -64,6 +64,7 @@ defmodule PlausibleWeb.TrackerPlug do
   defp request_tracker_script(id, conn) do
     case PlausibleWeb.Tracker.get_plausible_main_script(id) do
       script_tag when is_binary(script_tag) ->
+        script_tag = endpoint_for_request_host(script_tag, conn)
         :telemetry.execute(
           telemetry_event(:v2),
           %{},
@@ -75,6 +76,7 @@ defmodule PlausibleWeb.TrackerPlug do
         |> put_resp_header("x-content-type-options", "nosniff")
         |> put_resp_header("cross-origin-resource-policy", "cross-origin")
         |> put_resp_header("access-control-allow-origin", "*")
+        |> put_resp_header("vary", "Host")
         |> put_resp_header("cache-control", "public, max-age=60, no-transform")
         # CDN-Tag is used by BunnyCDN to tag cached resources. This allows us to purge
         # specific tracker scripts from the CDN cache.
@@ -133,6 +135,22 @@ defmodule PlausibleWeb.TrackerPlug do
 
       _ ->
         nil
+    end
+  end
+
+  defp endpoint_for_request_host(script, conn) do
+    canonical_endpoint = PlausibleWeb.Endpoint.url() <> "/api/event"
+
+    legacy_url =
+      :plausible
+      |> Application.get_env(:nettipoika, [])
+      |> Keyword.get(:legacy_base_urls, [])
+      |> Enum.find(fn url -> URI.parse(url).host == conn.host end)
+
+    if legacy_url do
+      String.replace(script, canonical_endpoint, String.trim_trailing(legacy_url, "/") <> "/api/event")
+    else
+      script
     end
   end
 end

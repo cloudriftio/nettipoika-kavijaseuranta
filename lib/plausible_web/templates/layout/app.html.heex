@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full plausible">
+<html lang={current_locale(@conn)} data-locale={current_locale(@conn)} class="h-full plausible">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Plausible is a lightweight and open-source web analytics tool. Your website data is 100% yours and the privacy of your visitors is respected."
+      content="Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä kunnioittava verkkosivujen kävijäseuranta."
     />
     <%= if assigns[:connect_live_socket] do %>
       <meta name="csrf-token" content={Plug.CSRFProtection.get_csrf_token()} />
@@ -24,7 +24,7 @@
 
     <title>
       {assigns[:title] ||
-        "Plausible · Simple, privacy-friendly alternative to Google Analytics"}
+        "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"}
     </title>
     <link rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")} />
     <PlausibleWeb.Components.Layout.theme_script {Map.take(assigns, [:current_user, :theme])} />

@@ -1,5 +1,5 @@
 defmodule Plausible.Cldr do
   @moduledoc false
 
-  use Cldr, locales: ["en"], providers: [Cldr.Number, Money]
+  use Cldr, locales: ["fi", "en"], providers: [Cldr.Number, Money]
 end

@@ -71,7 +71,7 @@ config :plausible, Plausible.Cache, enabled: true
 config :plausible, Plausible.Ingestion.Counters, enabled: true
 
 config :ex_cldr,
-  default_locale: "en",
+  default_locale: "fi",
   default_backend: Plausible.Cldr
 
 config :sentry,

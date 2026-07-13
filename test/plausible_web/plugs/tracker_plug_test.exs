@@ -13,7 +13,7 @@ defmodule PlausibleWeb.TrackerPlugTest do
   If you're making changes in the tracker template files (`src/plausible.js`, `compile.js`),
   do regenerate the files before running tests, so they're up to date.
   """
-  use PlausibleWeb.ConnCase, async: true
+  use PlausibleWeb.ConnCase, async: false
   import Plug.Test
 
   alias PlausibleWeb.Tracker
@@ -70,6 +70,29 @@ defmodule PlausibleWeb.TrackerPlugTest do
       conn
       |> get("/js/pa-a14125a2-000-000-0000-000000000000.js")
       |> response(404)
+    end
+
+    test "keeps dynamic tracker ingestion on a configured legacy host", %{conn: conn} do
+      previous = Application.get_env(:plausible, :nettipoika)
+      Application.put_env(:plausible, :nettipoika, legacy_base_urls: ["https://legacy.example.com"])
+      on_exit(fn -> Application.put_env(:plausible, :nettipoika, previous || []) end)
+
+      site = new_site()
+
+      tracker_script_configuration =
+        Tracker.update_script_configuration!(
+          site,
+          Map.put(@example_config, :site_id, site.id),
+          :installation
+        )
+
+      response =
+        %{conn | host: "legacy.example.com"}
+        |> get("/js/#{tracker_script_configuration.id}.js")
+        |> response(200)
+
+      assert response =~ "https://legacy.example.com/api/event"
+      refute response =~ PlausibleWeb.Endpoint.url() <> "/api/event"
     end
   end
 

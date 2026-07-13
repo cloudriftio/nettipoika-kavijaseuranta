@@ -1,4 +1,25 @@
-# Plausible Analytics
+# Nettipoika Kävijäseuranta
+
+This repository contains the complete corresponding source for
+[Nettipoika Kävijäseuranta](https://mittari.nettipoika.fi), a Finnish and English
+managed analytics product derived from Plausible Community Edition 3.2.1.
+
+The service is maintained by Cloud Rift Oy under the Nettipoika brand. It is not
+affiliated with, endorsed by, or supported by Plausible Insights OÜ. Plausible
+Analytics and Plausible CE are trademarks of Plausible Insights OÜ.
+
+The software remains licensed under GNU AGPL v3.0 or later. Build and deployment
+use the upstream Dockerfile; release images are published at
+`ghcr.io/cloudriftio/nettipoika-kavijaseuranta`.
+
+## Upstream documentation
+
+The remainder of this README is the upstream Plausible documentation retained for
+license, architecture and development context.
+
+---
+
+# Plausible Analytics (upstream documentation)
 
 <p align="center">
   <a href="https://plausible.io/">

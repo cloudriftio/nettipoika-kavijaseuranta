@@ -11,7 +11,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("activation-email")
-    |> subject("#{code} is your Plausible email verification code")
+    |> subject("#{code} on Nettipoika Kävijäseurannan vahvistuskoodisi")
     |> render("activation_email.html", user: user, code: code)
   end
 
@@ -19,7 +19,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("welcome-email")
-    |> subject("Welcome to Plausible")
+    |> subject("Tervetuloa Nettipoika Kävijäseurantaan")
     |> render("welcome_email.html", user: user)
   end
 
@@ -27,7 +27,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("create-site-email")
-    |> subject("Your Plausible setup: Add your website details")
+    |> subject("Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot")
     |> render("create_site_email.html", user: user)
   end
 
@@ -35,7 +35,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("help-email")
-    |> subject("Your Plausible setup: Waiting for the first page views")
+    |> subject("Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia")
     |> render("site_setup_help_email.html",
       user: user,
       site: site,
@@ -47,7 +47,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("setup-success-email")
-    |> subject("Plausible is now tracking your website stats")
+    |> subject("Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi")
     |> render("site_setup_success_email.html",
       user: user,
       site: site,
@@ -59,7 +59,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("check-stats-email")
-    |> subject("Check your Plausible website stats")
+    |> subject("Tarkista verkkosivustosi kävijätilastot")
     |> render("check_stats_email.html", user: user)
   end
 
@@ -67,7 +67,7 @@ defmodule PlausibleWeb.Email do
     priority_email(%{layout: nil})
     |> to(email)
     |> tag("password-reset-email")
-    |> subject("Plausible password reset")
+    |> subject("Nettipoika Kävijäseurannan salasanan palautus")
     |> render("password_reset_email.html", reset_link: reset_link)
   end
 
@@ -75,7 +75,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-enabled-email")
-    |> subject("Plausible Two-Factor Authentication enabled")
+    |> subject("Nettipoika Kävijäseurannan kaksivaiheinen tunnistautuminen otettiin käyttöön")
     |> render("two_factor_enabled_email.html", user: user)
   end
 
@@ -83,7 +83,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-disabled-email")
-    |> subject("Plausible Two-Factor Authentication disabled")
+    |> subject("Nettipoika Kävijäseurannan kaksivaiheinen tunnistautuminen poistettiin käytöstä")
     |> render("two_factor_disabled_email.html", user: user)
   end
 

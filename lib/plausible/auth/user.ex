@@ -31,6 +31,7 @@ defmodule Plausible.Auth.User do
     field :name, :string
     field :last_seen, :naive_datetime
     field :theme, Ecto.Enum, values: [:system, :light, :dark]
+    field :preferred_locale, :string, default: "fi"
     field :email_verified, :boolean
     field :previous_email, :string
 
@@ -97,9 +98,17 @@ defmodule Plausible.Auth.User do
 
   def settings_changeset(user, attrs \\ %{}) do
     user
-    |> cast(attrs, [:email, :name, :theme])
+    |> cast(attrs, [:email, :name, :theme, :preferred_locale])
     |> validate_required([:email, :name, :theme])
+    |> validate_inclusion(:preferred_locale, ["fi", "en"])
     |> unique_constraint(:email)
+  end
+
+  def locale_changeset(user, attrs \\ %{}) do
+    user
+    |> cast(attrs, [:preferred_locale])
+    |> validate_required([:preferred_locale])
+    |> validate_inclusion(:preferred_locale, ["fi", "en"])
   end
 
   def email_changeset(user, attrs \\ %{}) do
@@ -129,7 +138,7 @@ defmodule Plausible.Auth.User do
 
   def changeset(user, attrs \\ %{}) do
     user
-    |> cast(attrs, [:email, :name, :email_verified, :theme, :notes])
+    |> cast(attrs, [:email, :name, :email_verified, :theme, :preferred_locale, :notes])
     |> validate_required([:email, :name, :email_verified])
     |> unique_constraint(:email)
   end

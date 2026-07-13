@@ -5,6 +5,7 @@ defmodule PlausibleWeb.Router do
 
   pipeline :browser do
     plug :accepts, ["html"]
+    plug :fetch_cookies
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_secure_browser_headers
@@ -34,6 +35,7 @@ defmodule PlausibleWeb.Router do
 
   pipeline :shared_link do
     plug :accepts, ["html"]
+    plug :fetch_cookies
     plug PlausibleWeb.Plugs.SecureEmbedHeaders
     plug PlausibleWeb.Plugs.NoRobots
     plug :put_root_layout, html: {PlausibleWeb.LayoutView, :app}
@@ -534,6 +536,8 @@ defmodule PlausibleWeb.Router do
     get "/auth/google/callback", AuthController, :google_auth_callback
 
     get "/", PageController, :index
+    get "/open-source", PageController, :open_source
+    post "/locale", LocaleController, :update
 
     get "/billing/change-plan/preview/:plan_id", BillingController, :change_plan_preview
     post "/billing/change-plan/:new_plan_id", BillingController, :change_plan

@@ -3,31 +3,35 @@
     <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
       <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <a href={home_dest(@conn)}>
-          <img
-            src={
-              PlausibleWeb.Router.Helpers.static_path(
-                @conn,
-                logo_path("logo_dark.svg")
-              )
-            }
-            class="w-32 hidden dark:inline"
-            alt="Plausible logo"
-            loading="lazy"
-          />
-          <img
-            src={
-              PlausibleWeb.Router.Helpers.static_path(
-                @conn,
-                logo_path("logo_light.svg")
-              )
-            }
-            class="w-32 inline dark:hidden"
-            alt="Plausible logo"
-            loading="lazy"
-          />
+          <span class="flex items-center gap-3">
+            <img
+              src={PlausibleWeb.Router.Helpers.static_path(@conn, logo_path("icon-180.png"))}
+              class="size-10"
+              alt="Nettipoika"
+              loading="lazy"
+            />
+            <span class="hidden text-base font-semibold text-gray-900 dark:text-gray-100 sm:inline">
+              Nettipoika Kävijäseuranta
+            </span>
+          </span>
         </a>
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center justify-end">
+        <div class="mr-3 flex items-center gap-1">
+          <form method="post" action="/locale">
+            <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
+            <input type="hidden" name="locale" value="fi" />
+            <input type="hidden" name="return_to" value={@conn.request_path} />
+            <button class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="submit">FI</button>
+          </form>
+          <span class="text-gray-300 dark:text-gray-700">/</span>
+          <form method="post" action="/locale">
+            <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
+            <input type="hidden" name="locale" value="en" />
+            <input type="hidden" name="return_to" value={@conn.request_path} />
+            <button class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="submit">EN</button>
+          </form>
+        </div>
         <%= cond do %>
           <% @conn.assigns[:current_user] -> %>
             <ul class="flex items-center gap-2 w-full sm:w-auto">
@@ -138,10 +142,12 @@
                       :if={ce?()}
                       class="!flex justify-between gap-x-12"
                       new_tab
-                      href="https://github.com/plausible/analytics"
+                      href="https://github.com/cloudriftio/nettipoika-kavijaseuranta"
                     >
-                      Github repo
+                      Lähdekoodi (AGPL)
                     </.dropdown_item>
+                    <.dropdown_divider />
+                    <.dropdown_item href="/open-source">Open source</.dropdown_item>
                     <.dropdown_item href="/logout">Log out</.dropdown_item>
                   </:menu>
                 </.dropdown>

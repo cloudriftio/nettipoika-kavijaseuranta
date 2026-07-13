@@ -57,6 +57,9 @@ RUN mix release plausible
 # Main Docker Image
 FROM alpine:${ALPINE_VERSION}
 LABEL maintainer="plausible.io <hello@plausible.io>"
+LABEL org.opencontainers.image.title="Nettipoika Kävijäseuranta"
+LABEL org.opencontainers.image.source="https://github.com/cloudriftio/nettipoika-kavijaseuranta"
+LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 
 ARG BUILD_METADATA={}
 ENV BUILD_METADATA=$BUILD_METADATA
@@ -85,4 +88,3 @@ EXPOSE 8000
 ENV DEFAULT_DATA_DIR=/var/lib/plausible
 VOLUME /var/lib/plausible
 CMD ["run"]
-
