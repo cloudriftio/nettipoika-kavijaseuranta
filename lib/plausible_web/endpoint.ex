@@ -6,6 +6,7 @@ defmodule PlausibleWeb.Endpoint do
   on_ce do
     plug :maybe_handle_acme_challenge
     plug :maybe_force_ssl, Plug.SSL.init(_no_opts = [])
+    plug PlausibleWeb.Plugs.LegacyHostRedirect
   end
 
   @session_options [
