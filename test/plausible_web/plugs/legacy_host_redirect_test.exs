@@ -1,6 +1,7 @@
 defmodule PlausibleWeb.Plugs.LegacyHostRedirectTest do
   use ExUnit.Case, async: false
 
+  import Plug.Conn, only: [get_resp_header: 2]
   import Plug.Test
 
   alias PlausibleWeb.Plugs.LegacyHostRedirect
