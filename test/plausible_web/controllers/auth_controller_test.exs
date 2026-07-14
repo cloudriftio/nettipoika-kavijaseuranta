@@ -1350,7 +1350,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert element_exists?(html, "input[name=remember_2fa]")
 
-      assert text_of_attr(html, "input[name=return_to]", "value") ==
+      assert text_of_attr(html, "#verify-2fa-form input[name=return_to]", "value") ==
                Routes.settings_path(conn, :index)
 
       assert element_exists?(

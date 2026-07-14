@@ -87,7 +87,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html = html_response(conn, 200)
 
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-login-form input[name=return_to]", "value") == "/sites"
       end
 
       test "renders error if provided in login_error flash message", %{conn: conn} do
@@ -104,7 +104,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html =~ "Wrong email."
         assert element_exists?(html, "input[name=email]")
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-login-form input[name=return_to]", "value") == "/sites"
       end
     end
 
@@ -197,7 +197,7 @@ defmodule PlausibleWeb.SSOControllerTest do
                  Routes.sso_path(conn, :saml_consume, integration.identifier)
 
         assert text_of_attr(html, "input[name=email]", "value") == email
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-req-form input[name=return_to]", "value") == "/sites"
       end
     end
 

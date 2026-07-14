@@ -318,8 +318,8 @@ defmodule PlausibleWeb.Live.SitesTest do
         {:ok, _lv, html} = live(conn, "/sites")
 
         stats = text_of_element(html, ~s|[data-test-id="consolidated-view-stats-loaded"]|)
-        assert stats =~ "Unique visitors 3"
-        assert stats =~ "Total visits 3"
+        assert stats =~ "Yksilölliset kävijät 3"
+        assert stats =~ "Käynnit yhteensä 3"
         assert stats =~ "Sivulataukset yhteensä 4"
         assert stats =~ "Sivulatauksia käyntiä kohden 1.33"
       end
