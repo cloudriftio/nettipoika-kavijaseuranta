@@ -107,10 +107,12 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                       <span
                         id={"hostname-#{rule.id}"}
                         class="mr-4 cursor-help text-ellipsis truncate max-w-xs"
-                        title={gettext("Added at %{date} by %{user}",
-                          date: format_added_at(rule.inserted_at, @site.timezone),
-                          user: rule.added_by
-                        )}
+                        title={
+                          gettext("Added at %{date} by %{user}",
+                            date: format_added_at(rule.inserted_at, @site.timezone),
+                            user: rule.added_by
+                          )
+                        }
                       >
                         {rule.hostname}
                       </span>
@@ -126,10 +128,12 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                       </span>
                       <span
                         :if={@redundant_rules[rule.id]}
-                        title={gettext(
-                          "This rule may be redundant because these rules can match first:\n\n%{rules}",
-                          rules: Enum.join(@redundant_rules[rule.id], "\n")
-                        )}
+                        title={
+                          gettext(
+                            "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                            rules: Enum.join(@redundant_rules[rule.id], "\n")
+                          )
+                        }
                         class="pl-4 cursor-help"
                       >
                         <Heroicons.exclamation_triangle class="h-5 w-5 text-red-800" />
@@ -221,7 +225,9 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
 
         send_flash(
           :success,
-          gettext("Hostname rule added successfully. Traffic will be limited within a few minutes.")
+          gettext(
+            "Hostname rule added successfully. Traffic will be limited within a few minutes."
+          )
         )
 
         {:noreply, socket}
@@ -236,7 +242,9 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
 
     send_flash(
       :success,
-      gettext("Hostname rule removed successfully. Traffic will be adjusted within a few minutes.")
+      gettext(
+        "Hostname rule removed successfully. Traffic will be adjusted within a few minutes."
+      )
     )
 
     hostname_rules = Enum.reject(socket.assigns.hostname_rules, &(&1.id == rule_id))

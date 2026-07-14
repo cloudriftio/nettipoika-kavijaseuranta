@@ -103,10 +103,12 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                       <span
                         id={"inet-#{rule.id}"}
                         class="cursor-help"
-                        title={gettext("Added at %{date} by %{user}",
-                          date: format_added_at(rule.inserted_at, @site.timezone),
-                          user: rule.added_by
-                        )}
+                        title={
+                          gettext("Added at %{date} by %{user}",
+                            date: format_added_at(rule.inserted_at, @site.timezone),
+                            user: rule.added_by
+                          )
+                        }
                       >
                         {rule.inet}
                       </span>

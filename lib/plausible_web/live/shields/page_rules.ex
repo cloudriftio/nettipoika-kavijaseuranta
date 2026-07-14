@@ -104,10 +104,12 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                     <span
                       id={"page-#{rule.id}"}
                       class="mr-4 cursor-help text-ellipsis truncate max-w-xs"
-                      title={gettext("Added at %{date} by %{user}",
-                        date: format_added_at(rule.inserted_at, @site.timezone),
-                        user: rule.added_by
-                      )}
+                      title={
+                        gettext("Added at %{date} by %{user}",
+                          date: format_added_at(rule.inserted_at, @site.timezone),
+                          user: rule.added_by
+                        )
+                      }
                     >
                       {rule.page_path}
                     </span>
@@ -122,10 +124,12 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                       </span>
                       <span
                         :if={@redundant_rules[rule.id]}
-                        title={gettext(
-                          "This rule may be redundant because these rules can match first:\n\n%{rules}",
-                          rules: Enum.join(@redundant_rules[rule.id], "\n")
-                        )}
+                        title={
+                          gettext(
+                            "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                            rules: Enum.join(@redundant_rules[rule.id], "\n")
+                          )
+                        }
                         class="pl-4 cursor-help"
                       >
                         <Heroicons.exclamation_triangle class="h-5 w-5 text-red-800" />
@@ -175,8 +179,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                 {gettext("You can use a wildcard (*) to match multiple pages. For example,")}
                 <code>/blog/*</code>
                 {gettext("will match")}
-                <code>/blog/post</code>.
-                {gettext(
+                <code>/blog/post</code>. {gettext(
                   "After it is added, traffic from this page will be rejected within a few minutes."
                 )}
               </p>

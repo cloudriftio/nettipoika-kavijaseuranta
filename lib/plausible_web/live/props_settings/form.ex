@@ -107,9 +107,9 @@ defmodule PlausibleWeb.Live.PropsSettings.Form do
 
           <button
             :if={@prop_key_options_count > 0}
-            title={gettext(
-              "Add existing properties from past events without entering each one manually."
-            )}
+            title={
+              gettext("Add existing properties from past events without entering each one manually.")
+            }
             class="mt-4 text-sm hover:underline text-indigo-600 dark:text-indigo-400 text-left"
             phx-click="allow-existing-props"
           >

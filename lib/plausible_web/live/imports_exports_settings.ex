@@ -179,10 +179,12 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
                   </div>
                   <div
                     class="max-w-sm"
-                    title={gettext("%{import} created at %{date}",
-                      import: Plausible.Imported.SiteImport.label(entry.site_import),
-                      date: format_date(entry.site_import.inserted_at)
-                    )}
+                    title={
+                      gettext("%{import} created at %{date}",
+                        import: Plausible.Imported.SiteImport.label(entry.site_import),
+                        date: format_date(entry.site_import.inserted_at)
+                      )
+                    }
                   >
                     {Plausible.Imported.SiteImport.label(entry.site_import)}
                   </div>

@@ -102,10 +102,12 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                       <span
                         id={"country-#{rule.id}"}
                         class="mr-4 cursor-help"
-                        title={gettext("Added at %{date} by %{user}",
-                          date: format_added_at(rule.inserted_at, @site.timezone),
-                          user: rule.added_by
-                        )}
+                        title={
+                          gettext("Added at %{date} by %{user}",
+                            date: format_added_at(rule.inserted_at, @site.timezone),
+                            user: rule.added_by
+                          )
+                        }
                       >
                         {country.flag} {country.name}
                       </span>

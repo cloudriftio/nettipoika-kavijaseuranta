@@ -15,9 +15,7 @@ defmodule PlausibleWeb.Team.Notice do
           {gettext(
             "You can create a team and assign roles such as administrator, editor, viewer or billing. Team members will have access to all your sites."
           )}
-          <.styled_link href={
-            Routes.team_setup_path(PlausibleWeb.Endpoint, :setup)
-          }>
+          <.styled_link href={Routes.team_setup_path(PlausibleWeb.Endpoint, :setup)}>
             {gettext("Create your team")}
           </.styled_link>.
         </p>
