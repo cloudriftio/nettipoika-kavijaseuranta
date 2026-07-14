@@ -1464,3 +1464,394 @@ msgstr "Raporttisi on lähetetty."
 #: lib/plausible_web/live/goal_settings/list.ex:157
 msgid "reset your search."
 msgstr "nollaa haku."
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "We've sent an email containing password reset instructions to"
+msgstr "Lähetimme salasanan palautusohjeet sähköpostitse osoitteeseen"
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "if it's registered in our system."
+msgstr "jos osoite on rekisteröity järjestelmäämme."
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "Didn't receive the email within a few minutes?"
+msgstr "Etkö saanut viestiä muutaman minuutin kuluessa?"
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "You might have used an email address that's not registered in our database. Please verify the email address associated with your account and attempt the password reset once more."
+msgstr "Olet saattanut käyttää sähköpostiosoitetta, jota ei ole rekisteröity järjestelmäämme. Tarkista tiliisi liitetty sähköpostiosoite ja yritä salasanan palautusta uudelleen."
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "Certain that you're using the correct email address but still aren't receiving the password reset email? Please check your spam folder or ask on our"
+msgstr "Oletko varma, että sähköpostiosoite on oikein, mutta palautusviestiä ei silti tule? Tarkista roskapostikansiosi tai kysy neuvoa"
+
+#: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
+msgid "community-supported forum"
+msgstr "yhteisön tukifoorumilta"
+
+#: lib/plausible_web/templates/auth/select_team.html.heex
+msgid "Switch team"
+msgstr "Vaihda tiimiä"
+
+#: lib/plausible_web/templates/auth/select_team.html.heex
+msgid "Switch your current team."
+msgstr "Vaihda nykyistä tiimiä."
+
+#: lib/plausible_web/templates/auth/select_team.html.heex
+msgid "Owners"
+msgstr "Omistajat"
+
+#: lib/plausible_web/templates/stats/shared_link_password.html.heex
+msgid "This link is password-protected. Please enter the password to continue to the dashboard."
+msgstr "Tämä linkki on suojattu salasanalla. Jatka hallintanäkymään syöttämällä salasana."
+
+#: lib/plausible_web/templates/stats/shared_link_password.html.heex
+msgid "Continue"
+msgstr "Jatka"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Import from Google Analytics"
+msgstr "Tuo Google Analyticsista"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Statistics for this property and time period will be imported from your Google Analytics account to your dashboard."
+msgstr "Tämän mittauskokonaisuuden ja aikavälin tilastot tuodaan Google Analytics -tililtäsi hallintanäkymään."
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Google Analytics property"
+msgstr "Google Analytics -mittauskokonaisuus"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "From"
+msgstr "Alkaen"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "To"
+msgstr "Päättyen"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Go back"
+msgstr "Palaa takaisin"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Confirm import"
+msgstr "Vahvista tuonti"
+
+#: lib/plausible_web/templates/google_analytics/confirm.html.heex
+msgid "Starting import..."
+msgstr "Aloitetaan tuontia..."
+
+#: lib/plausible_web/templates/site/csv_import.html.heex
+msgid "Import from CSV files"
+msgstr "Tuo CSV-tiedostoista"
+
+#: lib/plausible_web/templates/site/csv_import.html.heex
+msgid "Please ensure each file follows"
+msgstr "Varmista, että jokainen tiedosto noudattaa"
+
+#: lib/plausible_web/templates/site/csv_import.html.heex
+msgid "our CSV format guidelines."
+msgstr "CSV-muotoiluohjeitamme."
+
+#: lib/plausible_web/templates/site/csv_import.html.heex
+msgid "You can upload multiple files simultaneously by selecting them in the file dialog or dragging and dropping them into the designated area."
+msgstr "Voit lähettää useita tiedostoja samanaikaisesti valitsemalla ne tiedostoikkunassa tai vetämällä ja pudottamalla ne varatulle alueelle."
+
+#: lib/plausible_web/templates/error/server_error.html.heex
+msgid "Send feedback"
+msgstr "Lähetä palautetta"
+
+#: lib/plausible_web/templates/layout/base_error.html.heex
+msgid "Web analytics"
+msgstr "Verkkosivujen kävijäseuranta"
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Please enter an email address"
+msgstr "Syötä sähköpostiosoite"
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Please complete the captcha to reset your password"
+msgstr "Suorita CAPTCHA-tarkistus salasanan palauttamiseksi"
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Your token has expired. Please request another password reset link."
+msgstr "Palautustunnisteesi on vanhentunut. Pyydä uusi salasanan palautuslinkki."
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Your token is invalid. Please request another password reset link."
+msgstr "Palautustunnisteesi ei kelpaa. Pyydä uusi salasanan palautuslinkki."
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Password updated successfully"
+msgstr "Salasana vaihdettiin onnistuneesti"
+
+#: lib/plausible_web/controllers/auth_controller.ex
+msgid "Please log in with your new credentials"
+msgstr "Kirjaudu sisään uusilla tunnuksillasi"
+
+#: lib/plausible_web/controllers/stats_controller.ex
+msgid "Incorrect password. Please try again."
+msgstr "Väärä salasana. Yritä uudelleen."
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "(Choose property)"
+msgstr "(Valitse kohde)"
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "Save"
+msgstr "Tallenna"
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "Integration error"
+msgstr "Integraatiovirhe"
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "Google returned an invalid grant error."
+msgstr "Google palautti virheellisen valtuutuksen virheen."
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "See how to fix it"
+msgstr "Katso korjausohje"
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "Your Search Console account was not connected successfully. Unlink your Google account and try linking it again."
+msgstr "Search Console -tilin yhdistäminen epäonnistui. Irrota Google-tilisi ja yritä yhdistämistä uudelleen."
+
+#: lib/plausible_web/templates/site/settings_integrations.html.heex
+msgid "Something went wrong, but it looks temporary. If the problem persists, try linking your Google account again."
+msgstr "Jotakin meni vikaan, mutta häiriö vaikuttaa tilapäiseltä. Jos ongelma jatkuu, yritä yhdistää Google-tilisi uudelleen."
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Weekly email reports"
+msgstr "Viikoittaiset sähköpostiraportit"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send weekly analytics reports to as many addresses as you wish."
+msgstr "Lähetä viikoittaiset kävijäraportit haluamiisi sähköpostiosoitteisiin."
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send a weekly email report every Monday"
+msgstr "Lähetä viikoittainen sähköpostiraportti maanantaisin"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Add weekly report recipient"
+msgstr "Lisää viikkoraportin vastaanottaja"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Monthly email reports"
+msgstr "Kuukausittaiset sähköpostiraportit"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send monthly analytics reports to as many addresses as you wish."
+msgstr "Lähetä kuukausittaiset kävijäraportit haluamiisi sähköpostiosoitteisiin."
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send a monthly email report on the first day of the month"
+msgstr "Lähetä kuukausittainen sähköpostiraportti kuukauden ensimmäisenä päivänä"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Add monthly report recipient"
+msgstr "Lisää kuukausiraportin vastaanottaja"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Recipients"
+msgstr "Vastaanottajat"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "e.g. joe@example.com"
+msgstr "esim. matti@example.com"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Add recipient"
+msgstr "Lisää vastaanottaja"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Traffic spike notifications"
+msgstr "Liikennepiikkien ilmoitukset"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Get notified when your site has an unusually high number of current visitors."
+msgstr "Saat ilmoituksen, kun sivustollasi on poikkeuksellisen paljon kävijöitä juuri nyt."
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Current visitors threshold"
+msgstr "Nykyisten kävijöiden raja"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send notifications of traffic spikes"
+msgstr "Lähetä ilmoituksia liikennepiikeistä"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Traffic drop notifications"
+msgstr "Liikenteen laskun ilmoitukset"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Get notified when your site has an unusually low number of visitors within 12 hours."
+msgstr "Saat ilmoituksen, kun sivustollasi on poikkeuksellisen vähän kävijöitä 12 tunnin aikana."
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "12-hour visitor threshold"
+msgstr "12 tunnin kävijäraja"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Send notifications of traffic drops"
+msgstr "Lähetä ilmoituksia liikenteen laskusta"
+
+#: lib/plausible_web/templates/site/settings_email_reports.html.heex
+msgid "Save threshold"
+msgstr "Tallenna raja"
+
+#: lib/plausible_web/templates/page/open_source.html.heex
+msgid "Nettipoika Visitor Analytics is based on Plausible Community Edition 3.2.1."
+msgstr "Nettipoika Kävijäseuranta perustuu Plausible Community Edition 3.2.1 -ohjelmistoon."
+
+#: lib/plausible_web/templates/page/open_source.html.heex
+msgid "The modified version is published under the GNU Affero General Public License v3.0 or later."
+msgstr "Muokattu versio julkaistaan GNU Affero General Public License v3.0 or later -lisenssillä."
+
+#: lib/plausible_web/templates/page/open_source.html.heex
+msgid "View the complete source code and build instructions on GitHub"
+msgstr "Katso täydellinen lähdekoodi ja rakennusohjeet GitHubissa"
+
+#: lib/plausible_web/templates/page/open_source.html.heex
+msgid "Nettipoika Visitor Analytics is not endorsed, maintained, or warranted by Plausible Insights OÜ."
+msgstr "Nettipoika Kävijäseuranta ei ole Plausible Insights OÜ:n hyväksymä, ylläpitämä tai takaama palvelu."
+
+#: lib/plausible_web/templates/page/open_source.html.heex
+msgid "Plausible Analytics, Plausible CE, and related logos are trademarks of Plausible Insights OÜ."
+msgstr "Plausible Analytics, Plausible CE ja niihin liittyvät logot ovat Plausible Insights OÜ:n tavaramerkkejä."
+
+#: lib/plausible_web/templates/email/csv_import.html.heex
+msgid "Your CSV import completed successfully. The dashboard for %{site} now contains imported historical data from %{start_date} to %{end_date}."
+msgstr "CSV-tuontisi valmistui onnistuneesti. Sivuston %{site} hallintanäkymä sisältää nyt tuodut historiatiedot ajalta %{start_date}–%{end_date}."
+
+#: lib/plausible_web/templates/email/google_analytics_import.html.heex
+msgid "Your Google Analytics import completed successfully. The dashboard for %{site} now contains imported historical data from %{start_date} to %{end_date}."
+msgstr "Google Analytics -tuontisi valmistui onnistuneesti. Sivuston %{site} hallintanäkymä sisältää nyt tuodut historiatiedot ajalta %{start_date}–%{end_date}."
+
+#: lib/plausible_web/templates/email/csv_import.html.heex
+#: lib/plausible_web/templates/email/google_analytics_import.html.heex
+msgid "to view your dashboard."
+msgstr "avataksesi hallintanäkymän."
+
+#: lib/plausible_web/templates/email/csv_import.html.heex
+msgid "Unfortunately, your CSV import for %{site} did not complete successfully. Sorry about that!"
+msgstr "Valitettavasti sivuston %{site} CSV-tuonti ei valmistunut onnistuneesti. Pahoittelemme!"
+
+#: lib/plausible_web/templates/email/csv_import.html.heex
+msgid "Please try the import again."
+msgstr "Yritä tuontia uudelleen."
+
+#: lib/plausible_web/templates/email/google_analytics_import.html.heex
+msgid "Unfortunately, your Google Analytics import for %{site} did not complete successfully. Sorry about that!"
+msgstr "Valitettavasti sivuston %{site} Google Analytics -tuonti ei valmistunut onnistuneesti. Pahoittelemme!"
+
+#: lib/plausible_web/templates/email/google_analytics_import.html.heex
+msgid "Please try the import again. The Google Analytics API can occasionally return empty data, and another attempt may return the data you need."
+msgstr "Yritä tuontia uudelleen. Google Analyticsin API voi toisinaan palauttaa tyhjän vastauksen, ja uusi yritys saattaa palauttaa tarvitsemasi tiedot."
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "We've recorded one visitor"
+msgid_plural "We've recorded %{count} visitors"
+msgstr[0] "Olemme havainneet yhden kävijän"
+msgstr[1] "Olemme havainneet %{count} kävijää"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "across all your sites"
+msgstr "kaikilla sivustoillasi"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "on"
+msgstr "sivustolla"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "in the last 12 hours."
+msgstr "viimeisen 12 tunnin aikana."
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "View dashboard"
+msgstr "Avaa hallintanäkymä"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "Something looks off? Please"
+msgstr "Näyttääkö jokin väärältä?"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "review your installation"
+msgstr "Tarkista asennuksesi"
+
+#: lib/plausible_web/templates/email/drop_notification.html.heex
+msgid "to verify that visitor analytics has been integrated correctly."
+msgstr "varmistaaksesi, että kävijäseuranta on integroitu oikein."
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "There is currently one visitor"
+msgid_plural "There are currently %{count} visitors"
+msgstr[0] "Juuri nyt on yksi kävijä"
+msgstr[1] "Juuri nyt on %{count} kävijää"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "across all your sites."
+msgstr "kaikilla sivustoillasi."
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "Top sources for current visitors:"
+msgstr "Nykyisten kävijöiden tärkeimmät lähteet:"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "one visitor from %{source}"
+msgid_plural "%{count} visitors from %{source}"
+msgstr[0] "yksi kävijä lähteestä %{source}"
+msgstr[1] "%{count} kävijää lähteestä %{source}"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "Your most visited pages:"
+msgstr "Vierailluimmat sivusi:"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "one visitor on %{page}"
+msgid_plural "%{count} visitors on %{page}"
+msgstr[0] "yksi kävijä sivulla %{page}"
+msgstr[1] "%{count} kävijää sivulla %{page}"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "Congratulations on the traffic spike!"
+msgstr "Onnittelut liikennepiikistä!"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "Plausible CE is funded by Plausible's cloud subscribers. If you"
+msgstr "Plausible CE:n kehitystä rahoittavat Plausiblen pilvipalvelun tilaajat. Jos"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "enjoy using Plausible"
+msgstr "pidät Plausiblen käyttämisestä"
+
+#: lib/plausible_web/templates/email/spike_notification.html.heex
+msgid "and know someone who might benefit from it, please spread the word."
+msgstr "ja tunnet jonkun, jolle siitä voisi olla hyötyä, kerro siitä hänelle."
+
+#: lib/plausible_web/email.ex
+msgid "Traffic spike on %{site}"
+msgstr "Liikennepiikki sivustolla %{site}"
+
+#: lib/plausible_web/email.ex
+msgid "Traffic drop on %{site}"
+msgstr "Liikenne laski sivustolla %{site}"
+
+#: lib/plausible_web/email.ex
+msgid "Traffic spike across your sites"
+msgstr "Liikennepiikki sivustoillasi"
+
+#: lib/plausible_web/email.ex
+msgid "Traffic drop across your sites"
+msgstr "Liikenne laski sivustoillasi"
+
+#: lib/plausible_web/email.ex
+msgid "%{label} data imported for %{site}"
+msgstr "%{label}-tiedot tuotiin sivustolle %{site}"
+
+#: lib/plausible_web/email.ex
+msgid "%{label} import failed for %{site}"
+msgstr "%{label}-tuonti epäonnistui sivustolle %{site}"

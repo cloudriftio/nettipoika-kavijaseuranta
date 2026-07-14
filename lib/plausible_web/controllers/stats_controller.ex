@@ -361,7 +361,7 @@ defmodule PlausibleWeb.StatsController do
         conn
         |> render("shared_link_password.html",
           link: shared_link,
-          error: "Incorrect password. Please try again.",
+          error: gettext("Incorrect password. Please try again."),
           query_string: conn.query_string,
           dogfood_page_path: "/share/:dashboard"
         )

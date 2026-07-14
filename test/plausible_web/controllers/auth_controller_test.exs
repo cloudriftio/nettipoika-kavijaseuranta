@@ -759,6 +759,23 @@ defmodule PlausibleWeb.AuthControllerTest do
       assert_email_delivered_with(subject: "Password reset for Nettipoika Visitor Analytics")
     end
 
+    test "renders the success page and email in Finnish", %{conn: conn} do
+      mock_captcha_success()
+      user = insert(:user, preferred_locale: "fi")
+
+      conn =
+        conn
+        |> put_req_cookie("np_locale", "fi")
+        |> post("/password/request-reset", %{email: user.email})
+
+      response = html_response(conn, 200)
+      assert response =~ "Onnistui!"
+      assert response =~ "Lähetimme salasanan palautusohjeet"
+      assert_email_delivered_with(
+        subject: "Nettipoika Kävijäseurannan salasanan palautus"
+      )
+    end
+
     test "renders captcha errors in case of captcha input verification failure", %{conn: conn} do
       mock_captcha_failure()
       user = insert(:user)

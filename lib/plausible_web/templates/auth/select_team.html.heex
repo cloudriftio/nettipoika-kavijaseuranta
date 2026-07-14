@@ -1,7 +1,7 @@
 <.focus_box>
-  <:title>Switch Team</:title>
+  <:title>{gettext("Switch team")}</:title>
 
-  <:subtitle>Switch your current team.</:subtitle>
+  <:subtitle>{gettext("Switch your current team.")}</:subtitle>
 
   <div>
     <ul>
@@ -19,7 +19,7 @@
               {team.name}
             </p>
             <p class="text-xs text-gray-500 dark:text-gray-400">
-              Owner{if team.many_owners?, do: "s"}: {team.owners}
+              {if team.many_owners?, do: gettext("Owners"), else: gettext("Owner")}: {team.owners}
             </p>
           </div>
         </.unstyled_link>

@@ -6,10 +6,10 @@
       enable_route: :enable_weekly_report,
       remove_route: :remove_weekly_report_recipient,
       add_route: :add_weekly_report_recipient,
-      heading: "Weekly email reports",
-      subtitle: "Send weekly analytics reports to as many addresses as you wish.",
-      toggle: "Send a weekly email report every Monday",
-      add_label: "Add weekly report recipient"
+      heading: gettext("Weekly email reports"),
+      subtitle: gettext("Send weekly analytics reports to as many addresses as you wish."),
+      toggle: gettext("Send a weekly email report every Monday"),
+      add_label: gettext("Add weekly report recipient")
     },
     monthly: %{
       report: @monthly_report,
@@ -17,10 +17,10 @@
       enable_route: :enable_monthly_report,
       remove_route: :remove_monthly_report_recipient,
       add_route: :add_monthly_report_recipient,
-      heading: "Monthly email reports",
-      subtitle: "Send monthly analytics reports to as many addresses as you wish.",
-      toggle: "Send a monthly email report on 1st of the month",
-      add_label: "Add monthly report recipient"
+      heading: gettext("Monthly email reports"),
+      subtitle: gettext("Send monthly analytics reports to as many addresses as you wish."),
+      toggle: gettext("Send a monthly email report on the first day of the month"),
+      add_label: gettext("Add monthly report recipient")
     }
   ] %>
 
@@ -51,9 +51,9 @@
       <.table :if={Enum.count(meta.report.recipients) > 0} rows={meta.report.recipients}>
         <:thead>
           <.th>
-            Recipients
+            {gettext("Recipients")}
           </.th>
-          <.th invisible>Actions</.th>
+          <.th invisible>{gettext("Actions")}</.th>
         </:thead>
 
         <:tbody :let={recipient}>
@@ -93,11 +93,11 @@
             field={f[:recipient]}
             type="email"
             required
-            placeholder="e.g. joe@example.com"
+            placeholder={gettext("e.g. joe@example.com")}
             mt?={false}
           />
           <.button type="submit" mt?={false}>
-            Add recipient
+            {gettext("Add recipient")}
           </.button>
         </div>
       </.form>
@@ -107,18 +107,19 @@
   <% change_notifications = [
     spike: %{
       notification: @spike_notification,
-      heading: "Traffic spike notifications",
-      subtitle: "Get notified when your site has unusually high number of current visitors.",
-      threshold_text: "Current visitors threshold",
-      toggle: "Send notifications of traffic spikes"
+      heading: gettext("Traffic spike notifications"),
+      subtitle:
+        gettext("Get notified when your site has an unusually high number of current visitors."),
+      threshold_text: gettext("Current visitors threshold"),
+      toggle: gettext("Send notifications of traffic spikes")
     },
     drop: %{
       notification: @drop_notification,
-      heading: "Traffic drop notifications",
+      heading: gettext("Traffic drop notifications"),
       subtitle:
-        "Get notified when your site has unusually low number of visitors within 12 hours.",
-      threshold_text: "12 hours visitor threshold",
-      toggle: "Send notifications of traffic drops"
+        gettext("Get notified when your site has an unusually low number of visitors within 12 hours."),
+      threshold_text: gettext("12-hour visitor threshold"),
+      toggle: gettext("Send notifications of traffic drops")
     }
   ] %>
 
@@ -159,7 +160,7 @@
           label={meta.threshold_text}
         />
         <.button type="submit" mt?={false}>
-          Save threshold
+          {gettext("Save threshold")}
         </.button>
       </div>
     </.form>
@@ -168,9 +169,9 @@
       <.table rows={meta.notification.recipients}>
         <:thead>
           <.th>
-            Recipients
+            {gettext("Recipients")}
           </.th>
-          <.th invisible>Actions</.th>
+          <.th invisible>{gettext("Actions")}</.th>
         </:thead>
 
         <:tbody :let={recipient}>
@@ -218,12 +219,12 @@
           <PlausibleWeb.Live.Components.Form.input
             field={f[:recipient]}
             type="email"
-            placeholder="e.g. joe@example.com"
+            placeholder={gettext("e.g. joe@example.com")}
             mt?={false}
             required
           />
           <.button type="submit" mt?={false}>
-            Add recipient
+            {gettext("Add recipient")}
           </.button>
         </div>
       </.form>

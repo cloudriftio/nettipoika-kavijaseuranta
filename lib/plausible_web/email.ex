@@ -706,6 +706,36 @@ defmodule PlausibleWeb.Email do
         site: assigns.site.domain
       )
 
+  defp localized_subject("spike_notification.html", assigns, _subject),
+    do:
+      if(Plausible.Sites.consolidated?(assigns.site),
+        do: gettext("Traffic spike across your sites"),
+        else: gettext("Traffic spike on %{site}", site: assigns.site.domain)
+      )
+
+  defp localized_subject("drop_notification.html", assigns, _subject),
+    do:
+      if(Plausible.Sites.consolidated?(assigns.site),
+        do: gettext("Traffic drop across your sites"),
+        else: gettext("Traffic drop on %{site}", site: assigns.site.domain)
+      )
+
+  defp localized_subject(template, %{success: true} = assigns, _subject)
+       when template in ["csv_import.html", "google_analytics_import.html"],
+       do:
+         gettext("%{label} data imported for %{site}",
+           label: assigns.label,
+           site: assigns.site_import.site.domain
+         )
+
+  defp localized_subject(template, %{success: false} = assigns, _subject)
+       when template in ["csv_import.html", "google_analytics_import.html"],
+       do:
+         gettext("%{label} import failed for %{site}",
+           label: assigns.label,
+           site: assigns.site_import.site.domain
+         )
+
   defp localized_subject(_template, _assigns, subject), do: subject
 
   defp textify(html) do

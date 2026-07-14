@@ -58,7 +58,7 @@
                 {live_render(@conn, PlausibleWeb.Live.PlainCombo,
                   session: %{
                     "options" => Enum.zip(domains, domains),
-                    "prompt" => "(Choose property)",
+                    "prompt" => gettext("(Choose property)"),
                     "name" => f[:property].name,
                     "id" => f[:property].id,
                     "selected" => f[:property].value
@@ -66,23 +66,27 @@
                 )}
               </div>
 
-              <.button type="submit">Save</.button>
+              <.button type="submit">{gettext("Save")}</.button>
             </.form>
           <% {:error, error} -> %>
-            <.notice title="Integration error" theme={:red} class="mt-8">
+            <.notice title={gettext("Integration error")} theme={:red} class="mt-8">
               <%= case error do %>
                 <% "invalid_grant" -> %>
-                  Invalid Grant error returned from Google.
+                  {gettext("Google returned an invalid grant error.")}
                   <.styled_link
                     new_tab={true}
                     href="https://plausible.io/docs/google-search-console-integration#i-get-the-invalid-grant-error"
                   >
-                    See here on how to fix it
+                    {gettext("See how to fix it")}
                   </.styled_link>
                 <% "google_auth_error" -> %>
-                  Your Search Console account hasn't been connected successfully. Please unlink your Google account and try linking it again.
+                  {gettext(
+                    "Your Search Console account was not connected successfully. Unlink your Google account and try linking it again."
+                  )}
                 <% _ -> %>
-                  Something went wrong, but looks temporary. If the problem persists, try re-linking your Google account.
+                  {gettext(
+                    "Something went wrong, but it looks temporary. If the problem persists, try linking your Google account again."
+                  )}
               <% end %>
             </.notice>
         <% end %>

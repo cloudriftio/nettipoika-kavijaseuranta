@@ -179,7 +179,9 @@ defmodule PlausibleWeb.AuthController do
   end
 
   def password_reset_request(conn, %{"email" => ""}) do
-    render(conn, "password_reset_request_form.html", error: "Please enter an email address")
+    render(conn, "password_reset_request_form.html",
+      error: gettext("Please enter an email address")
+    )
   end
 
   def password_reset_request(conn, %{"email" => email} = params) do
@@ -202,7 +204,7 @@ defmodule PlausibleWeb.AuthController do
       end
     else
       render(conn, "password_reset_request_form.html",
-        error: "Please complete the captcha to reset your password"
+        error: gettext("Please complete the captcha to reset your password")
       )
     end
   end
@@ -219,14 +221,14 @@ defmodule PlausibleWeb.AuthController do
         render_error(
           conn,
           401,
-          "Your token has expired. Please request another password reset link."
+          gettext("Your token has expired. Please request another password reset link.")
         )
 
       {:error, _} ->
         render_error(
           conn,
           401,
-          "Your token is invalid. Please request another password reset link."
+          gettext("Your token is invalid. Please request another password reset link.")
         )
     end
   end
@@ -234,8 +236,8 @@ defmodule PlausibleWeb.AuthController do
   def password_reset(conn, _params) do
     conn
     |> UserAuth.log_out_user()
-    |> put_flash(:login_title, "Password updated successfully")
-    |> put_flash(:login_instructions, "Please log in with your new credentials")
+    |> put_flash(:login_title, gettext("Password updated successfully"))
+    |> put_flash(:login_instructions, gettext("Please log in with your new credentials"))
     |> redirect(to: Routes.auth_path(conn, :login_form))
   end
 

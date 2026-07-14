@@ -1,37 +1,53 @@
-There are currently <b>{@current_visitors}</b>
-visitors
+{ngettext(
+  "There is currently one visitor",
+  "There are currently %{count} visitors",
+  @current_visitors,
+  count: @current_visitors
+)}
 <%= if Plausible.Sites.consolidated?(@site) do %>
-  across all your sites.
+  {gettext("across all your sites.")}
 <% else %>
-  on <a href={"https://" <> @site.domain}>{@site.domain}</a>.
+  {gettext("on")} <a href={"https://" <> @site.domain}>{@site.domain}</a>.
 <% end %>
 <br />
 <%= if Enum.count(@sources) > 0 do %>
-  <br /> The top sources for current visitors:<br />
+  <br /> {gettext("Top sources for current visitors:")}<br />
   <ul>
     <%= for %{dimensions: [source], metrics: [visitors]} <- @sources do %>
       <li>
-        <b>{visitors}</b> visitor{if visitors > 1, do: "s"} from <b>{source}</b>
+        {ngettext(
+          "one visitor from %{source}",
+          "%{count} visitors from %{source}",
+          visitors,
+          count: visitors,
+          source: source
+        )}
       </li>
     <% end %>
   </ul>
 <% end %>
 
-<br /> Your top pages being visited:<br />
+<br /> {gettext("Your most visited pages:")}<br />
 <ul>
   <%= for %{dimensions: [page], metrics: [visitors]} <- @pages do %>
     <li>
-      <b>{visitors}</b> visitor{if visitors > 1, do: "s"} on <b>{page}</b>
+      {ngettext(
+        "one visitor on %{page}",
+        "%{count} visitors on %{page}",
+        visitors,
+        count: visitors,
+        page: page
+      )}
     </li>
   <% end %>
 </ul>
 
 <%= if @link do %>
-  <br /> View dashboard <a href={@link}>here</a>
+  <br /> {gettext("View dashboard")} <a href={@link}>{gettext("here")}</a>
 <% end %>
-<br /><br /> Congrats on the spike in traffic!
+<br /><br /> {gettext("Congratulations on the traffic spike!")}
 <%= if ce?() do %>
-  <br /><br /> Plausible CE is funded by our cloud subscribers. If you
-  <a href="https://plausible.io/?utm_medium=email&utm_source=CE">enjoy using Plausible</a>
-  and know someone who might benefit from it, please spread the word.
+  <br /><br /> {gettext("Plausible CE is funded by Plausible's cloud subscribers. If you")}
+  <a href="https://plausible.io/?utm_medium=email&utm_source=CE">{gettext("enjoy using Plausible")}</a>
+  {gettext("and know someone who might benefit from it, please spread the word.")}
 <% end %>

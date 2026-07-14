@@ -1,15 +1,20 @@
-We've recorded {@current_visitors} visitors
+{ngettext(
+  "We've recorded one visitor",
+  "We've recorded %{count} visitors",
+  @current_visitors,
+  count: @current_visitors
+)}
 <%= if Plausible.Sites.consolidated?(@site) do %>
-  across all your sites
+  {gettext("across all your sites")}
 <% else %>
-  on <a href={"https://" <> @site.domain}>{@site.domain}</a>
+  {gettext("on")} <a href={"https://" <> @site.domain}>{@site.domain}</a>
 <% end %>
-in the last 12 hours.
+{gettext("in the last 12 hours.")}
 <%= if @dashboard_link do %>
-  <br /><br /> View dashboard <a href={@dashboard_link}>here</a>.
+  <br /><br /> {gettext("View dashboard")} <a href={@dashboard_link}>{gettext("here")}</a>.
 <% end %>
 <%= if @installation_link do %>
-  <br /><br /> Something looks off? Please
-  <a href={@installation_link}>review your installation</a>
-  to verify that Plausible has been integrated correctly.
+  <br /><br /> {gettext("Something looks off? Please")}
+  <a href={@installation_link}>{gettext("review your installation")}</a>
+  {gettext("to verify that visitor analytics has been integrated correctly.")}
 <% end %>

@@ -1,11 +1,13 @@
 <.focus_box>
-  <:title>Import from CSV files</:title>
+  <:title>{gettext("Import from CSV files")}</:title>
   <:subtitle>
-    Please ensure each file follows
+    {gettext("Please ensure each file follows")}
     <.styled_link href="https://plausible.io/docs/csv-import">
-      our CSV format guidelines.
+      {gettext("our CSV format guidelines.")}
     </.styled_link>
-    You can upload multiple files simultaneously by either selecting them in the file dialog or dragging and dropping them into the designated area.
+    {gettext(
+      "You can upload multiple files simultaneously by selecting them in the file dialog or dragging and dropping them into the designated area."
+    )}
   </:subtitle>
   {live_render(@conn, PlausibleWeb.Live.CSVImport,
     session: %{

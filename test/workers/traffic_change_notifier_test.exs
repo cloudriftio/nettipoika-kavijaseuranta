@@ -3,8 +3,8 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
   use Bamboo.Test
   alias Plausible.Workers.TrafficChangeNotifier
 
-  @view_dashboard_text "View dashboard"
-  @review_installation_text "review your installation"
+  @view_dashboard_text "Avaa hallintanäkymä"
+  @review_installation_text "Tarkista asennuksesi"
 
   describe "drops" do
     test "does not notify anyone if we've stopped accepting traffic for the owner" do
@@ -35,7 +35,7 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil)
 
       assert_email_delivered_with(
-        subject: "Traffic drop on #{site.domain}",
+        subject: "Liikenne laski sivustolla #{site.domain}",
         to: [nil: "jerod@example.com"]
       )
     end
@@ -71,12 +71,12 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil)
 
       assert_email_delivered_with(
-        subject: "Traffic drop on #{site.domain}",
+        subject: "Liikenne laski sivustolla #{site.domain}",
         to: [nil: "jerod@example.com"]
       )
 
       assert_email_delivered_with(
-        subject: "Traffic drop on #{site.domain}",
+        subject: "Liikenne laski sivustolla #{site.domain}",
         to: [nil: "uku@example.com"]
       )
     end
@@ -97,7 +97,7 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
 
       TrafficChangeNotifier.perform(nil)
 
-      expected_subject = "Traffic drop on #{site.domain}"
+      expected_subject = "Liikenne laski sivustolla #{site.domain}"
 
       four_emails =
         for _ <- 1..4 do
@@ -140,11 +140,11 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
 
         assert_delivered_email_matches(%{
           html_body: html_body,
-          subject: "Traffic drop on your sites",
+          subject: "Liikenne laski sivustoillasi",
           to: [nil: ^user_email]
         })
 
-        assert html_body =~ "across all your sites"
+        assert html_body =~ "kaikilla sivustoillasi"
         assert html_body =~ @view_dashboard_text
         refute html_body =~ @review_installation_text
       end
@@ -185,7 +185,7 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil, ~N[2021-01-01 00:00:00])
 
       assert_email_delivered_with(
-        subject: "Traffic drop on #{site.domain}",
+        subject: "Liikenne laski sivustolla #{site.domain}",
         to: [nil: "uku@example.com"]
       )
 
@@ -196,7 +196,7 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil, ~N[2021-01-01 12:00:01])
 
       assert_email_delivered_with(
-        subject: "Traffic drop on #{site.domain}",
+        subject: "Liikenne laski sivustolla #{site.domain}",
         to: [nil: "uku@example.com"]
       )
     end
@@ -254,12 +254,12 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil)
 
       assert_email_delivered_with(
-        subject: "Traffic spike on #{site.domain}",
+        subject: "Liikennepiikki sivustolla #{site.domain}",
         to: [nil: "jerod@example.com"]
       )
 
       assert_email_delivered_with(
-        subject: "Traffic spike on #{site.domain}",
+        subject: "Liikennepiikki sivustolla #{site.domain}",
         to: [nil: "uku@example.com"]
       )
     end
@@ -291,19 +291,19 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
 
         assert_delivered_email_matches(%{
           html_body: html_body,
-          subject: "Traffic spike on your sites",
+          subject: "Liikennepiikki sivustoillasi",
           to: [nil: "uku@example.com"]
         })
 
-        assert html_body =~ "across all your sites"
+        assert html_body =~ "kaikilla sivustoillasi"
 
-        assert html_body =~ "The top sources for current visitors:"
-        assert html_body =~ "<b>2</b> visitors from <b>Google</b>"
-        assert html_body =~ "<b>1</b> visitor from <b>Twitter</b>"
+        assert html_body =~ "Nykyisten kävijöiden tärkeimmät lähteet:"
+        assert html_body =~ "2 kävijää lähteestä Google"
+        assert html_body =~ "yksi kävijä lähteestä Twitter"
 
-        assert html_body =~ "Your top pages being visited:"
-        assert html_body =~ "<b>2</b> visitors on <b>/a</b>"
-        assert html_body =~ "<b>1</b> visitor on <b>/b</b>"
+        assert html_body =~ "Vierailluimmat sivusi:"
+        assert html_body =~ "2 kävijää sivulla /a"
+        assert html_body =~ "yksi kävijä sivulla /b"
       end
 
       test "does not notify traffic spike on consolidated view when ok_to_display? is false" do
@@ -369,11 +369,11 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
         html_body: html_body
       })
 
-      assert html_body =~ "The top sources for current visitors:"
-      assert html_body =~ "<b>3</b> visitors from <b>A</b>"
-      assert html_body =~ "<b>2</b> visitors from <b>B</b>"
-      assert html_body =~ "<b>1</b> visitor from <b>C</b>"
-      assert html_body =~ "There are currently <b>8</b>"
+      assert html_body =~ "Nykyisten kävijöiden tärkeimmät lähteet:"
+      assert html_body =~ "3 kävijää lähteestä A"
+      assert html_body =~ "2 kävijää lähteestä B"
+      assert html_body =~ "yksi kävijä lähteestä C"
+      assert html_body =~ "Juuri nyt on 8 kävijää"
     end
 
     test "does not list sources at all when everything is 'Direct / None'" do
@@ -397,8 +397,8 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
         html_body: html_body
       })
 
-      refute html_body =~ "The top sources for current visitors:"
-      assert html_body =~ "There are currently <b>2</b>"
+      refute html_body =~ "Nykyisten kävijöiden tärkeimmät lähteet:"
+      assert html_body =~ "Juuri nyt on 2 kävijää"
     end
 
     test "includes top 3 pages" do
@@ -430,12 +430,12 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
         html_body: html_body
       })
 
-      assert html_body =~ "There are currently <b>10</b>"
+      assert html_body =~ "Juuri nyt on 10 kävijää"
 
-      assert html_body =~ "Your top pages being visited:"
-      assert html_body =~ "<b>4</b> visitors on <b>/one</b>"
-      assert html_body =~ "<b>3</b> visitors on <b>/two</b>"
-      assert html_body =~ "<b>2</b> visitors on <b>/</b>"
+      assert html_body =~ "Vierailluimmat sivusi:"
+      assert html_body =~ "4 kävijää sivulla /one"
+      assert html_body =~ "3 kävijää sivulla /two"
+      assert html_body =~ "2 kävijää sivulla /"
 
       refute html_body =~ "/not-this-one"
     end
@@ -472,7 +472,7 @@ defmodule Plausible.Workers.TrafficChangeNotifierTest do
       TrafficChangeNotifier.perform(nil)
 
       assert_email_delivered_with(
-        subject: "Traffic spike on #{site.domain}",
+        subject: "Liikennepiikki sivustolla #{site.domain}",
         to: [nil: "uku@example.com"]
       )
 
