@@ -771,9 +771,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       response = html_response(conn, 200)
       assert response =~ "Onnistui!"
       assert response =~ "Lähetimme salasanan palautusohjeet"
-      assert_email_delivered_with(
-        subject: "Nettipoika Kävijäseurannan salasanan palautus"
-      )
+      assert_email_delivered_with(subject: "Nettipoika Kävijäseurannan salasanan palautus")
     end
 
     test "renders captcha errors in case of captcha input verification failure", %{conn: conn} do
