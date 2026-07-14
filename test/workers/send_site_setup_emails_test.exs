@@ -23,7 +23,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Your Plausible setup: Waiting for the first page views"
+        subject: "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
       )
     end
 
@@ -48,7 +48,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Plausible is now tracking your website stats"
+        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
       )
     end
 
@@ -60,7 +60,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Your Plausible setup: Waiting for the first page views"
+        subject: "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
       )
 
       populate_stats(site, [
@@ -71,7 +71,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Plausible is now tracking your website stats"
+        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
       )
     end
 
@@ -85,7 +85,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Plausible is now tracking your website stats"
+        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
       )
 
       new_site(owner: user, consolidated: true, inserted_at: hours_ago(49))
