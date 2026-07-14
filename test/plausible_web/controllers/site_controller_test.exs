@@ -1248,8 +1248,8 @@ defmodule PlausibleWeb.SiteControllerTest do
 
       conn = get(conn, "/#{site.domain}/settings/integrations")
       resp = html_response(conn, 200)
-      assert resp =~ "Your Search Console account hasn't been connected successfully"
-      assert resp =~ "Please unlink your Google account and try linking it again"
+      assert text(resp) =~ "Your Search Console account hasn't been connected successfully"
+      assert text(resp) =~ "Please unlink your Google account and try linking it again"
     end
 
     test "displays docs link error in case of `invalid_grant`", %{
