@@ -82,7 +82,7 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
             >
               <p>
                 {gettext(
-                  "You have reached the maximum of %{count} blocked countries. Remove one before adding another.",
+                  "You've reached the maximum number of countries you can block (%{count}). Please remove one before adding another.",
                   count: Shields.maximum_country_rules()
                 )}
               </p>

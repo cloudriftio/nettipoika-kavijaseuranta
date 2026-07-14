@@ -132,7 +132,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
 
       <p class="mt-2 py-2 text-sm text-gray-600 dark:text-gray-400 text-pretty">
         {gettext(
-          "These events were sent from your site during the past six months but are not configured as goals. Add them now or configure one manually."
+          "These events have been sent from your site in the past 6 months but aren't yet configured as goals. Add them instantly or set one up manually."
         )}
       </p>
 

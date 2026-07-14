@@ -273,7 +273,7 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
 
   defp notice_message(:slow_import) do
     gettext(
-      "The import may take longer because of the amount of data and Google Analytics rate limits."
+      "The import process might be taking longer due to the amount of data and rate limiting enforced by Google Analytics."
     )
   end
 

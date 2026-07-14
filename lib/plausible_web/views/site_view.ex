@@ -15,11 +15,11 @@ defmodule PlausibleWeb.SiteView do
   end
 
   def site_role(%{role: :viewer}) do
-    gettext("Guest viewer")
+    gettext("Guest Viewer")
   end
 
   def site_role(%{role: :editor}) do
-    gettext("Guest editor")
+    gettext("Guest Editor")
   end
 
   def site_role(%{role: :owner}), do: gettext("Owner")

@@ -88,7 +88,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
             >
               <p>
                 {gettext(
-                  "You have reached the maximum of %{count} allowed hostnames. Remove one before adding another.",
+                  "You've reached the maximum number of hostnames you can block (%{count}). Please remove one before adding another.",
                   count: Shields.maximum_hostname_rules()
                 )}
               </p>
@@ -130,7 +130,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                         :if={@redundant_rules[rule.id]}
                         title={
                           gettext(
-                            "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                            "This rule might be redundant because the following rules may match first:\n\n%{rules}",
                             rules: Enum.join(@redundant_rules[rule.id], "\n")
                           )
                         }

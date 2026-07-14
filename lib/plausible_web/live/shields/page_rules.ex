@@ -86,7 +86,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
             >
               <p>
                 {gettext(
-                  "You have reached the maximum of %{count} blocked pages. Remove one before adding another.",
+                  "You've reached the maximum number of pages you can block (%{count}). Please remove one before adding another.",
                   count: Shields.maximum_page_rules()
                 )}
               </p>
@@ -126,7 +126,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                         :if={@redundant_rules[rule.id]}
                         title={
                           gettext(
-                            "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                            "This rule might be redundant because the following rules may match first:\n\n%{rules}",
                             rules: Enum.join(@redundant_rules[rule.id], "\n")
                           )
                         }
