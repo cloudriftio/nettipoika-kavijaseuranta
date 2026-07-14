@@ -15,11 +15,11 @@ defmodule PlausibleWeb.Plugs.SetLocaleTest do
     assert PlausibleWeb.Locale.from_conn(conn) == "en"
   end
 
-  test "uses the locale cookie and defaults to Finnish" do
+  test "uses the locale cookie and the configured default" do
     cookie_conn = conn(:get, "/") |> put_req_cookie("np_locale", "en")
     assert PlausibleWeb.Locale.from_conn(cookie_conn) == "en"
 
-    assert PlausibleWeb.Locale.from_conn(conn(:get, "/")) == "fi"
+    assert PlausibleWeb.Locale.from_conn(conn(:get, "/")) == PlausibleWeb.Locale.default()
   end
 
   test "falls back to a supported Accept-Language locale" do

@@ -89,6 +89,6 @@ defmodule PlausibleWeb.Components.FlowProgressTest do
       )
 
     assert text_of_element(rendered, "#flow-progress") ==
-             "1 Lisää sivuston tiedot 2 Asenna kävijäseuranta 3 Vahvista asennus"
+             "1 Sivuston tiedot 2 Asenna kävijäseuranta 3 Tarkista asennus"
   end
 end
