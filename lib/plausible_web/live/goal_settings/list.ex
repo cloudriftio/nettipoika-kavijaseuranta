@@ -108,7 +108,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                 {gettext("Pageview")}
               </.pill>
               <.pill :if={goal.event_name && !goal.currency} color={:yellow}>
-                {gettext("Custom event")}
+                {gettext("Custom Event")}
               </.pill>
               <.pill :if={goal.currency} color={:indigo}>
                 {gettext("Revenue Goal")} ({goal.currency})

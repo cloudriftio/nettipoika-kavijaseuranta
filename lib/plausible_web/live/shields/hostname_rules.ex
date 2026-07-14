@@ -34,7 +34,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
     <div>
       <.settings_tiles>
         <.tile docs="excluding#exclude-visits-by-hostname">
-          <:title>{gettext("Hostname allow list")}</:title>
+          <:title>{gettext("Hostnames allow list")}</:title>
           <:subtitle :if={not Enum.empty?(@hostname_rules)}>
             {gettext("Accept incoming traffic only from known hostnames.")}
           </:subtitle>
@@ -87,9 +87,11 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
               theme={:gray}
             >
               <p>
-                {gettext(
-                  "You've reached the maximum number of hostnames you can block (%{count}). Please remove one before adding another.",
-                  count: Shields.maximum_hostname_rules()
+                {Phoenix.HTML.raw(
+                  gettext(
+                    "You've reached the maximum number of hostnames you can block (%{count}). Please remove one before adding another.",
+                    count: Shields.maximum_hostname_rules()
+                  )
                 )}
               </p>
             </.notice>

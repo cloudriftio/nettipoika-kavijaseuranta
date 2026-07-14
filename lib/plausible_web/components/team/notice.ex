@@ -8,7 +8,7 @@ defmodule PlausibleWeb.Team.Notice do
     ~H"""
     <aside class="mt-4 mb-4">
       <.notice
-        title={gettext("A better way to invite people to your team")}
+        title={gettext("A Better Way of Inviting People to Your Team")}
         class="shadow-md dark:shadow-none mt-4"
       >
         <p>
@@ -28,7 +28,7 @@ defmodule PlausibleWeb.Team.Notice do
     ~H"""
     <aside class="mt-4 mb-4">
       <.notice
-        title={gettext("A better way to invite people to a team")}
+        title={gettext("A Better Way of Inviting People to a Team")}
         class="shadow-md dark:shadow-none mt-4"
       >
         <p>

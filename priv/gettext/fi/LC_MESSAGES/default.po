@@ -2601,3 +2601,15 @@ msgstr ""
 "Nämä tapahtumat on lähetetty sivustoltasi viimeisen kuuden kuukauden aikana, "
 "mutta niitä ei ole vielä määritetty tavoitteiksi. Lisää ne nyt tai määritä "
 "yksi käsin."
+
+msgid "A Better Way of Inviting People to Your Team"
+msgstr "Parempi tapa kutsua käyttäjiä tiimiisi"
+
+msgid "A Better Way of Inviting People to a Team"
+msgstr "Parempi tapa kutsua käyttäjiä tiimiin"
+
+msgid "Custom Event"
+msgstr "Mukautettu tapahtuma"
+
+msgid "Hostnames allow list"
+msgstr "Sallittujen isäntänimien lista"

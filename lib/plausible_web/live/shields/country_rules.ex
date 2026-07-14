@@ -81,9 +81,11 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
               theme={:gray}
             >
               <p>
-                {gettext(
-                  "You've reached the maximum number of countries you can block (%{count}). Please remove one before adding another.",
-                  count: Shields.maximum_country_rules()
+                {Phoenix.HTML.raw(
+                  gettext(
+                    "You've reached the maximum number of countries you can block (%{count}). Please remove one before adding another.",
+                    count: Shields.maximum_country_rules()
+                  )
                 )}
               </p>
             </.notice>

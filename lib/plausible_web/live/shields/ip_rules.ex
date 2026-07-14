@@ -73,9 +73,11 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
               theme={:gray}
             >
               <p>
-                {gettext(
-                  "You've reached the maximum number of IP addresses you can block (%{count}). Please remove one before adding another.",
-                  count: Shields.maximum_ip_rules()
+                {Phoenix.HTML.raw(
+                  gettext(
+                    "You've reached the maximum number of IP addresses you can block (%{count}). Please remove one before adding another.",
+                    count: Shields.maximum_ip_rules()
+                  )
                 )}
               </p>
             </.notice>

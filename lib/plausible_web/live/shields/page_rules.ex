@@ -85,9 +85,11 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
               theme={:gray}
             >
               <p>
-                {gettext(
-                  "You've reached the maximum number of pages you can block (%{count}). Please remove one before adding another.",
-                  count: Shields.maximum_page_rules()
+                {Phoenix.HTML.raw(
+                  gettext(
+                    "You've reached the maximum number of pages you can block (%{count}). Please remove one before adding another.",
+                    count: Shields.maximum_page_rules()
+                  )
                 )}
               </p>
             </.notice>

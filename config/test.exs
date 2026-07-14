@@ -65,3 +65,9 @@ config :plausible, Plausible.InstallationSupport.Checks.VerifyInstallation,
 config :plausible, Plausible.Session.Salts, interval: :timer.hours(1)
 
 config :plausible, max_goals_per_site: 10
+
+# Keep upstream assertions deterministic when a request has no locale signal.
+# Localization-specific tests select Finnish explicitly.
+config :plausible, PlausibleWeb.Gettext,
+  default_locale: "en",
+  locales: ~w(fi en)
