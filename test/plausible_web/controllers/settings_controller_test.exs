@@ -1338,7 +1338,7 @@ defmodule PlausibleWeb.SettingsControllerTest do
 
       assert html = html_response(conn, 200)
 
-      assert html =~ "You're the sole owner of one or more teams"
+      assert html =~ "sole owner of one or more teams"
       refute html =~ "Delete my account"
     end
   end
