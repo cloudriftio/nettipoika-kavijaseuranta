@@ -23,7 +23,7 @@ defmodule PlausibleWeb do
 
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
-      import PlausibleWeb.Gettext
+      use Gettext, backend: PlausibleWeb.Gettext
     end
   end
 
@@ -32,7 +32,7 @@ defmodule PlausibleWeb do
       use Phoenix.LiveComponent, global_prefixes: ~w(x-)
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
-      import PlausibleWeb.Gettext
+      use Gettext, backend: PlausibleWeb.Gettext
       alias Phoenix.LiveView.JS
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
@@ -43,7 +43,7 @@ defmodule PlausibleWeb do
       use Phoenix.Component, global_prefixes: ~w(x-)
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
-      import PlausibleWeb.Gettext
+      use Gettext, backend: PlausibleWeb.Gettext
       alias Phoenix.LiveView.JS
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
@@ -55,7 +55,7 @@ defmodule PlausibleWeb do
 
       import Plug.Conn
       import PlausibleWeb.ControllerHelpers
-      import PlausibleWeb.Gettext
+      use Gettext, backend: PlausibleWeb.Gettext
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
   end
@@ -72,7 +72,7 @@ defmodule PlausibleWeb do
 
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
-      import PlausibleWeb.Gettext
+      use Gettext, backend: PlausibleWeb.Gettext
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
   end

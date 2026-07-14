@@ -3,7 +3,7 @@ defmodule PlausibleWeb.Components.Generic do
   Generic reusable components
   """
   use Phoenix.Component, global_prefixes: ~w(x-)
-  import PlausibleWeb.Gettext
+  use Gettext, backend: PlausibleWeb.Gettext
 
   @notice_themes %{
     gray: %{
