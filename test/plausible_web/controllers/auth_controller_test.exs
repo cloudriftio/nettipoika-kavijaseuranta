@@ -356,7 +356,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert_delivered_email_matches(%{to: [{_, user_email}], subject: subject})
       assert user_email == user.email
-      assert subject =~ "on Nettipoika Kävijäseurannan vahvistuskoodisi"
+      assert subject =~ "is your Nettipoika Visitor Analytics verification code"
     end
 
     test "redirects user to /activate", %{conn: conn} do

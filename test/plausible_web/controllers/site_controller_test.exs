@@ -360,7 +360,7 @@ defmodule PlausibleWeb.SiteControllerTest do
         }
       })
 
-      assert_email_delivered_with(subject: "Welcome to Nettipoika Kävijäseuranta")
+      assert_email_delivered_with(subject: "Welcome to Nettipoika Visitor Analytics")
     end
 
     test "does not send welcome email if user already has a previous site", %{
