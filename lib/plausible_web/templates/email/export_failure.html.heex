@@ -1,8 +1,10 @@
-{gettext("Your %{product} export for %{site} failed.",
+{gettext("Your %{product} export for %{site} has encountered an error and was unsuccessful.",
   product: Plausible.product_name(),
   site: @site.domain
 )}
-<br /><br /> {gettext("Please try exporting your data again.")}
+{gettext("Sorry for the trouble this may have caused.")} <br /><br /> {gettext(
+  "Please attempt to export your data again."
+)}
 <%= if ee?() do %>
   Should the problem persist, do reply to this email so we can assist. Thanks!
 <% end %>

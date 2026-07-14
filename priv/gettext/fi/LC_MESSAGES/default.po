@@ -911,8 +911,12 @@ msgid "Plausible CE documentation"
 msgstr "Plausible CE -ohjeet"
 
 #: lib/plausible_web/templates/email/export_failure.html.heex:5
-msgid "Please try exporting your data again."
+msgid "Please attempt to export your data again."
 msgstr "Yritä tietojen vientiä uudelleen."
+
+#: lib/plausible_web/templates/email/export_failure.html.heex
+msgid "Sorry for the trouble this may have caused."
+msgstr "Pahoittelemme tästä mahdollisesti aiheutunutta vaivaa."
 
 #: lib/plausible_web/views/layout_view.ex:108
 msgid "Preferences"
@@ -1236,7 +1240,9 @@ msgid ""
 msgstr "Sinulla on aktiivinen tilaus. Peruuta se ennen tilin poistamista."
 
 #: lib/plausible_web/templates/email/export_failure.html.heex:1
-msgid "Your %{product} export for %{site} failed."
+msgid ""
+"Your %{product} export for %{site} has encountered an error and was "
+"unsuccessful."
 msgstr "Palvelun %{product} vienti sivustolle %{site} epäonnistui."
 
 #: lib/plausible_web/templates/email/export_success.html.heex:1
