@@ -124,7 +124,7 @@ msgstr "Risuaitamerkkiä käyttävät sivupolut"
 msgid "Invite"
 msgstr "Lähetä kutsu"
 
-msgid "Invite a guest to %{site}"
+msgid "Invite guest to %{site}"
 msgstr "Kutsu vierailija sivustolle %{site}"
 
 msgid "Keep this password safe. It cannot be shown again."
@@ -770,6 +770,10 @@ msgstr "Poistu tiimistä"
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
+#: lib/plausible_web/templates/layout/_header.html.heex
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
 #: lib/plausible_web/templates/layout/_header.html.heex:163
 msgid "Log out"
 msgstr "Kirjaudu ulos"
@@ -1214,15 +1218,15 @@ msgstr "Tervetuloa Nettipoika Kävijäseurantaan"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:15
 msgid ""
-"You are the only owner of one or more teams. Add another owner or delete "
-"these teams first:"
+"You're the sole owner of one or more teams. To delete your account, either "
+"add another owner or delete each of the following team(s):"
 msgstr ""
 "Olet yhden tai useamman tiimin ainoa omistaja. Lisää ensin toinen omistaja "
 "tai poista nämä tiimit:"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:14
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:29
-msgid "You cannot delete your account yet"
+msgid "You can't delete your account yet"
 msgstr "Et voi vielä poistaa tiliäsi"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:30

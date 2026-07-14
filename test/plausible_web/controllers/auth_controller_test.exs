@@ -780,7 +780,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
         assert_email_delivered_with(
           subject: "Password reset for Nettipoika Visitor Analytics",
-          to: [nil: user.email]
+          to: [{user.name, user.email}]
         )
       end
 
@@ -799,7 +799,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
         refute_email_delivered_with(
           subject: "Password reset for Nettipoika Visitor Analytics",
-          to: [nil: user.email]
+          to: [{user.name, user.email}]
         )
       end
     end

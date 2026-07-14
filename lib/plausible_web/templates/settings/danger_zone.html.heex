@@ -11,9 +11,9 @@
 
     <%= cond do %>
       <% length(@solely_owned_teams) > 0 -> %>
-        <.notice theme={:gray} title={gettext("You cannot delete your account yet")}>
+        <.notice theme={:gray} title={gettext("You can't delete your account yet")}>
           {gettext(
-            "You are the only owner of one or more teams. Add another owner or delete these teams first:"
+            "You're the sole owner of one or more teams. To delete your account, either add another owner or delete each of the following team(s):"
           )}
           <ul class="w-full py-4">
             <li :for={team <- @solely_owned_teams} class="pt-1">

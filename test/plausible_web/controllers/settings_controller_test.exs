@@ -1620,7 +1620,7 @@ defmodule PlausibleWeb.SettingsControllerTest do
       assert html = html_response(conn, 200)
 
       refute html =~ "The team cannot be deleted because it has an active subscription"
-      assert html =~ "Delete \"Foo Crew\""
+      assert html =~ "Delete &quot;Foo Crew&quot;"
     end
 
     test "GET /settings/team/delete - with active subscription", %{conn: conn, user: user} do
