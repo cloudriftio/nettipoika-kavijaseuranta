@@ -459,9 +459,13 @@ defmodule PlausibleWeb.Live.InstallationTest do
     @tag :ce_build_only
     test "localizes manual installation actions and migration guidance", %{
       conn: conn,
-      site: site
+      site: site,
+      user: user
     } do
-      conn = Plug.Test.put_req_cookie(conn, "np_locale", "fi")
+      user
+      |> Plausible.Auth.User.locale_changeset(%{preferred_locale: "fi"})
+      |> Plausible.Repo.update!()
+
       {lv, _} = get_lv(conn, site)
 
       html = render_async(lv, 500)
