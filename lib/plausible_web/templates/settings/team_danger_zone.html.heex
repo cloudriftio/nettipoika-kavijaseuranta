@@ -1,11 +1,11 @@
 <.notice title={gettext("Danger zone")} theme={:red}>
-  {gettext("The actions below can cause permanent data loss. Proceed carefully.")}
+  {gettext("Destructive actions below can result in irrecoverable data loss. Be careful.")}
 </.notice>
 
 <.settings_tiles>
   <.tile docs="delete-team">
     <:title>{gettext("Delete team")}</:title>
-    <:subtitle>{gettext("Remove all associated sites and collected statistics.")}</:subtitle>
+    <:subtitle>{gettext("Remove all associated sites and collected stats.")}</:subtitle>
 
     <%= if Plausible.Billing.Subscription.Status.active?(@current_team && @current_team.subscription) do %>
       <.notice theme={:gray} title={gettext("Cannot delete the team at this time")}>
@@ -17,7 +17,7 @@
       <.button_link
         data-confirm={
           gettext(
-            "Deleting the team also deletes all associated sites and data. This cannot be undone. Continue?"
+            "Deleting the team will also delete all the associated sites and data. This action cannot be reversed. Are you sure?"
           )
         }
         href={Routes.settings_path(@conn, :delete_team)}

@@ -1,5 +1,5 @@
 <.notice title={gettext("Danger zone")} theme={:red}>
-  {gettext("The actions below can cause permanent data loss. Proceed carefully.")}
+  {gettext("Destructive actions below can result in irrecoverable data loss. Be careful.")}
 </.notice>
 
 <.settings_tiles>
@@ -16,8 +16,8 @@
   </.tile>
 
   <.tile :if={Enum.count(Plausible.Teams.Users.teams(@current_user, roles: [:owner, :admin])) > 1}>
-    <:title>{gettext("Change team")}</:title>
-    <:subtitle>{gettext("Move the site to another team that you are a member of.")}</:subtitle>
+    <:title>{gettext("Change Teams")}</:title>
+    <:subtitle>{gettext("Move the site to another team that you are a member of")}</:subtitle>
     <.button_link
       href={Routes.membership_path(@conn, :change_team_form, @site.domain)}
       theme="danger"
@@ -27,29 +27,29 @@
   </.tile>
 
   <.tile>
-    <:title>{gettext("Reset statistics")}</:title>
+    <:title>{gettext("Reset stats")}</:title>
     <:subtitle>
-      {gettext("Delete all statistics while keeping the site configuration.")}
+      {gettext("Reset all stats but keep the site configuration intact.")}
     </:subtitle>
     <.button_link
       href={Routes.site_path(@conn, :reset_stats, @site.domain)}
       method="delete"
-      data-confirm={gettext("Resetting the statistics cannot be undone. Are you sure?")}
+      data-confirm={gettext("Resetting the stats cannot be reversed. Are you sure?")}
       theme="danger"
       mt?={false}
     >
-      {gettext("Reset statistics for %{site}", site: @site.domain)}
+      {gettext("Reset %{site} stats", site: @site.domain)}
     </.button_link>
   </.tile>
 
   <.tile>
     <:title>{gettext("Delete site")}</:title>
-    <:subtitle>{gettext("Permanently delete all statistics and site settings.")}</:subtitle>
+    <:subtitle>{gettext("Permanently delete all stats and site settings.")}</:subtitle>
     <.button_link
       href={Routes.site_path(@conn, :delete_site, @site.domain)}
       theme="danger"
       method="delete"
-      data-confirm={gettext("Deleting the site data cannot be undone. Are you sure?")}
+      data-confirm={gettext("Deleting the site data cannot be reversed. Are you sure?")}
       mt?={false}
     >
       {gettext("Delete %{site}", site: @site.domain)}

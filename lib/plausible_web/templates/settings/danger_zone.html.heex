@@ -1,12 +1,12 @@
 <.notice title={gettext("Danger zone")} theme={:red}>
-  {gettext("The actions below can cause permanent data loss. Proceed carefully.")}
+  {gettext("Destructive actions below can result in irrecoverable data loss. Be careful.")}
 </.notice>
 
 <.settings_tiles>
   <.tile docs="delete-account">
     <:title>{gettext("Delete account")}</:title>
     <:subtitle>
-      {gettext("Permanently delete your sites and all collected statistics.")}
+      {gettext("Permanently deletes your sites and all collected stats.")}
     </:subtitle>
 
     <%= cond do %>
@@ -26,7 +26,7 @@
           </ul>
         </.notice>
       <% Plausible.Billing.Subscription.Status.active?(@my_team && @my_team.subscription) -> %>
-        <.notice theme={:gray} title={gettext("You cannot delete your account yet")}>
+        <.notice theme={:gray} title={gettext("You can't delete your account yet")}>
           {gettext(
             "You have an active subscription. To delete your account, cancel your subscription first."
           )}
@@ -35,7 +35,7 @@
         <.button_link
           data-confirm={
             gettext(
-              "Deleting your account also deletes all sites and data you own. This cannot be undone. Are you sure?"
+              "Deleting your account will also delete all the sites and data that you own. This action cannot be reversed. Are you sure?"
             )
           }
           href="/me"

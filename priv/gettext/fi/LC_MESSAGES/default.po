@@ -73,8 +73,8 @@ msgid "Delete team"
 msgstr "Poista tiimi"
 
 msgid ""
-"Deleting the team also deletes all associated sites and data. This cannot be "
-"undone. Continue?"
+"Deleting the team will also delete all the associated sites and data. This "
+"action cannot be reversed. Are you sure?"
 msgstr ""
 "Tiimin poistaminen poistaa myös kaikki siihen liittyvät sivustot ja tiedot. "
 "Toimintoa ei voi kumota. Jatketaanko?"
@@ -181,7 +181,7 @@ msgstr "Liitä tämä koodinpätkä sivustosi"
 msgid "Public dashboard"
 msgstr "Julkinen hallintanäkymä"
 
-msgid "Remove all associated sites and collected statistics."
+msgid "Remove all associated sites and collected stats."
 msgstr "Poista kaikki liittyvät sivustot ja kerätyt tilastot."
 
 msgid "Request transfer"
@@ -408,7 +408,7 @@ msgstr "Vaihda salasana"
 
 #: lib/plausible_web/templates/site/membership/change_team_form.html.heex:22
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:19
-msgid "Change team"
+msgid "Change Teams"
 msgstr "Vaihda tiimi"
 
 #: lib/plausible_web/templates/settings/security.html.heex:7
@@ -524,7 +524,7 @@ msgid "Delete account"
 msgstr "Poista tili"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:32
-msgid "Delete all statistics while keeping the site configuration."
+msgid "Reset all stats but keep the site configuration intact."
 msgstr "Poista kaikki tilastot mutta säilytä sivuston asetukset."
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:44
@@ -536,13 +536,13 @@ msgid "Delete site"
 msgstr "Poista sivusto"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:52
-msgid "Deleting the site data cannot be undone. Are you sure?"
+msgid "Deleting the site data cannot be reversed. Are you sure?"
 msgstr "Sivuston tietojen poistamista ei voi kumota. Haluatko varmasti jatkaa?"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:35
 msgid ""
-"Deleting your account also deletes all sites and data you own. This cannot "
-"be undone. Are you sure?"
+"Deleting your account will also delete all the sites and data that you own. "
+"This action cannot be reversed. Are you sure?"
 msgstr ""
 "Tilisi poistaminen poistaa myös kaikki omistamasi sivustot ja tiedot. "
 "Toimintoa ei voi kumota. Haluatko varmasti jatkaa?"
@@ -801,7 +801,7 @@ msgid "Lost your recovery codes?"
 msgstr "Kadotitko palautuskoodisi?"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:20
-msgid "Move the site to another team that you are a member of."
+msgid "Move the site to another team that you are a member of"
 msgstr "Siirrä sivusto toiseen tiimiin, jonka jäsen olet."
 
 #: lib/plausible_web/live/sites.ex:852
@@ -895,11 +895,11 @@ msgid "People"
 msgstr "Käyttäjät"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:47
-msgid "Permanently delete all statistics and site settings."
+msgid "Permanently delete all stats and site settings."
 msgstr "Poista kaikki tilastot ja sivuston asetukset pysyvästi."
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:9
-msgid "Permanently delete your sites and all collected statistics."
+msgid "Permanently deletes your sites and all collected stats."
 msgstr "Poista sivustosi ja kaikki kerätyt tilastot pysyvästi."
 
 #: lib/plausible_web/live/sites.ex:614
@@ -959,11 +959,11 @@ msgid "Require two-factor authentication (2FA)"
 msgstr "Vaadi kaksivaiheinen tunnistautuminen (2FA)"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:30
-msgid "Reset statistics"
+msgid "Reset stats"
 msgstr "Nollaa tilastot"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:41
-msgid "Reset statistics for %{site}"
+msgid "Reset %{site} stats"
 msgstr "Nollaa sivuston %{site} tilastot"
 
 #: lib/plausible_web/live/reset_password_form.ex:40
@@ -972,7 +972,7 @@ msgid "Reset your password"
 msgstr "Vaihda salasana"
 
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:37
-msgid "Resetting the statistics cannot be undone. Are you sure?"
+msgid "Resetting the stats cannot be reversed. Are you sure?"
 msgstr "Tilastojen nollaamista ei voi kumota. Haluatko varmasti jatkaa?"
 
 #: lib/plausible_web/templates/site/settings_general.html.heex:51
@@ -1085,7 +1085,7 @@ msgstr "Tiimin asetukset"
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:2
 #: lib/plausible_web/templates/settings/team_danger_zone.html.heex:2
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:2
-msgid "The actions below can cause permanent data loss. Proceed carefully."
+msgid "Destructive actions below can result in irrecoverable data loss. Be careful."
 msgstr "Alla olevat toiminnot voivat hävittää tietoja pysyvästi. Toimi varoen."
 
 #: lib/plausible_web/templates/site/settings_people.html.heex:64
