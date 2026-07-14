@@ -1423,7 +1423,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       resp = html_response(conn, 200)
       assert text_of_attr(resp, @react_container, "data-embedded") == "true"
       refute resp =~ "Kirjaudu sisään"
-      refute resp =~ "Nettipoika Kävijäseuranta"
+      refute element_exists?(resp, "footer")
     end
 
     test "shows locked page if page is locked", %{conn: conn} do
