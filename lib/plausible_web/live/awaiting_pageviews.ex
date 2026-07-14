@@ -63,7 +63,7 @@ defmodule PlausibleWeb.Live.AwaitingPageviews do
     <.focus_box>
       <div class="flex items-center">
         <div class="block pulsating-circle"></div>
-        <p class="ml-8">{gettext("Awaiting your first pageview...")}</p>
+        <p class="ml-8">{gettext("Awaiting your first pageview …")}</p>
       </div>
     </.focus_box>
     """

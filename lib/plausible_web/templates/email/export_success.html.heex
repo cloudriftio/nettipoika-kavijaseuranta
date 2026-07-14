@@ -1,9 +1,9 @@
-{gettext("Your %{product} export for %{site} is ready.",
+{gettext("Your %{product} export for %{site} is now ready for download.",
   product: Plausible.product_name(),
   site: @site.domain
 )}
-{gettext("Click")} <a href={@download_url}>{gettext("here")}</a>
-{gettext("to download it.")}
+{gettext("Please click")} <a href={@download_url}>{gettext("here")}</a>
+{gettext("to start the download process.")}
 <%= if @expires_in do %>
-  {gettext("This link expires %{expires_in}.", expires_in: @expires_in)}
+  {gettext("Note that this link will expire %{expires_in}.", expires_in: @expires_in)}
 <% end %>

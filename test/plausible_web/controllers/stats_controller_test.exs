@@ -120,7 +120,7 @@ defmodule PlausibleWeb.StatsControllerTest do
     test "can not view stats of a private website", %{conn: conn} do
       _ = insert(:user)
       conn = get(conn, "/test-site.com")
-      assert html_response(conn, 404) =~ "There's nothing here"
+      assert html_response(conn, 404) =~ "nothing here"
     end
   end
 
@@ -280,7 +280,7 @@ defmodule PlausibleWeb.StatsControllerTest do
     test "can not view stats of someone else's website", %{conn: conn} do
       site = new_site()
       conn = get(conn, "/" <> site.domain)
-      assert html_response(conn, 404) =~ "There's nothing here"
+      assert html_response(conn, 404) =~ "nothing here"
     end
 
     test "does not show CRM link to the site", %{conn: conn, site: site} do

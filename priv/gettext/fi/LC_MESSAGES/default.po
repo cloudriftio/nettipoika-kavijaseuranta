@@ -25,8 +25,10 @@ msgstr "Seuraa tiedostolatauksia automaattisesti."
 msgid "Automatically track form submissions."
 msgstr "Seuraa lomakkeiden lähetyksiä automaattisesti."
 
-msgid "Cancel the active subscription before deleting the team."
-msgstr "Peruuta aktiivinen tilaus ennen tiimin poistamista."
+msgid ""
+"The team cannot be deleted because it has an active subscription. Please "
+"cancel the subscription first."
+msgstr "Tiimiä ei voi poistaa aktiivisen tilauksen vuoksi. Peruuta tilaus ensin."
 
 msgid "Can view statistics but cannot access settings."
 msgstr "Voi tarkastella tilastoja mutta ei pääse asetuksiin."
@@ -216,8 +218,8 @@ msgstr ""
 msgid "System"
 msgstr "Järjestelmä"
 
-msgid "The team cannot be deleted now"
-msgstr "Tiimiä ei voi poistaa nyt"
+msgid "Cannot delete the team at this time"
+msgstr "Tiimiä ei voi poistaa tällä hetkellä"
 
 msgid "Tracker installation"
 msgstr "Seurannan asennus"
@@ -444,7 +446,7 @@ msgstr ""
 "evästeitä."
 
 #: lib/plausible_web/templates/email/export_success.html.heex:5
-msgid "Click"
+msgid "Please click"
 msgstr "Napsauta"
 
 #: lib/plausible_web/live/components/verification.ex:138
@@ -1091,8 +1093,8 @@ msgid "Theme"
 msgstr "Teema"
 
 #: lib/plausible_web/templates/email/export_success.html.heex:8
-msgid "This link expires %{expires_in}."
-msgstr "Linkki vanhenee %{expires_in}."
+msgid "Note that this link will expire %{expires_in}."
+msgstr "Huomaa, että linkki vanhenee %{expires_in}."
 
 #: lib/plausible_web/templates/email/password_reset_email.html.heex:3
 msgid ""
@@ -1234,7 +1236,7 @@ msgid "Your %{product} export for %{site} failed."
 msgstr "Palvelun %{product} vienti sivustolle %{site} epäonnistui."
 
 #: lib/plausible_web/templates/email/export_success.html.heex:1
-msgid "Your %{product} export for %{site} is ready."
+msgid "Your %{product} export for %{site} is now ready for download."
 msgstr "Palvelun %{product} vienti sivustolle %{site} on valmis."
 
 #: lib/plausible_web/templates/settings/preferences.html.heex:4
@@ -1277,7 +1279,7 @@ msgid "to create your account. The link is valid for 48 hours."
 msgstr "luodaksesi käyttäjätilin. Linkki on voimassa 48 tuntia."
 
 #: lib/plausible_web/templates/email/export_success.html.heex:6
-msgid "to download it."
+msgid "to start the download process."
 msgstr "ladataksesi viennin."
 
 #: lib/plausible_web/templates/auth/login_form.html.heex:71
@@ -1313,6 +1315,10 @@ msgstr "Lisää tavoite"
 #: lib/plausible_web/live/components/verification.ex:84
 msgid "Awaiting your first pageview..."
 msgstr "Odotetaan ensimmäistä sivulatausta..."
+
+#: lib/plausible_web/live/awaiting_pageviews.ex:66
+msgid "Awaiting your first pageview …"
+msgstr "Odotetaan ensimmäistä sivulatausta …"
 
 #: lib/plausible_web/live/goal_settings/list.ex:93
 msgid "Belongs to a funnel"

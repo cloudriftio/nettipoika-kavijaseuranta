@@ -8,8 +8,10 @@
     <:subtitle>{gettext("Remove all associated sites and collected statistics.")}</:subtitle>
 
     <%= if Plausible.Billing.Subscription.Status.active?(@current_team && @current_team.subscription) do %>
-      <.notice theme={:gray} title={gettext("The team cannot be deleted now")}>
-        {gettext("Cancel the active subscription before deleting the team.")}
+      <.notice theme={:gray} title={gettext("Cannot delete the team at this time")}>
+        {gettext(
+          "The team cannot be deleted because it has an active subscription. Please cancel the subscription first."
+        )}
       </.notice>
     <% else %>
       <.button_link

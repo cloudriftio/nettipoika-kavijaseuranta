@@ -144,7 +144,7 @@ defmodule Plausible.Workers.AcceptTrafficUntilTest do
 
   defp assert_weekly_notification(email) when is_binary(email) do
     assert_email_delivered_with(
-      html_body: ~r/Hey Jane,/,
+      html_body: ~r/Hei Jane,/,
       to: [nil: email],
       subject:
         PlausibleWeb.Email.approaching_accept_traffic_until(%{
@@ -157,7 +157,7 @@ defmodule Plausible.Workers.AcceptTrafficUntilTest do
 
   defp assert_final_notification(email) when is_binary(email) do
     assert_email_delivered_with(
-      html_body: ~r/Hey Jane,/,
+      html_body: ~r/Hei Jane,/,
       to: [nil: email],
       subject:
         PlausibleWeb.Email.approaching_accept_traffic_until_tomorrow(%{
