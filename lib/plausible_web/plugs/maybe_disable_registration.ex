@@ -5,6 +5,7 @@ defmodule PlausibleWeb.Plugs.MaybeDisableRegistration do
 
   import Phoenix.Controller
   import Plug.Conn
+  use Gettext, backend: PlausibleWeb.Gettext
 
   alias Plausible.Release
   alias PlausibleWeb.Router.Helpers, as: Routes
@@ -22,7 +23,7 @@ defmodule PlausibleWeb.Plugs.MaybeDisableRegistration do
 
     if not first_launch? and disable_registration in disabled_for do
       conn
-      |> put_flash(:error, "Registration is disabled on this instance")
+      |> put_flash(:error, gettext("Registration is disabled on this instance"))
       |> redirect(to: Routes.auth_path(conn, :login_form))
       |> halt()
     else

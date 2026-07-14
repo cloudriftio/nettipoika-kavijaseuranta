@@ -2530,3 +2530,15 @@ msgstr "Ylläpitäjä"
 
 msgid "Billing"
 msgstr "Laskutus"
+
+msgid "You"
+msgstr "Sinä"
+
+msgid "Wrong email or password. Please try again."
+msgstr "Väärä sähköpostiosoite tai salasana. Yritä uudelleen."
+
+msgid "Too many login attempts. Wait a minute before trying again."
+msgstr "Liian monta kirjautumisyritystä. Odota hetki ja yritä uudelleen."
+
+msgid "Registration is disabled on this instance"
+msgstr "Rekisteröityminen on poistettu käytöstä tässä palvelussa"
