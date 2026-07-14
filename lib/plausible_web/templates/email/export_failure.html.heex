@@ -2,9 +2,8 @@
   product: Plausible.product_name(),
   site: @site.domain
 )}
-{gettext("Sorry for the trouble this may have caused.")} <br /><br /> {gettext(
-  "Please attempt to export your data again."
-)}
+{gettext("Sorry for the trouble this may have caused.")}
+<br /><br /> {gettext("Please attempt to export your data again.")}
 <%= if ee?() do %>
   Should the problem persist, do reply to this email so we can assist. Thanks!
 <% end %>
