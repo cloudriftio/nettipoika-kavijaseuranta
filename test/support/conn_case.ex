@@ -36,6 +36,10 @@ defmodule PlausibleWeb.ConnCase do
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Plausible.Repo)
 
+    # Keep the upstream UI assertions deterministic in English. Tests that
+    # exercise localization select Finnish explicitly.
+    Gettext.put_locale(PlausibleWeb.Gettext, "en")
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Plausible.Repo, {:shared, self()})
     end
@@ -47,6 +51,7 @@ defmodule PlausibleWeb.ConnCase do
     conn =
       Phoenix.ConnTest.build_conn()
       |> Map.put(:secret_key_base, secret_key_base())
+      |> Plug.Conn.put_req_header("accept-language", "en")
       |> Plug.Conn.put_req_header("x-forwarded-for", Plausible.TestUtils.random_ip())
 
     {:ok, conn: conn}
