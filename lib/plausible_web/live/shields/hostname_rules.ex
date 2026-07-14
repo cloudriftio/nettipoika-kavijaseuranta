@@ -36,7 +36,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
         <.tile docs="excluding#exclude-visits-by-hostname">
           <:title>{gettext("Hostnames allow list")}</:title>
           <:subtitle :if={not Enum.empty?(@hostname_rules)}>
-            {gettext("Accept incoming traffic only from known hostnames.")}
+            {gettext("Accept incoming traffic only from familiar hostnames.")}
           </:subtitle>
 
           <%= if Enum.empty?(@hostname_rules) do %>
@@ -46,7 +46,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
               </h3>
               <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
                 {gettext(
-                  "Accept incoming traffic only from known hostnames. Traffic from every hostname is recorded until you add the first rule."
+                  "Accept incoming traffic only from familiar hostnames. Traffic from all hostnames is recorded until you add your first rule."
                 )}
                 <.styled_link
                   href="https://plausible.io/docs/excluding#exclude-visits-by-hostname"
@@ -185,11 +185,11 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
 
                 <%= if @hostname_rules_count >= 1 do %>
                   {gettext(
-                    "After it is added, traffic from this hostname will be accepted within a few minutes."
+                    "Once added, we will start accepting traffic from this hostname within a few minutes."
                   )}
                 <% else %>
                   {gettext(
-                    "Note: after the first rule is added, traffic from other hostnames will be rejected within a few minutes."
+                    "NB: Once added, we will start rejecting traffic from non-matching hostnames within a few minutes."
                   )}
                 <% end %>
               </p>

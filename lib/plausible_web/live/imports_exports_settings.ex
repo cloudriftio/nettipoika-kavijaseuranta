@@ -58,7 +58,7 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
 
         at_maximum? ->
           gettext(
-            "The maximum of %{count} imports has been reached. Delete or cancel an existing import to start a new one.",
+            "Maximum of %{count} imports is reached. Delete or cancel an existing import to start a new one.",
             count: assigns.max_imports
           )
 

@@ -3,6 +3,12 @@ defmodule PlausibleWeb.Locale do
 
   @supported ~w(fi en)
 
+  def default do
+    :plausible
+    |> Application.get_env(PlausibleWeb.Gettext, [])
+    |> Keyword.get(:default_locale, "fi")
+  end
+
   def from_conn(conn) do
     user_locale = conn.assigns[:current_user] && conn.assigns.current_user.preferred_locale
 
@@ -24,7 +30,7 @@ defmodule PlausibleWeb.Locale do
     |> List.first("")
     |> String.split(",")
     |> Enum.map(&(&1 |> String.split(";") |> hd() |> String.trim() |> String.downcase()))
-    |> Enum.find_value("fi", fn
+    |> Enum.find_value(default(), fn
       "fi" <> _ -> "fi"
       "en" <> _ -> "en"
       _ -> nil

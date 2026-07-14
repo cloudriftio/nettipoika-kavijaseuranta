@@ -8,7 +8,7 @@ defmodule PlausibleWeb.Live.Locale do
       PlausibleWeb.Locale.normalize(
         socket.assigns[:current_user] && socket.assigns.current_user.preferred_locale
       ) ||
-        PlausibleWeb.Locale.normalize(session["locale"]) || "fi"
+        PlausibleWeb.Locale.normalize(session["locale"]) || PlausibleWeb.Locale.default()
 
     Gettext.put_locale(PlausibleWeb.Gettext, locale)
     {:cont, assign(socket, :locale, locale)}
