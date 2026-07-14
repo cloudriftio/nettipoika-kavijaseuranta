@@ -461,7 +461,7 @@ defmodule PlausibleWeb.Live.InstallationTest do
       conn: conn,
       site: site
     } do
-      conn = Plug.Conn.put_req_cookie(conn, "np_locale", "fi")
+      conn = Plug.Test.put_req_cookie(conn, "np_locale", "fi")
       {lv, _} = get_lv(conn, site)
 
       html = render_async(lv, 500)

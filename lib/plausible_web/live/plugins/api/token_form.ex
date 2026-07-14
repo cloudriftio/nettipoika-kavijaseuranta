@@ -62,7 +62,7 @@ defmodule PlausibleWeb.Live.Plugins.API.TokenForm do
               <.input_with_clipboard
                 id="token-clipboard"
                 name="token_clipboard"
-                label={gettext("Plugin token")}
+                label={gettext("Plugin Token")}
                 value={@token.raw}
               />
             </div>

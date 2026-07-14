@@ -2732,7 +2732,7 @@ msgstr "Avaa lisätiedot napsauttamalla."
 msgid "Copy"
 msgstr "Kopioi"
 
-msgid "Plugin token"
+msgid "Plugin Token"
 msgstr "Lisäosan tunniste"
 
 msgid "Copy the token and store it in a secure place, as it won't be shown again."
