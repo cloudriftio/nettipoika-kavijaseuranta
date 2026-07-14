@@ -16,6 +16,7 @@ import { citiesRoute, countriesRoute, regionsRoute } from '../../router'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { TabButton, TabWrapper } from '../../components/tabs'
+import { t } from '../../../i18n'
 
 function Countries({ query, site, onClick, afterFetchData }) {
   function fetchData() {
@@ -49,7 +50,7 @@ function Countries({ query, site, onClick, afterFetchData }) {
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
       onClick={onClick}
-      keyLabel="Country"
+      keyLabel={t('country')}
       metrics={chooseMetrics()}
       detailsLinkProps={{
         path: countriesRoute.path,
@@ -93,7 +94,7 @@ function Regions({ query, site, onClick, afterFetchData }) {
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
       onClick={onClick}
-      keyLabel="Region"
+      keyLabel={t('region')}
       metrics={chooseMetrics()}
       detailsLinkProps={{ path: regionsRoute.path, search: (search) => search }}
       renderIcon={renderIcon}
@@ -133,7 +134,7 @@ function Cities({ query, site, afterFetchData }) {
       fetchData={fetchData}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="City"
+      keyLabel={t('city')}
       metrics={chooseMetrics()}
       detailsLinkProps={{ path: citiesRoute.path, search: (search) => search }}
       renderIcon={renderIcon}
@@ -143,9 +144,9 @@ function Cities({ query, site, afterFetchData }) {
 }
 
 const labelFor = {
-  countries: 'Countries',
-  regions: 'Regions',
-  cities: 'Cities'
+  countries: 'countries',
+  regions: 'regions',
+  cities: 'cities'
 }
 
 class Locations extends React.Component {
@@ -257,7 +258,7 @@ class Locations extends React.Component {
         <div className="w-full flex justify-between">
           <div className="flex gap-x-1">
             <h3 className="font-bold dark:text-gray-100">
-              {labelFor[this.state.mode] || 'Locations'}
+              {t(labelFor[this.state.mode] || 'locations')}
             </h3>
             <ImportedQueryUnsupportedWarning
               loading={this.state.loading}
@@ -266,10 +267,10 @@ class Locations extends React.Component {
           </div>
           <TabWrapper>
             {[
-              { label: 'Map', value: 'map' },
-              { label: 'Countries', value: 'countries' },
-              { label: 'Regions', value: 'regions' },
-              { label: 'Cities', value: 'cities' }
+              { label: t('map'), value: 'map' },
+              { label: t('countries'), value: 'countries' },
+              { label: t('regions'), value: 'regions' },
+              { label: t('cities'), value: 'cities' }
             ].map(({ value, label }) => (
               <TabButton
                 key={value}

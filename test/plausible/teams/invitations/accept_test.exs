@@ -5,7 +5,7 @@ defmodule Plausible.Teams.Invitations.AcceptTest do
 
   alias Plausible.Teams.Invitations.Accept
 
-  @subject_prefix if ee?(), do: "[Plausible Analytics] ", else: "[Plausible CE] "
+  @subject_prefix "[#{Plausible.product_name()}] "
 
   describe "accept_invitation/3 - team invitations" do
     @roles Plausible.Teams.Membership.roles() -- [:guest]

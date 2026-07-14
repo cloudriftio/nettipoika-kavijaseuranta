@@ -11,6 +11,7 @@ import * as url from '../../util/url'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { SortDirection } from '../../hooks/use-order-by'
+import { t } from '../../../i18n'
 
 function EntryPagesModal() {
   const { query } = useQueryContext()
@@ -20,10 +21,10 @@ function EntryPagesModal() {
   const showRevenueMetrics = BUILD_EXTRA && revenueAvailable(query, site)
 
   const reportInfo = {
-    title: 'Entry pages',
+    title: t('entryPages'),
     dimension: 'entry_page',
     endpoint: url.apiPath(site, '/entry-pages'),
-    dimensionLabel: 'Entry page',
+    dimensionLabel: t('entryPage'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 
@@ -54,7 +55,7 @@ function EntryPagesModal() {
       return [
         metrics.createTotalVisitors(),
         metrics.createVisitors({
-          renderLabel: (_query) => 'Conversions',
+          renderLabel: (_query) => t('conversions'),
           width: 'w-28'
         }),
         metrics.createConversionRate(),
@@ -66,16 +67,16 @@ function EntryPagesModal() {
     if (isRealTimeDashboard(query)) {
       return [
         metrics.createVisitors({
-          renderLabel: (_query) => 'Current visitors',
+          renderLabel: (_query) => t('currentVisitorsLabel'),
           width: 'w-32'
         })
       ]
     }
 
     return [
-      metrics.createVisitors({ renderLabel: (_query) => 'Visitors' }),
+      metrics.createVisitors({ renderLabel: (_query) => t('visitors') }),
       metrics.createVisits({
-        renderLabel: (_query) => 'Total entrances',
+        renderLabel: (_query) => t('totalEntrances'),
         width: 'w-32'
       }),
       metrics.createBounceRate(),

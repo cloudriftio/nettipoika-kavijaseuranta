@@ -1,6 +1,7 @@
 defmodule PlausibleWeb.Plugs.LegacyHostRedirectTest do
   use ExUnit.Case, async: false
 
+  import Plug.Conn, only: [get_resp_header: 2]
   import Plug.Test
 
   alias PlausibleWeb.Plugs.LegacyHostRedirect
@@ -28,12 +29,22 @@ defmodule PlausibleWeb.Plugs.LegacyHostRedirectTest do
       |> LegacyHostRedirect.call([])
 
     assert conn.status == 308
-    assert get_resp_header(conn, "location") == [PlausibleWeb.Endpoint.url() <> "/sites?period=30d"]
+
+    assert get_resp_header(conn, "location") == [
+             PlausibleWeb.Endpoint.url() <> "/sites?period=30d"
+           ]
+
     assert conn.halted
   end
 
   test "keeps tracker and event API routes available on a legacy host" do
-    for path <- ["/js/script.js", "/api/event", "/css/app.css", "/images/logo.png", "/favicon.ico"] do
+    for path <- [
+          "/js/script.js",
+          "/api/event",
+          "/css/app.css",
+          "/images/logo.png",
+          "/favicon.ico"
+        ] do
       conn =
         conn(:get, path)
         |> Map.put(:host, "plausible.cloudrift.io")

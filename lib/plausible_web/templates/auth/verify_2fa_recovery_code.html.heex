@@ -22,6 +22,7 @@
 
   <.form
     :let={f}
+    id="verify-2fa-recovery-code-form"
     for={@conn.params}
     action={Routes.auth_path(@conn, :verify_2fa_recovery_code)}
     onsubmit="document.getElementById('use-code-button').disabled = true"

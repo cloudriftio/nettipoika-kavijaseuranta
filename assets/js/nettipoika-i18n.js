@@ -181,23 +181,10 @@ function translateElement(element) {
 export function initNettipoikaLocalization() {
   if (locale() !== 'fi') return
 
+  // Transitional compatibility pass for server views that have not yet been
+  // migrated to Gettext. Dynamic LiveView and React content is translated at
+  // its source and no longer depends on a DOM observer.
   translateElement(document.body)
-
-  const observer = new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      if (mutation.type === 'characterData') translateTextNode(mutation.target)
-      for (const node of mutation.addedNodes) {
-        if (node.nodeType === Node.TEXT_NODE) translateTextNode(node)
-        if (node.nodeType === Node.ELEMENT_NODE) translateElement(node)
-      }
-    }
-  })
-
-  observer.observe(document.body, {
-    characterData: true,
-    childList: true,
-    subtree: true
-  })
 }
 
 export { finnish }

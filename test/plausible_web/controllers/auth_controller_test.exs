@@ -44,7 +44,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert_delivered_email_matches(%{to: [{_, user_email}], subject: subject})
       assert user_email == "user@example.com"
-      assert subject =~ "is your Plausible email verification code"
+      assert subject =~ "on Nettipoika Kävijäseurannan vahvistuskoodisi"
     end
 
     test "user is redirected to activate page after registration", %{conn: conn} do
@@ -141,7 +141,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert_delivered_email_matches(%{to: [{_, user_email}], subject: subject})
       assert user_email == "user@example.com"
-      assert subject =~ "is your Plausible email verification code"
+      assert subject =~ "on Nettipoika Kävijäseurannan vahvistuskoodisi"
     end
 
     test "user is redirected to activate page after registration", %{conn: conn} do
@@ -356,7 +356,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert_delivered_email_matches(%{to: [{_, user_email}], subject: subject})
       assert user_email == user.email
-      assert subject =~ "is your Plausible email verification code"
+      assert subject =~ "on Nettipoika Kävijäseurannan vahvistuskoodisi"
     end
 
     test "redirects user to /activate", %{conn: conn} do
@@ -472,7 +472,7 @@ defmodule PlausibleWeb.AuthControllerTest do
   describe "GET /login_form" do
     test "shows the login form", %{conn: conn} do
       conn = get(conn, "/login")
-      assert html_response(conn, 200) =~ "Enter your account credentials"
+      assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
     end
 
     test "renders `return_to` query param as hidden input", %{conn: conn} do
@@ -481,7 +481,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       input_value =
         conn
         |> html_response(200)
-        |> text_of_attr("input[name=return_to]", "value")
+        |> text_of_attr("#login-form input[name=return_to]", "value")
 
       assert input_value == "/dummy.site"
     end
@@ -497,7 +497,7 @@ defmodule PlausibleWeb.AuthControllerTest do
     test "keeps standard login form if preference manually overridden", %{conn: conn} do
       conn = PlausibleWeb.LoginPreference.set_sso(conn)
       conn = get(conn, "/login?prefer=manual")
-      assert html_response(conn, 200) =~ "Enter your account credentials"
+      assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
     end
   end
 
@@ -639,7 +639,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         conn = post(conn, "/login", email: member.email, password: "password")
 
         assert get_session(conn, :user_token) == nil
-        assert html_response(conn, 200) =~ "Enter your account credentials"
+        assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
       end
 
       test "SSO user other than owner with personal team - renders login form again", %{
@@ -663,7 +663,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         conn = post(conn, "/login", email: member.email, password: "password")
 
         assert get_session(conn, :user_token) == nil
-        assert html_response(conn, 200) =~ "Enter your account credentials"
+        assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
       end
     end
 
@@ -671,7 +671,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       conn = post(conn, "/login", email: "user@example.com", password: "password")
 
       assert get_session(conn, :user_token) == nil
-      assert html_response(conn, 200) =~ "Enter your account credentials"
+      assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
     end
 
     test "bad password - renders login form again", %{conn: conn} do
@@ -679,7 +679,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       conn = post(conn, "/login", email: user.email, password: "wrong")
 
       assert get_session(conn, :user_token) == nil
-      assert html_response(conn, 200) =~ "Enter your account credentials"
+      assert html_response(conn, 200) =~ "Syötä kirjautumistietosi"
     end
 
     test "limits login attempts to 5 per minute" do
@@ -738,7 +738,9 @@ defmodule PlausibleWeb.AuthControllerTest do
   describe "GET /password/request-reset" do
     test "renders the form", %{conn: conn} do
       conn = get(conn, "/password/request-reset")
-      assert html_response(conn, 200) =~ "Enter your email so we can send a password reset link"
+
+      assert html_response(conn, 200) =~
+               "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
     end
   end
 
@@ -746,7 +748,8 @@ defmodule PlausibleWeb.AuthControllerTest do
     test "email is empty - renders form with error", %{conn: conn} do
       conn = post(conn, "/password/request-reset", %{email: ""})
 
-      assert html_response(conn, 200) =~ "Enter your email so we can send a password reset link"
+      assert html_response(conn, 200) =~
+               "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
     end
 
     test "email is present and exists - sends password reset email", %{conn: conn} do
@@ -755,7 +758,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       conn = post(conn, "/password/request-reset", %{email: user.email})
 
       assert html_response(conn, 200) =~ "Success!"
-      assert_email_delivered_with(subject: "Plausible password reset")
+      assert_email_delivered_with(subject: "Nettipoika Kävijäseurannan salasanan palautus")
     end
 
     test "renders captcha errors in case of captcha input verification failure", %{conn: conn} do
@@ -778,7 +781,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         assert html_response(conn, 200)
 
         assert_email_delivered_with(
-          subject: "Plausible password reset",
+          subject: "Nettipoika Kävijäseurannan salasanan palautus",
           to: [nil: user.email]
         )
       end
@@ -797,7 +800,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         assert html_response(conn, 200)
 
         refute_email_delivered_with(
-          subject: "Plausible password reset",
+          subject: "Nettipoika Kävijäseurannan salasanan palautus",
           to: [nil: user.email]
         )
       end
@@ -810,7 +813,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       token = Plausible.Auth.Token.sign_password_reset(user.email)
       conn = get(conn, "/password/reset", %{token: token})
 
-      assert html_response(conn, 200) =~ "Reset your password"
+      assert html_response(conn, 200) =~ "Vaihda salasana"
     end
 
     test "with invalid token - shows error page", %{conn: conn} do
@@ -858,7 +861,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       {:ok, %{conn: conn}} = PlausibleWeb.FirstLaunchPlug.Test.skip(%{conn: recycle(conn)})
       conn = get(conn, location)
-      assert html_response(conn, 200) =~ "Welcome to Plausible!"
+      assert html_response(conn, 200) =~ "Nettipoika Kävijäseuranta"
     end
 
     test "redirects user to `redirect` param when provided", %{conn: conn} do
@@ -1340,14 +1343,14 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert html = html_response(conn, 200)
 
-      assert text_of_attr(html, "form", "action") ==
+      assert text_of_attr(html, "#verify-2fa-form", "action") ==
                Routes.auth_path(conn, :verify_2fa, return_to: Routes.settings_path(conn, :index))
 
       assert element_exists?(html, "input[name=code]")
 
       assert element_exists?(html, "input[name=remember_2fa]")
 
-      assert text_of_attr(html, "input[name=return_to]", "value") ==
+      assert text_of_attr(html, "#verify-2fa-form input[name=return_to]", "value") ==
                Routes.settings_path(conn, :index)
 
       assert element_exists?(
@@ -1603,7 +1606,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert html = html_response(conn, 200)
 
-      assert text_of_attr(html, "form", "action") ==
+      assert text_of_attr(html, "#verify-2fa-recovery-code-form", "action") ==
                Routes.auth_path(conn, :verify_2fa_recovery_code)
 
       assert element_exists?(html, "input[name=recovery_code]")

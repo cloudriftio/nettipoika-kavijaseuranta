@@ -1,32 +1,34 @@
 <.focus_box>
   <:title>
-    Nettipoika Kävijäseuranta
+    {gettext("Nettipoika Visitor Analytics")}
   </:title>
 
   <p>
-    Selkeät ja yksityisyyttä kunnioittavat verkkosivujen kävijätilastot ilman evästeitä.
+    {gettext("Clear, privacy-friendly website analytics without cookies.")}
   </p>
 
   <:footer>
     <.focus_list>
       <:item>
         <.styled_link href={Routes.auth_path(@conn, :login)}>
-          Login
+          {gettext("Log in")}
         </.styled_link>
       </:item>
-      <:item>
+      <:item :if={
+        Keyword.fetch!(Application.get_env(:plausible, :selfhost), :disable_registration) == false
+      }>
         <.styled_link href={Routes.auth_path(@conn, :register_form)}>
-          Register
+          {gettext("Register")}
         </.styled_link>
       </:item>
       <:item>
         <.styled_link href="https://plausible.io/docs">
-          Ohjeet
+          {gettext("Documentation")}
         </.styled_link>
       </:item>
       <:item>
         <.styled_link href="/open-source">
-          Lähdekoodi (AGPL)
+          {gettext("Source code (AGPL)")}
         </.styled_link>
       </:item>
     </.focus_list>

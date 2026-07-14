@@ -12,13 +12,14 @@ import { BlurMenuButtonOnEscape, popover } from '../../components/popover'
 import { DashboardQuery } from '../../query'
 import { Dayjs } from 'dayjs'
 import { QueryPeriod } from '../../query-time-periods'
+import { t, TranslationKey } from '../../../i18n'
 
-const INTERVAL_LABELS: Record<string, string> = {
-  minute: 'Minutes',
-  hour: 'Hours',
-  day: 'Days',
-  week: 'Weeks',
-  month: 'Months'
+const INTERVAL_KEYS: Record<string, TranslationKey> = {
+  minute: 'minutes',
+  hour: 'hours',
+  day: 'days',
+  week: 'weeks',
+  month: 'months'
 }
 
 function validIntervals(site: PlausibleSite, query: DashboardQuery): string[] {
@@ -142,7 +143,7 @@ export function IntervalPicker({
                 'rounded-sm text-sm flex items-center'
               )}
             >
-              {INTERVAL_LABELS[currentInterval]}
+              {t(INTERVAL_KEYS[currentInterval])}
               <ChevronDownIcon className="ml-1 h-4 w-4" aria-hidden="true" />
             </Popover.Button>
 
@@ -175,7 +176,7 @@ export function IntervalPicker({
                       'w-full text-left'
                     )}
                   >
-                    {INTERVAL_LABELS[option]}
+                    {t(INTERVAL_KEYS[option])}
                   </button>
                 ))}
               </Popover.Panel>

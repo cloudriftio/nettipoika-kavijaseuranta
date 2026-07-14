@@ -22,14 +22,24 @@
             <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
             <input type="hidden" name="locale" value="fi" />
             <input type="hidden" name="return_to" value={@conn.request_path} />
-            <button class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="submit">FI</button>
+            <button
+              class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              type="submit"
+            >
+              FI
+            </button>
           </form>
           <span class="text-gray-300 dark:text-gray-700">/</span>
           <form method="post" action="/locale">
             <input type="hidden" name="_csrf_token" value={Plug.CSRFProtection.get_csrf_token()} />
             <input type="hidden" name="locale" value="en" />
             <input type="hidden" name="return_to" value={@conn.request_path} />
-            <button class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" type="submit">EN</button>
+            <button
+              class="text-xs font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              type="submit"
+            >
+              EN
+            </button>
           </form>
         </div>
         <%= cond do %>
@@ -78,7 +88,9 @@
                   </:button>
                   <:menu>
                     <.dropdown_item>
-                      <div class="text-xs text-gray-500 dark:text-gray-400">Signed in as</div>
+                      <div class="text-xs text-gray-500 dark:text-gray-400">
+                        {gettext("Signed in as")}
+                      </div>
                       <p class="truncate font-medium text-gray-900 dark:text-gray-100" role="none">
                         {@conn.assigns[:current_user].email}
                       </p>
@@ -92,13 +104,13 @@
                     />
                     <.dropdown_divider />
                     <.dropdown_item href={Routes.settings_path(@conn, :index)}>
-                      Account settings
+                      {gettext("Account settings")}
                     </.dropdown_item>
 
                     <div :if={@my_team && @my_team.id == @current_team.id}>
                       <.dropdown_item class="flex" href={Routes.team_setup_path(@conn, :setup)}>
                         <span data-test="create-a-team-cta" class="flex-1">
-                          Create a team
+                          {gettext("Create a team")}
                         </span>
                       </.dropdown_item>
                       <.dropdown_divider />
@@ -110,7 +122,7 @@
                         href={Routes.settings_path(@conn, :team_general)}
                       >
                         <span class="flex-1">
-                          Team settings
+                          {gettext("Team settings")}
                         </span>
                       </.dropdown_item>
                       <.dropdown_divider />
@@ -120,7 +132,7 @@
                       new_tab
                       href="https://plausible.io/docs"
                     >
-                      Help center
+                      {gettext("Help center")}
                     </.dropdown_item>
                     <.dropdown_item
                       :if={ee?()}
@@ -147,8 +159,8 @@
                       Lähdekoodi (AGPL)
                     </.dropdown_item>
                     <.dropdown_divider />
-                    <.dropdown_item href="/open-source">Open source</.dropdown_item>
-                    <.dropdown_item href="/logout">Log out</.dropdown_item>
+                    <.dropdown_item href="/open-source">{gettext("Open source")}</.dropdown_item>
+                    <.dropdown_item href="/logout">{gettext("Log out")}</.dropdown_item>
                   </:menu>
                 </.dropdown>
               </li>
@@ -164,7 +176,7 @@
                     href="/login"
                     class="font-medium text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-hidden focus:text-gray-900 transition duration-150 ease-in-out"
                   >
-                    Login
+                    {gettext("Log in")}
                   </a>
                 </div>
               </li>
@@ -177,7 +189,7 @@
                     href="/login"
                     class="font-medium text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-hidden focus:text-gray-900 transition duration-150 ease-in-out"
                   >
-                    Login
+                    {gettext("Log in")}
                   </a>
                 </div>
                 <div class="inline-flex ml-6 rounded-sm shadow-sm">
@@ -185,7 +197,7 @@
                     href="/register"
                     class="inline-flex items-center justify-center px-5 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent leading-6 rounded-md hover:bg-indigo-500 focus:outline-hidden focus:ring transition duration-150 ease-in-out"
                   >
-                    Sign up
+                    {gettext("Sign up")}
                   </a>
                 </div>
               </li>

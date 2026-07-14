@@ -7,6 +7,7 @@ import { useQueryContext } from '../query-context'
 import { useSiteContext } from '../site-context'
 import { useLastLoadContext } from '../last-load-context'
 import classNames from 'classnames'
+import { t, tn } from '../../i18n'
 
 export default function CurrentVisitors({
   className = '',
@@ -16,6 +17,9 @@ export default function CurrentVisitors({
   const lastLoadTimestamp = useLastLoadContext()
   const site = useSiteContext()
   const [currentVisitors, setCurrentVisitors] = useState(null)
+  const [lastUpdatedPrefix, lastUpdatedSuffix] = t(
+    'lastUpdatedSecondsAgo'
+  ).split('{{seconds}}')
 
   const updateCount = useCallback(() => {
     api
@@ -41,12 +45,12 @@ export default function CurrentVisitors({
         info={
           <div>
             <p className="whitespace-nowrap text-small">
-              Last updated{' '}
-              <SecondsSinceLastLoad lastLoadTimestamp={lastLoadTimestamp} />s
-              ago
+              {lastUpdatedPrefix}
+              <SecondsSinceLastLoad lastLoadTimestamp={lastLoadTimestamp} />
+              {lastUpdatedSuffix}
             </p>
             <p className="whitespace-nowrap font-normal text-xs">
-              Click to view realtime dashboard
+              {t('realtimeDashboardHint')}
             </p>
           </div>
         }
@@ -67,11 +71,10 @@ export default function CurrentVisitors({
             <circle cx="8" cy="8" r="8" />
           </svg>
           <div className="inline-block">
-            {currentVisitors}
             <span className="hidden lg:inline">
-              {' '}
-              current visitor{currentVisitors === 1 ? '' : 's'}
+              {tn('currentVisitor', 'currentVisitors', currentVisitors)}
             </span>
+            <span className="lg:hidden">{currentVisitors}</span>
           </div>
         </AppNavigationLink>
       </Tooltip>

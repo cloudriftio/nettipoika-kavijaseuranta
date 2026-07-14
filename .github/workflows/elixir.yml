@@ -3,7 +3,7 @@ name: Elixir CI
 on:
   pull_request:
   push:
-    branches: [master, stable]
+    branches: [main, master, stable]
   merge_group:
 
 concurrency:
@@ -17,8 +17,9 @@ env:
 jobs:
   build:
     name: "Build and test (${{ matrix.mix_env }}, ${{ matrix.postgres_image }})"
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         mix_env: ["test", "ce_test"]
         postgres_image: ["postgres:18"]
@@ -116,7 +117,10 @@ jobs:
 
   e2e:
     name: End-to-end tests
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    # The v3.2.1 Community Edition source tag does not ship config/e2e_test.exs
+    # or the e2e/ Playwright suite. Live browser smoke tests cover this fork.
+    if: ${{ false }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       MIX_ENV: e2e_test
@@ -234,10 +238,10 @@ jobs:
           retention-days: 1
 
   merge-sharded-e2e-test-report:
-    if: ${{ !cancelled() }}
+    if: ${{ !cancelled() && needs.e2e.result == 'success' }}
     needs: [e2e]
     timeout-minutes: 15
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
@@ -263,7 +267,7 @@ jobs:
     name: Static checks (format, credo, dialyzer)
     env:
       MIX_ENV: test
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -287,11 +291,12 @@ jobs:
           key: static-${{ env.MIX_ENV }}-${{ env.CACHE_VERSION }}-${{ github.head_ref || github.ref }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             static-${{ env.MIX_ENV }}-${{ env.CACHE_VERSION }}-${{ github.head_ref || github.ref }}-
+            static-${{ env.MIX_ENV }}-${{ env.CACHE_VERSION }}-refs/heads/main-
             static-${{ env.MIX_ENV }}-${{ env.CACHE_VERSION }}-refs/heads/master-
 
       - run: mix deps.get
       - run: mix compile --warnings-as-errors --all-warnings
       - run: mix format --check-formatted
       - run: mix deps.unlock --check-unused
-      - run: mix credo diff --from-git-merge-base origin/master
+      - run: mix credo diff --from-git-merge-base origin/main
       - run: mix dialyzer

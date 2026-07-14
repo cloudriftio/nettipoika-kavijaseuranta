@@ -1,4 +1,6 @@
 defmodule PlausibleWeb do
+  @moduledoc false
+
   use Plausible
 
   def live_view(opts \\ []) do
@@ -8,6 +10,7 @@ defmodule PlausibleWeb do
       use PlausibleWeb.Live.Flash
 
       use PlausibleWeb.Live.AuthContext
+      on_mount PlausibleWeb.Live.Locale
 
       unless :no_sentry_context in unquote(opts) do
         use PlausibleWeb.Live.SentryContext
@@ -22,6 +25,7 @@ defmodule PlausibleWeb do
 
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
+      use Gettext, backend: PlausibleWeb.Gettext
     end
   end
 
@@ -30,6 +34,7 @@ defmodule PlausibleWeb do
       use Phoenix.LiveComponent, global_prefixes: ~w(x-)
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
+      use Gettext, backend: PlausibleWeb.Gettext
       alias Phoenix.LiveView.JS
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
@@ -40,6 +45,7 @@ defmodule PlausibleWeb do
       use Phoenix.Component, global_prefixes: ~w(x-)
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
+      use Gettext, backend: PlausibleWeb.Gettext
       alias Phoenix.LiveView.JS
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
@@ -51,6 +57,7 @@ defmodule PlausibleWeb do
 
       import Plug.Conn
       import PlausibleWeb.ControllerHelpers
+      use Gettext, backend: PlausibleWeb.Gettext
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
   end
@@ -67,6 +74,7 @@ defmodule PlausibleWeb do
 
       import PlausibleWeb.Components.Generic
       import PlausibleWeb.Live.Components.Form
+      use Gettext, backend: PlausibleWeb.Gettext
       alias PlausibleWeb.Router.Helpers, as: Routes
     end
   end

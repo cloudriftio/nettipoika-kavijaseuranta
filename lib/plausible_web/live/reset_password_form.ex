@@ -37,7 +37,7 @@ defmodule PlausibleWeb.Live.ResetPasswordForm do
     >
       <input name="_csrf_token" type="hidden" value={Plug.CSRFProtection.get_csrf_token()} />
       <h2 class="text-xl font-black dark:text-gray-100">
-        Reset your password
+        {gettext("Reset your password")}
       </h2>
       <div class="my-4">
         <.password_length_hint
@@ -55,10 +55,17 @@ defmodule PlausibleWeb.Live.ResetPasswordForm do
         />
       </div>
       <.button id="set" type="submit" class="mt-4 w-full">
-        Set password →
+        {gettext("Set password")}
       </.button>
-      <p class="text-center text-gray-500 text-xs mt-4">
-        Don't have an account? <.styled_link href="/register">Register</.styled_link> instead.
+      <p
+        :if={
+          Keyword.fetch!(Application.get_env(:plausible, :selfhost), :disable_registration) == false
+        }
+        class="text-center text-gray-500 text-xs mt-4"
+      >
+        {gettext("Don't have an account?")}
+        <.styled_link href="/register">{gettext("Register")}</.styled_link>
+        {gettext("instead.")}
       </p>
     </.form>
     """

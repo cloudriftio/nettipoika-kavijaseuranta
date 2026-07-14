@@ -19,6 +19,7 @@ import { MenuSeparator } from '../nav-menu-components'
 import { Role, useUserContext } from '../../user-context'
 import { useSegmentsContext } from '../../filtering/segments-context'
 import { useSearchableItems } from '../../hooks/use-searchable-items'
+import { t } from '../../../i18n'
 
 const linkClassName = classNames(
   popover.items.classNames.navigationLink,
@@ -81,7 +82,7 @@ export const SearchableSegmentsSection = ({
         {showSearch && (
           <SearchInput
             searchRef={searchRef}
-            placeholderUnfocused="Press / to search"
+            placeholderUnfocused={t('pressToSearch')}
             className="ml-auto w-full py-1"
             onSearch={handleSearchInput}
           />

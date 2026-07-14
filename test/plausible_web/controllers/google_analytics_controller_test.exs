@@ -530,7 +530,7 @@ defmodule PlausibleWeb.GoogleAnalyticsControllerTest do
 
       action_url = PlausibleWeb.Router.Helpers.google_analytics_path(conn, :import, site.domain)
 
-      assert text_of_attr(response, "form", "action") == action_url
+      assert text_of_attr(response, "#google-analytics-import-form", "action") == action_url
 
       assert text_of_attr(response, ~s|input[name=access_token]|, "value") == "token"
       assert text_of_attr(response, ~s|input[name=refresh_token]|, "value") == "foo"

@@ -61,7 +61,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html =~ "Enter your Single Sign-On email"
         assert element_exists?(html, "input[name=email]")
-        assert text_of_attr(html, ~s|input[name="return_to"]|, "value") == nil
+        assert text_of_attr(html, ~s|#sso-login-form input[name="return_to"]|, "value") == nil
       end
 
       test "renders autosubmit js snippet when instructed", %{conn: conn} do
@@ -87,7 +87,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html = html_response(conn, 200)
 
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-login-form input[name=return_to]", "value") == "/sites"
       end
 
       test "renders error if provided in login_error flash message", %{conn: conn} do
@@ -104,7 +104,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html =~ "Wrong email."
         assert element_exists?(html, "input[name=email]")
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-login-form input[name=return_to]", "value") == "/sites"
       end
     end
 
@@ -197,7 +197,7 @@ defmodule PlausibleWeb.SSOControllerTest do
                  Routes.sso_path(conn, :saml_consume, integration.identifier)
 
         assert text_of_attr(html, "input[name=email]", "value") == email
-        assert text_of_attr(html, "input[name=return_to]", "value") == "/sites"
+        assert text_of_attr(html, "#sso-req-form input[name=return_to]", "value") == "/sites"
       end
     end
 
@@ -342,7 +342,7 @@ defmodule PlausibleWeb.SSOControllerTest do
         assert html =~ "Single Sign-On enforcement"
         assert html =~ "To log in as an SSO user, you must first leave all other teams"
 
-        assert html =~ "Log in"
+        assert html =~ "Kirjaudu sisään"
         assert html =~ "with your email and password"
       end
 
@@ -369,7 +369,7 @@ defmodule PlausibleWeb.SSOControllerTest do
         assert html =~
                  "To log in as an SSO user, you must either remove or transfer all sites"
 
-        assert html =~ "Log in"
+        assert html =~ "Kirjaudu sisään"
         assert html =~ "with your email and password"
       end
     end

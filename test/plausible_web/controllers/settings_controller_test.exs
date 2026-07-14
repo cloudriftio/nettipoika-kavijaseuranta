@@ -932,7 +932,7 @@ defmodule PlausibleWeb.SettingsControllerTest do
 
       assert_delivered_email_matches(%{to: [{_, user_email}], subject: subject})
       assert user_email == updated_user.email
-      assert subject =~ "is your Plausible email verification code"
+      assert subject =~ "on Nettipoika Kävijäseurannan vahvistuskoodisi"
     end
 
     test "renders an error on third change attempt (allows 2 per hour)", %{conn: conn, user: user} do
@@ -2005,7 +2005,7 @@ defmodule PlausibleWeb.SettingsControllerTest do
       subscribe_to_growth_plan(user)
       conn = get(conn, Routes.settings_path(conn, :preferences))
       html = html_response(conn, 200)
-      assert text_of_element(html, ~s/[data-test="create-a-team-cta"]/) == "Create a team"
+      assert text_of_element(html, ~s/[data-test="create-a-team-cta"]/) == "Luo tiimi"
     end
 
     test "does not render the 'Create a team' option if a team is already set up", %{

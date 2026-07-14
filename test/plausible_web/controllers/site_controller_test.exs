@@ -59,9 +59,12 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/sites")
       resp = html_response(conn, 200)
 
-      assert resp =~ "Add your first personal site"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
-      refute resp =~ "Go to team sites"
+      assert resp =~ "Lisää ensimmäinen sivustosi"
+
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+
+      refute resp =~ "Siirry tiimin sivustoihin"
     end
 
     test "shows team sites empty state when team is setup and there are no sites at all", %{
@@ -75,9 +78,12 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/sites")
       resp = html_response(conn, 200)
 
-      assert resp =~ "Add your first team site"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
-      refute resp =~ "Go to team sites"
+      assert resp =~ "Lisää tiimin ensimmäinen sivusto"
+
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+
+      refute resp =~ "Siirry tiimin sivustoihin"
     end
 
     test "shows team sites empty state when team is setup but has no team sites, and user has personal sites",
@@ -93,9 +99,12 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/sites")
       resp = html_response(conn, 200)
 
-      assert resp =~ "Add your first team site"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
-      refute resp =~ "Go to team sites"
+      assert resp =~ "Lisää tiimin ensimmäinen sivusto"
+
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+
+      refute resp =~ "Siirry tiimin sivustoihin"
     end
 
     test "shows personal sites empty state when there are team sites but no personal sites", %{
@@ -109,9 +118,12 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/sites")
       resp = html_response(conn, 200)
 
-      assert resp =~ "Add your first personal site"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
-      assert resp =~ "Go to team sites"
+      assert resp =~ "Lisää ensimmäinen sivustosi"
+
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+
+      assert resp =~ "Siirry tiimin sivustoihin"
     end
 
     test "shows empty search state when filter returns no results but there are sites", %{
@@ -123,9 +135,9 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/sites", filter_text: "nonexistent")
       resp = html_response(conn, 200)
 
-      assert resp =~ "No sites found. Try a different search term."
-      refute resp =~ "Add your first"
-      refute resp =~ "Go to team sites"
+      assert resp =~ "Sivustoja ei löytynyt. Kokeile toista hakusanaa."
+      refute resp =~ "Lisää ensimmäinen"
+      refute resp =~ "Siirry tiimin sivustoihin"
     end
 
     test "lists all of your sites with last 24h visitors (defaulting to 0 on first mount)", %{
@@ -261,7 +273,7 @@ defmodule PlausibleWeb.SiteControllerTest do
       resp = html_response(conn, 200)
 
       refute resp =~ "second.example.com"
-      assert html_response(conn, 200) =~ "No sites found. Try a different search term."
+      assert html_response(conn, 200) =~ "Sivustoja ei löytynyt. Kokeile toista hakusanaa."
       refute html_response(conn, 200) =~ "You don't have any sites yet."
     end
 
@@ -360,7 +372,7 @@ defmodule PlausibleWeb.SiteControllerTest do
         }
       })
 
-      assert_email_delivered_with(subject: "Welcome to Plausible")
+      assert_email_delivered_with(subject: "Tervetuloa Nettipoika Kävijäseurantaan")
     end
 
     test "does not send welcome email if user already has a previous site", %{
@@ -677,7 +689,7 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/#{site.domain}/settings/general")
       resp = html_response(conn, 200)
       assert resp =~ user.name
-      assert resp =~ "Getting started"
+      assert resp =~ "Nettipoika Kävijäseuranta"
     end
   end
 

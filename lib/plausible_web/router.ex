@@ -12,6 +12,7 @@ defmodule PlausibleWeb.Router do
     plug PlausibleWeb.Plugs.NoRobots
     on_ee(do: nil, else: plug(PlausibleWeb.FirstLaunchPlug, redirect_to: "/register"))
     plug PlausibleWeb.AuthPlug
+    plug PlausibleWeb.Plugs.SetLocale
     on_ee(do: plug(Plausible.Plugs.HandleExpiredSession))
     on_ee(do: plug(Plausible.Plugs.SSOTeamAccess))
     plug PlausibleWeb.Plugs.UserSessionTouch
@@ -27,6 +28,7 @@ defmodule PlausibleWeb.Router do
       plug PlausibleWeb.Plugs.NoRobots
       on_ee(do: nil, else: plug(PlausibleWeb.FirstLaunchPlug, redirect_to: "/register"))
       plug PlausibleWeb.AuthPlug
+      plug PlausibleWeb.Plugs.SetLocale
       on_ee(do: plug(Plausible.Plugs.HandleExpiredSession))
       plug PlausibleWeb.Plugs.UserSessionTouch
       plug :put_root_layout, html: {PlausibleWeb.LayoutView, :app}

@@ -15,34 +15,7 @@ defmodule PlausibleWeb.LayoutView do
   end
 
   def current_locale(conn) do
-    user_locale = conn.assigns[:current_user] && conn.assigns.current_user.preferred_locale
-    cookie_locale =
-      case conn.req_cookies do
-        %Plug.Conn.Unfetched{} -> nil
-        cookies when is_map(cookies) -> cookies["np_locale"]
-      end
-
-    case user_locale || cookie_locale do
-      locale when locale in ["fi", "en"] -> locale
-      _ -> accept_language_locale(conn)
-    end
-  end
-
-  defp accept_language_locale(conn) do
-    case Plug.Conn.get_req_header(conn, "accept-language") do
-      [languages | _] ->
-        languages
-        |> String.split(",")
-        |> Enum.map(&(&1 |> String.split(";") |> hd() |> String.trim() |> String.downcase()))
-        |> Enum.find_value("fi", fn
-          "fi" <> _ -> "fi"
-          "en" <> _ -> "en"
-          _ -> nil
-        end)
-
-      _ ->
-        "fi"
-    end
+    PlausibleWeb.Locale.from_conn(conn)
   end
 
   defmodule JWT do
@@ -290,11 +263,11 @@ defmodule PlausibleWeb.LayoutView do
     render(layout, Map.put(assigns, :inner_layout, content))
   end
 
-  def is_current_tab(_, nil) do
+  def current_tab?(_, nil) do
     false
   end
 
-  def is_current_tab(conn, tab) do
+  def current_tab?(conn, tab) do
     full_path = Path.join(conn.path_info)
 
     one_up =

@@ -74,7 +74,11 @@ defmodule PlausibleWeb.TrackerPlugTest do
 
     test "keeps dynamic tracker ingestion on a configured legacy host", %{conn: conn} do
       previous = Application.get_env(:plausible, :nettipoika)
-      Application.put_env(:plausible, :nettipoika, legacy_base_urls: ["https://legacy.example.com"])
+
+      Application.put_env(:plausible, :nettipoika,
+        legacy_base_urls: ["https://legacy.example.com"]
+      )
+
       on_exit(fn -> Application.put_env(:plausible, :nettipoika, previous || []) end)
 
       site = new_site()
