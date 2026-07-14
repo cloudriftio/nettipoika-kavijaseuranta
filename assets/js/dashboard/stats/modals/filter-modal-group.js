@@ -6,6 +6,7 @@ import {
   getPropertyKeyFromFilterKey
 } from '../../util/filters'
 import FilterModalPropsRow from './filter-modal-props-row'
+import { t } from '../../../i18n'
 
 export default function FilterModalGroup({
   filterGroup,
@@ -75,7 +76,7 @@ export default function FilterModalGroup({
             className="underline text-indigo-500 text-sm cursor-pointer"
             onClick={() => onAddRow(filterGroup)}
           >
-            + Add another
+            + {t('addAnother')}
           </a>
         </div>
       )}

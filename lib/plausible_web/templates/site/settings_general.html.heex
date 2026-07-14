@@ -1,39 +1,46 @@
 <.settings_tiles>
   <.tile :if={Plausible.Sites.regular?(@site)} docs="change-domain-name">
     <:title>
-      Site domain
+      {gettext("Site domain")}
     </:title>
     <:subtitle>
-      Moving your site to a different domain? We got you!
+      {gettext("Change the domain used for this site's analytics.")}
     </:subtitle>
-    <.input name="domain" label="Domain" value={@site.domain} disabled width="w-1/2" mt?={false} />
+    <.input
+      name="domain"
+      label={gettext("Domain")}
+      value={@site.domain}
+      disabled
+      width="w-1/2"
+      mt?={false}
+    />
 
     <.button_link href={Routes.site_path(@conn, :change_domain, @site.domain)}>
-      Change domain
+      {gettext("Change domain")}
     </.button_link>
   </.tile>
 
   <.tile docs="general">
-    <:title>Site timezone</:title>
-    <:subtitle>Update your reporting timezone.</:subtitle>
+    <:title>{gettext("Site timezone")}</:title>
+    <:subtitle>{gettext("Update your reporting timezone.")}</:subtitle>
     <.form :let={f} for={@changeset} action={"/#{URI.encode_www_form(@site.domain)}/settings"}>
       <.input
         field={f[:timezone]}
-        label="Reporting timezone"
+        label={gettext("Reporting timezone")}
         type="select"
         options={Plausible.Timezones.options()}
         width="w-1/2"
         mt?={false}
       />
       <.button type="submit">
-        Save timezone
+        {gettext("Save timezone")}
       </.button>
     </.form>
   </.tile>
   <.tile :if={Plausible.Sites.regular?(@site)} docs="plausible-script">
-    <:title>Site installation</:title>
+    <:title>{gettext("Site installation")}</:title>
     <:subtitle>
-      Control what data is collected and verify your installation.
+      {gettext("Control what data is collected and verify your installation.")}
     </:subtitle>
     <.button_link
       href={
@@ -41,7 +48,7 @@
       }
       mt?={false}
     >
-      Review installation
+      {gettext("Review installation")}
     </.button_link>
   </.tile>
 </.settings_tiles>

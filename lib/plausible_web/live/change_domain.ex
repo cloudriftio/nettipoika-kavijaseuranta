@@ -76,9 +76,9 @@ defmodule PlausibleWeb.Live.ChangeDomain do
 
     ~H"""
     <.focus_box>
-      <:title>Change your website domain</:title>
+      <:title>{gettext("Change your website domain")}</:title>
       <:subtitle>
-        If you have changed the domain name of your site and would like your new domain name to be displayed in your Plausible dashboard, you can do so here. You won't lose any of your historical stats in this process.
+        {gettext("Update the domain shown in the dashboard without losing historical statistics.")}
       </:subtitle>
 
       <:footer>
@@ -86,13 +86,13 @@ defmodule PlausibleWeb.Live.ChangeDomain do
           <:item>
             See our
             <.styled_link new_tab={true} href={@docs_link}>
-              domain change documentation
+              {gettext("domain change documentation")}
             </.styled_link>
           </:item>
           <:item>
-            Return to
+            {gettext("Return to")}
             <.styled_link href={Routes.site_path(@socket, :settings_general, @site.domain)}>
-              Site Settings
+              {gettext("Site settings")}
             </.styled_link>
           </:item>
         </.focus_list>
@@ -108,11 +108,11 @@ defmodule PlausibleWeb.Live.ChangeDomain do
 
     ~H"""
     <.focus_box>
-      <:title>Domain Changed Successfully</:title>
+      <:title>{gettext("Domain changed successfully")}</:title>
       <:subtitle>
-        Your website domain has been successfully updated from
+        {gettext("Your website domain was updated from")}
         <strong>{@site.domain_changed_from}</strong>
-        to <strong><%= @site.domain %></strong>.
+        {gettext("to")} <strong><%= @site.domain %></strong>.
       </:subtitle>
 
       <:footer>

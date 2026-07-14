@@ -1,4 +1,5 @@
 import { parseUTCDate, formatMonthYYYY, formatDayShort } from '../../util/date'
+import { t, tn } from '../../../i18n'
 
 const browserDateFormat = Intl.DateTimeFormat(navigator.language, {
   hour: 'numeric'
@@ -11,7 +12,9 @@ const is12HourClock = function () {
 const monthIntervalFormatter = {
   long(isoDate, options) {
     const formatted = this.short(isoDate, options)
-    return options.isBucketPartial ? `Partial of ${formatted}` : formatted
+    return options.isBucketPartial
+      ? t('partialOf', { period: formatted })
+      : formatted
   },
   short(isoDate, _options) {
     return formatMonthYYYY(parseUTCDate(isoDate))
@@ -22,8 +25,8 @@ const weekIntervalFormatter = {
   long(isoDate, options) {
     const formatted = this.short(isoDate, options)
     return options.isBucketPartial
-      ? `Partial week of ${formatted}`
-      : `Week of ${formatted}`
+      ? t('partialWeekOf', { period: formatted })
+      : t('weekOf', { period: formatted })
   },
   short(isoDate, options) {
     return formatDayShort(parseUTCDate(isoDate), options.shouldShowYear)
@@ -56,7 +59,7 @@ const minuteIntervalFormatter = {
   long(isoDate, options) {
     if (options.period == 'realtime') {
       const minutesAgo = Math.abs(isoDate)
-      return minutesAgo === 1 ? '1 minute ago' : minutesAgo + ' minutes ago'
+      return tn('minuteAgo', 'minutesAgo', minutesAgo)
     } else {
       return this.short(isoDate, options)
     }

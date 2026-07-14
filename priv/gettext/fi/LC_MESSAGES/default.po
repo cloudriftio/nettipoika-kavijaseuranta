@@ -1,186 +1,1433 @@
 msgid ""
 msgstr ""
 "Language: fi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Nettipoika Visitor Analytics"
-msgstr "Nettipoika Kävijäseuranta"
+msgid "404 error pages"
+msgstr "404-virhesivut"
 
-msgid "Clear, privacy-friendly website analytics without cookies."
-msgstr "Selkeät ja yksityisyyttä kunnioittavat verkkosivujen kävijätilastot ilman evästeitä."
+msgid "Access your statistics through the API."
+msgstr "Käytä tilastojasi API:n kautta."
 
-msgid "Nettipoika Visitor Analytics is lightweight, open-source and privacy-friendly website analytics."
-msgstr "Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä kunnioittava verkkosivujen kävijäseuranta."
+msgid "Add shared link"
+msgstr "Lisää jakolinkki"
 
-msgid "Nettipoika Visitor Analytics · Clear analytics without cookies"
-msgstr "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"
+msgid "Advanced options"
+msgstr "Lisäasetukset"
 
-msgid "Clear analytics without cookies. The service runs on infrastructure managed by Nettipoika."
-msgstr "Selkeät kävijätilastot ilman evästeitä. Palvelu toimii Nettipojan hallinnoimalla infrastruktuurilla."
+msgid "Automatically track clicks on external links."
+msgstr "Seuraa ulkoisten linkkien napsautuksia automaattisesti."
 
-msgid "Plausible CE documentation"
-msgstr "Plausible CE -ohjeet"
+msgid "Automatically track file downloads."
+msgstr "Seuraa tiedostolatauksia automaattisesti."
 
-msgid "Documentation"
-msgstr "Ohjeet"
+msgid "Automatically track form submissions."
+msgstr "Seuraa lomakkeiden lähetyksiä automaattisesti."
 
-msgid "Source code (AGPL)"
-msgstr "Lähdekoodi (AGPL)"
+msgid "Cancel the active subscription before deleting the team."
+msgstr "Peruuta aktiivinen tilaus ennen tiimin poistamista."
 
-msgid "Enter your account credentials"
-msgstr "Syötä kirjautumistietosi"
+msgid "Can view statistics but cannot access settings."
+msgstr "Voi tarkastella tilastoja mutta ei pääse asetuksiin."
 
-msgid "Email"
-msgstr "Sähköposti"
+msgid "Change the team of %{site}"
+msgstr "Vaihda sivuston %{site} tiimi"
 
-msgid "Password"
-msgstr "Salasana"
+msgid "Change your website domain"
+msgstr "Vaihda verkkosivuston verkkotunnus"
 
-msgid "Log in"
-msgstr "Kirjaudu sisään"
+msgid "Choose the destination team for this site."
+msgstr "Valitse tiimi, johon sivusto siirretään."
 
-msgid "Log out"
-msgstr "Kirjaudu ulos"
+msgid "Create API key"
+msgstr "Luo API-avain"
 
-msgid "Register"
-msgstr "Rekisteröidy"
+msgid "Create a new team"
+msgstr "Luo uusi tiimi"
 
-msgid "Sign up"
-msgstr "Rekisteröidy"
+msgid "Create and manage API access."
+msgstr "Luo ja hallitse API-käyttöoikeuksia."
 
-msgid "Want these stats for your website?"
-msgstr "Haluatko nämä tilastot omalle verkkosivustollesi?"
+msgid "Create new API key"
+msgstr "Luo uusi API-avain"
 
-msgid "Start today."
-msgstr "Aloita jo tänään."
+msgid "Create shared link"
+msgstr "Luo jakolinkki"
 
-msgid "Get started"
-msgstr "Aloita käyttö"
+msgid "Create your first API key"
+msgstr "Luo ensimmäinen API-avaimesi"
 
-msgid "Learn more"
-msgstr "Lue lisää"
+msgid "Create your first shared link"
+msgstr "Luo ensimmäinen jakolinkkisi"
 
-msgid "Don't have an account?"
-msgstr "Eikö sinulla ole tiliä?"
+msgid "Custom background color (optional)"
+msgstr "Mukautettu taustaväri (valinnainen)"
 
-msgid "instead."
-msgstr "sen sijaan."
+msgid "Delete %{team}"
+msgstr "Poista %{team}"
 
-msgid "Forgot password?"
-msgstr "Unohditko salasanasi?"
+msgid "Delete team"
+msgstr "Poista tiimi"
 
-msgid "Click here"
-msgstr "Napsauta tästä"
+msgid ""
+"Deleting the team also deletes all associated sites and data. This cannot be "
+"undone. Continue?"
+msgstr ""
+"Tiimin poistaminen poistaa myös kaikki siihen liittyvät sivustot ja tiedot. "
+"Toimintoa ei voi kumota. Jatketaanko?"
 
-msgid "to reset it."
-msgstr "vaihtaaksesi sen."
+msgid "Destination team"
+msgstr "Kohdetiimi"
 
-msgid "Reset your password"
-msgstr "Vaihda salasana"
+msgid "Development"
+msgstr "Kehitys"
 
-msgid "Enter your email so we can send a password reset link"
-msgstr "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
+msgid "Domain changed successfully"
+msgstr "Verkkotunnus vaihdettiin onnistuneesti"
 
-msgid "Send reset link"
-msgstr "Lähetä vaihtolinkki"
+msgid "Ecommerce revenue"
+msgstr "Verkkokaupan tuotot"
 
-msgid "Set password"
-msgstr "Aseta salasana →"
+msgid "Edit shared link"
+msgstr "Muokkaa jakolinkkiä"
 
-msgid "Signed in as"
-msgstr "Kirjautuneena käyttäjänä"
+msgid "Embed code"
+msgstr "Upotuskoodi"
 
+msgid "Embed dashboard"
+msgstr "Upota hallintanäkymä"
+
+msgid "Enter an email address and role. We will send an invitation to join"
+msgstr "Syötä sähköpostiosoite ja rooli. Lähetämme kutsun liittyä sivuston"
+
+msgid ""
+"Enter the new owner's email address. The transfer request expires in 48 "
+"hours."
+msgstr ""
+"Syötä uuden omistajan sähköpostiosoite. Siirtopyyntö vanhenee 48 tunnissa."
+
+msgid "File downloads"
+msgstr "Tiedostolataukset"
+
+msgid "Form submissions"
+msgstr "Lomakkeiden lähetykset"
+
+msgid "Generate embed code"
+msgstr "Luo upotuskoodi"
+
+msgid "Hashed page paths"
+msgstr "Risuaitamerkkiä käyttävät sivupolut"
+
+msgid "Invite"
+msgstr "Lähetä kutsu"
+
+msgid "Invite a guest to %{site}"
+msgstr "Kutsu vierailija sivustolle %{site}"
+
+msgid "Keep this password safe. It cannot be shown again."
+msgstr "Säilytä salasana turvallisesti. Sitä ei voida näyttää uudelleen."
+
+msgid "Key"
+msgstr "Avain"
+
+msgid "Learn about segments"
+msgstr "Lue lisää segmenteistä"
+
+msgid "Limit to segment"
+msgstr "Rajaa segmenttiin"
+
+msgid "Limited to a data segment"
+msgstr "Rajattu datasegmenttiin"
+
+msgid "Link"
+msgstr "Linkki"
+
+msgid "Make statistics publicly available at"
+msgstr "Aseta tilastot julkisesti saataville osoitteessa"
+
+msgid "Manual tagging"
+msgstr "Manuaalinen merkintä"
+
+msgid "Name your team, add members and assign roles."
+msgstr "Nimeä tiimisi, lisää jäseniä ja määritä roolit."
+
+msgid "New API key"
+msgstr "Uusi API-avain"
+
+msgid "New shared link"
+msgstr "Uusi jakolinkki"
+
+msgid "No password protection"
+msgstr "Ei salasanasuojausta"
+
+msgid "Optional measurements"
+msgstr "Valinnaiset mittaukset"
+
+msgid "Outbound links"
+msgstr "Lähtevät linkit"
+
+msgid "Password protect"
+msgstr "Suojaa salasanalla"
+
+msgid "Password protected"
+msgstr "Salasanasuojattu"
+
+msgid "Paste this snippet into the"
+msgstr "Liitä tämä koodinpätkä sivustosi"
+
+msgid "Public dashboard"
+msgstr "Julkinen hallintanäkymä"
+
+msgid "Remove all associated sites and collected statistics."
+msgstr "Poista kaikki liittyvät sivustot ja kerätyt tilastot."
+
+msgid "Request transfer"
+msgstr "Pyydä omistajuuden siirtoa"
+
+msgid "Restrict this link to a segment of the data."
+msgstr "Rajaa linkki tiettyyn datasegmenttiin."
+
+msgid "Return to"
+msgstr "Palaa"
+
+msgid "Revoke this key? This cannot be undone."
+msgstr "Mitätöidäänkö avain? Toimintoa ei voi kumota."
+
+msgid "Select theme"
+msgstr "Valitse teema"
+
+msgid "Share statistics with a unique link that can be password protected."
+msgstr "Jaa tilastot yksilöllisellä linkillä, jonka voi suojata salasanalla."
+
+msgid "Share your statistics publicly or keep them private."
+msgstr "Jaa tilastosi julkisesti tai pidä ne yksityisinä."
+
+msgid "Shared link without password protection"
+msgstr "Jakolinkki ilman salasanasuojausta"
+
+msgid "Site settings"
+msgstr "Sivuston asetukset"
+
+msgid "Store the key securely. It cannot be shown again after creation."
+msgstr ""
+"Säilytä avain turvallisesti. Sitä ei voida näyttää enää luomisen jälkeen."
+
+msgid "System"
+msgstr "Järjestelmä"
+
+msgid "The team cannot be deleted now"
+msgstr "Tiimiä ei voi poistaa nyt"
+
+msgid "Tracker installation"
+msgstr "Seurannan asennus"
+
+msgid "Transfer ownership of %{site}"
+msgstr "Siirrä sivuston %{site} omistajuus"
+
+msgid "Update shared link"
+msgstr "Päivitä jakolinkki"
+
+msgid ""
+"Update the domain shown in the dashboard without losing historical "
+"statistics."
+msgstr ""
+"Päivitä hallintanäkymässä näkyvä verkkotunnus menettämättä aiempia tilastoja."
+
+msgid "Use a shared link to embed the dashboard on another webpage with an"
+msgstr ""
+"Käytä jakolinkkiä hallintanäkymän upottamiseen toiselle verkkosivulle "
+"käyttäen"
+
+msgid "When finished, verify the installation with the button below."
+msgstr "Kun olet valmis, tarkista asennus alla olevalla painikkeella."
+
+msgid "You cannot create a team yet"
+msgstr "Et voi vielä luoda tiimiä"
+
+msgid "Your team has been created"
+msgstr "Tiimisi on luotu"
+
+msgid "Your website domain was updated from"
+msgstr "Verkkosivustosi verkkotunnus päivitettiin osoitteesta"
+
+msgid "analytics. Invitations expire after 48 hours."
+msgstr "kävijäseurantaan. Kutsut vanhenevat 48 tunnissa."
+
+msgid "domain change documentation"
+msgstr "verkkotunnuksen vaihtamisen ohjeisiin"
+
+msgid "installation guides."
+msgstr "asennusohjeet."
+
+msgid "section of your site. See the"
+msgstr "-osioon. Katso"
+
+msgid "to"
+msgstr "osoitteeseen"
+
+#: lib/plausible_web/email.ex:641
+msgid "%{code} is your Nettipoika Visitor Analytics verification code"
+msgstr "%{code} on Nettipoika Kävijäseurannan vahvistuskoodisi"
+
+#: lib/plausible_web/templates/email/new_user_invitation.html.heex:1
+msgid "%{inviter} invited you to join the site %{site} in %{product}."
+msgstr ""
+"%{inviter} kutsui sinut liittymään sivustolle %{site} palvelussa %{product}."
+
+#: lib/plausible_web/templates/email/new_user_team_invitation.html.heex:1
+msgid "%{inviter} invited you to join the team %{team} in %{product}."
+msgstr ""
+"%{inviter} kutsui sinut liittymään tiimiin %{team} palvelussa %{product}."
+
+#: lib/plausible_web/templates/email/existing_user_invitation.html.heex:1
+msgid "%{inviter} invited you to the site %{site} in %{product}."
+msgstr "%{inviter} kutsui sinut sivustolle %{site} palvelussa %{product}."
+
+#: lib/plausible_web/templates/email/existing_user_team_invitation.html.heex:1
+msgid "%{inviter} invited you to the team %{team} in %{product}."
+msgstr "%{inviter} kutsui sinut tiimiin %{team} palvelussa %{product}."
+
+#: lib/plausible_web/templates/settings/api_keys.html.heex:9
+#: lib/plausible_web/views/layout_view.ex:117
+#: lib/plausible_web/views/layout_view.ex:139
+msgid "API keys"
+msgstr "API-avaimet"
+
+#: lib/plausible_web/templates/layout/settings.html.heex:24
+#: lib/plausible_web/templates/layout/settings.html.heex:31
+#: lib/plausible_web/views/layout_view.ex:106
+msgid "Account"
+msgstr "Tili"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:107
 msgid "Account settings"
 msgstr "Tilin asetukset"
 
-msgid "Create a team"
-msgstr "Luo tiimi"
+#: lib/plausible_web/live/shared_link_settings.ex:118
+#: lib/plausible_web/templates/settings/api_keys.html.heex:49
+#: lib/plausible_web/templates/settings/security.html.heex:260
+#: lib/plausible_web/templates/site/settings_people.html.heex:141
+msgid "Actions"
+msgstr "Toiminnot"
 
-msgid "Team settings"
-msgstr "Tiimin asetukset"
-
-msgid "Help center"
-msgstr "Ohjekeskus"
-
-msgid "Open source"
-msgstr "Avoin lähdekoodi"
-
-msgid "My personal sites"
-msgstr "Omat sivustoni"
-
+#: lib/plausible_web/live/sites.ex:129
 msgid "Add"
 msgstr "Lisää"
 
+#: lib/plausible_web/templates/settings/team_general.html.heex:39
+msgid "Add or remove team members and change their roles."
+msgstr "Lisää tai poista tiimin jäseniä ja muuta heidän roolejaan."
+
+#: lib/plausible_web/templates/site/new.html.heex:1
+msgid "Add site info"
+msgstr "Sivuston tiedot"
+
+#: lib/plausible_web/live/sites.ex:138 lib/plausible_web/live/sites.ex:154
+#: lib/plausible_web/live/sites.ex:177
 msgid "Add website"
 msgstr "Lisää verkkosivusto"
 
-msgid "Add your first team site"
-msgstr "Lisää tiimin ensimmäinen sivusto"
+#: lib/plausible_web/templates/site/new.html.heex:5
+msgid "Add website info"
+msgstr "Lisää verkkosivuston tiedot"
 
+#: lib/plausible_web/live/sites.ex:70
 msgid "Add your first personal site"
 msgstr "Lisää ensimmäinen sivustosi"
 
-msgid "Collect simple, privacy-friendly stats to better understand your audience."
-msgstr "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
+#: lib/plausible_web/live/sites.ex:68
+msgid "Add your first team site"
+msgstr "Lisää tiimin ensimmäinen sivusto"
 
-msgid "No sites found. Try a different search term."
-msgstr "Sivustoja ei löytynyt. Kokeile toista hakusanaa."
+#: lib/plausible_web/templates/settings/security.html.heex:45
+msgid "Address associated with your account."
+msgstr "Tiliisi liitetty sähköpostiosoite."
 
-msgid "Go to team sites"
-msgstr "Siirry tiimin sivustoihin"
-
-msgid "Search sites"
-msgstr "Hae sivustoja"
-
-msgid "Press / to search"
-msgstr "Paina / hakeaksesi"
-
-msgid "Total of"
-msgstr "Yhteensä"
-
-msgid "sites"
-msgstr "sivustoa"
-
+#: lib/plausible_web/live/sites.ex:406
 msgid "All sites"
 msgstr "Kaikki sivustot"
 
-msgid "Unique visitors"
-msgstr "Yksilölliset kävijät"
+#: lib/plausible_web/templates/settings/team_general.html.heex:117
+msgid "All team members, including you, must set up 2FA. Continue?"
+msgstr ""
+"Kaikkien tiimin jäsenten, myös sinun, on otettava 2FA käyttöön. Jatketaanko?"
 
-msgid "Total visits"
-msgstr "Käynnit yhteensä"
+#: lib/plausible_web/templates/settings/preferences.html.heex:38
+msgid "Appearance"
+msgstr "Ulkoasu"
 
-msgid "Total pageviews"
-msgstr "Sivulataukset yhteensä"
+#: lib/plausible_web/templates/settings/team_general.html.heex:130
+msgid "Are you sure you want to leave this team?"
+msgstr "Haluatko varmasti poistua tästä tiimistä?"
 
-msgid "Views per visit"
-msgstr "Sivulatauksia käyntiä kohden"
+#: lib/plausible_web/templates/settings/security.html.heex:272
+msgid "Are you sure you want to log out this session?"
+msgstr "Haluatko varmasti kirjata tämän istunnon ulos?"
 
-msgid "No data yet"
-msgstr "Ei vielä tietoja"
+#: lib/plausible_web/templates/layout/settings.html.heex:4
+msgid "Back to sites"
+msgstr "Takaisin sivustoihin"
 
+#: lib/plausible_web/templates/layout/site_settings.html.heex:7
+msgid "Back to stats"
+msgstr "Takaisin tilastoihin"
+
+#: lib/plausible_web/templates/site/membership/invite_member_form.html.heex:65
+#: lib/plausible_web/templates/site/settings_people.html.heex:83
+msgid "Can view statistics and edit site settings."
+msgstr "Voi tarkastella tilastoja ja muokata sivuston asetuksia."
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:101
+msgid "Can view statistics only."
+msgstr "Voi vain tarkastella tilastoja."
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:25
+msgid "Change %{site} team"
+msgstr "Vaihda sivuston %{site} tiimi"
+
+#: lib/plausible_web/live/change_domain/form.ex:28
+#: lib/plausible_web/templates/site/settings_general.html.heex:19
+msgid "Change domain"
+msgstr "Vaihda verkkotunnus"
+
+#: lib/plausible_web/templates/settings/security.html.heex:35
+msgid "Change email"
+msgstr "Vaihda sähköpostiosoite"
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:15
+#: lib/plausible_web/templates/settings/team_general.html.heex:25
+msgid "Change name"
+msgstr "Vaihda nimi"
+
+#: lib/plausible_web/templates/settings/security.html.heex:111
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+#: lib/plausible_web/templates/site/membership/change_team_form.html.heex:22
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:19
+msgid "Change team"
+msgstr "Vaihda tiimi"
+
+#: lib/plausible_web/templates/settings/security.html.heex:7
+msgid "Change the address associated with your account."
+msgstr "Vaihda tiliisi liitetty sähköpostiosoite."
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:7
+msgid "Change the domain used for this site's analytics."
+msgstr "Vaihda tämän sivuston kävijäseurannassa käytetty verkkotunnus."
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:7
+msgid "Change the name of your team."
+msgstr "Vaihda tiimisi nimi."
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:60
+msgid "Change theme"
+msgstr "Vaihda teemaa"
+
+#: lib/plausible_web/templates/settings/security.html.heex:65
+msgid "Change your password."
+msgstr "Vaihda salasanasi."
+
+#: lib/plausible_web/templates/layout/_footer.html.heex:15
+msgid ""
+"Clear analytics without cookies. The service runs on infrastructure managed "
+"by Nettipoika."
+msgstr ""
+"Selkeät kävijätilastot ilman evästeitä. Palvelu toimii Nettipojan "
+"hallinnoimalla infrastruktuurilla."
+
+#: lib/plausible_web/templates/page/index.html.heex:7
+msgid "Clear, privacy-friendly website analytics without cookies."
+msgstr ""
+"Selkeät ja yksityisyyttä kunnioittavat verkkosivujen kävijätilastot ilman "
+"evästeitä."
+
+#: lib/plausible_web/templates/email/export_success.html.heex:5
+msgid "Click"
+msgstr "Napsauta"
+
+#: lib/plausible_web/live/components/verification.ex:138
+#: lib/plausible_web/live/components/verification.ex:156
+#: lib/plausible_web/live/components/verification.ex:162
+#: lib/plausible_web/templates/auth/login_form.html.heex:69
+#: lib/plausible_web/templates/email/existing_user_invitation.html.heex:7
+#: lib/plausible_web/templates/email/existing_user_team_invitation.html.heex:6
+#: lib/plausible_web/templates/email/new_user_invitation.html.heex:13
+#: lib/plausible_web/templates/email/new_user_team_invitation.html.heex:13
+#: lib/plausible_web/templates/email/password_reset_email.html.heex:1
+msgid "Click here"
+msgstr "Napsauta tästä"
+
+#: lib/plausible_web/live/sites.ex:743
+msgid "Close"
+msgstr "Sulje"
+
+#: lib/plausible_web/live/sites.ex:74
+msgid ""
+"Collect simple, privacy-friendly stats to better understand your audience."
+msgstr ""
+"Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi "
+"ymmärtämiseksi."
+
+#: lib/plausible_web/templates/settings/security.html.heex:95
+msgid "Confirm new password"
+msgstr "Vahvista uusi salasana"
+
+#: lib/plausible_web/templates/settings/security.html.heex:30
+msgid "Confirm with password"
+msgstr "Vahvista salasanalla"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:43
+msgid "Control what data is collected and verify your installation."
+msgstr "Hallitse kerättäviä tietoja ja tarkista asennus."
+
+#: lib/plausible_web/views/layout_view.ex:84
+msgid "Countries"
+msgstr "Maat"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:113
+msgid "Create a team"
+msgstr "Luo tiimi"
+
+#: lib/plausible_web/templates/settings/security.html.heex:19
+#: lib/plausible_web/templates/settings/security.html.heex:52
+msgid "Current email"
+msgstr "Nykyinen sähköpostiosoite"
+
+#: lib/plausible_web/templates/settings/security.html.heex:266
+msgid "Current session"
+msgstr "Nykyinen istunto"
+
+#: lib/plausible_web/live/installation/instructions.ex:76
+#: lib/plausible_web/views/layout_view.ex:71
+msgid "Custom properties"
+msgstr "Mukautetut ominaisuudet"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:1
+#: lib/plausible_web/templates/settings/team_danger_zone.html.heex:1
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:1
+#: lib/plausible_web/views/layout_view.ex:92
+#: lib/plausible_web/views/layout_view.ex:120
+#: lib/plausible_web/views/layout_view.ex:162
+msgid "Danger zone"
+msgstr "Vaaravyöhyke"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:55
+msgid "Delete %{site}"
+msgstr "Poista %{site}"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:7
+msgid "Delete account"
+msgstr "Poista tili"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:32
+msgid "Delete all statistics while keeping the site configuration."
+msgstr "Poista kaikki tilastot mutta säilytä sivuston asetukset."
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:44
+msgid "Delete my account"
+msgstr "Poista tilini"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:46
+msgid "Delete site"
+msgstr "Poista sivusto"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:52
+msgid "Deleting the site data cannot be undone. Are you sure?"
+msgstr "Sivuston tietojen poistamista ei voi kumota. Haluatko varmasti jatkaa?"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:35
+msgid ""
+"Deleting your account also deletes all sites and data you own. This cannot "
+"be undone. Are you sure?"
+msgstr ""
+"Tilisi poistaminen poistaa myös kaikki omistamasi sivustot ja tiedot. "
+"Toimintoa ei voi kumota. Haluatko varmasti jatkaa?"
+
+#: lib/plausible_web/templates/layout/_footer.html.heex:37
+msgid ""
+"Derived from Plausible Community Edition. Nettipoika Visitor Analytics is "
+"not affiliated with or endorsed by Plausible Insights OÜ."
+msgstr ""
+"Palvelu perustuu Plausible Community Editioniin. Nettipoika Kävijäseuranta "
+"ei ole Plausible Insights OÜ:n yhteydessä eikä sen hyväksymä palvelu."
+
+#: lib/plausible_web/live/components/dashboard/report_list.ex:210
 msgid "Details"
 msgstr "Näytä tarkemmin"
 
+#: lib/plausible_web/templates/settings/security.html.heex:258
+msgid "Device"
+msgstr "Laite"
+
+#: lib/plausible_web/templates/settings/security.html.heex:132
+#: lib/plausible_web/templates/settings/security.html.heex:171
+msgid "Disable 2FA"
+msgstr "Poista 2FA käytöstä"
+
+#: lib/plausible_web/templates/settings/security.html.heex:164
+msgid "Disable two-factor authentication?"
+msgstr "Poistetaanko kaksivaiheinen tunnistautuminen käytöstä?"
+
+#: lib/plausible_web/templates/settings/security.html.heex:176
+msgid ""
+"Disabling 2FA invalidates authenticator and recovery codes. You must set it "
+"up again to re-enable it."
+msgstr ""
+"2FA:n poistaminen mitätöi tunnistautumis- ja palautuskoodit. Se on "
+"määritettävä uudelleen ennen seuraavaa käyttöönottoa."
+
+#: lib/plausible_web/templates/page/index.html.heex:26
+msgid "Documentation"
+msgstr "Ohjeet"
+
+#: lib/plausible_web/live/change_domain/form.ex:24
+#: lib/plausible_web/templates/site/new.html.heex:23
+#: lib/plausible_web/templates/site/settings_general.html.heex:11
+msgid "Domain"
+msgstr "Verkkotunnus"
+
+#: lib/plausible_web/live/reset_password_form.ex:66
+#: lib/plausible_web/templates/auth/login_form.html.heex:46
+msgid "Don't have an account?"
+msgstr "Eikö sinulla ole tiliä?"
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:19
+#: lib/plausible_web/templates/site/settings_people.html.heex:139
+msgid "Email"
+msgstr "Sähköposti"
+
+#: lib/plausible_web/templates/settings/security.html.heex:4
+#: lib/plausible_web/templates/settings/security.html.heex:42
+#: lib/plausible_web/templates/site/membership/invite_member_form.html.heex:25
+#: lib/plausible_web/templates/site/membership/transfer_ownership_form.html.heex:21
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+#: lib/plausible_web/views/layout_view.ex:90
+msgid "Email reports"
+msgstr "Sähköpostiraportit"
+
+#: lib/plausible_web/templates/settings/security.html.heex:154
+msgid "Enable 2FA"
+msgstr "Ota 2FA käyttöön"
+
+#: lib/plausible_web/live/shared_link_settings/form.ex:118
+#: lib/plausible_web/templates/settings/security.html.heex:191
+#: lib/plausible_web/templates/settings/security.html.heex:240
+#: lib/plausible_web/templates/settings/team_general.html.heex:102
+msgid "Enter password"
+msgstr "Syötä salasana"
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:3
+msgid "Enter your account credentials"
+msgstr "Syötä kirjautumistietosi"
+
+#: lib/plausible_web/templates/auth/password_reset_request_form.html.heex:7
+msgid "Enter your email so we can send a password reset link"
+msgstr "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
+
+#: lib/plausible_web/templates/settings/security.html.heex:231
+msgid "Enter your password to continue."
+msgstr "Jatka syöttämällä salasanasi."
+
+#: lib/plausible_web/templates/settings/security.html.heex:182
+msgid "Enter your password to disable 2FA."
+msgstr "Poista 2FA käytöstä syöttämällä salasanasi."
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:93
+msgid "Enter your password to stop requiring 2FA."
+msgstr "Lopeta 2FA:n vaatiminen syöttämällä salasanasi."
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:67
+msgid "Forgot password?"
+msgstr "Unohditko salasanasi?"
+
+#: lib/plausible_web/views/layout_view.ex:68
+msgid "Funnels"
+msgstr "Suppilot"
+
+#: lib/plausible_web/views/layout_view.ex:58
+#: lib/plausible_web/views/layout_view.ex:131
+msgid "General"
+msgstr "Yleiset"
+
+#: lib/plausible_web/templates/settings/security.html.heex:142
+#: lib/plausible_web/templates/settings/security.html.heex:216
+msgid "Generate new codes"
+msgstr "Luo uudet koodit"
+
+#: lib/plausible_web/templates/settings/security.html.heex:203
+msgid "Generate new recovery codes?"
+msgstr "Luodaanko uudet palautuskoodit?"
+
+#: lib/plausible_web/templates/settings/security.html.heex:221
+msgid "Generating codes"
+msgstr "Luodaan koodeja"
+
+#: lib/plausible_web/templates/settings/security.html.heex:227
+msgid "Generating new codes invalidates the old ones."
+msgstr "Uusien koodien luominen mitätöi vanhat koodit."
+
+#: lib/plausible_web/templates/stats/stats.html.heex:86
+msgid "Get started"
+msgstr "Aloita käyttö"
+
+#: lib/plausible_web/templates/error/404_error.html.heex:17
+#: lib/plausible_web/templates/error/generic_error.html.heex:5
+msgid "Go to homepage"
+msgstr "Siirry etusivulle"
+
+#: lib/plausible_web/live/sites.ex:185
+msgid "Go to team sites"
+msgstr "Siirry tiimin sivustoihin"
+
+#: lib/plausible_web/views/layout_view.ex:65
+msgid "Goals"
+msgstr "Tavoitteet"
+
+#: lib/plausible_web/templates/site/membership/invite_member_form.html.heex:59
+#: lib/plausible_web/templates/site/settings_people.html.heex:81
+msgid "Guest editor"
+msgstr "Vierailijamuokkaaja"
+
+#: lib/plausible_web/templates/site/membership/invite_member_form.html.heex:89
+#: lib/plausible_web/templates/site/settings_people.html.heex:99
+msgid "Guest viewer"
+msgstr "Vierailijakatselija"
+
+#: lib/plausible_web/views/email_view.ex:10
+msgid "Hello %{name},"
+msgstr "Hei %{name},"
+
+#: lib/plausible_web/views/email_view.ex:13
+msgid "Hello,"
+msgstr "Hei,"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:135
+msgid "Help center"
+msgstr "Ohjekeskus"
+
+#: lib/plausible_web/views/layout_view.ex:86
+msgid "Hostnames"
+msgstr "Isäntänimet"
+
+#: lib/plausible_web/views/layout_view.ex:83
+msgid "IP addresses"
+msgstr "IP-osoitteet"
+
+#: lib/plausible_web/views/layout_view.ex:76
+msgid "Imports & exports"
+msgstr "Tuonti ja vienti"
+
+#: lib/plausible_web/templates/site/new.html.heex:60
+msgid "Install tracker"
+msgstr "Asenna seuranta"
+
+#: lib/plausible_web/views/layout_view.ex:73
+msgid "Integrations"
+msgstr "Integraatiot"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:16
+msgid "Invite colleagues to view or manage this site."
+msgstr "Kutsu työtovereita tarkastelemaan tai hallitsemaan sivustoa."
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:23
+msgid "Invite guest"
+msgstr "Kutsu vierailija"
+
+#: lib/plausible_web/live/change_domain/form.ex:20
+#: lib/plausible_web/templates/site/new.html.heex:19
+msgid "Just the domain or subdomain without 'www', 'https' etc."
+msgstr ""
+"Pelkkä verkko- tai aliverkkotunnus ilman www-, https- tai muita etuliitteitä."
+
+#: lib/plausible_web/templates/settings/security.html.heex:259
+msgid "Last seen"
+msgstr "Viimeksi nähty"
+
+#: lib/plausible_web/live/components/verification.ex:113
+#: lib/plausible_web/live/goal_settings/list.ex:174
+#: lib/plausible_web/live/shared_link_settings.ex:87
+#: lib/plausible_web/templates/settings/api_keys.html.heex:23
+#: lib/plausible_web/templates/stats/stats.html.heex:94
+msgid "Learn more"
+msgstr "Lue lisää"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:127
+#: lib/plausible_web/templates/settings/team_general.html.heex:136
+msgid "Leave team"
+msgstr "Poistu tiimistä"
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:38
+#: lib/plausible_web/templates/error/404_error.html.heex:14
+#: lib/plausible_web/templates/layout/_header.html.heex:179
+#: lib/plausible_web/templates/layout/_header.html.heex:192
+#: lib/plausible_web/templates/page/index.html.heex:14
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:163
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: lib/plausible_web/templates/settings/security.html.heex:253
+msgid "Log out other devices. Inactive sessions expire after 14 days."
+msgstr ""
+"Kirjaa muut laitteet ulos. Passiiviset istunnot vanhenevat 14 päivän "
+"kuluttua."
+
+#: lib/plausible_web/templates/settings/security.html.heex:250
+msgid "Login management"
+msgstr "Kirjautumisten hallinta"
+
+#: lib/plausible_web/live/sites.ex:963
+msgid ""
+"Looks like you've hit the pinned sites limit! Please unpin one of your "
+"pinned sites to make room for new pins"
+msgstr ""
+"Kiinnitettyjen sivustojen enimmäismäärä on täynnä. Poista yhden sivuston "
+"kiinnitys ennen uuden kiinnittämistä."
+
+#: lib/plausible_web/templates/settings/security.html.heex:136
+msgid "Lost your recovery codes?"
+msgstr "Kadotitko palautuskoodisi?"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:20
+msgid "Move the site to another team that you are a member of."
+msgstr "Siirrä sivusto toiseen tiimiin, jonka jäsen olet."
+
+#: lib/plausible_web/live/sites.ex:852
+msgid "My personal sites"
+msgstr "Omat sivustoni"
+
+#: lib/plausible_web/live/goal_settings/list.ex:70
+#: lib/plausible_web/live/shared_link_settings.ex:116
+#: lib/plausible_web/live/shared_link_settings/form.ex:45
+#: lib/plausible_web/live/shared_link_settings/form.ex:91
+#: lib/plausible_web/live/team_setup.ex:96
+#: lib/plausible_web/templates/settings/api_keys.html.heex:40
+#: lib/plausible_web/templates/settings/new_api_key.html.heex:9
+#: lib/plausible_web/templates/settings/preferences.html.heex:12
+#: lib/plausible_web/templates/settings/preferences.html.heex:29
+#: lib/plausible_web/templates/settings/team_general.html.heex:19
+msgid "Name"
+msgstr "Nimi"
+
+#: lib/plausible_web/templates/layout/_footer.html.heex:12
+#: lib/plausible_web/templates/page/index.html.heex:3
+msgid "Nettipoika Visitor Analytics"
+msgstr "Nettipoika Kävijäseuranta"
+
+#: lib/plausible_web/templates/email/new_user_invitation.html.heex:16
+#: lib/plausible_web/templates/email/new_user_team_invitation.html.heex:16
+#: lib/plausible_web/templates/layout/app.html.heex:10
+msgid ""
+"Nettipoika Visitor Analytics is lightweight, open-source and privacy-"
+"friendly website analytics."
+msgstr ""
+"Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä "
+"kunnioittava verkkosivujen kävijäseuranta."
+
+#: lib/plausible_web/templates/layout/app.html.heex:31
+msgid "Nettipoika Visitor Analytics · Clear analytics without cookies"
+msgstr "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"
+
+#: lib/plausible_web/templates/settings/security.html.heex:25
+msgid "New email"
+msgstr "Uusi sähköpostiosoite"
+
+#: lib/plausible_web/templates/settings/security.html.heex:86
+msgid "New password"
+msgstr "Uusi salasana"
+
+#: lib/plausible_web/live/components/dashboard/report_list.ex:99
+msgid "No data yet"
+msgstr "Ei vielä tietoja"
+
+#: lib/plausible_web/live/sites.ex:159
+msgid "No sites found. Try a different search term."
+msgstr "Sivustoja ei löytynyt. Kokeile toista hakusanaa."
+
+#: lib/plausible_web/templates/settings/security.html.heex:77
+msgid "Old password"
+msgstr "Vanha salasana"
+
+#: lib/plausible_web/templates/error/404_error.html.heex:3
+msgid "Oops! There's nothing here"
+msgstr "Hups! Täällä ei ole mitään"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:162
+msgid "Open source"
+msgstr "Avoin lähdekoodi"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:62
+msgid "Owner"
+msgstr "Omistaja"
+
+#: lib/plausible_web/views/layout_view.ex:85
+msgid "Pages"
+msgstr "Sivut"
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:28
+#: lib/plausible_web/templates/settings/security.html.heex:62
+msgid "Password"
+msgstr "Salasana"
+
+#: lib/plausible_web/email.ex:647
+msgid "Password reset for Nettipoika Visitor Analytics"
+msgstr "Nettipoika Kävijäseurannan salasanan palautus"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:131
+msgid "Pending invitations"
+msgstr "Odottavat kutsut"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:15
+#: lib/plausible_web/views/layout_view.ex:60
+msgid "People"
+msgstr "Käyttäjät"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:47
+msgid "Permanently delete all statistics and site settings."
+msgstr "Poista kaikki tilastot ja sivuston asetukset pysyvästi."
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:9
+msgid "Permanently delete your sites and all collected statistics."
+msgstr "Poista sivustosi ja kaikki kerätyt tilastot pysyvästi."
+
+#: lib/plausible_web/live/sites.ex:614
+msgid "Pin site"
+msgstr "Kiinnitä sivusto"
+
+#: lib/plausible_web/templates/layout/_footer.html.heex:25
+msgid "Plausible CE documentation"
+msgstr "Plausible CE -ohjeet"
+
+#: lib/plausible_web/templates/email/export_failure.html.heex:5
+msgid "Please try exporting your data again."
+msgstr "Yritä tietojen vientiä uudelleen."
+
+#: lib/plausible_web/views/layout_view.ex:108
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: lib/plausible_web/components/generic.ex:1112
+#: lib/plausible_web/components/generic.ex:1120
+msgid "Press / to search"
+msgstr "Paina / hakeaksesi"
+
+#: lib/plausible_web/templates/settings/security.html.heex:121
+msgid "Protect your account with an extra security step when you log in."
+msgstr "Suojaa tilisi kirjautumisen lisävahvistuksella."
+
+#: lib/plausible_web/live/reset_password_form.ex:67
+#: lib/plausible_web/templates/auth/login_form.html.heex:48
+#: lib/plausible_web/templates/page/index.html.heex:21
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:118
+msgid "Remove member"
+msgstr "Poista jäsen"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:128
+msgid "Remove yourself as a member of this team."
+msgstr "Poista itsesi tämän tiimin jäsenistä."
+
+#: lib/plausible_web/templates/site/new.html.heex:35
+#: lib/plausible_web/templates/site/settings_general.html.heex:29
+msgid "Reporting timezone"
+msgstr "Raportoinnin aikavyöhyke"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:121
+msgid "Require 2FA"
+msgstr "Vaadi 2FA"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:51
+msgid "Require all team members to enable 2FA."
+msgstr "Vaadi kaikilta tiimin jäseniltä 2FA:n käyttöönotto."
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:48
+msgid "Require two-factor authentication (2FA)"
+msgstr "Vaadi kaksivaiheinen tunnistautuminen (2FA)"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:30
+msgid "Reset statistics"
+msgstr "Nollaa tilastot"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:41
+msgid "Reset statistics for %{site}"
+msgstr "Nollaa sivuston %{site} tilastot"
+
+#: lib/plausible_web/live/reset_password_form.ex:40
+#: lib/plausible_web/templates/auth/password_reset_request_form.html.heex:3
+msgid "Reset your password"
+msgstr "Vaihda salasana"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:37
+msgid "Resetting the statistics cannot be undone. Are you sure?"
+msgstr "Tilastojen nollaamista ei voi kumota. Haluatko varmasti jatkaa?"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:51
+msgid "Review installation"
+msgstr "Tarkista asennus"
+
+#: lib/plausible_web/templates/site/membership/invite_member_form.html.heex:37
+#: lib/plausible_web/templates/site/settings_people.html.heex:140
+msgid "Role"
+msgstr "Rooli"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:36
+msgid "Save timezone"
+msgstr "Tallenna aikavyöhyke"
+
+#: lib/plausible_web/live/sites.ex:846
+msgid "Search sites"
+msgstr "Hae sivustoja"
+
+#: lib/plausible_web/views/layout_view.ex:109
+msgid "Security"
+msgstr "Tietoturva"
+
+#: lib/plausible_web/templates/auth/password_reset_request_form.html.heex:29
+msgid "Send reset link"
+msgstr "Lähetä vaihtolinkki"
+
+#: lib/plausible_web/live/reset_password_form.ex:58
+msgid "Set password"
+msgstr "Aseta salasana →"
+
+#: lib/plausible_web/live/sites.ex:585
+#: lib/plausible_web/templates/layout/settings.html.heex:8
+msgid "Settings"
+msgstr "Asetukset"
+
+#: lib/plausible_web/templates/layout/site_settings.html.heex:11
+msgid "Settings for %{site}"
+msgstr "Sivuston %{site} asetukset"
+
+#: lib/plausible_web/views/layout_view.ex:80
+msgid "Shields"
+msgstr "Suojaukset"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:200
+msgid "Sign up"
+msgstr "Rekisteröidy"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:92
+msgid "Signed in as"
+msgstr "Kirjautuneena käyttäjänä"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:4
+msgid "Site domain"
+msgstr "Sivuston verkkotunnus"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:41
+msgid "Site installation"
+msgstr "Sivuston asennus"
+
+#: lib/plausible_web/live/sites.ex:951
+msgid "Site pinned"
+msgstr "Sivusto kiinnitetty"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:24
+msgid "Site timezone"
+msgstr "Sivuston aikavyöhyke"
+
+#: lib/plausible_web/live/sites.ex:951
+msgid "Site unpinned"
+msgstr "Sivuston kiinnitys poistettu"
+
+#: lib/plausible_web/templates/layout/_footer.html.heex:23
+#: lib/plausible_web/templates/page/index.html.heex:31
+msgid "Source code (AGPL)"
+msgstr "Lähdekoodi (AGPL)"
+
+#: lib/plausible_web/templates/stats/stats.html.heex:72
+msgid "Start today."
+msgstr "Aloita jo tänään."
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:69
+#: lib/plausible_web/templates/settings/team_general.html.heex:84
+msgid "Stop requiring 2FA"
+msgstr "Lopeta 2FA:n vaatiminen"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:77
+msgid "Stop requiring 2FA?"
+msgstr "Lopetetaanko 2FA:n vaatiminen?"
+
+#: lib/plausible_web/templates/layout/settings.html.heex:37
+#: lib/plausible_web/templates/layout/settings.html.heex:44
+#: lib/plausible_web/views/layout_view.ex:129
+msgid "Team"
+msgstr "Tiimi"
+
+#: lib/plausible_web/live/team_setup.ex:103
+#: lib/plausible_web/templates/settings/team_general.html.heex:36
+msgid "Team members"
+msgstr "Tiimin jäsenet"
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:4
+msgid "Team name"
+msgstr "Tiimin nimi"
+
+#: lib/plausible_web/templates/layout/_header.html.heex:125
+msgid "Team settings"
+msgstr "Tiimin asetukset"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:2
+#: lib/plausible_web/templates/settings/team_danger_zone.html.heex:2
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:2
+msgid "The actions below can cause permanent data loss. Proceed carefully."
+msgstr "Alla olevat toiminnot voivat hävittää tietoja pysyvästi. Toimi varoen."
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:64
+msgid "The site owner cannot be assigned another role."
+msgstr "Sivuston omistajalle ei voi määrittää muuta roolia."
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:54
+msgid "Theme"
+msgstr "Teema"
+
+#: lib/plausible_web/templates/email/export_success.html.heex:8
+msgid "This link expires %{expires_in}."
+msgstr "Linkki vanhenee %{expires_in}."
+
+#: lib/plausible_web/templates/email/password_reset_email.html.heex:3
+msgid ""
+"This link expires in one hour. If it expires, you can request a new password "
+"reset link."
+msgstr ""
+"Linkki vanhenee tunnin kuluttua. Jos linkki vanhenee, voit pyytää uuden "
+"salasanan vaihtolinkin."
+
+#: lib/plausible_web/templates/settings/team_general.html.heex:89
+msgid "This removes the 2FA requirement for all team members."
+msgstr "Tämä poistaa 2FA-vaatimuksen kaikilta tiimin jäseniltä."
+
+#: lib/plausible_web/live/sites.ex:236
+msgid "Total of"
+msgstr "Yhteensä"
+
+#: lib/plausible_web/live/sites.ex:440
+msgid "Total pageviews"
+msgstr "Sivulataukset yhteensä"
+
+#: lib/plausible_web/live/sites.ex:433
+msgid "Total visits"
+msgstr "Käynnit yhteensä"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:14
+msgid "Transfer %{site} ownership"
+msgstr "Siirrä sivuston %{site} omistajuus"
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:8
+msgid "Transfer ownership of the site to a different account."
+msgstr "Siirrä sivuston omistajuus toiselle tilille."
+
+#: lib/plausible_web/templates/site/settings_danger_zone.html.heex:7
+msgid "Transfer site ownership"
+msgstr "Siirrä sivuston omistajuus"
+
+#: lib/plausible_web/templates/error/404_error.html.heex:6
+msgid "Trying to access your dashboard? You may need to log in again to see it"
+msgstr "Yritätkö avata hallintanäkymää? Sinun on ehkä kirjauduttava uudelleen."
+
+#: lib/plausible_web/templates/settings/security.html.heex:118
+msgid "Two-factor authentication (2FA)"
+msgstr "Kaksivaiheinen tunnistautuminen (2FA)"
+
+#: lib/plausible_web/templates/email/two_factor_disabled_email.html.heex:1
+msgid "Two-factor authentication is now disabled on your account."
+msgstr "Kaksivaiheinen tunnistautuminen on nyt poistettu käytöstä tililtäsi."
+
+#: lib/plausible_web/templates/email/two_factor_enabled_email.html.heex:1
+msgid "Two-factor authentication is now enabled on your account."
+msgstr "Kaksivaiheinen tunnistautuminen on nyt käytössä tililläsi."
+
+#: lib/plausible_web/email.ex:653
+msgid "Two-factor authentication was disabled"
+msgstr "Kaksivaiheinen tunnistautuminen poistettiin käytöstä"
+
+#: lib/plausible_web/email.ex:650
+msgid "Two-factor authentication was enabled"
+msgstr "Kaksivaiheinen tunnistautuminen otettiin käyttöön"
+
+#: lib/plausible_web/live/sites.ex:428
+msgid "Unique visitors"
+msgstr "Yksilölliset kävijät"
+
+#: lib/plausible_web/live/sites.ex:608
+msgid "Unpin site"
+msgstr "Poista sivuston kiinnitys"
+
+#: lib/plausible_web/templates/site/settings_general.html.heex:25
+msgid "Update your reporting timezone."
+msgstr "Päivitä raportoinnin aikavyöhyke."
+
+#: lib/plausible_web/templates/site/new.html.heex:30
+msgid "Used to determine when a reporting day starts and ends"
+msgstr "Määrittää raportointipäivän alkamis- ja päättymisajan"
+
+#: lib/plausible_web/templates/settings/security.html.heex:101
+msgid "Verify with 2FA code"
+msgstr "Vahvista 2FA-koodilla"
+
+#: lib/plausible_web/live/sites.ex:445
+msgid "Views per visit"
+msgstr "Sivulatauksia käyntiä kohden"
+
+#: lib/plausible_web/views/layout_view.ex:63
+msgid "Visibility"
+msgstr "Näkyvyys"
+
+#: lib/plausible_web/templates/site/settings_people.html.heex:132
+msgid "Waiting for invited users to accept."
+msgstr "Odotetaan kutsuttujen käyttäjien hyväksyntää."
+
+#: lib/plausible_web/templates/stats/stats.html.heex:71
+msgid "Want these stats for your website?"
+msgstr "Haluatko nämä tilastot omalle verkkosivustollesi?"
+
+#: lib/plausible_web/email.ex:644
+msgid "Welcome to Nettipoika Visitor Analytics"
+msgstr "Tervetuloa Nettipoika Kävijäseurantaan"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:15
+msgid ""
+"You are the only owner of one or more teams. Add another owner or delete "
+"these teams first:"
+msgstr ""
+"Olet yhden tai useamman tiimin ainoa omistaja. Lisää ensin toinen omistaja "
+"tai poista nämä tiimit:"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:14
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:29
+msgid "You cannot delete your account yet"
+msgstr "Et voi vielä poistaa tiliäsi"
+
+#: lib/plausible_web/templates/settings/danger_zone.html.heex:30
+msgid ""
+"You have an active subscription. Cancel it before deleting your account."
+msgstr "Sinulla on aktiivinen tilaus. Peruuta se ennen tilin poistamista."
+
+#: lib/plausible_web/templates/email/export_failure.html.heex:1
+msgid "Your %{product} export for %{site} failed."
+msgstr "Palvelun %{product} vienti sivustolle %{site} epäonnistui."
+
+#: lib/plausible_web/templates/email/export_success.html.heex:1
+msgid "Your %{product} export for %{site} is ready."
+msgstr "Palvelun %{product} vienti sivustolle %{site} on valmis."
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:4
+#: lib/plausible_web/templates/settings/preferences.html.heex:22
+msgid "Your name"
+msgstr "Nimesi"
+
+#: lib/plausible_web/email.ex:692
+msgid "[%{product}] Export failed for %{site}"
+msgstr "[%{product}] Sivuston %{site} vienti epäonnistui"
+
+#: lib/plausible_web/email.ex:657 lib/plausible_web/email.ex:664
+msgid "[%{product}] You have been invited to %{site}"
+msgstr "[%{product}] Sinut on kutsuttu sivustolle %{site}"
+
+#: lib/plausible_web/email.ex:671 lib/plausible_web/email.ex:678
+msgid "[%{product}] You have been invited to the team %{team}"
+msgstr "[%{product}] Sinut on kutsuttu tiimiin %{team}"
+
+#: lib/plausible_web/email.ex:685
+msgid "[%{product}] Your export for %{site} is ready"
+msgstr "[%{product}] Sivuston %{site} vienti on valmis"
+
+#: lib/plausible_web/templates/email/export_success.html.heex:5
+msgid "here"
+msgstr "tästä"
+
+#: lib/plausible_web/live/reset_password_form.ex:68
+#: lib/plausible_web/templates/auth/login_form.html.heex:50
+msgid "instead."
+msgstr "sen sijaan."
+
+#: lib/plausible_web/live/sites.ex:237
+msgid "sites"
+msgstr "sivustoa"
+
+#: lib/plausible_web/templates/email/new_user_invitation.html.heex:15
+#: lib/plausible_web/templates/email/new_user_team_invitation.html.heex:15
+msgid "to create your account. The link is valid for 48 hours."
+msgstr "luodaksesi käyttäjätilin. Linkki on voimassa 48 tuntia."
+
+#: lib/plausible_web/templates/email/export_success.html.heex:6
+msgid "to download it."
+msgstr "ladataksesi viennin."
+
+#: lib/plausible_web/templates/auth/login_form.html.heex:71
+msgid "to reset it."
+msgstr "vaihtaaksesi sen."
+
+#: lib/plausible_web/templates/email/password_reset_email.html.heex:2
+msgid "to reset your Nettipoika Visitor Analytics password."
+msgstr "vaihtaaksesi Nettipoika Kävijäseurannan salasanasi."
+
+#: lib/plausible_web/templates/email/existing_user_invitation.html.heex:9
+#: lib/plausible_web/templates/email/existing_user_team_invitation.html.heex:7
+msgid ""
+"to view and respond to the invitation. The invitation expires in 48 hours."
+msgstr "nähdäksesi kutsun ja vastataksesi siihen. Kutsu vanhenee 48 tunnissa."
+
+#: lib/plausible_web/live/sites.ex:675
 msgid "visitor in the last 24h"
 msgid_plural "visitors in the last 24h"
 msgstr[0] "kävijä viimeisen 24 tunnin aikana"
 msgstr[1] "kävijää viimeisen 24 tunnin aikana"
 
-msgid "Oops! There's nothing here"
-msgstr "Hups! Täällä ei ole mitään"
+#: lib/plausible_web/templates/error/server_error.html.heex:26
+msgid "A server error occurred."
+msgstr "Palvelimella tapahtui virhe."
 
-msgid "Trying to access your dashboard? You may need to log in again to see it"
-msgstr "Yritätkö avata hallintanäkymää? Sinun on ehkä kirjauduttava uudelleen."
+#: lib/plausible_web/live/goal_settings/list.ex:28
+#: lib/plausible_web/live/goal_settings/list.ex:179
+msgid "Add goal"
+msgstr "Lisää tavoite"
 
-msgid "Go to homepage"
-msgstr "Siirry etusivulle"
+#: lib/plausible_web/live/awaiting_pageviews.ex:66
+#: lib/plausible_web/live/components/verification.ex:84
+msgid "Awaiting your first pageview..."
+msgstr "Odotetaan ensimmäistä sivulatausta..."
 
-msgid "Site pinned"
-msgstr "Sivusto kiinnitetty"
+#: lib/plausible_web/live/goal_settings/list.ex:93
+msgid "Belongs to a funnel"
+msgstr "Kuuluu suppiloon"
 
-msgid "Site unpinned"
-msgstr "Sivuston kiinnitys poistettu"
+#: lib/plausible_web/live/goal_settings/list.ex:167
+msgid "Create your first goal"
+msgstr "Luo ensimmäinen tavoitteesi"
 
-msgid "Looks like you've hit the pinned sites limit! Please unpin one of your pinned sites to make room for new pins"
-msgstr "Kiinnitettyjen sivustojen enimmäismäärä on täynnä. Poista yhden sivuston kiinnitys ennen uuden kiinnittämistä."
+#: lib/plausible_web/live/goal_settings/list.ex:48
+#: lib/plausible_web/live/goal_settings/list.ex:111
+#: lib/plausible_web/live/goal_settings/list.ex:197
+msgid "Custom event"
+msgstr "Mukautettu tapahtuma"
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:52
+#: lib/plausible_web/templates/site/settings_visibility.html.heex:67
+msgid "Dark"
+msgstr "Tumma"
+
+#: lib/plausible_web/live/goal_settings/list.ex:170
+msgid ""
+"Define actions you want visitors to take, such as visiting a page or "
+"submitting a form."
+msgstr ""
+"Määritä toimintoja, joita haluat kävijöiden tekevän, kuten sivulla käynti "
+"tai lomakkeen lähetys."
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:50
+msgid "Follow system theme"
+msgstr "Seuraa järjestelmän teemaa"
+
+#: lib/plausible_web/live/components/verification.ex:92
+msgid "Go to the dashboard"
+msgstr "Siirry hallintanäkymään"
+
+#: lib/plausible_web/live/components/verification.ex:130
+msgid "Is your website located at a different URL?"
+msgstr "Onko verkkosivustosi toisessa osoitteessa?"
+
+#: lib/plausible_web/templates/settings/preferences.html.heex:51
+#: lib/plausible_web/templates/site/settings_visibility.html.heex:66
+msgid "Light"
+msgstr "Vaalea"
+
+#: lib/plausible_web/live/components/verification.ex:149
+msgid "Need to see the installation instructions again?"
+msgstr "Haluatko nähdä asennusohjeet uudelleen?"
+
+#: lib/plausible_web/live/components/pagination.ex:74
+msgid "Next"
+msgstr "Seuraava"
+
+#: lib/plausible_web/live/goal_settings/list.ex:155
+msgid "No goals found. Refine or"
+msgstr "Tavoitteita ei löytynyt. Tarkenna tai"
+
+#: lib/plausible_web/live/goal_settings/list.ex:38
+#: lib/plausible_web/live/goal_settings/list.ex:108
+#: lib/plausible_web/live/goal_settings/list.ex:189
+msgid "Pageview"
+msgstr "Sivulataus"
+
+#: lib/plausible_web/live/components/pagination.ex:11
+msgid "Pagination"
+msgstr "Sivutus"
+
+#: lib/plausible_web/live/components/pagination.ex:73
+msgid "Previous"
+msgstr "Edellinen"
+
+#: lib/plausible_web/live/goal_settings/list.ex:114
+msgid "Revenue goal"
+msgstr "Tuottotavoite"
+
+#: lib/plausible_web/live/components/verification.ex:160
+msgid "Run verification later and go to site settings?"
+msgstr "Tarkistetaanko asennus myöhemmin ja siirrytäänkö sivuston asetuksiin?"
+
+#: lib/plausible_web/live/goal_settings/list.ex:105
+msgid "Scroll"
+msgstr "Vieritys"
+
+#: lib/plausible_web/live/goal_settings/list.ex:58
+#: lib/plausible_web/live/goal_settings/list.ex:207
+msgid "Scroll depth"
+msgstr "Vierityssyvyys"
+
+#: lib/plausible_web/live/goal_settings/list.ex:25
+msgid "Search goals"
+msgstr "Hae tavoitteita"
+
+#: lib/plausible_web/templates/error/server_error.html.heex:4
+msgid "Sorry, something went wrong."
+msgstr "Pahoittelut, jokin meni vikaan."
+
+#: lib/plausible_web/live/components/verification.ex:80
+msgid "Success!"
+msgstr "Onnistui!"
+
+#: lib/plausible_web/templates/error/server_error_report_thanks.html.heex:3
+msgid "Thank you!"
+msgstr "Kiitos!"
+
+#: lib/plausible_web/templates/error/server_error.html.heex:37
+msgid "The error has been recorded."
+msgstr "Virhe on tallennettu."
+
+#: lib/plausible_web/live/goal_settings/list.ex:71
+msgid "Type"
+msgstr "Tyyppi"
+
+#: lib/plausible_web/live/awaiting_pageviews.ex:55
+msgid "Verify installation"
+msgstr "Tarkista asennus"
+
+#: lib/plausible_web/live/components/verification.ex:120
+msgid "Verify installation again"
+msgstr "Tarkista asennus uudelleen"
+
+#: lib/plausible_web/live/components/verification.ex:62
+msgid "Verifying your installation"
+msgstr "Tarkistetaan asennusta"
+
+#: lib/plausible_web/live/components/verification.ex:82
+msgid "Your installation works and visitors are being counted."
+msgstr "Asennus toimii ja kävijät lasketaan."
+
+#: lib/plausible_web/templates/error/server_error_report_thanks.html.heex:8
+msgid "Your report has been submitted."
+msgstr "Raporttisi on lähetetty."
+
+#: lib/plausible_web/live/goal_settings/list.ex:157
+msgid "reset your search."
+msgstr "nollaa haku."

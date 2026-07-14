@@ -17,6 +17,7 @@ import { rootRoute } from './router'
 import { get } from './api'
 import { ErrorPanel } from './components/error-panel'
 import { useRoutelessModalsContext } from './navigation/routeless-modals-context'
+import { t } from '../i18n'
 
 const Favicon = ({
   domain,
@@ -185,7 +186,7 @@ export const SiteSwitcher = () => {
             )}
             <span className={'truncate hidden sm:block sm:mr-1 lg:mr-0'}>
               {currentSite.isConsolidatedView
-                ? 'All sites'
+                ? t('allSites')
                 : currentSite.domain}
             </span>
             <ChevronDownIcon className="hidden lg:block h-5 w-5 ml-2 dark:text-gray-100" />
@@ -206,7 +207,7 @@ export const SiteSwitcher = () => {
                 {canSeeViewAllSites && (
                   <a className={buttonLinkClassName} href={`/sites`}>
                     <ArrowLeftIcon className="size-4 mr-1.5" />
-                    Back to sites
+                    {t('backToSites')}
                   </a>
                 )}
                 {canSeeSiteSettings && (
@@ -215,7 +216,7 @@ export const SiteSwitcher = () => {
                     href={`/${encodeURIComponent(currentSite.domain)}/settings/general`}
                   >
                     <Cog8ToothIcon className="size-4 mr-1.5" />
-                    Site settings
+                    {t('siteSettings')}
                   </a>
                 )}
               </div>
@@ -230,7 +231,7 @@ export const SiteSwitcher = () => {
               {sitesQuery.isError && (
                 <div className="px-3 py-2">
                   <ErrorPanel
-                    errorMessage={'Error loading sites'}
+                    errorMessage={t('errorLoadingSites')}
                     onClose={sitesQuery.refetch}
                   />
                 </div>
@@ -247,7 +248,7 @@ export const SiteSwitcher = () => {
                   onClick={() => closePopover()}
                 >
                   <GlobeIcon className="size-4 block mr-2 text-indigo-600 dark:text-white" />
-                  <span className="truncate mr-auto">All sites</span>
+                  <span className="truncate mr-auto">{t('allSites')}</span>
                   <KeybindHint>0</KeybindHint>
                 </a>
               )}

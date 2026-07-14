@@ -1,17 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
-
-const migratedEnglishLiterals = [
-  'Goal conversions',
-  'No data yet',
-  'Press / to search',
-  'current visitors',
-  'Total pageviews',
-  'Views per visit',
-  'Top sources',
-  'Entry pages',
-  'Exit pages'
-]
+import * as ts from 'typescript'
+import { englishCatalog } from './i18n'
 
 const allowedTechnicalTerms = new Set([
   'API',
@@ -37,13 +27,71 @@ function sourceFiles(directory: string): string[] {
   })
 }
 
-test('migrated customer-facing strings do not return as dashboard literals', () => {
+const allowedDataAndProtocolLiterals = new Set([
+  'Direct / None',
+  'OS',
+  'URL',
+  'contains',
+  'does not contain',
+  'is',
+  'is not'
+])
+
+function isTranslationKey(node: ts.StringLiteralLike): boolean {
+  const call = node.parent
+  return (
+    ts.isCallExpression(call) &&
+    ts.isIdentifier(call.expression) &&
+    ['t', 'tn'].includes(call.expression.text)
+  )
+}
+
+test('customer-facing dashboard catalog strings are referenced through i18n', () => {
+  const catalogValues: Set<string> = new Set(
+    Object.values(englishCatalog).filter(
+      (value) =>
+        !value.includes('{{') && !allowedDataAndProtocolLiterals.has(value)
+    )
+  )
+
   const failures = sourceFiles(path.join(__dirname, 'dashboard')).flatMap(
     (filename) => {
       const source = fs.readFileSync(filename, 'utf8')
-      return migratedEnglishLiterals
-        .filter((literal) => source.includes(literal))
-        .map((literal) => `${path.relative(__dirname, filename)}: ${literal}`)
+      const sourceFile = ts.createSourceFile(
+        filename,
+        source,
+        ts.ScriptTarget.Latest,
+        true,
+        filename.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS
+      )
+      const literals: Array<{ text: string; position: number }> = []
+
+      const visit = (node: ts.Node) => {
+        if (
+          (ts.isStringLiteral(node) ||
+            ts.isNoSubstitutionTemplateLiteral(node)) &&
+          catalogValues.has(node.text) &&
+          !isTranslationKey(node)
+        ) {
+          literals.push({
+            text: node.text,
+            position: node.getStart(sourceFile)
+          })
+        }
+        if (ts.isJsxText(node)) {
+          const text = node.getText(sourceFile).trim()
+          if (catalogValues.has(text)) {
+            literals.push({ text, position: node.getStart(sourceFile) })
+          }
+        }
+        ts.forEachChild(node, visit)
+      }
+      visit(sourceFile)
+
+      return literals.map(({ text, position }) => {
+        const { line } = sourceFile.getLineAndCharacterOfPosition(position)
+        return `${path.relative(__dirname, filename)}:${line + 1}: ${text}`
+      })
     }
   )
 

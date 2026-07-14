@@ -14,6 +14,7 @@ import {
 } from '../../util/filters'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
+import { t } from '../../../i18n'
 
 export default function FilterModalPropsRow({
   filter,
@@ -85,7 +86,7 @@ export default function FilterModalPropsRow({
           autoFocus
           values={propKey ? [{ value: propKey, label: propKey }] : []}
           onSelect={onPropKeySelect}
-          placeholder="Property"
+          placeholder={t('property')}
           disabledOptions={disabledOptions}
         />
       </div>
@@ -105,7 +106,7 @@ export default function FilterModalPropsRow({
           fetchOptions={fetchPropValueOptions}
           values={selectedClauses}
           onSelect={onPropValueSelect}
-          placeholder={'Value'}
+          placeholder={t('value')}
           freeChoice={isFreeChoiceFilterOperation(operation)}
         />
       </div>

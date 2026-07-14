@@ -1,4 +1,9 @@
-{@inviter.email} has invited you to the {@site.domain} site on {Plausible.product_name()}.
-<a href={Routes.site_url(PlausibleWeb.Endpoint, :index) <> "?__team=none"}>Click here</a>
-to view and respond to the invitation. The invitation
-will expire 48 hours after this email is sent.
+{gettext("%{inviter} invited you to the site %{site} in %{product}.",
+  inviter: @inviter.email,
+  site: @site.domain,
+  product: Plausible.product_name()
+)}
+<a href={Routes.site_url(PlausibleWeb.Endpoint, :index) <> "?__team=none"}>
+  {gettext("Click here")}
+</a>
+{gettext("to view and respond to the invitation. The invitation expires in 48 hours.")}

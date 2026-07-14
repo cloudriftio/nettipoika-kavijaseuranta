@@ -1,5 +1,6 @@
 defmodule PlausibleWeb.Email do
   use Plausible
+  use Gettext, backend: PlausibleWeb.Gettext
   import Bamboo.Email
   import Bamboo.PostmarkHelper
 
@@ -63,12 +64,12 @@ defmodule PlausibleWeb.Email do
     |> render("check_stats_email.html", user: user)
   end
 
-  def password_reset_email(email, reset_link) do
+  def password_reset_email(user, reset_link) do
     priority_email(%{layout: nil})
-    |> to(email)
+    |> to(user)
     |> tag("password-reset-email")
-    |> subject("Nettipoika Kävijäseurannan salasanan palautus")
-    |> render("password_reset_email.html", reset_link: reset_link)
+    |> subject("Password reset for Nettipoika Visitor Analytics")
+    |> render("password_reset_email.html", user: user, reset_link: reset_link)
   end
 
   def two_factor_enabled_email(user) do
@@ -616,9 +617,84 @@ defmodule PlausibleWeb.Email do
   @doc false
   def render(email, template, assigns \\ []) do
     assigns = Map.merge(email.assigns, Map.new(assigns))
-    html = Phoenix.View.render_to_string(PlausibleWeb.EmailView, template, assigns)
-    email |> html_body(html) |> text_body(textify(html))
+    locale = email_locale(assigns)
+
+    Gettext.with_locale(PlausibleWeb.Gettext, locale, fn ->
+      email = %{email | subject: localized_subject(template, assigns, email.subject)}
+      html = Phoenix.View.render_to_string(PlausibleWeb.EmailView, template, assigns)
+      email |> html_body(html) |> text_body(textify(html))
+    end)
   end
+
+  def email_locale(assigns) do
+    [:user, :inviter, :owner, :enabling_user]
+    |> Enum.find_value(fn key ->
+      case Map.get(assigns, key) do
+        %{preferred_locale: locale} when locale in ["fi", "en"] -> locale
+        _ -> nil
+      end
+    end)
+    |> Kernel.||("fi")
+  end
+
+  defp localized_subject("activation_email.html", %{code: code}, _subject),
+    do: gettext("%{code} is your Nettipoika Visitor Analytics verification code", code: code)
+
+  defp localized_subject("welcome_email.html", _assigns, _subject),
+    do: gettext("Welcome to Nettipoika Visitor Analytics")
+
+  defp localized_subject("password_reset_email.html", _assigns, _subject),
+    do: gettext("Password reset for Nettipoika Visitor Analytics")
+
+  defp localized_subject("two_factor_enabled_email.html", _assigns, _subject),
+    do: gettext("Two-factor authentication was enabled")
+
+  defp localized_subject("two_factor_disabled_email.html", _assigns, _subject),
+    do: gettext("Two-factor authentication was disabled")
+
+  defp localized_subject("existing_user_invitation.html", assigns, _subject),
+    do:
+      gettext("[%{product}] You have been invited to %{site}",
+        product: Plausible.product_name(),
+        site: assigns.site.domain
+      )
+
+  defp localized_subject("new_user_invitation.html", assigns, _subject),
+    do:
+      gettext("[%{product}] You have been invited to %{site}",
+        product: Plausible.product_name(),
+        site: assigns.site.domain
+      )
+
+  defp localized_subject("existing_user_team_invitation.html", assigns, _subject),
+    do:
+      gettext("[%{product}] You have been invited to the team %{team}",
+        product: Plausible.product_name(),
+        team: assigns.team.name
+      )
+
+  defp localized_subject("new_user_team_invitation.html", assigns, _subject),
+    do:
+      gettext("[%{product}] You have been invited to the team %{team}",
+        product: Plausible.product_name(),
+        team: assigns.team.name
+      )
+
+  defp localized_subject("export_success.html", assigns, _subject),
+    do:
+      gettext("[%{product}] Your export for %{site} is ready",
+        product: Plausible.product_name(),
+        site: assigns.site.domain
+      )
+
+  defp localized_subject("export_failure.html", assigns, _subject),
+    do:
+      gettext("[%{product}] Export failed for %{site}",
+        product: Plausible.product_name(),
+        site: assigns.site.domain
+      )
+
+  defp localized_subject(_template, _assigns, subject), do: subject
 
   defp textify(html) do
     Floki.parse_fragment!(html)

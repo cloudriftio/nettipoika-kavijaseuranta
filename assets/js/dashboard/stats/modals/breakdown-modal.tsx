@@ -19,6 +19,7 @@ import { useSiteContext } from '../../site-context'
 import { DrilldownLink, FilterInfo } from '../../components/drilldown-link'
 import { SharedReportProps } from '../reports/list'
 import { hasConversionGoalFilter } from '../../util/filters'
+import { t } from '../../../i18n'
 
 export type ReportInfo = {
   /** Title of the report to render on the top left. */
@@ -255,7 +256,7 @@ const getMetricWarning = (metric: Metric, meta: BreakdownResultMeta | null) => {
     const { code, message } = warnings[metric.key]
 
     if (metric.key == 'scroll_depth' && code == 'no_imported_scroll_depth') {
-      return 'Does not include imported data'
+      return t('importedDataNotIncluded')
     }
 
     if (metric.key == 'time_on_page' && code) {

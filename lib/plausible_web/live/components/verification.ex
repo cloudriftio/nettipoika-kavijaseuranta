@@ -3,7 +3,7 @@ defmodule PlausibleWeb.Live.Components.Verification do
   This component is responsible for rendering the verification progress
   and diagnostics.
   """
-  use Phoenix.LiveComponent
+  use PlausibleWeb, :live_component
   use Plausible
 
   alias PlausibleWeb.Router.Helpers, as: Routes
@@ -59,7 +59,7 @@ defmodule PlausibleWeb.Live.Components.Verification do
         <div class="block pulsating-circle"></div>
       </div>
       <div class="mt-8">
-        <.title>Verifying your installation</.title>
+        <.title>{gettext("Verifying your installation")}</.title>
         <p class="text-sm mt-4 animate-pulse" id="progress">{@message}</p>
       </div>
     </.focus_box>
@@ -77,11 +77,11 @@ defmodule PlausibleWeb.Live.Components.Verification do
       </div>
 
       <div class="mt-8">
-        <.title>Success!</.title>
+        <.title>{gettext("Success!")}</.title>
         <p class="text-sm mt-4">
-          Your installation is working and visitors are being counted accurately.
+          {gettext("Your installation works and visitors are being counted.")}
           <span :if={@awaiting_first_pageview?} id="awaiting" class="text-sm mt-4 animate-pulse">
-            Awaiting your first pageview...
+            {gettext("Awaiting your first pageview...")}
           </span>
         </p>
       </div>
@@ -89,7 +89,7 @@ defmodule PlausibleWeb.Live.Components.Verification do
         href={"/#{URI.encode_www_form(@domain)}?skip_to_dashboard=true"}
         class="w-full font-bold mb-4"
       >
-        Go to the dashboard
+        {gettext("Go to the dashboard")}
       </.button_link>
     </.focus_box>
     """
@@ -110,14 +110,14 @@ defmodule PlausibleWeb.Live.Components.Verification do
         <p id="recommendation" class="mt-4 text-sm text-ellipsis overflow-hidden">
           <span>{List.first(@interpretation.recommendations).text}.&nbsp;</span>
           <.styled_link href={List.first(@interpretation.recommendations).url} new_tab={true}>
-            Learn more
+            {gettext("Learn more")}
           </.styled_link>
         </p>
       </div>
 
       <div class="mt-6">
         <.button_link mt?={false} href="#" phx-click="retry" class="w-full">
-          Verify installation again
+          {gettext("Verify installation again")}
         </.button_link>
       </div>
       <:footer>
@@ -127,7 +127,7 @@ defmodule PlausibleWeb.Live.Components.Verification do
               @interpretation.data[:offer_custom_url_input]
           }>
             <span id="verify-custom-url-link">
-              Is your website located at a different URL?
+              {gettext("Is your website located at a different URL?")}
               <.styled_link href={
                 Routes.site_path(PlausibleWeb.Endpoint, :verification, @domain,
                   flow: @flow,
@@ -135,7 +135,7 @@ defmodule PlausibleWeb.Live.Components.Verification do
                   custom_url: true
                 )
               }>
-                Click here
+                {gettext("Click here")}
               </.styled_link>
             </span>
           </:item>
@@ -146,20 +146,20 @@ defmodule PlausibleWeb.Live.Components.Verification do
             </.styled_link>
           </:item>
           <:item>
-            Need to see installation instructions again?
+            {gettext("Need to see the installation instructions again?")}
             <.styled_link href={
               Routes.site_path(PlausibleWeb.Endpoint, :installation, @domain,
                 flow: @flow,
                 installation_type: @installation_type
               )
             }>
-              Click here
+              {gettext("Click here")}
             </.styled_link>
           </:item>
           <:item>
-            Run verification later and go to site settings?
+            {gettext("Run verification later and go to site settings?")}
             <.styled_link href={"/#{URI.encode_www_form(@domain)}/settings/general"}>
-              Click here
+              {gettext("Click here")}
             </.styled_link>
           </:item>
         </.focus_list>

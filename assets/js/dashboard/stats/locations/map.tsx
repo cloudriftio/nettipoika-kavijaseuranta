@@ -17,6 +17,7 @@ import { countriesRoute } from '../../router'
 import { MIN_HEIGHT } from '../reports/list'
 import { MapTooltip } from './map-tooltip'
 import { GeolocationNotice } from './geolocation-notice'
+import { t } from '../../../i18n'
 
 const width = 475
 const height = 335
@@ -49,8 +50,8 @@ const WorldMap = ({
 
   const labels =
     query.period === 'realtime'
-      ? { singular: 'Current visitor', plural: 'Current visitors' }
-      : { singular: 'Visitor', plural: 'Visitors' }
+      ? { singular: t('currentVisitorMap'), plural: t('currentVisitorsLabel') }
+      : { singular: t('visitor'), plural: t('visitors') }
 
   const { data, refetch, isFetching, isError } = useQuery({
     queryKey: ['countries', 'map', query],

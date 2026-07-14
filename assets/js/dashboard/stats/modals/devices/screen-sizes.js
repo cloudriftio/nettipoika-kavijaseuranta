@@ -7,16 +7,17 @@ import { useSiteContext } from '../../../site-context'
 import { screenSizeIconFor } from '../../devices'
 import chooseMetrics from './choose-metrics'
 import { SortDirection } from '../../../hooks/use-order-by'
+import { t } from '../../../../i18n'
 
 function ScreenSizesModal() {
   const { query } = useQueryContext()
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Screen sizes',
+    title: t('screenSizes'),
     dimension: 'screen',
     endpoint: url.apiPath(site, '/screen-sizes'),
-    dimensionLabel: 'Screen size',
+    dimensionLabel: t('screenSize'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 

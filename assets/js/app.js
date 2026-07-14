@@ -5,12 +5,10 @@ import './liveview/live_socket'
 import comboBox from './liveview/combo-box'
 import dropdown from './liveview/dropdown'
 import './liveview/phx_events'
-import { initNettipoikaLocalization } from './nettipoika-i18n'
 
 Alpine.data('dropdown', dropdown)
 Alpine.data('comboBox', comboBox)
 Alpine.start()
-initNettipoikaLocalization()
 
 if (document.querySelectorAll('[data-modal]').length > 0) {
   window.addEventListener(`phx:close-modal`, (e) => {

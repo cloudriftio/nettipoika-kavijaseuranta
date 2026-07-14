@@ -1,10 +1,10 @@
 <.settings_tiles>
   <.tile docs="visibility">
     <:title>
-      Public dashboard
+      {gettext("Public dashboard")}
     </:title>
     <:subtitle>
-      Share your stats publicly or keep them private.
+      {gettext("Share your statistics publicly or keep them private.")}
     </:subtitle>
 
     <.form
@@ -16,7 +16,7 @@
       for={nil}
     >
       <.toggle_submit set_to={@site.public}>
-        Make stats publicly available on
+        {gettext("Make statistics publicly available at")}
         <.unstyled_link
           class="text-indigo-500"
           href={Routes.stats_path(@conn, :stats, @site.domain, [])}
@@ -42,16 +42,16 @@
     conn={@conn}
   >
     <:title>
-      Embed dashboard
+      {gettext("Embed dashboard")}
     </:title>
     <:subtitle>
-      You can use shared links to embed your stats in any other webpage using an <code>iframe</code>. Copy & paste a shared link into the form below to generate the embed code.
+      {gettext("Use a shared link to embed the dashboard on another webpage with an")} <code>iframe</code>.
     </:subtitle>
 
     <.input
       name="embed-link"
       id="embed-link"
-      label="Enter shared link (only public shared links without password can be embedded)"
+      label={gettext("Shared link without password protection")}
       value=""
       width="w-1/2"
       mt?={false}
@@ -61,8 +61,12 @@
       type="select"
       name="theme"
       id="theme"
-      label="Select theme"
-      options={["Light", "Dark", "System"]}
+      label={gettext("Select theme")}
+      options={[
+        [key: gettext("Light"), value: "Light"],
+        [key: gettext("Dark"), value: "Dark"],
+        [key: gettext("System"), value: "System"]
+      ]}
       value="Light"
       width="w-1/2"
     />
@@ -70,7 +74,7 @@
     <.input
       name="background"
       id="background"
-      label="Custom background color (optional). Try using `transparent` background to blend the dashboard with your site."
+      label={gettext("Custom background color (optional)")}
       value=""
       placeholder="e.g. #F9FAFB"
       width="w-1/2"
@@ -78,10 +82,10 @@
 
     <.input name="base-url" type="hidden" id="base-url" value={plausible_url()} />
     <.button id="generate-embed" mt?={false}>
-      Generate embed code
+      {gettext("Generate embed code")}
     </.button>
 
-    <.label for="embed-code" class="mt-4">Embed code</.label>
+    <.label for="embed-code" class="mt-4">{gettext("Embed code")}</.label>
 
     <div class="relative mt-1">
       <textarea

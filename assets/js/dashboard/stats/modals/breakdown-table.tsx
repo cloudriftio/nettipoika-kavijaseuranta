@@ -7,6 +7,7 @@ import RocketIcon from './rocket-icon'
 import { QueryStatus } from '@tanstack/react-query'
 import { useAppNavigate } from '../../navigation/use-app-navigate'
 import { rootRoute } from '../../router'
+import { t } from '../../../i18n'
 
 export const BreakdownTable = <TListItem extends { name: string }>({
   title,
@@ -64,7 +65,7 @@ export const BreakdownTable = <TListItem extends { name: string }>({
         <button
           type="button"
           onClick={handleClose}
-          aria-label="Close modal"
+          aria-label={t('closeModal')}
           className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
         >
           <XMarkIcon className="size-5" />
@@ -106,9 +107,7 @@ const ErrorMessage = ({ error }: { error?: unknown }) => (
       <RocketIcon />
     </div>
     <div className="text-lg text-center">
-      {error
-        ? (error as { message: string }).message
-        : 'Error loading data. Refresh the page to try again'}
+      {error ? (error as { message: string }).message : t('errorLoadingData')}
     </div>
   </div>
 )
@@ -125,7 +124,7 @@ const LoadMore = ({
       <SmallLoadingSpinner />
     ) : (
       <button onClick={onClick} type="button" className="button">
-        Load more
+        {t('loadMore')}
       </button>
     )}
   </div>

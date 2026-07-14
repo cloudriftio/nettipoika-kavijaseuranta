@@ -15,6 +15,7 @@ import {
 import { apiPath } from '../../util/url'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
+import { currentLocale, t } from '../../../i18n'
 
 export default function FilterModalRow({
   filter,
@@ -92,7 +93,14 @@ export default function FilterModalRow({
           freeChoice={isFreeChoiceFilterOperation(operation)}
           values={selectedClauses}
           onSelect={onComboboxSelect}
-          placeholder={`Select ${withIndefiniteArticle(formattedFilters[filterKey])}`}
+          placeholder={
+            currentLocale() === 'fi'
+              ? t('selectDimension', {
+                  dimension:
+                    formattedFilters[filterKey].toLocaleLowerCase('fi-FI')
+                })
+              : `Select ${withIndefiniteArticle(formattedFilters[filterKey])}`
+          }
         />
       </div>
       {showDelete && (

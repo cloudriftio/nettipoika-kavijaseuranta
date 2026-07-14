@@ -1,4 +1,8 @@
-{@inviter.email} has invited you to join the "{@team.name}" team on {Plausible.product_name()}.
+{gettext("%{inviter} invited you to join the team %{team} in %{product}.",
+  inviter: @inviter.email,
+  team: @team.name,
+  product: Plausible.product_name()
+)}
 <a href={
   Routes.auth_url(
     PlausibleWeb.Endpoint,
@@ -6,7 +10,9 @@
     @invitation_id
   )
 }>
-  Click here
+  {gettext("Click here")}
 </a>
-to create your account. The link is valid for 48 hours after this email is sent. <br /><br />
-Plausible is a lightweight and open-source website analytics tool. We hope you like our simple and ethical approach to tracking website visitors.
+{gettext("to create your account. The link is valid for 48 hours.")} <br /><br />
+{gettext(
+  "Nettipoika Visitor Analytics is lightweight, open-source and privacy-friendly website analytics."
+)}

@@ -12,15 +12,15 @@
     current_team={@site_team}
     conn={@conn}
   >
-    <:title>People</:title>
-    <:subtitle>Invite your friends or coworkers</:subtitle>
+    <:title>{gettext("People")}</:title>
+    <:subtitle>{gettext("Invite colleagues to view or manage this site.")}</:subtitle>
 
     <.filter_bar :if={@site_role in [:owner, :admin]} filtering_enabled?={false}>
       <.button_link
         mt?={false}
         href={Routes.membership_path(@conn, :invite_member_form, @site.domain)}
       >
-        Invite new guest
+        {gettext("Invite guest")}
       </.button_link>
     </.filter_bar>
 
@@ -59,9 +59,9 @@
                 <:menu class="max-w-60">
                   <%= if membership.role == :owner do %>
                     <.dropdown_item disabled={true}>
-                      <div>Owner</div>
+                      <div>{gettext("Owner")}</div>
                       <div class="text-gray-500 dark:text-gray-400 text-xs/5">
-                        Site owner cannot be assigned to any other role
+                        {gettext("The site owner cannot be assigned another role.")}
                       </div>
                     </.dropdown_item>
                   <% else %>
@@ -78,9 +78,9 @@
                       method="put"
                       disabled={@site_role not in [:owner, :admin] or membership.role == "editor"}
                     >
-                      <div>Guest editor</div>
+                      <div>{gettext("Guest editor")}</div>
                       <div class="text-gray-500 dark:text-gray-400 text-xs/5">
-                        View stats and edit site settings
+                        {gettext("Can view statistics and edit site settings.")}
                       </div>
                     </.dropdown_item>
                     <.dropdown_item
@@ -96,9 +96,9 @@
                       method="put"
                       disabled={@site_role not in [:owner, :admin] or membership.role == "viewer"}
                     >
-                      <div>Guest viewer</div>
+                      <div>{gettext("Guest viewer")}</div>
                       <div class="text-gray-500 dark:text-gray-400 text-xs/5">
-                        View stats only
+                        {gettext("Can view statistics only.")}
                       </div>
                     </.dropdown_item>
                     <.dropdown_divider />
@@ -115,7 +115,7 @@
                       method="delete"
                       disabled={@site_role not in [:owner, :admin]}
                     >
-                      Remove member
+                      {gettext("Remove member")}
                     </.dropdown_item>
                   <% end %>
                 </:menu>
@@ -128,17 +128,17 @@
   </.tile>
 
   <.tile :if={Enum.count(@invitations) > 0}>
-    <:title>Pending invitations</:title>
-    <:subtitle>Waiting for new members to accept their invitations.</:subtitle>
+    <:title>{gettext("Pending invitations")}</:title>
+    <:subtitle>{gettext("Waiting for invited users to accept.")}</:subtitle>
 
     <.table
       rows={@invitations}
       row_attrs={fn invitation -> %{id: "invitation-#{invitation.invitation_id}"} end}
     >
       <:thead>
-        <.th>Email</.th>
-        <.th hide_on_mobile>Role</.th>
-        <.th invisible>Actions</.th>
+        <.th>{gettext("Email")}</.th>
+        <.th hide_on_mobile>{gettext("Role")}</.th>
+        <.th invisible>{gettext("Actions")}</.th>
       </:thead>
       <:tbody :let={invitation}>
         <.td>{invitation.email}</.td>

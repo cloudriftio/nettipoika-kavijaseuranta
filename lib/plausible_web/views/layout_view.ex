@@ -55,41 +55,41 @@ defmodule PlausibleWeb.LayoutView do
     regular_site? = Plausible.Sites.regular?(conn.assigns.site)
 
     [
-      %{key: "General", value: "general", icon: :rocket_launch},
+      %{key: gettext("General"), value: "general", icon: :rocket_launch},
       if regular_site? do
-        %{key: "People", value: "people", icon: :users}
+        %{key: gettext("People"), value: "people", icon: :users}
       end,
       if regular_site? do
-        %{key: "Visibility", value: "visibility", icon: :eye}
+        %{key: gettext("Visibility"), value: "visibility", icon: :eye}
       end,
-      %{key: "Goals", value: "goals", icon: :check_circle},
+      %{key: gettext("Goals"), value: "goals", icon: :check_circle},
       on_ee do
         if regular_site? do
-          %{key: "Funnels", value: "funnels", icon: :funnel}
+          %{key: gettext("Funnels"), value: "funnels", icon: :funnel}
         end
       end,
-      %{key: "Custom properties", value: "properties", icon: :document_text},
+      %{key: gettext("Custom properties"), value: "properties", icon: :document_text},
       if regular_site? do
-        %{key: "Integrations", value: "integrations", icon: :puzzle_piece}
+        %{key: gettext("Integrations"), value: "integrations", icon: :puzzle_piece}
       end,
       if regular_site? do
-        %{key: "Imports & exports", value: "imports-exports", icon: :arrow_down_tray}
+        %{key: gettext("Imports & exports"), value: "imports-exports", icon: :arrow_down_tray}
       end,
       if regular_site? do
         %{
-          key: "Shields",
+          key: gettext("Shields"),
           icon: :shield_exclamation,
           value: [
-            %{key: "IP addresses", value: "shields/ip_addresses"},
-            %{key: "Countries", value: "shields/countries"},
-            %{key: "Pages", value: "shields/pages"},
-            %{key: "Hostnames", value: "shields/hostnames"}
+            %{key: gettext("IP addresses"), value: "shields/ip_addresses"},
+            %{key: gettext("Countries"), value: "shields/countries"},
+            %{key: gettext("Pages"), value: "shields/pages"},
+            %{key: gettext("Hostnames"), value: "shields/hostnames"}
           ]
         }
       end,
-      %{key: "Email reports", value: "email-reports", icon: :envelope},
+      %{key: gettext("Email reports"), value: "email-reports", icon: :envelope},
       if regular_site? and conn.assigns[:site_role] in [:owner, :admin] do
-        %{key: "Danger zone", value: "danger-zone", icon: :exclamation_triangle}
+        %{key: gettext("Danger zone"), value: "danger-zone", icon: :exclamation_triangle}
       end
     ]
     |> Enum.reject(&is_nil/1)
@@ -103,10 +103,10 @@ defmodule PlausibleWeb.LayoutView do
     subscription? = !!(conn.assigns[:current_team] && conn.assigns.current_team.subscription)
 
     options = %{
-      "Account" =>
+      gettext("Account") =>
         [
-          %{key: "Preferences", value: "preferences", icon: :cog_6_tooth},
-          %{key: "Security", value: "security", icon: :lock_closed},
+          %{key: gettext("Preferences"), value: "preferences", icon: :cog_6_tooth},
+          %{key: gettext("Security"), value: "security", icon: :lock_closed},
           if(ee?() and not Teams.setup?(current_team),
             do: %{key: "Subscription", value: "billing/subscription", icon: :circle_stack}
           ),
@@ -114,10 +114,10 @@ defmodule PlausibleWeb.LayoutView do
             do: %{key: "Invoices", value: "billing/invoices", icon: :banknotes}
           ),
           if(not Teams.setup?(current_team),
-            do: %{key: "API keys", value: "api-keys", icon: :key}
+            do: %{key: gettext("API keys"), value: "api-keys", icon: :key}
           ),
           if(Plausible.Users.type(conn.assigns.current_user) == :standard,
-            do: %{key: "Danger zone", value: "danger-zone", icon: :exclamation_triangle}
+            do: %{key: gettext("Danger zone"), value: "danger-zone", icon: :exclamation_triangle}
           )
         ]
         |> Enum.reject(&is_nil/1)
@@ -126,9 +126,9 @@ defmodule PlausibleWeb.LayoutView do
     if Teams.setup?(current_team) do
       Map.put(
         options,
-        "Team",
+        gettext("Team"),
         [
-          %{key: "General", value: "team/general", icon: :adjustments_horizontal},
+          %{key: gettext("General"), value: "team/general", icon: :adjustments_horizontal},
           if(ee?() and current_team_role in [:owner, :billing],
             do: %{key: "Subscription", value: "billing/subscription", icon: :circle_stack}
           ),
@@ -136,7 +136,7 @@ defmodule PlausibleWeb.LayoutView do
             do: %{key: "Invoices", value: "billing/invoices", icon: :banknotes}
           ),
           if(current_team_role in [:owner, :billing, :admin, :editor],
-            do: %{key: "API keys", value: "api-keys", icon: :key}
+            do: %{key: gettext("API keys"), value: "api-keys", icon: :key}
           ),
           if(
             ee?() and current_team_role == :owner and
@@ -159,7 +159,7 @@ defmodule PlausibleWeb.LayoutView do
             }
           ),
           if(current_team_role == :owner,
-            do: %{key: "Danger zone", value: "team/delete", icon: :exclamation_triangle}
+            do: %{key: gettext("Danger zone"), value: "team/delete", icon: :exclamation_triangle}
           )
         ]
         |> Enum.reject(&is_nil/1)

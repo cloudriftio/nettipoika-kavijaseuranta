@@ -10,12 +10,12 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.base_email()
         |> Email.render("welcome_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
-      assert email.html_body =~ "Hey John,"
-      assert email.text_body =~ "Hey John,"
+      assert email.html_body =~ "Hello John,"
+      assert email.text_body =~ "Hello John,"
     end
 
     test "greets impersonally when user not in template assigns" do
@@ -23,8 +23,8 @@ defmodule PlausibleWeb.EmailTest do
         Email.base_email()
         |> Email.render("welcome_email.html")
 
-      assert email.html_body =~ "Hey,"
-      assert email.text_body =~ "Hey,"
+      assert email.html_body =~ "Hei,"
+      assert email.text_body =~ "Hei,"
     end
 
     test "renders plausible link" do
@@ -52,10 +52,10 @@ defmodule PlausibleWeb.EmailTest do
           user: build(:user, name: "John Doe")
         })
 
-      refute email.html_body =~ "Hey John,"
+      refute email.html_body =~ "Hello John,"
       refute email.html_body =~ plausible_link()
 
-      refute email.text_body =~ "Hey John,"
+      refute email.text_body =~ "Hello John,"
       refute email.text_body =~ plausible_url()
     end
   end
@@ -66,7 +66,7 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.priority_email()
         |> Email.render("activation_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
@@ -78,7 +78,7 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.priority_email()
         |> Email.render("activation_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
@@ -89,12 +89,12 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.priority_email()
         |> Email.render("activation_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
-      assert email.html_body =~ "Hey John,"
-      assert email.text_body =~ "Hey John,"
+      assert email.html_body =~ "Hello John,"
+      assert email.text_body =~ "Hello John,"
     end
 
     test "greets impersonally when user not in template assigns" do
@@ -104,8 +104,8 @@ defmodule PlausibleWeb.EmailTest do
           reset_link: "imaginary"
         })
 
-      assert email.html_body =~ "Hey,"
-      assert email.text_body =~ "Hey,"
+      assert email.html_body =~ "Hei,"
+      assert email.text_body =~ "Hei,"
     end
 
     test "renders plausible link" do
@@ -136,11 +136,35 @@ defmodule PlausibleWeb.EmailTest do
           reset_link: "imaginary"
         })
 
-      refute email.html_body =~ "Hey John,"
+      refute email.html_body =~ "Hello John,"
       refute email.html_body =~ plausible_link()
 
-      refute email.text_body =~ "Hey John,"
+      refute email.text_body =~ "Hello John,"
       refute email.text_body =~ plausible_url()
+    end
+  end
+
+  describe "localized transactional emails" do
+    test "uses Finnish by default" do
+      user = build(:user, name: "Maija Meikäläinen", preferred_locale: "fi")
+
+      email = Email.password_reset_email(user, "https://example.test/reset")
+
+      assert email.subject == "Nettipoika Kävijäseurannan salasanan palautus"
+      assert email.html_body =~ "vaihtaaksesi Nettipoika Kävijäseurannan salasanasi"
+    end
+
+    test "uses English when the recipient prefers English" do
+      user = build(:user, name: "Jane Smith", preferred_locale: "en")
+
+      email = Email.password_reset_email(user, "https://example.test/reset")
+
+      assert email.subject == "Password reset for Nettipoika Visitor Analytics"
+      assert email.html_body =~ "reset your Nettipoika Visitor Analytics password"
+    end
+
+    test "falls back to Finnish when there is no recipient locale" do
+      assert Email.email_locale(%{}) == "fi"
     end
   end
 
@@ -314,7 +338,7 @@ defmodule PlausibleWeb.EmailTest do
 
       assert subject == "We'll stop counting your stats"
       assert body =~ plausible_link(team: team, label: "login to your Plausible account")
-      assert body =~ "Hey John,"
+      assert body =~ "Hei John,"
 
       assert body =~
                "We've noticed that you're still sending us stats so we're writing to inform you that we'll stop accepting stats from your sites next week."
@@ -390,12 +414,12 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.base_email()
         |> Email.render("welcome_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
       assert email.text_body == """
-             Hey John,
+             Hello John,
 
              We are building Plausible to provide a simple and ethical approach to tracking website visitors. We're super excited to have you on board!
 
@@ -428,12 +452,12 @@ defmodule PlausibleWeb.EmailTest do
       email =
         Email.base_email()
         |> Email.render("welcome_email.html", %{
-          user: build(:user, name: "John Doe"),
+          user: build(:user, name: "John Doe", preferred_locale: "en"),
           code: "123"
         })
 
       assert email.text_body == """
-             Hey John,
+             Hello John,
 
              We are building Plausible to provide a simple and ethical approach to tracking website visitors. We're super excited to have you on board!
 

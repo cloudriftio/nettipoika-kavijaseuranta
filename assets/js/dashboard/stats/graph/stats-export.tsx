@@ -4,6 +4,7 @@ import { getCurrentInterval } from './interval-picker'
 import { useSiteContext } from '../../site-context'
 import { useQueryContext } from '../../query-context'
 import { Tooltip } from '../../util/tooltip'
+import { t } from '../../../i18n'
 
 export default function StatsExport() {
   const site = useSiteContext()
@@ -83,7 +84,9 @@ export default function StatsExport() {
 
   return (
     <Tooltip
-      info={<div className="font-normal truncate">Click to export stats</div>}
+      info={
+        <div className="font-normal truncate">{t('clickToExportStats')}</div>
+      }
       className="w-4 h-4"
     >
       {exporting && renderLoading()}

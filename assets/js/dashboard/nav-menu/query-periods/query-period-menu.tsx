@@ -36,6 +36,7 @@ import {
 import { DateRangeCalendar } from './date-range-calendar'
 import { formatISO, nowForSite } from '../../util/date'
 import { MenuSeparator } from '../nav-menu-components'
+import { t } from '../../../i18n'
 
 function QueryPeriodMenuKeybinds({
   closeDropdown,
@@ -130,7 +131,7 @@ const QueryPeriodMenuInner = ({
       onEvent: closeDropdown,
       extraItemsInLastGroup: [
         [
-          ['Custom Range', 'C'],
+          [t('customRange'), 'C'],
           {
             search: (s) => s,
             isActive: ({ query }) => query.period === QueryPeriod.custom,

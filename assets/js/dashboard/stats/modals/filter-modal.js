@@ -22,6 +22,7 @@ import { useAppNavigate } from '../../navigation/use-app-navigate'
 import { SegmentModal } from '../../segments/segment-modals'
 import { findAppliedSegmentFilter } from '../../filtering/segments'
 import { removeFilterButtonClassname } from '../../components/remove-filter-button'
+import { t } from '../../../i18n'
 
 function partitionFilters(modalType, filters) {
   const otherFilters = []
@@ -91,7 +92,7 @@ class FilterModal extends React.Component {
     if (isTyping(e) || isModifierPressed(e)) return
 
     if (e.target.tagName === 'BODY' && e.key === 'Enter') {
-      this.handleSubmit()
+      this.handleSubmit(e)
     }
   }
 
@@ -181,12 +182,14 @@ class FilterModal extends React.Component {
       <Modal maxWidth="460px" allowScroll={true} onClose={this.closeModal}>
         <div className="flex items-center justify-between gap-3">
           <h1 className="text-base md:text-lg font-bold dark:text-gray-100">
-            Filter by {formatFilterGroup(this.props.modalType)}
+            {t('filterBy', {
+              dimension: formatFilterGroup(this.props.modalType)
+            })}
           </h1>
           <button
             type="button"
             onClick={this.closeModal}
-            aria-label="Close modal"
+            aria-label={t('closeModal')}
             className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
           >
             <XMarkIcon className="size-5" />
@@ -217,7 +220,7 @@ class FilterModal extends React.Component {
                 className="button !px-3"
                 disabled={this.isDisabled()}
               >
-                Apply filter
+                {t('applyFilter')}
               </button>
 
               {this.state.hasRelevantFilters && (
@@ -229,8 +232,8 @@ class FilterModal extends React.Component {
                   }}
                 >
                   {FILTER_MODAL_TO_FILTER_GROUP[this.props.modalType].length > 1
-                    ? 'Remove filters'
-                    : 'Remove filter'}
+                    ? t('removeFilters')
+                    : t('removeFilter')}
                 </button>
               )}
             </div>

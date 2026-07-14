@@ -14,6 +14,7 @@ import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { SortDirection } from '../../hooks/use-order-by'
 import { SourceFavicon } from '../sources/source-favicon'
+import { t } from '../../../i18n'
 
 function ReferrerDrilldownModal() {
   const { referrer } = useParams()
@@ -24,13 +25,13 @@ function ReferrerDrilldownModal() {
   const showRevenueMetrics = BUILD_EXTRA && revenueAvailable(query, site)
 
   const reportInfo = {
-    title: 'Referrer Drilldown',
+    title: t('referrerDrilldown'),
     dimension: 'referrer',
     endpoint: url.apiPath(
       site,
       `/referrers/${url.maybeEncodeRouteParam(referrer)}`
     ),
-    dimensionLabel: 'Referrer',
+    dimensionLabel: t('referrer'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 
@@ -61,7 +62,7 @@ function ReferrerDrilldownModal() {
       return [
         metrics.createTotalVisitors(),
         metrics.createVisitors({
-          renderLabel: (_query) => 'Conversions',
+          renderLabel: (_query) => t('conversions'),
           width: 'w-28'
         }),
         metrics.createConversionRate(),
@@ -73,14 +74,14 @@ function ReferrerDrilldownModal() {
     if (isRealTimeDashboard(query)) {
       return [
         metrics.createVisitors({
-          renderLabel: (_query) => 'Current visitors',
+          renderLabel: (_query) => t('currentVisitorsLabel'),
           width: 'w-32'
         })
       ]
     }
 
     return [
-      metrics.createVisitors({ renderLabel: (_query) => 'Visitors' }),
+      metrics.createVisitors({ renderLabel: (_query) => t('visitors') }),
       metrics.createBounceRate(),
       metrics.createVisitDuration()
     ]

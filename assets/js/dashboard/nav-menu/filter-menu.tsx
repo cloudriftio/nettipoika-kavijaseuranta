@@ -12,6 +12,7 @@ import classNames from 'classnames'
 import { AppNavigationLink } from '../navigation/use-app-navigate'
 import { SearchableSegmentsSection } from './segments/searchable-segments-section'
 import { useSegmentsContext } from '../filtering/segments-context'
+import { t } from '../../i18n'
 
 export function getFilterListItems({
   propsAvailable
@@ -24,21 +25,21 @@ export function getFilterListItems({
   return [
     [
       {
-        title: 'URL',
+        title: t('url'),
         modals: ['page', 'hostname']
       },
       {
-        title: 'Acquisition',
+        title: t('acquisition'),
         modals: ['source', 'utm']
       }
     ],
     [
       {
-        title: 'Device',
+        title: t('device'),
         modals: ['location', 'screen', 'browser', 'os']
       },
       {
-        title: 'Behaviour',
+        title: t('behaviour'),
         modals: ['goal', !!propsAvailable && 'props']
       }
     ]
@@ -65,7 +66,7 @@ const FilterMenuItems = ({ closeDropdown }: { closeDropdown: () => void }) => {
       >
         <MagnifyingGlassIcon className="block h-4 w-4" />
         <span className={popover.toggleButton.classNames.truncatedText}>
-          Filter
+          {t('filter')}
         </span>
       </Popover.Button>
       <Transition

@@ -1,8 +1,8 @@
-<PlausibleWeb.Components.FlowProgress.render flow={@flow} current_step="Add site info" />
+<PlausibleWeb.Components.FlowProgress.render flow={@flow} current_step={gettext("Add site info")} />
 
 <.focus_box>
   <:title>
-    Add website info
+    {gettext("Add website info")}
   </:title>
 
   <.form :let={f} for={@changeset} action={@form_submit_url}>
@@ -16,23 +16,23 @@
 
     <div class="my-6">
       <.input
-        help_text="Just the naked domain or subdomain without 'www', 'https' etc."
+        help_text={gettext("Just the domain or subdomain without 'www', 'https' etc.")}
         type="text"
         placeholder="example.com"
         field={f[:domain]}
-        label="Domain"
+        label={gettext("Domain")}
         disabled={@site_limit_exceeded?}
       />
     </div>
     <div class="my-6">
       <.input
         type="select"
-        help_text="To make sure we agree on what 'today' means"
+        help_text={gettext("Used to determine when a reporting day starts and ends")}
         field={f[:timezone]}
         id="tz-select"
         value="Etc/Greenwich"
         disabled={@site_limit_exceeded?}
-        label="Reporting timezone"
+        label={gettext("Reporting timezone")}
         options={Plausible.Timezones.options()}
       />
     </div>
@@ -57,7 +57,7 @@
       type="submit"
       class="w-full disabled:cursor-not-allowed"
     >
-      Install Plausible
+      {gettext("Install tracker")}
     </.button>
   </.form>
 </.focus_box>

@@ -13,6 +13,7 @@ import { apiPath } from '../../util/url'
 import { DashboardQuery } from '../../query'
 import { ColumnConfiguraton } from '../../components/table'
 import { BreakdownTable } from './breakdown-table'
+import { t } from '../../../i18n'
 
 type GoogleKeywordItem = {
   visitors: string
@@ -23,11 +24,11 @@ type GoogleKeywordItem = {
 }
 
 const metrics = [
-  createVisitors({ renderLabel: () => 'Visitors', sortable: false }),
+  createVisitors({ renderLabel: () => t('visitors'), sortable: false }),
   new Metric({
     width: 'w-28',
     key: 'impressions',
-    renderLabel: () => 'Impressions',
+    renderLabel: () => t('impressions'),
     formatter: numberShortFormatter,
     sortable: false
   }),
@@ -41,7 +42,7 @@ const metrics = [
   new Metric({
     width: 'w-28',
     key: 'position',
-    renderLabel: () => 'Position',
+    renderLabel: () => t('position'),
     formatter: numberShortFormatter,
     sortable: false
   })
@@ -71,7 +72,7 @@ function GoogleKeywordsModal() {
   const columns: ColumnConfiguraton<GoogleKeywordItem>[] = useMemo(
     () => [
       {
-        label: 'Search term',
+        label: t('searchTerm'),
         key: 'name',
         width: 'w-48 md:w-56 lg:w-1/3',
         align: 'left'
@@ -91,7 +92,7 @@ function GoogleKeywordsModal() {
   return (
     <Modal>
       <BreakdownTable
-        title="Google Search Terms"
+        title={t('googleSearchTerms')}
         displayError={true}
         onSearch={setSearch}
         {...apiState}

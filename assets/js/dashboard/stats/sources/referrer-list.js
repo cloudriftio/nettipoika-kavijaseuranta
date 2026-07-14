@@ -9,6 +9,7 @@ import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { referrersDrilldownRoute } from '../../router'
 import { SourceFavicon } from './source-favicon'
+import { t } from '../../../i18n'
 
 const NO_REFERRER = 'Direct / None'
 
@@ -70,7 +71,7 @@ export default function Referrers({ source }) {
   return (
     <div className="flex flex-col grow">
       <div className="flex gap-x-1">
-        <h3 className="font-bold dark:text-gray-100">Top Referrers</h3>
+        <h3 className="font-bold dark:text-gray-100">{t('topReferrers')}</h3>
         <ImportedQueryUnsupportedWarning
           loading={loading}
           skipImportedReason={skipImportedReason}
@@ -80,7 +81,7 @@ export default function Referrers({ source }) {
         fetchData={fetchReferrers}
         afterFetchData={afterFetchReferrers}
         getFilterInfo={getFilterInfo}
-        keyLabel="Referrer"
+        keyLabel={t('referrer')}
         metrics={chooseMetrics()}
         detailsLinkProps={{
           path: referrersDrilldownRoute.path,

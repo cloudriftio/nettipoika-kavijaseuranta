@@ -8,16 +8,17 @@ import { useSiteContext } from '../../../site-context'
 import { browserIconFor } from '../../devices'
 import chooseMetrics from './choose-metrics'
 import { SortDirection } from '../../../hooks/use-order-by'
+import { t } from '../../../../i18n'
 
 function BrowsersModal() {
   const { query } = useQueryContext()
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Browsers',
+    title: t('browsers'),
     dimension: 'browser',
     endpoint: url.apiPath(site, '/browsers'),
-    dimensionLabel: 'Browser',
+    dimensionLabel: t('browser'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 

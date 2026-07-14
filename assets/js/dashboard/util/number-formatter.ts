@@ -6,7 +6,9 @@ const BILLION = 1000000000
 const HUNDRED_BILLION = 100000000000
 const TRILLION = 1000000000000
 
-const numberFormat = Intl.NumberFormat('en-US')
+import { numberFormatter } from '../../i18n'
+
+const numberFormat = numberFormatter()
 
 export function numberShortFormatter(num: number): string {
   if (num >= THOUSAND && num < MILLION) {

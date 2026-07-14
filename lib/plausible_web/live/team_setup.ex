@@ -18,7 +18,7 @@ defmodule PlausibleWeb.Live.TeamSetup do
       case current_team do
         %Teams.Team{setup_complete: true} ->
           socket
-          |> put_flash(:success, "Your team is now created")
+          |> put_flash(:success, gettext("Your team has been created"))
           |> redirect(to: Routes.settings_path(socket, :team_general))
 
         %Teams.Team{} ->
@@ -39,7 +39,7 @@ defmodule PlausibleWeb.Live.TeamSetup do
 
         _ ->
           socket
-          |> put_flash(:error, "You cannot create any team just yet")
+          |> put_flash(:error, gettext("You cannot create a team yet"))
           |> redirect(to: Routes.site_path(socket, :index))
       end
 
@@ -61,7 +61,7 @@ defmodule PlausibleWeb.Live.TeamSetup do
     <.focus_box padding?={false}>
       <:title>
         <div class="pt-8 px-8 flex justify-between">
-          <div>Create a new team</div>
+          <div>{gettext("Create a new team")}</div>
           <div class="ml-auto">
             <.docs_info slug="users-roles" />
           </div>
@@ -69,7 +69,7 @@ defmodule PlausibleWeb.Live.TeamSetup do
       </:title>
       <:subtitle>
         <p class="px-8">
-          Name your team, add team members and assign roles. When ready, click "Create Team" to send invitations
+          {gettext("Name your team, add members and assign roles.")}
         </p>
       </:subtitle>
 
@@ -93,14 +93,14 @@ defmodule PlausibleWeb.Live.TeamSetup do
               placeholder={"#{@current_user.name}'s team"}
               autofocus={not @locked?}
               field={f[:name]}
-              label="Name"
+              label={gettext("Name")}
               width="w-full"
               phx-debounce="500"
             />
           </.form>
 
           <.label class="mb-2">
-            Team members
+            {gettext("Team members")}
           </.label>
           {live_render(@socket, PlausibleWeb.Live.TeamManagement,
             id: "team-management-setup",

@@ -3,6 +3,7 @@ import { Metric } from '../stats/reports/metrics'
 import { getDomainScopedStorageKey, getItem, setItem } from '../util/storage'
 import { useSiteContext } from '../site-context'
 import { ReportInfo } from '../stats/modals/breakdown-modal'
+import { t } from '../../i18n'
 
 export enum SortDirection {
   asc = 'asc',
@@ -15,8 +16,8 @@ export type OrderBy = Order[]
 
 export const getSortDirectionLabel = (sortDirection: SortDirection): string =>
   ({
-    [SortDirection.asc]: 'Sorted in ascending order',
-    [SortDirection.desc]: 'Sorted in descending order'
+    [SortDirection.asc]: t('sortedAscending'),
+    [SortDirection.desc]: t('sortedDescending')
   })[sortDirection]
 
 export function useOrderBy({
@@ -63,13 +64,13 @@ export function cycleSortDirection(
   if (currentSortDirection === SortDirection.desc) {
     return {
       direction: SortDirection.asc,
-      hint: 'Press to sort column in ascending order'
+      hint: t('sortAscendingHint')
     }
   }
 
   return {
     direction: SortDirection.desc,
-    hint: 'Press to sort column in descending order'
+    hint: t('sortDescendingHint')
   }
 }
 

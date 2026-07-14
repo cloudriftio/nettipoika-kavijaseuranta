@@ -8,16 +8,17 @@ import { useSiteContext } from '../../../site-context'
 import { osIconFor } from '../../devices'
 import chooseMetrics from './choose-metrics'
 import { SortDirection } from '../../../hooks/use-order-by'
+import { t } from '../../../../i18n'
 
 function OperatingSystemsModal() {
   const { query } = useQueryContext()
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Operating systems',
+    title: t('operatingSystems'),
     dimension: 'os',
     endpoint: url.apiPath(site, '/operating-systems'),
-    dimensionLabel: 'Operating system',
+    dimensionLabel: t('operatingSystem'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 

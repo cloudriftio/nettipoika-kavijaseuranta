@@ -16,6 +16,7 @@ import { useQueryContext } from '../../query-context'
 import { useRoutelessModalsContext } from '../../navigation/routeless-modals-context'
 import { SavedSegment } from '../../filtering/segments'
 import { DashboardQuery } from '../../query'
+import { t } from '../../../i18n'
 
 const linkClassName = classNames(
   popover.items.classNames.navigationLink,
@@ -71,7 +72,7 @@ export const SegmentMenu = () => {
           setModal('update')
         }}
       >
-        <span className="px-2 whitespace-nowrap">Update segment</span>
+        <span className="px-2 whitespace-nowrap">{t('updateSegment')}</span>
       </AppNavigationLink>
       <Popover className="md:relative">
         {({ close: closeDropdown }) => (
@@ -111,7 +112,7 @@ export const SegmentMenu = () => {
                   <div className="flex items-center gap-x-2">
                     <Square2StackIcon className="w-4 h-4 block" />
                     <span className="whitespace-nowrap">
-                      Save as a new segment
+                      {t('saveAsNewSegment')}
                     </span>
                   </div>
                 </AppNavigationLink>
@@ -126,7 +127,9 @@ export const SegmentMenu = () => {
                 >
                   <div className="flex items-center gap-x-2">
                     <TrashIcon className="w-4 h-4 block" />
-                    <span className="whitespace-nowrap">Delete segment</span>
+                    <span className="whitespace-nowrap">
+                      {t('deleteSegment')}
+                    </span>
                   </div>
                 </AppNavigationLink>
                 <AppNavigationLink
@@ -142,7 +145,7 @@ export const SegmentMenu = () => {
                   <div className="flex items-center gap-x-2">
                     <XMarkIcon className="w-4 h-4 block" />
                     <span className="whitespace-nowrap">
-                      Close without saving
+                      {t('closeWithoutSaving')}
                     </span>
                   </div>
                 </AppNavigationLink>

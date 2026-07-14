@@ -8,16 +8,17 @@ import { useSiteContext } from '../../../site-context'
 import { osIconFor } from '../../devices'
 import chooseMetrics from './choose-metrics'
 import { SortDirection } from '../../../hooks/use-order-by'
+import { t } from '../../../../i18n'
 
 function OperatingSystemVersionsModal() {
   const { query } = useQueryContext()
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Operating system versions',
+    title: t('operatingSystemVersions'),
     dimension: 'os_version',
     endpoint: url.apiPath(site, '/operating-system-versions'),
-    dimensionLabel: 'Operating system version',
+    dimensionLabel: t('operatingSystemVersion'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 

@@ -8,16 +8,17 @@ import { useSiteContext } from '../../../site-context'
 import { browserIconFor } from '../../devices'
 import chooseMetrics from './choose-metrics'
 import { SortDirection } from '../../../hooks/use-order-by'
+import { t } from '../../../../i18n'
 
 function BrowserVersionsModal() {
   const { query } = useQueryContext()
   const site = useSiteContext()
 
   const reportInfo = {
-    title: 'Browser versions',
+    title: t('browserVersions'),
     dimension: 'browser_version',
     endpoint: url.apiPath(site, '/browser-versions'),
-    dimensionLabel: 'Browser version',
+    dimensionLabel: t('browserVersion'),
     defaultOrder: ['visitors', SortDirection.desc]
   }
 

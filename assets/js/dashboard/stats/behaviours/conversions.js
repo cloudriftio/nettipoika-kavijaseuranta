@@ -7,6 +7,7 @@ import ListReport from '../reports/list'
 import { useSiteContext } from '../../site-context'
 import { useQueryContext } from '../../query-context'
 import { conversionsRoute } from '../../router'
+import { t } from '../../../i18n'
 
 export default function Conversions({ afterFetchData, onGoalFilterClick }) {
   const site = useSiteContext()
@@ -26,11 +27,11 @@ export default function Conversions({ afterFetchData, onGoalFilterClick }) {
   function chooseMetrics() {
     return [
       metrics.createVisitors({
-        renderLabel: (_query) => 'Uniques',
+        renderLabel: (_query) => t('uniques'),
         meta: { plot: true }
       }),
       metrics.createEvents({
-        renderLabel: (_query) => 'Total',
+        renderLabel: (_query) => t('total'),
         meta: { hiddenOnMobile: true }
       }),
       metrics.createConversionRate(),
@@ -47,7 +48,7 @@ export default function Conversions({ afterFetchData, onGoalFilterClick }) {
       fetchData={fetchConversions}
       afterFetchData={afterFetchData}
       getFilterInfo={getFilterInfo}
-      keyLabel="Goal"
+      keyLabel={t('goal')}
       onClick={onGoalFilterClick}
       metrics={chooseMetrics()}
       detailsLinkProps={{

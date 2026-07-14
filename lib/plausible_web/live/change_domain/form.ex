@@ -17,15 +17,15 @@ defmodule PlausibleWeb.Live.ChangeDomain.Form do
     <div>
       <.form :let={f} for={@changeset} phx-submit="submit" phx-target={@myself}>
         <.input
-          help_text="Just the naked domain or subdomain without 'www', 'https' etc."
+          help_text={gettext("Just the domain or subdomain without 'www', 'https' etc.")}
           type="text"
           placeholder="example.com"
           field={f[:domain]}
-          label="Domain"
+          label={gettext("Domain")}
         />
 
         <.button type="submit" class="mt-4 w-full">
-          Change Domain
+          {gettext("Change domain")}
         </.button>
       </.form>
     </div>

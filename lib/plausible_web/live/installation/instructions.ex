@@ -9,16 +9,16 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
   def manual_instructions(assigns) do
     ~H"""
     <.title class="mt-4">
-      Script installation
+      {gettext("Tracker installation")}
     </.title>
 
     <div class="text-sm my-4 leading-6">
-      Paste this snippet into the <code>&lt;head&gt;</code>
-      section of your site. See our
+      {gettext("Paste this snippet into the")} <code>&lt;head&gt;</code>
+      {gettext("section of your site. See the")}
       <.styled_link href="https://plausible.io/docs/integration-guides" new_tab={true}>
-        installation guides.
+        {gettext("installation guides.")}
       </.styled_link>
-      Once done, click the button below to verify your installation.
+      {gettext("When finished, verify the installation with the button below.")}
     </div>
 
     <.snippet_form
@@ -26,60 +26,60 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
       rows={6}
       resizable={true}
     />
-    <.h2 class="mt-8 text-sm font-medium">Optional measurements</.h2>
+    <.h2 class="mt-8 text-sm font-medium">{gettext("Optional measurements")}</.h2>
     <.script_config_control
       field={@tracker_script_configuration_form[:outbound_links]}
-      label="Outbound links"
-      tooltip="Automatically track clicks on external links. These count towards your billable pageviews."
+      label={gettext("Outbound links")}
+      tooltip={gettext("Automatically track clicks on external links.")}
       learn_more="https://plausible.io/docs/outbound-link-click-tracking"
     />
     <.script_config_control
       field={@tracker_script_configuration_form[:file_downloads]}
-      label="File downloads"
-      tooltip="Automatically track file downloads. These count towards your billable pageviews."
+      label={gettext("File downloads")}
+      tooltip={gettext("Automatically track file downloads.")}
       learn_more="https://plausible.io/docs/file-downloads-tracking"
     />
     <.script_config_control
       field={@tracker_script_configuration_form[:form_submissions]}
-      label="Form submissions"
-      tooltip="Automatically track form submissions. These count towards your billable pageviews."
+      label={gettext("Form submissions")}
+      tooltip={gettext("Automatically track form submissions.")}
       learn_more="https://plausible.io/docs/form-submissions-tracking"
     />
 
     <.disclosure>
       <.disclosure_button class="mt-4 flex items-center group">
-        <.h2 class="text-sm font-medium">Advanced options</.h2>
+        <.h2 class="text-sm font-medium">{gettext("Advanced options")}</.h2>
         <Heroicons.chevron_down mini class="size-4 ml-1 mt-0.5 group-data-[open=true]:rotate-180" />
       </.disclosure_button>
       <.disclosure_panel>
         <ul class="list-disc list-inside mt-2 space-y-2">
           <.advanced_option
             variant="tagged-events"
-            label="Manual tagging"
+            label={gettext("Manual tagging")}
             tooltip="Tag site elements like buttons, links and forms to track user activity. These count towards your billable pageviews. Additional action required."
             learn_more="https://plausible.io/docs/custom-event-goals"
           />
           <.advanced_option
             variant="404"
-            label="404 error pages"
+            label={gettext("404 error pages")}
             tooltip="Find 404 error pages on your site. These count towards your billable pageviews. Additional action required."
             learn_more="https://plausible.io/docs/error-pages-tracking-404"
           />
           <.advanced_option
             variant="hash"
-            label="Hashed page paths"
+            label={gettext("Hashed page paths")}
             tooltip="Automatically track page paths that use a # in the URL."
             learn_more="https://plausible.io/docs/hash-based-routing"
           />
           <.advanced_option
             variant="pageview-props"
-            label="Custom properties"
+            label={gettext("Custom properties")}
             tooltip="Attach custom properties (also known as custom dimensions) to pageviews or custom events to create custom metrics. Additional action required."
             learn_more="https://plausible.io/docs/custom-props/introduction"
           />
           <.advanced_option
             variant="revenue"
-            label="Ecommerce revenue"
+            label={gettext("Ecommerce revenue")}
             tooltip="Assign monetary values to purchases and track revenue attribution. Additional action required."
             learn_more="https://plausible.io/docs/ecommerce-revenue-tracking"
           />

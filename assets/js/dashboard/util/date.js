@@ -1,7 +1,10 @@
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
+import 'dayjs/locale/fi'
+import { currentLocale, t } from '../../i18n'
 
 dayjs.extend(utc)
+dayjs.locale(currentLocale())
 
 export function utcNow() {
   return dayjs()
@@ -25,7 +28,7 @@ export function formatMonthYYYY(date) {
 }
 
 export function formatYear(date) {
-  return `Year of ${date.year()}`
+  return t('yearOf', { year: date.year() })
 }
 
 export function formatYearShort(date) {

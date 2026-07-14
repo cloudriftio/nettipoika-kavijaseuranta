@@ -185,10 +185,10 @@ defmodule PlausibleWeb.AuthController do
   def password_reset_request(conn, %{"email" => email} = params) do
     if PlausibleWeb.Captcha.verify(params["h-captcha-response"]) do
       case Auth.lookup(email) do
-        {:ok, _user} ->
+        {:ok, user} ->
           token = Auth.Token.sign_password_reset(email)
           url = PlausibleWeb.Endpoint.url() <> "/password/reset?token=#{token}"
-          email_template = PlausibleWeb.Email.password_reset_email(email, url)
+          email_template = PlausibleWeb.Email.password_reset_email(user, url)
           Plausible.Mailer.deliver_later(email_template)
 
           Logger.debug(

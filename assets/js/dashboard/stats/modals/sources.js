@@ -46,7 +46,7 @@ const VIEWS = {
       title: t('topUtmMediums'),
       dimension: 'utm_medium',
       endpoint: '/utm_mediums',
-      dimensionLabel: 'UTM medium',
+      dimensionLabel: t('utmMedium'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   },
@@ -55,7 +55,7 @@ const VIEWS = {
       title: t('topUtmSources'),
       dimension: 'utm_source',
       endpoint: '/utm_sources',
-      dimensionLabel: 'UTM source',
+      dimensionLabel: t('utmSource'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   },
@@ -64,7 +64,7 @@ const VIEWS = {
       title: t('topUtmCampaigns'),
       dimension: 'utm_campaign',
       endpoint: '/utm_campaigns',
-      dimensionLabel: 'UTM campaign',
+      dimensionLabel: t('utmCampaign'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   },
@@ -73,7 +73,7 @@ const VIEWS = {
       title: t('topUtmContents'),
       dimension: 'utm_content',
       endpoint: '/utm_contents',
-      dimensionLabel: 'UTM content',
+      dimensionLabel: t('utmContent'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   },
@@ -82,7 +82,7 @@ const VIEWS = {
       title: t('topUtmTerms'),
       dimension: 'utm_term',
       endpoint: '/utm_terms',
-      dimensionLabel: 'UTM term',
+      dimensionLabel: t('utmTerm'),
       defaultOrder: ['visitors', SortDirection.desc]
     }
   }
@@ -128,7 +128,7 @@ function SourcesModal({ currentView }) {
       return [
         metrics.createTotalVisitors(),
         metrics.createVisitors({
-          renderLabel: (_query) => 'Conversions',
+          renderLabel: (_query) => t('conversions'),
           width: 'w-28'
         }),
         metrics.createConversionRate(),
@@ -140,14 +140,14 @@ function SourcesModal({ currentView }) {
     if (isRealTimeDashboard(query)) {
       return [
         metrics.createVisitors({
-          renderLabel: (_query) => 'Current visitors',
+          renderLabel: (_query) => t('currentVisitorsLabel'),
           width: 'w-32'
         })
       ]
     }
 
     return [
-      metrics.createVisitors({ renderLabel: (_query) => 'Visitors' }),
+      metrics.createVisitors({ renderLabel: (_query) => t('visitors') }),
       metrics.createBounceRate(),
       metrics.createVisitDuration()
     ]

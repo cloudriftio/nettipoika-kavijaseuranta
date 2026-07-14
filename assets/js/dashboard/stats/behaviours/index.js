@@ -323,14 +323,14 @@ export default function Behaviours({ importedDataInView }) {
         <ImportedQueryUnsupportedWarning
           loading={loading}
           skipImportedReason={skipImportedReason}
-          message="Imported data is unavailable in this view"
+          message={t('importedDataUnavailable')}
         />
       )
     } else {
       return (
         <ImportedQueryUnsupportedWarning
           altCondition={importedDataInView}
-          message="Imported data is unavailable in this view"
+          message={t('importedDataUnavailable')}
         />
       )
     }

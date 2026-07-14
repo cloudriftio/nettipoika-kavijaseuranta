@@ -2,6 +2,7 @@ import React from 'react'
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import FadeIn from '../fade-in'
 import { useQueryContext } from '../query-context'
+import { t } from '../../i18n'
 
 export default function ImportedQueryUnsupportedWarning({
   loading,
@@ -10,8 +11,7 @@ export default function ImportedQueryUnsupportedWarning({
   message
 }) {
   const { query } = useQueryContext()
-  const tooltipMessage =
-    message || 'Imported data is excluded due to applied filters'
+  const tooltipMessage = message || t('importedDataExcluded')
   const show =
     query &&
     query.with_imported &&

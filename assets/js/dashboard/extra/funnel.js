@@ -13,6 +13,7 @@ import LazyLoader from '../components/lazy-loader'
 import { useQueryContext } from '../query-context'
 import { useSiteContext } from '../site-context'
 import { UIMode, useTheme } from '../theme-context'
+import { t } from '../../i18n'
 
 const getPalette = (theme) => {
   if (theme.mode === UIMode.dark) {
@@ -121,7 +122,7 @@ export default function Funnel({ funnelName, tabs }) {
   }, [])
 
   const formatDataLabel = (visitors, ctx) => {
-    if (ctx.dataset.label === 'Visitors') {
+    if (ctx.dataset.label === t('visitorsDataset')) {
       const conversionRate = funnel.steps[ctx.dataIndex].conversion_rate
       return `${conversionRate}% \n(${numberShortFormatter(visitors)} Visitors)`
     } else {
@@ -149,7 +150,7 @@ export default function Funnel({ funnelName, tabs }) {
   const fetchFunnel = async () => {
     const funnelMeta = getFunnel()
     if (typeof funnelMeta === 'undefined') {
-      throw new Error('Could not fetch the funnel. Perhaps it was deleted?')
+      throw new Error(t('funnelFetchError'))
     } else {
       return api.get(
         `/api/stats/${encodeURIComponent(site.domain)}/funnels/${funnelMeta.id}`,
@@ -213,7 +214,7 @@ export default function Funnel({ funnelName, tabs }) {
       labels: labels,
       datasets: [
         {
-          label: 'Visitors',
+          label: t('visitorsDataset'),
           data: stepData,
           backgroundColor: gradient,
           hoverBackgroundColor: gradient,
@@ -221,7 +222,7 @@ export default function Funnel({ funnelName, tabs }) {
           stack: 'Stack 0'
         },
         {
-          label: 'Dropoff',
+          label: t('dropoff'),
           data: dropOffData,
           backgroundColor: createDiagonalPattern(
             palette.dropoffBackground,
@@ -317,13 +318,11 @@ export default function Funnel({ funnelName, tabs }) {
           {header()}
           <div className="text-center text-gray-900 dark:text-gray-100 mt-16">
             <RocketIcon />
-            <div className="text-lg font-bold">Oops! Something went wrong</div>
+            <div className="text-lg font-bold">{t('somethingWentWrong')}</div>
             <div className="text-lg">
-              {error.message ? error.message : 'Failed to render funnel'}
+              {error.message ? error.message : t('funnelRenderError')}
             </div>
-            <div className="text-xs mt-8">
-              Please try refreshing your browser or selecting the funnel again.
-            </div>
+            <div className="text-xs mt-8">{t('refreshOrSelectFunnel')}</div>
           </div>
         </>
       )
@@ -347,8 +346,10 @@ export default function Funnel({ funnelName, tabs }) {
         <div className="mb-8">
           {header()}
           <p className="mt-1 text-gray-500 text-sm">
-            {funnel.steps.length}-step funnel • {conversionRate}% conversion
-            rate
+            {t('funnelSummary', {
+              steps: funnel.steps.length,
+              rate: conversionRate
+            })}
           </p>
           {isSmallScreen && (
             <div className="mt-4">{renderBars(funnel, theme)}</div>
@@ -392,7 +393,7 @@ export default function Funnel({ funnelName, tabs }) {
         <div className="flex items-center justify-between mt-3 mb-2 text-xs font-bold tracking-wide text-gray-500 dark:text-gray-400">
           <span>&nbsp;</span>
           <span className="text-right">
-            <span className="inline-block w-20">Visitors</span>
+            <span className="inline-block w-20">{t('visitors')}</span>
           </span>
         </div>
         <FlipMove>

@@ -1,25 +1,29 @@
-<.notice title="Danger zone" theme={:red}>
-  Destructive actions below can result in irrecoverable data loss. Be careful.
+<.notice title={gettext("Danger zone")} theme={:red}>
+  {gettext("The actions below can cause permanent data loss. Proceed carefully.")}
 </.notice>
 
 <.settings_tiles>
   <.tile docs="delete-team">
-    <:title>Delete team</:title>
-    <:subtitle>Remove all associated sites and collected stats.</:subtitle>
+    <:title>{gettext("Delete team")}</:title>
+    <:subtitle>{gettext("Remove all associated sites and collected statistics.")}</:subtitle>
 
     <%= if Plausible.Billing.Subscription.Status.active?(@current_team && @current_team.subscription) do %>
-      <.notice theme={:gray} title="Cannot delete the team at this time">
-        The team cannot be deleted because it has an active subscription. Please cancel the subscription first.
+      <.notice theme={:gray} title={gettext("The team cannot be deleted now")}>
+        {gettext("Cancel the active subscription before deleting the team.")}
       </.notice>
     <% else %>
       <.button_link
-        data-confirm="Deleting the team will also delete all the associated sites and data. This action cannot be reversed. Are you sure?"
+        data-confirm={
+          gettext(
+            "Deleting the team also deletes all associated sites and data. This cannot be undone. Continue?"
+          )
+        }
         href={Routes.settings_path(@conn, :delete_team)}
         method="delete"
         theme="danger"
         mt?={false}
       >
-        Delete "{Plausible.Teams.name(@current_team)}"
+        {gettext("Delete %{team}", team: Plausible.Teams.name(@current_team))}
       </.button_link>
     <% end %>
   </.tile>

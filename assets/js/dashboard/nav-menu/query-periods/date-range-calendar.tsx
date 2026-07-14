@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import DatePicker from 'react-flatpickr'
+import { Finnish } from 'flatpickr/dist/l10n/fi.js'
+import { currentLocale } from '../../../i18n'
 
 export interface DateRangeCalendarProps {
   id: string
@@ -42,6 +44,7 @@ export function DateRangeCalendar({
         maxDate,
         minDate,
         defaultDate: defaultDates,
+        locale: currentLocale() === 'fi' ? Finnish : 'default',
         showMonths: 1
       }}
       onClose={

@@ -79,12 +79,12 @@ defmodule PlausibleWeb.Live.SharedLinkSettings do
         <%= if Enum.empty?(@shared_links) do %>
           <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
             <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-              Create your first shared link
+              {gettext("Create your first shared link")}
             </h3>
             <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-              Share your stats privately with anyone. Links are unique, secure, and can be password-protected.
+              {gettext("Share statistics with a unique link that can be password protected.")}
               <.styled_link href="https://plausible.io/docs/shared-links" target="_blank">
-                Learn more
+                {gettext("Learn more")}
               </.styled_link>
             </p>
             <.button
@@ -94,7 +94,7 @@ defmodule PlausibleWeb.Live.SharedLinkSettings do
               x-on:click={Modal.JS.preopen("shared-links-form-modal")}
               class="mt-4"
             >
-              Add shared link
+              {gettext("Add shared link")}
             </.button>
           </div>
         <% else %>
@@ -107,15 +107,15 @@ defmodule PlausibleWeb.Live.SharedLinkSettings do
                 x-data
                 x-on:click={Modal.JS.preopen("shared-links-form-modal")}
               >
-                Add shared link
+                {gettext("Add shared link")}
               </.button>
             </.filter_bar>
 
             <.table rows={@shared_links} id="shared-links-table">
               <:thead>
-                <.th hide_on_mobile>Name</.th>
-                <.th>Link</.th>
-                <.th invisible>Actions</.th>
+                <.th hide_on_mobile>{gettext("Name")}</.th>
+                <.th>{gettext("Link")}</.th>
+                <.th invisible>{gettext("Actions")}</.th>
               </:thead>
               <:tbody :let={link}>
                 <.td truncate hide_on_mobile>
@@ -127,7 +127,7 @@ defmodule PlausibleWeb.Live.SharedLinkSettings do
                       centered?={true}
                     >
                       <:tooltip_content>
-                        Password protected
+                        {gettext("Password protected")}
                       </:tooltip_content>
                       <Heroicons.lock_closed class="feather ml-2 mb-0.5" />
                     </.tooltip>
@@ -137,13 +137,13 @@ defmodule PlausibleWeb.Live.SharedLinkSettings do
                       centered?={true}
                     >
                       <:tooltip_content>
-                        No password protection
+                        {gettext("No password protection")}
                       </:tooltip_content>
                       <Heroicons.lock_open class="feather ml-2 mb-0.5" />
                     </.tooltip>
                     <.tooltip :if={link.segment_id} enabled?={true} centered?={true}>
                       <:tooltip_content>
-                        Limited to segment of data
+                        {gettext("Limited to a data segment")}
                       </:tooltip_content>
                       <Heroicons.eye_slash class="feather ml-1" />
                     </.tooltip>

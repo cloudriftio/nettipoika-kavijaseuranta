@@ -22,10 +22,10 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
     ~H"""
     <div class="flex flex-col gap-4">
       <%= if @searching? or Enum.count(@goals) > 0 do %>
-        <.filter_bar filter_text={@filter_text} placeholder="Search Goals">
+        <.filter_bar filter_text={@filter_text} placeholder={gettext("Search goals")}>
           <PrimaDropdown.dropdown id="add-goal-dropdown">
             <PrimaDropdown.dropdown_trigger as={&button/1} mt?={false}>
-              Add goal <Heroicons.chevron_down mini class="size-4 mt-0.5" />
+              {gettext("Add goal")} <Heroicons.chevron_down mini class="size-4 mt-0.5" />
             </PrimaDropdown.dropdown_trigger>
 
             <PrimaDropdown.dropdown_menu>
@@ -35,7 +35,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                 x-data
                 x-on:click={Modal.JS.preopen("goals-form-modal")}
               >
-                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Pageview
+                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+                  "Pageview"
+                )}
               </PrimaDropdown.dropdown_item>
               <PrimaDropdown.dropdown_item
                 phx-click="add-goal"
@@ -43,7 +45,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                 x-data
                 x-on:click={Modal.JS.preopen("goals-form-modal")}
               >
-                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Custom event
+                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+                  "Custom event"
+                )}
               </PrimaDropdown.dropdown_item>
               <PrimaDropdown.dropdown_item
                 phx-click="add-goal"
@@ -51,7 +55,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                 x-data
                 x-on:click={Modal.JS.preopen("goals-form-modal")}
               >
-                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Scroll depth
+                <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+                  "Scroll depth"
+                )}
               </PrimaDropdown.dropdown_item>
             </PrimaDropdown.dropdown_menu>
           </PrimaDropdown.dropdown>
@@ -61,8 +67,8 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
       <%= if Enum.count(@goals) > 0 do %>
         <.table rows={@goals}>
           <:thead>
-            <.th>Name</.th>
-            <.th hide_on_mobile>Type</.th>
+            <.th>{gettext("Name")}</.th>
+            <.th hide_on_mobile>{gettext("Type")}</.th>
           </:thead>
           <:tbody :let={goal}>
             <.td max_width="max-w-64" height="h-16">
@@ -84,7 +90,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                   <span class="truncate">{goal}</span>
                   <.tooltip :if={not Enum.empty?(goal.funnels)} centered?={true}>
                     <:tooltip_content>
-                      Belongs to funnel
+                      {gettext("Belongs to a funnel")}
                     </:tooltip_content>
                     <Heroicons.funnel class="size-3.5 stroke-2 flex-shrink-0" />
                   </.tooltip>
@@ -95,12 +101,18 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
               <% end %>
             </.td>
             <.td hide_on_mobile height="h-16">
-              <.pill :if={goal.page_path && goal.scroll_threshold > -1} color={:green}>Scroll</.pill>
-              <.pill :if={goal.page_path && goal.scroll_threshold == -1} color={:gray}>
-                Pageview
+              <.pill :if={goal.page_path && goal.scroll_threshold > -1} color={:green}>
+                {gettext("Scroll")}
               </.pill>
-              <.pill :if={goal.event_name && !goal.currency} color={:yellow}>Custom Event</.pill>
-              <.pill :if={goal.currency} color={:indigo}>Revenue Goal ({goal.currency})</.pill>
+              <.pill :if={goal.page_path && goal.scroll_threshold == -1} color={:gray}>
+                {gettext("Pageview")}
+              </.pill>
+              <.pill :if={goal.event_name && !goal.currency} color={:yellow}>
+                {gettext("Custom event")}
+              </.pill>
+              <.pill :if={goal.currency} color={:indigo}>
+                {gettext("Revenue goal")} ({goal.currency})
+              </.pill>
             </.td>
             <.td actions height="h-16">
               <.edit_button
@@ -140,9 +152,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
   defp no_search_results(assigns) do
     ~H"""
     <p class="mt-12 mb-8 text-center text-sm">
-      No goals found for this site. Please refine or
+      {gettext("No goals found. Refine or")}
       <.styled_link phx-click="reset-filter-text" id="reset-filter-hint">
-        reset your search.
+        {gettext("reset your search.")}
       </.styled_link>
     </p>
     """
@@ -152,17 +164,19 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
     ~H"""
     <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
       <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-        Create your first goal
+        {gettext("Create your first goal")}
       </h3>
       <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-        Define actions that you want your users to take, like visiting a certain page, submitting a form, etc.
+        {gettext(
+          "Define actions you want visitors to take, such as visiting a page or submitting a form."
+        )}
         <.styled_link href="https://plausible.io/docs/goal-conversions" target="_blank">
-          Learn more
+          {gettext("Learn more")}
         </.styled_link>
       </p>
       <PrimaDropdown.dropdown id="add-goal-dropdown-empty" class="mt-4">
         <PrimaDropdown.dropdown_trigger as={&button/1} mt?={false}>
-          Add goal <Heroicons.chevron_down mini class="size-4 mt-0.5" />
+          {gettext("Add goal")} <Heroicons.chevron_down mini class="size-4 mt-0.5" />
         </PrimaDropdown.dropdown_trigger>
 
         <PrimaDropdown.dropdown_menu>
@@ -172,7 +186,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
             x-data
             x-on:click={Modal.JS.preopen("goals-form-modal")}
           >
-            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Pageview
+            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext("Pageview")}
           </PrimaDropdown.dropdown_item>
           <PrimaDropdown.dropdown_item
             phx-click="add-goal"
@@ -180,7 +194,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
             x-data
             x-on:click={Modal.JS.preopen("goals-form-modal")}
           >
-            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Custom event
+            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+              "Custom event"
+            )}
           </PrimaDropdown.dropdown_item>
           <PrimaDropdown.dropdown_item
             phx-click="add-goal"
@@ -188,7 +204,9 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
             x-data
             x-on:click={Modal.JS.preopen("goals-form-modal")}
           >
-            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> Scroll depth
+            <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+              "Scroll depth"
+            )}
           </PrimaDropdown.dropdown_item>
         </PrimaDropdown.dropdown_menu>
       </PrimaDropdown.dropdown>

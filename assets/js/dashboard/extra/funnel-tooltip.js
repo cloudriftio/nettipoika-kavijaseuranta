@@ -1,3 +1,5 @@
+import { t } from '../../i18n'
+
 export default function FunnelTooltip(palette, funnel) {
   return (context) => {
     const tooltipModel = context.tooltip
@@ -42,7 +44,7 @@ export default function FunnelTooltip(palette, funnel) {
                 <span class="flex items-center mr-4">
                   <div class="w-3 h-3 mr-1 rounded-full ${palette.visitorsLegendClass}"></div>
                   <span>
-                    ${dataIndex == 0 ? 'Entered the funnel' : 'Visitors'}
+                    ${dataIndex == 0 ? t('enteredFunnel') : t('visitorsDataset')}
                   </span>
                 </span>
               </th>
@@ -62,7 +64,7 @@ export default function FunnelTooltip(palette, funnel) {
                 <span class="flex items-center">
                   <div class="w-3 h-3 mr-1 rounded-full ${palette.dropoffLegendClass}"></div>
                   <span>
-                    ${dataIndex == 0 ? 'Never entered the funnel' : 'Dropoff'}
+                    ${dataIndex == 0 ? t('neverEnteredFunnel') : t('dropoff')}
                   </span>
                 </span>
               </th>

@@ -4,6 +4,7 @@ import { useInRouterContext } from 'react-router-dom'
 import { PlausibleSite } from '../site-context'
 import { getRouterBasepath, rootRoute } from '../router'
 import { AppNavigationLink } from '../navigation/use-app-navigate'
+import { t } from '../../i18n'
 
 export function SomethingWentWrongMessage({
   error,
@@ -16,14 +17,14 @@ export function SomethingWentWrongMessage({
     <div className="text-center text-gray-900 dark:text-gray-100 mt-36">
       <RocketIcon />
       <div className="text-lg">
-        <span className="font-bold">Oops! Something went wrong.</span>
+        <span className="font-bold">{t('somethingWentWrong')}</span>
         {!!callToAction && ' '}
         {callToAction}
       </div>
       <div className="text-md font-mono mt-2">
         {error instanceof Error
           ? [error.name, error.message].join(': ')
-          : 'Unknown error'}
+          : t('unknownError')}
       </div>
     </div>
   )
@@ -38,11 +39,11 @@ export function GoBackToDashboard({
   site: Pick<PlausibleSite, 'domain' | 'shared'>
 }) {
   const canUseAppLink = useInRouterContext()
-  const linkText = 'go to dashboard'
+  const linkText = t('goToDashboard')
 
   return (
     <span>
-      <>Try going back or </>
+      <>{t('tryGoingBackOr')} </>
       {canUseAppLink ? (
         <AppNavigationLink path={rootRoute.path} className={linkClass}>
           {linkText}
@@ -59,9 +60,9 @@ export function GoBackToDashboard({
 export function GoToSites() {
   return (
     <>
-      <>Try going back or </>
+      <>{t('tryGoingBackOr')} </>
       <a href={'/sites'} className={linkClass}>
-        {'go to your sites'}
+        {t('goToYourSites')}
       </a>
     </>
   )

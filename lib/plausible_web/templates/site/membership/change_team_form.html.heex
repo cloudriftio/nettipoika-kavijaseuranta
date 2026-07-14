@@ -1,9 +1,9 @@
 <.focus_box>
   <:title>
-    Change the team of {@site.domain}
+    {gettext("Change the team of %{site}", site: @site.domain)}
   </:title>
   <:subtitle>
-    Choose the team you'd like to move the site to. The new team must have a sufficient subscription plan.
+    {gettext("Choose the destination team for this site.")}
   </:subtitle>
   <.form :let={f} for={@conn} action={Routes.membership_path(@conn, :change_team, @site.domain)}>
     <div class="my-6">
@@ -11,7 +11,7 @@
         type="select"
         options={@transferable_teams}
         field={f[:team_identifier]}
-        label="Destination Team"
+        label={gettext("Destination team")}
         required="true"
       />
       <%= if @conn.assigns[:error] do %>
@@ -19,6 +19,6 @@
       <% end %>
     </div>
 
-    <.button type="submit" class="w-full" mt?={false}>Change team</.button>
+    <.button type="submit" class="w-full" mt?={false}>{gettext("Change team")}</.button>
   </.form>
 </.focus_box>

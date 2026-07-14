@@ -11,6 +11,7 @@ import * as url from '../../util/url'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { SortDirection } from '../../hooks/use-order-by'
+import { t } from '../../../i18n'
 
 function PropsModal() {
   const { query } = useQueryContext()
@@ -21,7 +22,7 @@ function PropsModal() {
   const showRevenueMetrics = BUILD_EXTRA && revenueAvailable(query, site)
 
   const reportInfo = {
-    title: specialTitleWhenGoalFilter(query, 'Custom property breakdown'),
+    title: specialTitleWhenGoalFilter(query, t('customPropertyBreakdown')),
     dimension: propKey,
     endpoint: url.apiPath(
       site,
@@ -55,8 +56,8 @@ function PropsModal() {
 
   function chooseMetrics() {
     return [
-      metrics.createVisitors({ renderLabel: (_query) => 'Visitors' }),
-      metrics.createEvents({ renderLabel: (_query) => 'Events' }),
+      metrics.createVisitors({ renderLabel: (_query) => t('visitors') }),
+      metrics.createEvents({ renderLabel: (_query) => t('events') }),
       hasConversionGoalFilter(query) && metrics.createConversionRate(),
       !hasConversionGoalFilter(query) && metrics.createPercentage(),
       showRevenueMetrics && metrics.createAverageRevenue(),

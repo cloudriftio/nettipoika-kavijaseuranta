@@ -1,9 +1,14 @@
 <.focus_box>
-  <:title>Create new API key</:title>
+  <:title>{gettext("Create new API key")}</:title>
 
   <div x-data="{ submitDisabled: false }">
     <.form :let={f} for={@changeset} action={Routes.settings_path(@conn, :api_keys)}>
-      <.input type="text" field={f[:name]} label="Name" placeholder="Development" />
+      <.input
+        type="text"
+        field={f[:name]}
+        label={gettext("Name")}
+        placeholder={gettext("Development")}
+      />
 
       <input :if={ce?()} type="hidden" name={f[:type].name} value={f[:type].value} />
 
@@ -58,7 +63,7 @@
         <.input_with_clipboard
           id="key-input"
           name="api_key[key]"
-          label="Key"
+          label={gettext("Key")}
           value={f[:key].value}
         />
 
@@ -69,11 +74,11 @@
         </.error>
 
         <p class="mt-2 text-gray-500 dark:text-gray-200">
-          Make sure to store the key in a secure place. Once created, we will not be able to show it again.
+          {gettext("Store the key securely. It cannot be shown again after creation.")}
         </p>
       </div>
       <.button type="submit" class="w-full" x-bind:disabled="submitDisabled">
-        Create API key
+        {gettext("Create API key")}
       </.button>
     </.form>
   </div>

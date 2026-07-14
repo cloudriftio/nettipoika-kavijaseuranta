@@ -25,32 +25,26 @@ interface ErrorPayload {
 
 function ErrorMessage({ code }: { code: ErrorCode }): JSX.Element {
   if (code === 'not_configured') {
-    return <div>The site is not connected to Google Search Keywords</div>
+    return <div>{t('searchKeywordsNotConnected')}</div>
   } else if (code === 'unsupported_filters') {
-    return (
-      <div>
-        Unable to fetch keyword data from Search Console because it does not
-        support the current set of filters
-      </div>
-    )
+    return <div>{t('unsupportedSearchFilters')}</div>
   } else if (code === 'period_too_recent') {
     return (
       <div>
-        No search terms were found for this period. Please adjust or extend your
-        time range. Check{' '}
+        {t('noSearchTermsForPeriod')}{' '}
         <a
           href="https://plausible.io/docs/google-search-console-integration#i-dont-see-google-search-query-data-in-my-dashboard"
           target="_blank"
           rel="noreferrer"
           className="hover:underline text-indigo-700 dark:text-indigo-500"
         >
-          our documentation
+          {t('ourDocumentation')}
         </a>{' '}
-        for more details.
+        {t('forMoreDetails')}
       </div>
     )
   } else {
-    return <div>Unable to fetch keyword data from Search Console</div>
+    return <div>{t('searchConsoleError')}</div>
   }
 }
 
@@ -61,12 +55,12 @@ function ConfigureSearchTermsCTA({
 }): JSX.Element {
   return (
     <>
-      <div>Configure the integration to view search terms</div>
+      <div>{t('configureSearchIntegration')}</div>
       <a
         href={`/${encodeURIComponent(site.domain)}/settings/integrations`}
         className="button mt-4"
       >
-        Connect with Google
+        {t('connectWithGoogle')}
       </a>
     </>
   )
@@ -120,8 +114,8 @@ export function SearchTerms() {
       return (
         <React.Fragment>
           <div className="flex items-center mt-3 mb-2 justify-between text-gray-500 dark:text-gray-400 text-xs font-bold tracking-wide">
-            <span>Search term</span>
-            <span>Visitors</span>
+            <span>{t('searchTerm')}</span>
+            <span>{t('visitors')}</span>
           </div>
           {searchTerms &&
             searchTerms.map((term: SearchTerm) => (
@@ -188,7 +182,7 @@ export function SearchTerms() {
 
   return (
     <div className="flex flex-col h-full">
-      <h3 className="font-bold dark:text-gray-100">Search Terms</h3>
+      <h3 className="font-bold dark:text-gray-100">{t('searchTerms')}</h3>
       <div className="relative grow">
         {loading && (
           <div className="absolute inset-0 flex justify-center items-center">

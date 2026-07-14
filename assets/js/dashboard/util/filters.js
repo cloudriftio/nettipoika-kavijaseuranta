@@ -1,5 +1,6 @@
 import * as api from '../api'
 import { formatSegmentIdAsLabelKey } from '../filtering/segments'
+import { t } from '../../i18n'
 
 export const FILTER_MODAL_TO_FILTER_GROUP = {
   page: ['page', 'entry_page', 'exit_page'],
@@ -41,13 +42,13 @@ export const FILTER_OPERATIONS = {
 }
 
 export const FILTER_OPERATIONS_DISPLAY_NAMES = {
-  [FILTER_OPERATIONS.is]: 'is',
-  [FILTER_OPERATIONS.isNot]: 'is not',
-  [FILTER_OPERATIONS.contains]: 'contains',
-  [FILTER_OPERATIONS.contains_not]: 'does not contain',
+  [FILTER_OPERATIONS.is]: t('operationIs'),
+  [FILTER_OPERATIONS.isNot]: t('operationIsNot'),
+  [FILTER_OPERATIONS.contains]: t('operationContains'),
+  [FILTER_OPERATIONS.contains_not]: t('operationDoesNotContain'),
   // :NOTE: Goal filters are displayed as "is not" in the UI, but in the backend they are wrapped with has_not_done.
   // It is currently unclear if we'll do the same for other event filters in the future.
-  [FILTER_OPERATIONS.has_not_done]: 'is not'
+  [FILTER_OPERATIONS.has_not_done]: t('operationIsNot')
 }
 
 export function supportsIsNot(filterName) {
@@ -139,11 +140,11 @@ export function getGoalFilter(query) {
 
 export function formatFilterGroup(filterGroup) {
   if (filterGroup === 'utm') {
-    return 'UTM tags'
+    return t('utmTags')
   } else if (filterGroup === 'location') {
-    return 'Location'
+    return t('location')
   } else if (filterGroup === 'props') {
-    return 'Property'
+    return t('property')
   } else {
     return formattedFilters[filterGroup]
   }
@@ -285,29 +286,29 @@ export function getFilterGroup([_operation, filterKey, _clauses]) {
 }
 
 export const formattedFilters = {
-  goal: 'Goal',
-  props: 'Property',
-  prop_key: 'Property',
-  prop_value: 'Value',
-  source: 'Source',
-  channel: 'Channel',
-  utm_medium: 'UTM medium',
-  utm_source: 'UTM source',
-  utm_campaign: 'UTM campaign',
-  utm_content: 'UTM content',
-  utm_term: 'UTM term',
-  referrer: 'Referrer URL',
-  screen: 'Screen size',
-  browser: 'Browser',
-  browser_version: 'Browser version',
-  os: 'Operating system',
-  os_version: 'Operating system version',
-  country: 'Country',
-  region: 'Region',
-  city: 'City',
-  page: 'Page',
-  hostname: 'Hostname',
-  entry_page: 'Entry page',
-  exit_page: 'Exit page',
-  segment: 'Segment'
+  goal: t('goal'),
+  props: t('property'),
+  prop_key: t('property'),
+  prop_value: t('value'),
+  source: t('source'),
+  channel: t('channel'),
+  utm_medium: t('utmMedium'),
+  utm_source: t('utmSource'),
+  utm_campaign: t('utmCampaign'),
+  utm_content: t('utmContent'),
+  utm_term: t('utmTerm'),
+  referrer: t('referrerUrl'),
+  screen: t('screenSizeLong'),
+  browser: t('browser'),
+  browser_version: t('browserVersion'),
+  os: t('operatingSystemLong'),
+  os_version: t('operatingSystemVersion'),
+  country: t('country'),
+  region: t('region'),
+  city: t('city'),
+  page: t('page'),
+  hostname: t('hostname'),
+  entry_page: t('entryPage'),
+  exit_page: t('exitPage'),
+  segment: t('segment')
 }

@@ -1,6 +1,9 @@
-Your {Plausible.product_name()} export for {@site.domain} is now ready for download.
-Please click <a href={@download_url}>here</a>
-to start the download process.
+{gettext("Your %{product} export for %{site} is ready.",
+  product: Plausible.product_name(),
+  site: @site.domain
+)}
+{gettext("Click")} <a href={@download_url}>{gettext("here")}</a>
+{gettext("to download it.")}
 <%= if @expires_in do %>
-  Note that this link will expire {@expires_in}.
+  {gettext("This link expires %{expires_in}.", expires_in: @expires_in)}
 <% end %>

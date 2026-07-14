@@ -1,16 +1,9 @@
 <.focus_box>
   <:title>
-    Transfer ownership of {@site.domain}
+    {gettext("Transfer ownership of %{site}", site: @site.domain)}
   </:title>
   <:subtitle>
-    Enter the email address of the new owner. We will contact them over email to
-    offer them the ownership of {@site.domain}. If they don't respond in 48
-    hours, the request will expire automatically. <br /><br />
-    Do note that a subscription plan is not transferred alongside the site. If
-    they accept the transfer request, the new owner will need to have an active
-    subscription. Your access will be downgraded to <b>guest editor</b>
-    and any other
-    member roles will stay the same.
+    {gettext("Enter the new owner's email address. The transfer request expires in 48 hours.")}
   </:subtitle>
   <.form
     :let={f}
@@ -25,12 +18,12 @@
       <.input
         type="email"
         field={f[:email]}
-        label="Email address"
+        label={gettext("Email address")}
         placeholder="joe@example.com"
         required="true"
       />
     </div>
 
-    <.button type="submit" class="w-full" mt?={false}>Request transfer</.button>
+    <.button type="submit" class="w-full" mt?={false}>{gettext("Request transfer")}</.button>
   </.form>
 </.focus_box>

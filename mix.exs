@@ -118,6 +118,7 @@ defmodule Plausible.MixProject do
        override: true},
       {:php_serializer, "~> 2.0"},
       {:plug, "~> 1.13", override: true},
+      {:plug_crypto, "~> 2.1", override: true},
       {:prima, "~> 0.2.1"},
       {:plug_cowboy, "~> 2.9.0"},
       {:polymorphic_embed, "~> 5.0"},

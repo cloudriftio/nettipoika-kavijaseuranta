@@ -15,6 +15,7 @@ import classNames from 'classnames'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
 import { customPropsRoute } from '../../router'
+import { t } from '../../../i18n'
 
 export default function Properties({ afterFetchData }) {
   const { query } = useQueryContext()
@@ -108,11 +109,11 @@ export default function Properties({ afterFetchData }) {
   function chooseMetrics() {
     return [
       metrics.createVisitors({
-        renderLabel: (_query) => 'Visitors',
+        renderLabel: (_query) => t('visitors'),
         meta: { plot: true }
       }),
       metrics.createEvents({
-        renderLabel: (_query) => 'Events',
+        renderLabel: (_query) => t('events'),
         meta: { hiddenOnMobile: true }
       }),
       hasConversionGoalFilter(query) && metrics.createConversionRate(),
@@ -149,9 +150,7 @@ export default function Properties({ afterFetchData }) {
   })
 
   const comboboxDisabled = !propKeyLoading && !propKey
-  const comboboxPlaceholder = comboboxDisabled
-    ? 'No custom properties found'
-    : ''
+  const comboboxPlaceholder = comboboxDisabled ? t('noCustomProperties') : ''
   const comboboxValues = propKey ? [{ value: propKey, label: propKey }] : []
   const boxClass = classNames(
     'pl-2 pr-8 py-1 bg-transparent dark:text-gray-300 rounded-md shadow-sm border border-gray-300 dark:bg-gray-750 dark:border-gray-750',

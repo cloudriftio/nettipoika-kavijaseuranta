@@ -13,6 +13,7 @@ import { isComparisonEnabled } from '../../query-time-periods'
 import LineGraphWithRouter from './line-graph'
 import { useQueryContext } from '../../query-context'
 import { useSiteContext } from '../../site-context'
+import { t } from '../../../i18n'
 
 function fetchTopStats(site, query) {
   const q = { ...query }
@@ -157,7 +158,7 @@ export default function VisitorGraph({ updateImportedDataInView }) {
       importedSwitchVisible() && query.with_imported === true
 
     if (showingImported && unsupportedInterval) {
-      return 'Interval is too short to graph imported data'
+      return t('intervalTooShort')
     }
 
     return null

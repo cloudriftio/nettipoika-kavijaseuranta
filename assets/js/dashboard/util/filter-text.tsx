@@ -7,6 +7,7 @@ import {
   getLabel,
   getPropertyKeyFromFilterKey
 } from './filters'
+import { t } from '../../i18n'
 
 export function styledFilterText(
   query: Pick<DashboardQuery, 'labels'>,
@@ -16,8 +17,8 @@ export function styledFilterText(
     const propKey = getPropertyKeyFromFilterKey(filterKey)
     return (
       <>
-        Property <b>{propKey}</b> {FILTER_OPERATIONS_DISPLAY_NAMES[operation]}{' '}
-        {formatClauses(clauses)}
+        {t('property')} <b>{propKey}</b>{' '}
+        {FILTER_OPERATIONS_DISPLAY_NAMES[operation]} {formatClauses(clauses)}
       </>
     )
   }
@@ -51,7 +52,7 @@ export function plainFilterText(
 function formatClauses(labels: Array<string | number>): ReactNode[] {
   return labels.map((label, index) => (
     <Fragment key={index}>
-      {index > 0 && ' or '}
+      {index > 0 && ` ${t('or')} `}
       <b>{label}</b>
     </Fragment>
   ))

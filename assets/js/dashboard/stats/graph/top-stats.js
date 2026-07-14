@@ -49,7 +49,9 @@ export default function TopStats({
   const isComparison = query.comparison && data && data.comparing_from
 
   function tooltip(stat) {
-    let statName = stat.name.toLowerCase()
+    let statName = TOP_STAT_KEYS[stat.graph_metric]
+      ? t(TOP_STAT_KEYS[stat.graph_metric]).toLocaleLowerCase()
+      : stat.name.toLowerCase()
     const warning = warningText(stat.graph_metric, site)
     statName = stat.value === 1 ? statName.slice(0, -1) : statName
 
@@ -74,10 +76,11 @@ export default function TopStats({
           </div>
         )}
 
-        {stat.name === 'Current visitors' && (
+        {stat.graph_metric === 'visitors' && query.period === 'realtime' && (
           <p className="font-normal text-xs">
-            Last updated{' '}
-            <SecondsSinceLastLoad lastLoadTimestamp={lastLoadTimestamp} />s ago
+            {t('lastUpdated')}{' '}
+            <SecondsSinceLastLoad lastLoadTimestamp={lastLoadTimestamp} />{' '}
+            {t('secondsAgo')}
           </p>
         )}
 
@@ -98,7 +101,7 @@ export default function TopStats({
       metric === 'scroll_depth' &&
       warning.code === 'no_imported_scroll_depth'
     ) {
-      return 'Does not include imported data'
+      return t('importedDataNotIncluded')
     }
 
     if (metric === 'time_on_page') {

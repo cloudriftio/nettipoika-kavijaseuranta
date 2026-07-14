@@ -12,17 +12,21 @@ import {
 import { useSiteContext } from '../../site-context'
 import { useQueryContext } from '../../query-context'
 import { customPropsRoute } from '../../router'
+import { t } from '../../../i18n'
 
 export const SPECIAL_GOALS = {
-  404: { title: '404 Pages', prop: 'path' },
-  'Outbound Link: Click': { title: 'Outbound Links', prop: 'url' },
-  'Cloaked Link: Click': { title: 'Cloaked Links', prop: 'url' },
-  'File Download': { title: 'File Downloads', prop: 'url' },
+  404: { title: t('pages404'), prop: 'path' },
+  'Outbound Link: Click': { title: t('outboundLinks'), prop: 'url' },
+  'Cloaked Link: Click': { title: t('cloakedLinks'), prop: 'url' },
+  'File Download': { title: t('fileDownloads'), prop: 'url' },
   'WP Search Queries': {
-    title: 'WordPress Search Queries',
+    title: t('wordpressSearchQueries'),
     prop: 'search_query'
   },
-  'WP Form Completions': { title: 'WordPress Form Completions', prop: 'path' }
+  'WP Form Completions': {
+    title: t('wordpressFormCompletions'),
+    prop: 'path'
+  }
 }
 
 function getSpecialGoal(query) {
@@ -69,11 +73,11 @@ function SpecialPropBreakdown({ prop, afterFetchData }) {
   function chooseMetrics() {
     return [
       metrics.createVisitors({
-        renderLabel: (_query) => 'Visitors',
+        renderLabel: (_query) => t('visitors'),
         meta: { plot: true }
       }),
       metrics.createEvents({
-        renderLabel: (_query) => 'Events',
+        renderLabel: (_query) => t('events'),
         meta: { hiddenOnMobile: true }
       }),
       metrics.createConversionRate()

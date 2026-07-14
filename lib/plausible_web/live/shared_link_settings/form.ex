@@ -40,9 +40,9 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
   def edit_form(assigns) do
     ~H"""
     <.form :let={f} for={@form} phx-submit="save-shared-link" phx-target={@myself}>
-      <.title>Edit shared link</.title>
+      <.title>{gettext("Edit shared link")}</.title>
 
-      <.input field={f[:name]} label="Name" required="required" autocomplete="off" />
+      <.input field={f[:name]} label={gettext("Name")} required="required" autocomplete="off" />
 
       <div
         x-data={"{ limitViewEnabled: #{not is_nil(f[:segment_id].value)} }"}
@@ -59,8 +59,8 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
         <PlausibleWeb.Components.Generic.toggle_field
           id="limit-view"
           js_active_var="limitViewEnabled"
-          label="Limit to segment"
-          help_text="Restrict this link to a segment of the data."
+          label={gettext("Limit to segment")}
+          help_text={gettext("Restrict this link to a segment of the data.")}
         />
         <div x-show="limitViewEnabled" x-cloak>
           <.live_component
@@ -78,7 +78,7 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
       </div>
 
       <.button type="submit" class="w-full">
-        Update shared link
+        {gettext("Update shared link")}
       </.button>
     </.form>
     """
@@ -87,8 +87,8 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
   def create_form(assigns) do
     ~H"""
     <.form :let={f} for={@form} phx-submit="save-shared-link" phx-target={@myself}>
-      <.title>New shared link</.title>
-      <.input field={f[:name]} label="Name" required="required" autocomplete="off" />
+      <.title>{gettext("New shared link")}</.title>
+      <.input field={f[:name]} label={gettext("Name")} required="required" autocomplete="off" />
 
       <div
         x-data="{ passwordProtectEnabled: false }"
@@ -107,15 +107,15 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
         <PlausibleWeb.Components.Generic.toggle_field
           id="password-protect"
           js_active_var="passwordProtectEnabled"
-          label="Password protect"
-          help_text="Keep this password safe. You won't be able to see it again."
+          label={gettext("Password protect")}
+          help_text={gettext("Keep this password safe. It cannot be shown again.")}
           show_help_text_only_when_active?={true}
         />
         <div x-show="passwordProtectEnabled" x-cloak>
           <.input
             field={f[:password]}
             type="password"
-            placeholder="Enter password"
+            placeholder={gettext("Enter password")}
             autocomplete="new-password"
             mt?={false}
           />
@@ -137,8 +137,8 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
         <PlausibleWeb.Components.Generic.toggle_field
           id="limit-view"
           js_active_var="limitViewEnabled"
-          label="Limit to segment"
-          help_text="Restrict this link to a segment of the data."
+          label={gettext("Limit to segment")}
+          help_text={gettext("Restrict this link to a segment of the data.")}
         />
         <div x-show="limitViewEnabled" x-cloak>
           <.live_component
@@ -152,7 +152,7 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
         </div>
       </div>
       <.button type="submit" class="w-full">
-        Create shared link
+        {gettext("Create shared link")}
       </.button>
     </.form>
     """
@@ -166,7 +166,7 @@ defmodule PlausibleWeb.Live.SharedLinkSettings.Form do
         new_tab
         class="text-xs text-indigo-600 dark:text-indigo-400"
       >
-        Learn about segments
+        {gettext("Learn about segments")}
       </PlausibleWeb.Components.Generic.unstyled_link>
     </div>
     """

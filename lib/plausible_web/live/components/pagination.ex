@@ -2,13 +2,13 @@ defmodule PlausibleWeb.Live.Components.Pagination do
   @moduledoc """
   Pagination components for LiveViews.
   """
-  use Phoenix.Component
+  use PlausibleWeb, :component
 
   def pagination(assigns) do
     ~H"""
     <nav
       class="px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-500 sm:px-6"
-      aria-label="Pagination"
+      aria-label={gettext("Pagination")}
     >
       <div class="hidden sm:block">
         <p class="text-sm text-gray-700 dark:text-gray-300">
@@ -70,8 +70,8 @@ defmodule PlausibleWeb.Live.Components.Pagination do
         @class
       ]}
     >
-      <span :if={@type == :prev}>← Previous</span>
-      <span :if={@type == :next}>Next →</span>
+      <span :if={@type == :prev}>← {gettext("Previous")}</span>
+      <span :if={@type == :next}>{gettext("Next")} →</span>
     </.link>
     """
   end

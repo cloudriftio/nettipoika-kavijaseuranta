@@ -120,11 +120,17 @@ export const createPercentage = (props) => {
 }
 
 export const createEvents = (props) => {
-  return new Metric({ width: 'w-28', ...props, key: 'events', sortable: true })
+  return new Metric({
+    width: 'w-28',
+    renderLabel: (_query) => t('events'),
+    ...props,
+    key: 'events',
+    sortable: true
+  })
 }
 
 export const createTotalRevenue = (props) => {
-  const renderLabel = (_query) => 'Revenue'
+  const renderLabel = (_query) => t('revenue')
   return new Metric({
     width: 'w-32',
     ...props,
@@ -135,7 +141,7 @@ export const createTotalRevenue = (props) => {
 }
 
 export const createAverageRevenue = (props) => {
-  const renderLabel = (_query) => 'Average'
+  const renderLabel = (_query) => t('average')
   return new Metric({
     width: 'w-28',
     ...props,
@@ -146,7 +152,7 @@ export const createAverageRevenue = (props) => {
 }
 
 export const createTotalVisitors = (props) => {
-  const renderLabel = (_query) => 'Total visitors'
+  const renderLabel = (_query) => t('totalVisitors')
   return new Metric({
     width: 'w-32',
     ...props,
@@ -157,7 +163,13 @@ export const createTotalVisitors = (props) => {
 }
 
 export const createVisits = (props) => {
-  return new Metric({ width: 'w-24', sortable: true, ...props, key: 'visits' })
+  return new Metric({
+    width: 'w-24',
+    sortable: true,
+    renderLabel: (_query) => t('visits'),
+    ...props,
+    key: 'visits'
+  })
 }
 
 export const createVisitDuration = (props) => {
@@ -205,7 +217,7 @@ export const createTimeOnPage = (props) => {
 }
 
 export const createExitRate = (props) => {
-  const renderLabel = (_query) => 'Exit rate'
+  const renderLabel = (_query) => t('exitRate')
   return new Metric({
     width: 'w-28 md:w-24',
     ...props,

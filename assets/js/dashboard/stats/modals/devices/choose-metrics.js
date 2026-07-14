@@ -4,6 +4,7 @@ import {
 } from '../../../util/filters'
 import { revenueAvailable } from '../../../query'
 import * as metrics from '../../reports/metrics'
+import { t } from '../../../../i18n'
 
 export default function chooseMetrics(query, site) {
   /*global BUILD_EXTRA*/
@@ -13,7 +14,7 @@ export default function chooseMetrics(query, site) {
     return [
       metrics.createTotalVisitors(),
       metrics.createVisitors({
-        renderLabel: (_query) => 'Conversions',
+        renderLabel: (_query) => t('conversions'),
         width: 'w-32 md:w-28'
       }),
       metrics.createConversionRate(),
@@ -25,7 +26,7 @@ export default function chooseMetrics(query, site) {
   if (isRealTimeDashboard(query)) {
     return [
       metrics.createVisitors({
-        renderLabel: (_query) => 'Current visitors',
+        renderLabel: (_query) => t('currentVisitorsLabel'),
         width: 'w-32'
       }),
       metrics.createPercentage()
@@ -33,7 +34,7 @@ export default function chooseMetrics(query, site) {
   }
 
   return [
-    metrics.createVisitors({ renderLabel: (_query) => 'Visitors' }),
+    metrics.createVisitors({ renderLabel: (_query) => t('visitors') }),
     metrics.createPercentage(),
     metrics.createBounceRate(),
     metrics.createVisitDuration()

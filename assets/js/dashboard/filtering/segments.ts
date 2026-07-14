@@ -4,6 +4,7 @@ import { plainFilterText } from '../util/filter-text'
 import { AppNavigationTarget } from '../navigation/use-app-navigate'
 import { PlausibleSite } from '../site-context'
 import { Role, UserContextValue } from '../user-context'
+import { t } from '../../i18n'
 
 export enum SegmentType {
   personal = 'personal',
@@ -160,8 +161,8 @@ export function getSearchToSetSegmentFilter(
 }
 
 export const SEGMENT_TYPE_LABELS = {
-  [SegmentType.personal]: 'Personal segment',
-  [SegmentType.site]: 'Site segment'
+  [SegmentType.personal]: t('personalSegment'),
+  [SegmentType.site]: t('siteSegment')
 }
 
 export function resolveFilters(

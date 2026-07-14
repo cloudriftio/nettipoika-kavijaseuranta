@@ -582,7 +582,7 @@ defmodule PlausibleWeb.Live.Sites do
           class="group/item !flex items-center gap-x-2"
         >
           <Heroicons.cog_6_tooth class="size-5 text-gray-600 dark:text-gray-400 group-hover/item:text-gray-900 dark:group-hover/item:text-gray-100" />
-          <span>Settings</span>
+          <span>{gettext("Settings")}</span>
         </.dropdown_item>
 
         <.dropdown_item
@@ -605,13 +605,13 @@ defmodule PlausibleWeb.Live.Sites do
             filled={true}
             class="size-[1.15rem] text-indigo-600 dark:text-indigo-500 group-hover/item:text-indigo-700 dark:group-hover/item:text-indigo-400"
           />
-          <span :if={@site.pinned_at}>Unpin site</span>
+          <span :if={@site.pinned_at}>{gettext("Unpin site")}</span>
 
           <.icon_pin
             :if={!@site.pinned_at}
             class="size-5 text-gray-600 dark:text-gray-400 group-hover/item:text-gray-900 dark:group-hover/item:text-gray-100"
           />
-          <span :if={!@site.pinned_at}>Pin site</span>
+          <span :if={!@site.pinned_at}>{gettext("Pin site")}</span>
         </.dropdown_item>
         <.dropdown_item
           :if={Application.get_env(:plausible, :environment) == "dev" and Sites.regular?(@site)}
@@ -740,7 +740,7 @@ defmodule PlausibleWeb.Live.Sites do
             phx-click={Prima.Modal.JS.close()}
             class="text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400"
           >
-            <span class="sr-only">Close</span>
+            <span class="sr-only">{gettext("Close")}</span>
             <Heroicons.x_mark class="size-6" />
           </button>
         </div>

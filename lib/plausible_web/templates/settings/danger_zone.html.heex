@@ -1,16 +1,20 @@
-<.notice title="Danger zone" theme={:red}>
-  Destructive actions below can result in irrecoverable data loss. Be careful.
+<.notice title={gettext("Danger zone")} theme={:red}>
+  {gettext("The actions below can cause permanent data loss. Proceed carefully.")}
 </.notice>
 
 <.settings_tiles>
   <.tile docs="delete-account">
-    <:title>Delete account</:title>
-    <:subtitle>Permanently deletes your sites and all collected stats.</:subtitle>
+    <:title>{gettext("Delete account")}</:title>
+    <:subtitle>
+      {gettext("Permanently delete your sites and all collected statistics.")}
+    </:subtitle>
 
     <%= cond do %>
       <% length(@solely_owned_teams) > 0 -> %>
-        <.notice theme={:gray} title="You can't delete your account yet">
-          You're the sole owner of one or more teams. To delete your account, either add another owner or delete each of the following team(s):
+        <.notice theme={:gray} title={gettext("You cannot delete your account yet")}>
+          {gettext(
+            "You are the only owner of one or more teams. Add another owner or delete these teams first:"
+          )}
           <ul class="w-full py-4">
             <li :for={team <- @solely_owned_teams} class="pt-1">
               <.styled_link href={
@@ -22,18 +26,22 @@
           </ul>
         </.notice>
       <% Plausible.Billing.Subscription.Status.active?(@my_team && @my_team.subscription) -> %>
-        <.notice theme={:gray} title="You can't delete your account yet">
-          You have an active subscription. To delete your account, cancel your subscription first.
+        <.notice theme={:gray} title={gettext("You cannot delete your account yet")}>
+          {gettext("You have an active subscription. Cancel it before deleting your account.")}
         </.notice>
       <% true -> %>
         <.button_link
-          data-confirm="Deleting your account will also delete all the sites and data that you own. This action cannot be reversed. Are you sure?"
+          data-confirm={
+            gettext(
+              "Deleting your account also deletes all sites and data you own. This cannot be undone. Are you sure?"
+            )
+          }
           href="/me"
           method="delete"
           theme="danger"
           mt?={false}
         >
-          Delete my account
+          {gettext("Delete my account")}
         </.button_link>
     <% end %>
   </.tile>

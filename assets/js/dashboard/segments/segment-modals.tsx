@@ -26,6 +26,7 @@ import { useSegmentsContext } from '../filtering/segments-context'
 import { Role, UserContextValue, useUserContext } from '../user-context'
 import { removeFilterButtonClassname } from '../components/remove-filter-button'
 import { useSiteContext } from '../site-context'
+import { t } from '../../i18n'
 
 interface ApiRequestProps {
   status: MutationStatus
@@ -87,7 +88,7 @@ export const CreateSegmentModal = ({
     onSave: (input: Pick<SavedSegment, 'name' | 'type'>) => void
   }) => {
   const defaultName = segment?.name
-    ? `Copy of ${segment.name}`.slice(0, 255)
+    ? t('copyOf', { name: segment.name }).slice(0, 255)
     : ''
   const [name, setName] = useState(defaultName)
   const defaultType =
@@ -108,7 +109,7 @@ export const CreateSegmentModal = ({
 
   return (
     <SegmentActionModal onClose={onClose}>
-      <FormTitle className="mb-8">Create segment</FormTitle>
+      <FormTitle className="mb-8">{t('createSegment')}</FormTitle>
       <SegmentNameInput
         value={name}
         onChange={setName}
@@ -128,16 +129,14 @@ export const CreateSegmentModal = ({
           }}
         />
         <button className={secondaryButtonClassName} onClick={onClose}>
-          Cancel
+          {t('cancel')}
         </button>
       </ButtonsRow>
       {error !== null && (
         <ErrorPanel
           className="mt-4"
           errorMessage={
-            error instanceof ApiError
-              ? error.message
-              : 'Something went wrong creating segment'
+            error instanceof ApiError ? error.message : t('segmentCreateError')
           }
           onClose={reset}
         />
@@ -148,8 +147,8 @@ export const CreateSegmentModal = ({
 
 function getLinksDeleteNotice(links: string[]) {
   return links.length === 1
-    ? 'This segment is used in a shared link. To delete it, you also need to delete the shared link.'
-    : `This segment is used in ${links.length} shared links. To delete it, you also need to delete the shared links.`
+    ? t('segmentUsedInSharedLink')
+    : t('segmentUsedInSharedLinks', { count: links.length })
 }
 
 export const DeleteSegmentModal = ({
@@ -185,8 +184,12 @@ export const DeleteSegmentModal = ({
   return (
     <SegmentActionModal onClose={onClose}>
       <FormTitle className="mb-4">
-        Delete {SEGMENT_TYPE_LABELS[segment.type].toLowerCase()}
-        <span className="break-all">{` "${segment.name}"?`}</span>
+        <span className="break-all">
+          {t('deleteNamedSegment', {
+            type: SEGMENT_TYPE_LABELS[segment.type].toLowerCase(),
+            name: segment.name
+          })}
+        </span>
       </FormTitle>
       {linksQuery.status === 'pending' && (
         <div className="loading sm">
@@ -204,7 +207,7 @@ export const DeleteSegmentModal = ({
       )}
       {linksQuery.status === 'error' && (
         <ErrorPanel
-          errorMessage="Error loading related shared links"
+          errorMessage={t('sharedLinksLoadError')}
           onRetry={linksQuery.refetch}
         />
       )}
@@ -224,7 +227,7 @@ export const DeleteSegmentModal = ({
               checked={confirmed}
               onChange={(e) => setConfirmed(e.currentTarget.checked)}
             >
-              Yes, delete the associated shared links
+              {t('confirmDeleteSharedLinks')}
             </Checkbox>
           </div>
         </>
@@ -241,19 +244,17 @@ export const DeleteSegmentModal = ({
                 }
           }
         >
-          Delete
+          {t('delete')}
         </button>
         <button className={secondaryButtonClassName} onClick={onClose}>
-          Cancel
+          {t('cancel')}
         </button>
       </ButtonsRow>
       {error !== null && (
         <ErrorPanel
           className="mt-4"
           errorMessage={
-            error instanceof ApiError
-              ? error.message
-              : 'Something went wrong deleting segment'
+            error instanceof ApiError ? error.message : t('segmentDeleteError')
           }
           onClose={reset}
         />
@@ -265,7 +266,7 @@ export const DeleteSegmentModal = ({
 const RelatedSharedLinks = ({ sharedLinks }: { sharedLinks: string[] }) => {
   return (
     <>
-      <SecondaryTitle>Shared links</SecondaryTitle>
+      <SecondaryTitle>{t('sharedLinks')}</SecondaryTitle>
       <div className="mt-2">
         <FilterPillsList
           className="flex-wrap"
@@ -326,7 +327,7 @@ const SegmentNameInput = ({
         htmlFor="name"
         className="block mb-1.5 text-sm font-medium dark:text-gray-100 text-gray-700 dark:text-gray-300"
       >
-        Segment name
+        {t('segmentName')}
       </label>
       <input
         autoComplete="off"
@@ -351,12 +352,12 @@ const SegmentTypeSelector = ({
     {
       type: SegmentType.personal,
       name: SEGMENT_TYPE_LABELS[SegmentType.personal],
-      description: 'Visible only to you'
+      description: t('visibleOnlyToYou')
     },
     {
       type: SegmentType.site,
       name: SEGMENT_TYPE_LABELS[SegmentType.site],
-      description: 'Visible to others on the site'
+      description: t('visibleToSite')
     }
   ]
 
@@ -410,11 +411,7 @@ const useSegmentTypeDisabledState = ({
 
       if (type === SegmentType.site && !canSelectSiteSegment) {
         setDisabled(true)
-        setDisabledMessage(
-          <>
-            {"You don't have enough permissions to change segment to this type"}
-          </>
-        )
+        setDisabledMessage(<>{t('segmentPermissionDenied')}</>)
       } else if (type === SegmentType.site && !siteSegmentsAvailable) {
         setDisabled(true)
         setDisabledMessage(
@@ -460,7 +457,7 @@ const SaveSegmentButton = ({
       disabled={disabled}
       onClick={disabled ? () => {} : onSave}
     >
-      Save
+      {t('saveSegment')}
     </button>
   )
 }
@@ -507,7 +504,7 @@ export const UpdateSegmentModal = ({
 
   return (
     <SegmentActionModal onClose={onClose}>
-      <FormTitle className="mb-8">Update segment</FormTitle>
+      <FormTitle className="mb-8">{t('updateSegment')}</FormTitle>
       <SegmentNameInput
         value={name}
         onChange={setName}
@@ -527,16 +524,14 @@ export const UpdateSegmentModal = ({
           }}
         />
         <button className={secondaryButtonClassName} onClick={onClose}>
-          Cancel
+          {t('cancel')}
         </button>
       </ButtonsRow>
       {error !== null && (
         <ErrorPanel
           className="mt-4"
           errorMessage={
-            error instanceof ApiError
-              ? error.message
-              : 'Something went wrong updating segment'
+            error instanceof ApiError ? error.message : t('segmentUpdateError')
           }
           onClose={reset}
         />
@@ -548,7 +543,7 @@ export const UpdateSegmentModal = ({
 const FiltersInSegment = ({ segment_data }: { segment_data: SegmentData }) => {
   return (
     <>
-      <SecondaryTitle>Filters in segment</SecondaryTitle>
+      <SecondaryTitle>{t('filtersInSegment')}</SecondaryTitle>
       <div className="mt-2">
         <FilterPillsList
           className="flex-wrap"
@@ -648,13 +643,13 @@ export const SegmentModal = ({ id }: { id: SavedSegment['id'] }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-x-2">
             <h1 className="text-xl font-bold break-all">
-              {data ? data.name : 'Segment details'}
+              {data ? data.name : t('segmentDetails')}
             </h1>
           </div>
         </div>
 
         <div className="mt-2 text-sm/5">
-          <Placeholder placeholder={'Segment type'}>
+          <Placeholder placeholder={t('segmentType')}>
             {data?.segment_data ? SEGMENT_TYPE_LABELS[data.type] : false}
           </Placeholder>
         </div>
@@ -683,7 +678,7 @@ export const SegmentModal = ({ id }: { id: SavedSegment['id'] }) => {
                       expandedSegment: data
                     }}
                   >
-                    Edit segment
+                    {t('editSegment')}
                   </AppNavigationLink>
                 )}
 
@@ -697,7 +692,7 @@ export const SegmentModal = ({ id }: { id: SavedSegment['id'] }) => {
                       })
                     }
                   >
-                    Remove filter
+                    {t('removeFilter')}
                   </button>
                 )}
               </ButtonsRow>
@@ -708,9 +703,7 @@ export const SegmentModal = ({ id }: { id: SavedSegment['id'] }) => {
           <ErrorPanel
             className="mt-4"
             errorMessage={
-              error instanceof ApiError
-                ? error.message
-                : 'Something went wrong loading segment'
+              error instanceof ApiError ? error.message : t('segmentLoadError')
             }
             onRetry={() => window.location.reload()}
           />
