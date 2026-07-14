@@ -27,7 +27,9 @@
         </.notice>
       <% Plausible.Billing.Subscription.Status.active?(@my_team && @my_team.subscription) -> %>
         <.notice theme={:gray} title={gettext("You cannot delete your account yet")}>
-          {gettext("You have an active subscription. Cancel it before deleting your account.")}
+          {gettext(
+            "You have an active subscription. To delete your account, cancel your subscription first."
+          )}
         </.notice>
       <% true -> %>
         <.button_link

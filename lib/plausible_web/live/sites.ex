@@ -673,8 +673,8 @@ defmodule PlausibleWeb.Live.Sites do
             </p>
             <p class="text-gray-600 dark:text-gray-400">
               {ngettext(
-                "visitor in the last 24h",
-                "visitors in the last 24h",
+                "visitor in last 24h",
+                "visitors in last 24h",
                 @hourly_stats.visitors
               )}
             </p>

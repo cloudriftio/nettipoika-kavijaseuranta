@@ -643,6 +643,18 @@ defmodule PlausibleWeb.Email do
   defp localized_subject("welcome_email.html", _assigns, _subject),
     do: gettext("Welcome to Nettipoika Visitor Analytics")
 
+  defp localized_subject("create_site_email.html", _assigns, _subject),
+    do: gettext("Nettipoika Visitor Analytics: add your website details")
+
+  defp localized_subject("site_setup_help_email.html", _assigns, _subject),
+    do: gettext("Nettipoika Visitor Analytics is waiting for the first pageviews")
+
+  defp localized_subject("site_setup_success_email.html", _assigns, _subject),
+    do: gettext("Nettipoika Visitor Analytics is now tracking your website")
+
+  defp localized_subject("check_stats_email.html", _assigns, _subject),
+    do: gettext("Check your website analytics")
+
   defp localized_subject("password_reset_email.html", _assigns, _subject),
     do: gettext("Password reset for Nettipoika Visitor Analytics")
 

@@ -316,7 +316,7 @@ msgid "Add"
 msgstr "Lisää"
 
 #: lib/plausible_web/templates/settings/team_general.html.heex:39
-msgid "Add or remove team members and change their roles."
+msgid "Add or remove team members and adjust their roles."
 msgstr "Lisää tai poista tiimin jäseniä ja muuta heidän roolejaan."
 
 #: lib/plausible_web/templates/site/new.html.heex:1
@@ -1190,6 +1190,22 @@ msgstr "Odotetaan kutsuttujen käyttäjien hyväksyntää."
 msgid "Want these stats for your website?"
 msgstr "Haluatko nämä tilastot omalle verkkosivustollesi?"
 
+#: lib/plausible_web/email.ex
+msgid "Check your website analytics"
+msgstr "Tarkista verkkosivustosi kävijätilastot"
+
+#: lib/plausible_web/email.ex
+msgid "Nettipoika Visitor Analytics: add your website details"
+msgstr "Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot"
+
+#: lib/plausible_web/email.ex
+msgid "Nettipoika Visitor Analytics is now tracking your website"
+msgstr "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
+
+#: lib/plausible_web/email.ex
+msgid "Nettipoika Visitor Analytics is waiting for the first pageviews"
+msgstr "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
+
 #: lib/plausible_web/email.ex:644
 msgid "Welcome to Nettipoika Visitor Analytics"
 msgstr "Tervetuloa Nettipoika Kävijäseurantaan"
@@ -1209,7 +1225,8 @@ msgstr "Et voi vielä poistaa tiliäsi"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:30
 msgid ""
-"You have an active subscription. Cancel it before deleting your account."
+"You have an active subscription. To delete your account, cancel your "
+"subscription first."
 msgstr "Sinulla on aktiivinen tilaus. Peruuta se ennen tilin poistamista."
 
 #: lib/plausible_web/templates/email/export_failure.html.heex:1
@@ -1278,8 +1295,8 @@ msgid ""
 msgstr "nähdäksesi kutsun ja vastataksesi siihen. Kutsu vanhenee 48 tunnissa."
 
 #: lib/plausible_web/live/sites.ex:675
-msgid "visitor in the last 24h"
-msgid_plural "visitors in the last 24h"
+msgid "visitor in last 24h"
+msgid_plural "visitors in last 24h"
 msgstr[0] "kävijä viimeisen 24 tunnin aikana"
 msgstr[1] "kävijää viimeisen 24 tunnin aikana"
 
@@ -1368,7 +1385,7 @@ msgid "Previous"
 msgstr "Edellinen"
 
 #: lib/plausible_web/live/goal_settings/list.ex:114
-msgid "Revenue goal"
+msgid "Revenue Goal"
 msgstr "Tuottotavoite"
 
 #: lib/plausible_web/live/components/verification.ex:160

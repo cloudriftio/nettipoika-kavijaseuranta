@@ -111,7 +111,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
                 {gettext("Custom event")}
               </.pill>
               <.pill :if={goal.currency} color={:indigo}>
-                {gettext("Revenue goal")} ({goal.currency})
+                {gettext("Revenue Goal")} ({goal.currency})
               </.pill>
             </.td>
             <.td actions height="h-16">

@@ -44,7 +44,7 @@ defmodule Plausible.Workers.SendCheckStatsEmailsTest do
 
     assert_email_delivered_with(
       to: [{user.name, user.email}],
-      subject: "Tarkista verkkosivustosi kävijätilastot"
+      subject: "Check your website analytics"
     )
   end
 
@@ -63,7 +63,7 @@ defmodule Plausible.Workers.SendCheckStatsEmailsTest do
 
     assert_email_delivered_with(
       to: [{user2.name, user2.email}],
-      subject: "Tarkista verkkosivustosi kävijätilastot"
+      subject: "Check your website analytics"
     )
   end
 

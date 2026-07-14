@@ -231,7 +231,7 @@ defmodule PlausibleWeb.Live.SitesTest do
       {:ok, _lv, html} = live(conn, "/sites")
 
       site_card = text_of_element(html, "li[data-domain=\"#{site.domain}\"]")
-      assert site_card =~ "3 visitors in last 24h"
+      assert site_card =~ "3 visitors in the last 24h"
       assert site_card =~ site.domain
     end
 

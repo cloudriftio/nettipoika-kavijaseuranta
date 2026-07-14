@@ -756,7 +756,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       conn = post(conn, "/password/request-reset", %{email: user.email})
 
       assert html_response(conn, 200) =~ "Success!"
-      assert_email_delivered_with(subject: "Nettipoika Kävijäseurannan salasanan palautus")
+      assert_email_delivered_with(subject: "Password reset for Nettipoika Visitor Analytics")
     end
 
     test "renders captcha errors in case of captcha input verification failure", %{conn: conn} do
@@ -779,7 +779,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         assert html_response(conn, 200)
 
         assert_email_delivered_with(
-          subject: "Nettipoika Kävijäseurannan salasanan palautus",
+          subject: "Password reset for Nettipoika Visitor Analytics",
           to: [nil: user.email]
         )
       end
@@ -798,7 +798,7 @@ defmodule PlausibleWeb.AuthControllerTest do
         assert html_response(conn, 200)
 
         refute_email_delivered_with(
-          subject: "Nettipoika Kävijäseurannan salasanan palautus",
+          subject: "Password reset for Nettipoika Visitor Analytics",
           to: [nil: user.email]
         )
       end

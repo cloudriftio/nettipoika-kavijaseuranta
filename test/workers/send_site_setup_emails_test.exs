@@ -23,7 +23,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
+        subject: "Nettipoika Visitor Analytics is waiting for the first pageviews"
       )
     end
 
@@ -48,7 +48,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
+        subject: "Nettipoika Visitor Analytics is now tracking your website"
       )
     end
 
@@ -60,7 +60,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
+        subject: "Nettipoika Visitor Analytics is waiting for the first pageviews"
       )
 
       populate_stats(site, [
@@ -71,7 +71,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
+        subject: "Nettipoika Visitor Analytics is now tracking your website"
       )
     end
 
@@ -85,7 +85,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
+        subject: "Nettipoika Visitor Analytics is now tracking your website"
       )
 
       new_site(owner: user, consolidated: true, inserted_at: hours_ago(49))
@@ -123,7 +123,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot"
+        subject: "Nettipoika Visitor Analytics: add your website details"
       )
     end
   end

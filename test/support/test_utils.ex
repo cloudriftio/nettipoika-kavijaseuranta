@@ -112,7 +112,7 @@ defmodule Plausible.TestUtils do
       |> Map.put(:secret_key_base, secret_key_base())
       |> init_session()
 
-    {:ok, conn: conn, user: user}
+    {:ok, conn: conn}
   end
 
   on_ee do
