@@ -456,6 +456,23 @@ defmodule PlausibleWeb.Live.InstallationTest do
       assert element_exists?(html, "a[href='#{@migration_guide_link}']")
     end
 
+    @tag :ce_build_only
+    test "localizes manual installation actions and migration guidance", %{
+      conn: conn,
+      site: site
+    } do
+      conn = Plug.Conn.put_req_cookie(conn, "np_locale", "fi")
+      {lv, _} = get_lv(conn, site)
+
+      html = render_async(lv, 500)
+      page_text = text(html)
+
+      assert page_text =~ "Kopioi"
+      assert page_text =~ "Tarkista seurantakoodin asennus"
+      assert page_text =~ "Käytätkö yhä vanhaa data-domain-attribuutin sisältävää koodinpätkää?"
+      assert page_text =~ "siirtymäohje"
+    end
+
     test "does not render link to migrate guide on WordPress installation tab", %{
       conn: conn,
       site: site

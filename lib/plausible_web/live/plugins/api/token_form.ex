@@ -62,14 +62,16 @@ defmodule PlausibleWeb.Live.Plugins.API.TokenForm do
               <.input_with_clipboard
                 id="token-clipboard"
                 name="token_clipboard"
-                label="Plugin Token"
+                label={gettext("Plugin token")}
                 value={@token.raw}
               />
             </div>
             <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-              Copy the token and store it in a secure place, as it won't be shown again.
+              {gettext("Copy the token and store it in a secure place, as it won't be shown again.")}
               <span :if={@token_description == "WordPress"}>
-                You'll need to paste the token in the settings area of the Plausible WordPress plugin.
+                {gettext(
+                  "You'll need to paste the token in the settings area of the Plausible WordPress plugin."
+                )}
               </span>
             </p>
             <.button
@@ -77,20 +79,20 @@ defmodule PlausibleWeb.Live.Plugins.API.TokenForm do
               phx-click="close-token-modal"
               class="w-full"
             >
-              Close modal
+              {gettext("Close modal")}
             </.button>
           <% else %>
             <.form :let={f} for={@form} phx-submit="generate-token">
               <.title>
-                Create plugin token for {@domain}
+                {gettext("Create plugin token for %{domain}", domain: @domain)}
               </.title>
 
               <div class="mt-4">
                 <.input
                   autofocus
                   field={f[:description]}
-                  label="Description"
-                  placeholder="e.g. Your Plugin Name"
+                  label={gettext("Description")}
+                  placeholder={gettext("e.g. Your Plugin Name")}
                   value={@token_description}
                   autocomplete="off"
                   disabled={@token_generated}
@@ -98,10 +100,10 @@ defmodule PlausibleWeb.Live.Plugins.API.TokenForm do
               </div>
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                Once created, we will display the token so it can be copied.
+                {gettext("Once created, we will display the token so it can be copied.")}
               </p>
               <.button type="submit" class="w-full">
-                Create plugin token
+                {gettext("Create plugin token")}
               </.button>
             </.form>
           <% end %>

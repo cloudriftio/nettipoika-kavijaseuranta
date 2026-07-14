@@ -112,8 +112,8 @@ defmodule PlausibleWeb.Live.Installation do
           <:loading>
             <div class="text-center text-gray-500">
               {if(@flow == Flows.review(),
-                do: "Scanning your site to detect how Plausible is integrated...",
-                else: "Determining the simplest integration path for your website..."
+                do: gettext("Scanning your site to detect how Plausible is integrated..."),
+                else: gettext("Determining the simplest integration path for your website...")
               )}
             </div>
             <div class="flex items-center justify-center py-8">
@@ -185,9 +185,9 @@ defmodule PlausibleWeb.Live.Installation do
         <:footer :if={ce?() and @installation_type.result == "manual"}>
           <.focus_list>
             <:item>
-              Still using the legacy snippet with the data-domain attribute? See
+              {gettext("Still using the legacy snippet with the data-domain attribute? See")}
               <.styled_link href="https://plausible.io/docs/script-update-guide">
-                migration guide
+                {gettext("migration guide")}
               </.styled_link>
             </:item>
           </.focus_list>
@@ -197,10 +197,10 @@ defmodule PlausibleWeb.Live.Installation do
     """
   end
 
-  defp verify_cta("manual"), do: "Verify Script installation"
-  defp verify_cta("wordpress"), do: "Verify WordPress installation"
-  defp verify_cta("gtm"), do: "Verify Tag Manager installation"
-  defp verify_cta("npm"), do: "Verify NPM installation"
+  defp verify_cta("manual"), do: gettext("Verify Script installation")
+  defp verify_cta("wordpress"), do: gettext("Verify WordPress installation")
+  defp verify_cta("gtm"), do: gettext("Verify Tag Manager installation")
+  defp verify_cta("npm"), do: gettext("Verify NPM installation")
 
   on_ee do
     defp detect_recommended_installation_type(flow, site) do

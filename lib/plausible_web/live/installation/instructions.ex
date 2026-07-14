@@ -56,31 +56,47 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
           <.advanced_option
             variant="tagged-events"
             label={gettext("Manual tagging")}
-            tooltip="Tag site elements like buttons, links and forms to track user activity. These count towards your billable pageviews. Additional action required."
+            tooltip={
+              gettext(
+                "Tag site elements like buttons, links and forms to track user activity. These count towards your billable pageviews. Additional action required."
+              )
+            }
             learn_more="https://plausible.io/docs/custom-event-goals"
           />
           <.advanced_option
             variant="404"
             label={gettext("404 error pages")}
-            tooltip="Find 404 error pages on your site. These count towards your billable pageviews. Additional action required."
+            tooltip={
+              gettext(
+                "Find 404 error pages on your site. These count towards your billable pageviews. Additional action required."
+              )
+            }
             learn_more="https://plausible.io/docs/error-pages-tracking-404"
           />
           <.advanced_option
             variant="hash"
             label={gettext("Hashed page paths")}
-            tooltip="Automatically track page paths that use a # in the URL."
+            tooltip={gettext("Automatically track page paths that use a # in the URL.")}
             learn_more="https://plausible.io/docs/hash-based-routing"
           />
           <.advanced_option
             variant="pageview-props"
             label={gettext("Custom properties")}
-            tooltip="Attach custom properties (also known as custom dimensions) to pageviews or custom events to create custom metrics. Additional action required."
+            tooltip={
+              gettext(
+                "Attach custom properties (also known as custom dimensions) to pageviews or custom events to create custom metrics. Additional action required."
+              )
+            }
             learn_more="https://plausible.io/docs/custom-props/introduction"
           />
           <.advanced_option
             variant="revenue"
             label={gettext("Ecommerce revenue")}
-            tooltip="Assign monetary values to purchases and track revenue attribution. Additional action required."
+            tooltip={
+              gettext(
+                "Assign monetary values to purchases and track revenue attribution. Additional action required."
+              )
+            }
             learn_more="https://plausible.io/docs/ecommerce-revenue-tracking"
           />
         </ul>
@@ -95,25 +111,27 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
   def wordpress_instructions(assigns) do
     ~H"""
     <.title class="mt-4">
-      WordPress installation
+      {gettext("WordPress installation")}
     </.title>
     <div class="text-sm mt-4 leading-6">
       <div class="mb-4">
         <span :if={@recommended_installation_type == "wordpress"}>
-          We've detected your website is using WordPress. Here's how to integrate Plausible:
+          {gettext(
+            "We've detected your website is using WordPress. Here's how to integrate Plausible:"
+          )}
         </span>
         <span :if={@recommended_installation_type != "wordpress"}>
-          Using Wordpress? Here's how to integrate Plausible:
+          {gettext("Using WordPress? Here's how to integrate Plausible:")}
         </span>
       </div>
       <.focus_list>
         <:item>
           <.styled_link href="https://plausible.io/wordpress-analytics-plugin" new_tab={true}>
-            Install our WordPress plugin
+            {gettext("Install our WordPress plugin")}
           </.styled_link>
         </:item>
         <:item>
-          After activating our plugin, click the button below to verify your installation.
+          {gettext("After activating our plugin, click the button below to verify your installation.")}
         </:item>
       </.focus_list>
     </div>
@@ -126,19 +144,21 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
   def gtm_instructions(assigns) do
     ~H"""
     <.title class="mt-4">
-      Tag Manager installation
+      {gettext("Tag Manager installation")}
     </.title>
     <div class="text-sm mt-4 leading-6">
       <span :if={@recommended_installation_type == "gtm"}>
-        We've detected your website is using Google Tag Manager. Here's how to integrate Plausible:
+        {gettext(
+          "We've detected your website is using Google Tag Manager. Here's how to integrate Plausible:"
+        )}
       </span>
       <span :if={@recommended_installation_type != "gtm"}>
-        Using Google Tag Manager? Here's how to integrate Plausible:
+        {gettext("Using Google Tag Manager? Here's how to integrate Plausible:")}
       </span>
       <div class="mt-4">
         <.focus_list>
           <:item>
-            Copy your site's Script ID:
+            {gettext("Copy your site's Script ID:")}
             <.snippet_form
               text={@tracker_script_configuration_form.data.id}
               rows={1}
@@ -148,12 +168,14 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
 
           <:item>
             <.styled_link href="https://plausible.io/gtm-template" new_tab={true}>
-              Install the Plausible template in GTM
+              {gettext("Install the Plausible template in GTM")}
             </.styled_link>
           </:item>
 
           <:item>
-            Paste your Script ID into the template and click the button below to verify your installation.
+            {gettext(
+              "Paste your Script ID into the template and click the button below to verify your installation."
+            )}
           </:item>
         </.focus_list>
       </div>
@@ -164,16 +186,16 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
   def npm_instructions(assigns) do
     ~H"""
     <.title class="my-4">
-      NPM installation
+      {gettext("NPM installation")}
     </.title>
     <.focus_list>
       <:item>
         <.styled_link href="https://www.npmjs.com/package/@plausible-analytics/tracker" new_tab={true}>
-          Install @plausible-analytics/tracker NPM package
+          {gettext("Install @plausible-analytics/tracker NPM package")}
         </.styled_link>
       </:item>
       <:item>
-        Once done, click the button below to verify your installation.
+        {gettext("Once done, click the button below to verify your installation.")}
       </:item>
     </.focus_list>
     """
@@ -193,7 +215,7 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
           <.tooltip sticky?={false}>
             <:tooltip_content>
               {@tooltip}
-              <br />Click to learn more.
+              <br />{gettext("Click to learn more.")}
             </:tooltip_content>
             <a href={@learn_more} target="_blank" rel="noopener noreferrer">
               <Heroicons.information_circle class="inline-block text-indigo-700 dark:text-gray-500 size-5 hover:stroke-2" />
@@ -219,7 +241,7 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
           <.tooltip sticky?={false}>
             <:tooltip_content>
               {@tooltip}
-              <br />Click to learn more.
+              <br />{gettext("Click to learn more.")}
             </:tooltip_content>
             <a href={@learn_more} target="_blank" rel="noopener noreferrer">
               <Heroicons.information_circle class="inline-block text-indigo-700 dark:text-gray-500 size-5 hover:stroke-2" />
@@ -253,7 +275,7 @@ defmodule PlausibleWeb.Live.Installation.Instructions do
       >
         <Heroicons.document_duplicate class="pr-1 text-current size-5" />
         <span>
-          COPY
+          {gettext("Copy")}
         </span>
       </a>
     </div>

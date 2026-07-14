@@ -4,6 +4,7 @@ defmodule PlausibleWeb.Live.Components.Form do
   """
 
   use Phoenix.Component
+  use Gettext, backend: PlausibleWeb.Gettext
 
   @doc """
   Renders an input with label and error messages.
@@ -244,7 +245,7 @@ defmodule PlausibleWeb.Live.Components.Form do
         >
           <Heroicons.document_duplicate class="mr-1 size-4" />
           <span>
-            COPY
+            {gettext("Copy")}
           </span>
         </a>
       </div>

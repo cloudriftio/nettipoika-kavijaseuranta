@@ -8,11 +8,11 @@
 
 <.focus_box>
   <:title>
-    Setup Two-Factor Authentication
+    {gettext("Setup Two-Factor Authentication")}
   </:title>
 
   <:subtitle>
-    Redirecting to 2FA setup. Click below if it doesn't happen automatically.
+    {gettext("Redirecting to 2FA setup. Click below if it doesn't happen automatically.")}
   </:subtitle>
 
   <div class="w-full">
@@ -23,7 +23,7 @@
       method="post"
     >
       <.button type="submit" class="w-full" mt?={false}>
-        Proceed
+        {gettext("Proceed")}
       </.button>
     </.form>
   </div>

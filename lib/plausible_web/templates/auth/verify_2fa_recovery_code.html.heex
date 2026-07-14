@@ -1,21 +1,21 @@
 <.focus_box>
   <:title>
-    Enter Recovery Code
+    {gettext("Enter Recovery Code")}
   </:title>
 
   <:subtitle>
-    Can't access your authenticator application? Enter a recovery code instead.
+    {gettext("Can't access your authenticator application? Enter a recovery code instead.")}
   </:subtitle>
 
   <:footer>
-    Authenticator application working again?
+    {gettext("Authenticator application working again?")}
     <.styled_link href={Routes.auth_path(@conn, :verify_2fa)}>
-      Enter code
+      {gettext("Enter code")}
     </.styled_link>
     <%= if ee?() do %>
-      <br /> Lost your recovery codes?
+      <br /> {gettext("Lost your recovery codes?")}
       <.styled_link href="https://plausible.io/contact">
-        Contact us
+        {gettext("Contact us")}
       </.styled_link>
     <% end %>
   </:footer>
@@ -36,7 +36,7 @@
           maxlength="10"
           oninvalid="document.getElementById('use-code-button').disabled = false"
           required="required"
-          placeholder="Enter recovery code"
+          placeholder={gettext("Enter recovery code")}
         />
       </div>
       <.button
@@ -45,12 +45,12 @@
         class="w-full mt-4 [&>span.label-enabled]:block [&>span.label-disabled]:hidden [&[disabled]>span.label-enabled]:hidden [&[disabled]>span.label-disabled]:block"
       >
         <span class="label-enabled pointer-events-none">
-          Use Code
+          {gettext("Use Code")}
         </span>
 
         <span class="label-disabled">
           <.spinner class="inline-block h-5 w-5 mr-2 text-white dark:text-gray-400" />
-          Verifying...
+          {gettext("Verifying...")}
         </span>
       </.button>
     </div>

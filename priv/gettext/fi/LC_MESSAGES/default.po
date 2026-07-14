@@ -2644,3 +2644,213 @@ msgid ""
 msgstr ""
 "Huomaa: lisäämisen jälkeen muiden isäntänimien liikenne estetään muutamassa "
 "minuutissa."
+
+msgid "Scanning your site to detect how Plausible is integrated..."
+msgstr "Tutkitaan sivustoasi Plausible-integraation tunnistamiseksi..."
+
+msgid "Determining the simplest integration path for your website..."
+msgstr "Selvitetään helpointa integrointitapaa sivustollesi..."
+
+msgid "Still using the legacy snippet with the data-domain attribute? See"
+msgstr "Käytätkö yhä vanhaa data-domain-attribuutin sisältävää koodinpätkää? Katso"
+
+msgid "migration guide"
+msgstr "siirtymäohje"
+
+msgid "Verify Script installation"
+msgstr "Tarkista seurantakoodin asennus"
+
+msgid "Verify WordPress installation"
+msgstr "Tarkista WordPress-asennus"
+
+msgid "Verify Tag Manager installation"
+msgstr "Tarkista Tag Manager -asennus"
+
+msgid "Verify NPM installation"
+msgstr "Tarkista NPM-asennus"
+
+msgid "Tag site elements like buttons, links and forms to track user activity. These count towards your billable pageviews. Additional action required."
+msgstr "Merkitse sivuston elementtejä, kuten painikkeita, linkkejä ja lomakkeita, käyttäjän toiminnan seuraamiseksi. Nämä lasketaan laskutettaviin sivulatauksiin. Vaatii lisätoimia."
+
+msgid "Find 404 error pages on your site. These count towards your billable pageviews. Additional action required."
+msgstr "Löydä sivustosi 404-virhesivut. Nämä lasketaan laskutettaviin sivulatauksiin. Vaatii lisätoimia."
+
+msgid "Automatically track page paths that use a # in the URL."
+msgstr "Seuraa automaattisesti sivupolkuja, joiden URL-osoitteessa on #-merkki."
+
+msgid "Attach custom properties (also known as custom dimensions) to pageviews or custom events to create custom metrics. Additional action required."
+msgstr "Liitä sivulatauksiin tai mukautettuihin tapahtumiin ominaisuuksia mukautettujen mittareiden luomiseksi. Vaatii lisätoimia."
+
+msgid "Assign monetary values to purchases and track revenue attribution. Additional action required."
+msgstr "Liitä ostoksiin rahamääräisiä arvoja ja seuraa tuottojen lähteitä. Vaatii lisätoimia."
+
+msgid "WordPress installation"
+msgstr "WordPress-asennus"
+
+msgid "We've detected your website is using WordPress. Here's how to integrate Plausible:"
+msgstr "Havaitsimme sivustosi käyttävän WordPressiä. Näin asennat kävijäseurannan:"
+
+msgid "Using WordPress? Here's how to integrate Plausible:"
+msgstr "Käytätkö WordPressiä? Näin asennat kävijäseurannan:"
+
+msgid "Install our WordPress plugin"
+msgstr "Asenna WordPress-lisäosamme"
+
+msgid "After activating our plugin, click the button below to verify your installation."
+msgstr "Kun lisäosa on käytössä, tarkista asennus alla olevalla painikkeella."
+
+msgid "Tag Manager installation"
+msgstr "Tag Manager -asennus"
+
+msgid "We've detected your website is using Google Tag Manager. Here's how to integrate Plausible:"
+msgstr "Havaitsimme sivustosi käyttävän Google Tag Manageria. Näin asennat kävijäseurannan:"
+
+msgid "Using Google Tag Manager? Here's how to integrate Plausible:"
+msgstr "Käytätkö Google Tag Manageria? Näin asennat kävijäseurannan:"
+
+msgid "Copy your site's Script ID:"
+msgstr "Kopioi sivustosi Script ID:"
+
+msgid "Install the Plausible template in GTM"
+msgstr "Asenna Plausible-malli GTM:ään"
+
+msgid "Paste your Script ID into the template and click the button below to verify your installation."
+msgstr "Liitä Script ID malliin ja tarkista asennus alla olevalla painikkeella."
+
+msgid "NPM installation"
+msgstr "NPM-asennus"
+
+msgid "Install @plausible-analytics/tracker NPM package"
+msgstr "Asenna @plausible-analytics/tracker-NPM-paketti"
+
+msgid "Once done, click the button below to verify your installation."
+msgstr "Kun olet valmis, tarkista asennus alla olevalla painikkeella."
+
+msgid "Click to learn more."
+msgstr "Avaa lisätiedot napsauttamalla."
+
+msgid "Copy"
+msgstr "Kopioi"
+
+msgid "Plugin token"
+msgstr "Lisäosan tunniste"
+
+msgid "Copy the token and store it in a secure place, as it won't be shown again."
+msgstr "Kopioi tunniste ja säilytä se turvallisessa paikassa, sillä sitä ei näytetä uudelleen."
+
+msgid "You'll need to paste the token in the settings area of the Plausible WordPress plugin."
+msgstr "Liitä tunniste Plausible WordPress -lisäosan asetuksiin."
+
+msgid "Close modal"
+msgstr "Sulje ikkuna"
+
+msgid "Create plugin token for %{domain}"
+msgstr "Luo lisäosan tunniste verkkotunnukselle %{domain}"
+
+msgid "Description"
+msgstr "Kuvaus"
+
+msgid "e.g. Your Plugin Name"
+msgstr "esim. Lisäosan nimi"
+
+msgid "Once created, we will display the token so it can be copied."
+msgstr "Luomisen jälkeen tunniste näytetään kopiointia varten."
+
+msgid "Create plugin token"
+msgstr "Luo lisäosan tunniste"
+
+msgid "Setup Two-Factor Authentication"
+msgstr "Ota kaksivaiheinen tunnistautuminen käyttöön"
+
+msgid "Redirecting to 2FA setup. Click below if it doesn't happen automatically."
+msgstr "Siirrytään 2FA-määritykseen. Napsauta alta, jos siirtyminen ei tapahdu automaattisesti."
+
+msgid "Proceed"
+msgstr "Jatka"
+
+msgid "Your New Recovery Codes"
+msgstr "Uudet palautuskoodisi"
+
+msgid "Use these recovery codes to log in if you lose access to the authenticator application. Store them somewhere safe!"
+msgstr "Näillä palautuskoodeilla voit kirjautua, jos tunnistussovellus ei ole käytettävissä. Säilytä ne turvallisessa paikassa."
+
+msgid "Print Codes"
+msgstr "Tulosta koodit"
+
+msgid "Copy to Clipboard"
+msgstr "Kopioi leikepöydälle"
+
+msgid "Finish"
+msgstr "Valmis"
+
+msgid "Team requires 2FA setup"
+msgstr "Tiimi edellyttää 2FA:n käyttöönottoa"
+
+msgid "You've been redirected here because your team enforces 2FA. Please complete the setup or switch to another team."
+msgstr "Sinut ohjattiin tänne, koska tiimisi edellyttää 2FA:ta. Viimeistele käyttöönotto tai vaihda toiseen tiimiin."
+
+msgid "Link your Plausible account to the authenticator app you have installed either on your phone or computer."
+msgstr "Yhdistä tilisi puhelimeen tai tietokoneeseen asennettuun tunnistussovellukseen."
+
+msgid "Changed your mind?"
+msgstr "Muutitko mielesi?"
+
+msgid "Go back to Settings"
+msgstr "Palaa asetuksiin"
+
+msgid "Open the authenticator application"
+msgstr "Avaa tunnistussovellus"
+
+msgid "Tap Scan a QR Code"
+msgstr "Valitse QR-koodin skannaus"
+
+msgid "Scan this code with your phone camera or paste the code manually"
+msgstr "Skannaa koodi puhelimen kameralla tai liitä koodi käsin"
+
+msgid "Code"
+msgstr "Koodi"
+
+msgid "Enter Your 2FA Code"
+msgstr "Anna 2FA-koodisi"
+
+msgid "Enter the code from your authenticator application before it expires or wait for a new one."
+msgstr "Anna tunnistussovelluksen koodi ennen sen vanhenemista tai odota uutta koodia."
+
+msgid "Can't access your authenticator app?"
+msgstr "Eikö tunnistussovellus ole käytettävissä?"
+
+msgid "Use recovery code"
+msgstr "Käytä palautuskoodia"
+
+msgid "Contact us"
+msgstr "Ota yhteyttä"
+
+msgid "Trust this device for %{days} days"
+msgstr "Luota tähän laitteeseen %{days} päivää"
+
+msgid "Enter Recovery Code"
+msgstr "Anna palautuskoodi"
+
+msgid "Can't access your authenticator application? Enter a recovery code instead."
+msgstr "Eikö tunnistussovellus ole käytettävissä? Anna sen sijaan palautuskoodi."
+
+msgid "Authenticator application working again?"
+msgstr "Toimiiko tunnistussovellus taas?"
+
+msgid "Enter code"
+msgstr "Anna koodi"
+
+msgid "Enter recovery code"
+msgstr "Anna palautuskoodi"
+
+msgid "Use Code"
+msgstr "Käytä koodia"
+
+msgid "Verifying..."
+msgstr "Tarkistetaan..."
+
+msgid "Having trouble?"
+msgstr "Onko ongelmia?"
+
+msgid "Start over"
+msgstr "Aloita alusta"
