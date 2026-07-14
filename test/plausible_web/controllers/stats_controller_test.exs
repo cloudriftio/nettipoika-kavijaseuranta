@@ -88,8 +88,8 @@ defmodule PlausibleWeb.StatsControllerTest do
                |> text_of_attr("content")
 
       assert text_of_element(resp, "title") == "Plausible Analytics: Live Demo"
-      assert resp =~ "Kirjaudu sisään"
-      assert resp =~ "Haluatko nämä tilastot omalle verkkosivustollesi?"
+      assert resp =~ "Login"
+      assert resp =~ "Want these stats for your website?"
       assert resp =~ "Nettipoika Kävijäseuranta"
     end
 
@@ -120,7 +120,7 @@ defmodule PlausibleWeb.StatsControllerTest do
     test "can not view stats of a private website", %{conn: conn} do
       _ = insert(:user)
       conn = get(conn, "/test-site.com")
-      assert html_response(conn, 404) =~ "Hups! Täällä ei ole mitään"
+      assert html_response(conn, 404) =~ "There's nothing here"
     end
   end
 
@@ -280,7 +280,7 @@ defmodule PlausibleWeb.StatsControllerTest do
     test "can not view stats of someone else's website", %{conn: conn} do
       site = new_site()
       conn = get(conn, "/" <> site.domain)
-      assert html_response(conn, 404) =~ "Hups! Täällä ei ole mitään"
+      assert html_response(conn, 404) =~ "There's nothing here"
     end
 
     test "does not show CRM link to the site", %{conn: conn, site: site} do
@@ -1384,7 +1384,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       assert text_of_attr(resp, @react_container, "data-logged-in") == "false"
       assert text_of_attr(resp, @react_container, "data-current-user-id") == "null"
       assert text_of_attr(resp, @react_container, "data-current-user-role") == "public"
-      assert resp =~ "Kirjaudu sisään"
+      assert resp =~ "Login"
       assert resp =~ "Nettipoika Kävijäseuranta"
     end
 
@@ -1422,7 +1422,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       conn = get(conn, "/share/test-site.com/?auth=#{link.slug}&embed=true")
       resp = html_response(conn, 200)
       assert text_of_attr(resp, @react_container, "data-embedded") == "true"
-      refute resp =~ "Kirjaudu sisään"
+      refute resp =~ "Login"
       refute element_exists?(resp, "footer")
     end
 
@@ -1471,12 +1471,12 @@ defmodule PlausibleWeb.StatsControllerTest do
 
     test "renders 404 not found when no auth parameter supplied", %{conn: conn} do
       conn = get(conn, "/share/example.com")
-      assert response(conn, 404) =~ "Täällä ei ole mitään"
+      assert response(conn, 404) =~ "nothing here"
     end
 
     test "renders 404 not found when non-existent auth parameter is supplied", %{conn: conn} do
       conn = get(conn, "/share/example.com?auth=bad-token")
-      assert response(conn, 404) =~ "Täällä ei ole mitään"
+      assert response(conn, 404) =~ "nothing here"
     end
 
     test "renders 404 not found when auth parameter for another site is supplied", %{conn: conn} do
@@ -1485,7 +1485,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       site1_link = insert(:shared_link, site: site1)
 
       conn = get(conn, "/share/#{site2.domain}/?auth=#{site1_link.slug}")
-      assert response(conn, 404) =~ "Täällä ei ole mitään"
+      assert response(conn, 404) =~ "nothing here"
     end
 
     test "all segments (personal or site) are stuffed into dataset, without their owner_id and owner_name",
@@ -1536,7 +1536,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       site_link = insert(:shared_link, site: site, inserted_at: ~N[2022-01-01 00:00:00])
 
       conn = get(conn, "/share/#{site_link.slug}")
-      assert response(conn, 404) =~ "Täällä ei ole mitään"
+      assert response(conn, 404) =~ "nothing here"
     end
   end
 

@@ -654,28 +654,28 @@ defmodule PlausibleWeb.Email do
 
   defp localized_subject("existing_user_invitation.html", assigns, _subject),
     do:
-      gettext("[%{product}] You have been invited to %{site}",
+      gettext("[%{product}] You've been invited to %{site}",
         product: Plausible.product_name(),
         site: assigns.site.domain
       )
 
   defp localized_subject("new_user_invitation.html", assigns, _subject),
     do:
-      gettext("[%{product}] You have been invited to %{site}",
+      gettext("[%{product}] You've been invited to %{site}",
         product: Plausible.product_name(),
         site: assigns.site.domain
       )
 
   defp localized_subject("existing_user_team_invitation.html", assigns, _subject),
     do:
-      gettext("[%{product}] You have been invited to the team %{team}",
+      gettext("[%{product}] You've been invited to \"%{team}\" team",
         product: Plausible.product_name(),
         team: assigns.team.name
       )
 
   defp localized_subject("new_user_team_invitation.html", assigns, _subject),
     do:
-      gettext("[%{product}] You have been invited to the team %{team}",
+      gettext("[%{product}] You've been invited to \"%{team}\" team",
         product: Plausible.product_name(),
         team: assigns.team.name
       )

@@ -23,7 +23,7 @@
         theme="danger"
         mt?={false}
       >
-        {gettext("Delete %{team}", team: Plausible.Teams.name(@current_team))}
+        {gettext("Delete \"%{team}\"", team: Plausible.Teams.name(@current_team))}
       </.button_link>
     <% end %>
   </.tile>

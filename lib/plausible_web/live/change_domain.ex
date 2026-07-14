@@ -108,7 +108,7 @@ defmodule PlausibleWeb.Live.ChangeDomain do
 
     ~H"""
     <.focus_box>
-      <:title>{gettext("Domain changed successfully")}</:title>
+      <:title>{gettext("Domain Changed Successfully")}</:title>
       <:subtitle>
         {gettext("Your website domain was updated from")}
         <strong>{@site.domain_changed_from}</strong>

@@ -64,8 +64,8 @@ msgstr "Luo ensimmäinen jakolinkkisi"
 msgid "Custom background color (optional)"
 msgstr "Mukautettu taustaväri (valinnainen)"
 
-msgid "Delete %{team}"
-msgstr "Poista %{team}"
+msgid "Delete \"%{team}\""
+msgstr "Poista \"%{team}\""
 
 msgid "Delete team"
 msgstr "Poista tiimi"
@@ -83,7 +83,7 @@ msgstr "Kohdetiimi"
 msgid "Development"
 msgstr "Kehitys"
 
-msgid "Domain changed successfully"
+msgid "Domain Changed Successfully"
 msgstr "Verkkotunnus vaihdettiin onnistuneesti"
 
 msgid "Ecommerce revenue"
@@ -1230,11 +1230,11 @@ msgid "[%{product}] Export failed for %{site}"
 msgstr "[%{product}] Sivuston %{site} vienti epäonnistui"
 
 #: lib/plausible_web/email.ex:657 lib/plausible_web/email.ex:664
-msgid "[%{product}] You have been invited to %{site}"
+msgid "[%{product}] You've been invited to %{site}"
 msgstr "[%{product}] Sinut on kutsuttu sivustolle %{site}"
 
 #: lib/plausible_web/email.ex:671 lib/plausible_web/email.ex:678
-msgid "[%{product}] You have been invited to the team %{team}"
+msgid "[%{product}] You've been invited to \"%{team}\" team"
 msgstr "[%{product}] Sinut on kutsuttu tiimiin %{team}"
 
 #: lib/plausible_web/email.ex:685
@@ -1318,8 +1318,8 @@ msgstr "Tumma"
 
 #: lib/plausible_web/live/goal_settings/list.ex:170
 msgid ""
-"Define actions you want visitors to take, such as visiting a page or "
-"submitting a form."
+"Define actions that you want your users to take, like visiting a certain "
+"page, submitting a form, etc."
 msgstr ""
 "Määritä toimintoja, joita haluat kävijöiden tekevän, kuten sivulla käynti "
 "tai lomakkeen lähetys."
@@ -1350,7 +1350,7 @@ msgid "Next"
 msgstr "Seuraava"
 
 #: lib/plausible_web/live/goal_settings/list.ex:155
-msgid "No goals found. Refine or"
+msgid "No goals found for this site. Please refine or"
 msgstr "Tavoitteita ei löytynyt. Tarkenna tai"
 
 #: lib/plausible_web/live/goal_settings/list.ex:38
@@ -1389,8 +1389,8 @@ msgid "Search goals"
 msgstr "Hae tavoitteita"
 
 #: lib/plausible_web/templates/error/server_error.html.heex:4
-msgid "Sorry, something went wrong."
-msgstr "Pahoittelut, jokin meni vikaan."
+msgid "There has been a server error"
+msgstr "Palvelimella tapahtui virhe"
 
 #: lib/plausible_web/live/components/verification.ex:80
 msgid "Success!"

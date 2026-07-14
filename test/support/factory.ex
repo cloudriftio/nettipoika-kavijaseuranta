@@ -55,8 +55,7 @@ defmodule Plausible.Factory do
       name: "Jane Smith",
       email: sequence(:email, &"email-#{&1}@example.com"),
       password_hash: Plausible.Auth.Password.hash(pw),
-      email_verified: true,
-      preferred_locale: "en"
+      email_verified: true
     }
 
     merge_attributes(user, attrs)

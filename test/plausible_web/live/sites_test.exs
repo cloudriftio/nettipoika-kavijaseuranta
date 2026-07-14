@@ -13,9 +13,9 @@ defmodule PlausibleWeb.Live.SitesTest do
 
       text = text(html)
 
-      assert text =~ "Omat sivustoni"
-      assert text =~ "Lisää ensimmäinen sivustosi"
-      refute text =~ "Siirry tiimin sivustoihin"
+      assert text =~ "My personal sites"
+      assert text =~ "Add your first personal site"
+      refute text =~ "Go to team sites"
     end
 
     test "renders team switcher link, if on personal sites with other teams available", %{
@@ -29,10 +29,10 @@ defmodule PlausibleWeb.Live.SitesTest do
       {:ok, _lv, html} = live(conn, "/sites")
       text = text(html)
 
-      assert text =~ "Omat sivustoni"
+      assert text =~ "My personal sites"
       refute text =~ "You don't have any sites yet"
-      assert text =~ "Lisää ensimmäinen sivustosi"
-      assert text =~ "Siirry tiimin sivustoihin"
+      assert text =~ "Add your first personal site"
+      assert text =~ "Go to team sites"
     end
 
     test "renders settings link when current team is set", %{user: user, conn: conn} do
@@ -231,7 +231,7 @@ defmodule PlausibleWeb.Live.SitesTest do
       {:ok, _lv, html} = live(conn, "/sites")
 
       site_card = text_of_element(html, "li[data-domain=\"#{site.domain}\"]")
-      assert site_card =~ "3 kävijää viimeisen 24 tunnin aikana"
+      assert site_card =~ "3 visitors in last 24h"
       assert site_card =~ site.domain
     end
 
@@ -318,10 +318,10 @@ defmodule PlausibleWeb.Live.SitesTest do
         {:ok, _lv, html} = live(conn, "/sites")
 
         stats = text_of_element(html, ~s|[data-test-id="consolidated-view-stats-loaded"]|)
-        assert stats =~ "Yksilölliset kävijät 3"
-        assert stats =~ "Käynnit yhteensä 3"
-        assert stats =~ "Sivulataukset yhteensä 4"
-        assert stats =~ "Sivulatauksia käyntiä kohden 1.33"
+        assert stats =~ "Unique visitors 3"
+        assert stats =~ "Total visits 3"
+        assert stats =~ "Total pageviews 4"
+        assert stats =~ "Views per visit 1.33"
       end
 
       test "consolidated view disappears when trial ends - CTA is shown instead", %{
@@ -535,7 +535,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> element(button_selector)
         |> render_click()
 
-      assert html =~ "Sivusto kiinnitetty"
+      assert html =~ "Site pinned"
 
       assert text_of_element(html, button_selector) == "Unpin site"
 
@@ -544,7 +544,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> element(button_selector)
         |> render_click()
 
-      assert html =~ "Sivuston kiinnitys poistettu"
+      assert html =~ "Site unpinned"
 
       assert text_of_element(html, button_selector) == "Pin site"
     end
@@ -567,7 +567,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> render_click()
 
       assert html =~
-               "Kiinnitettyjen sivustojen enimmäismäärä on täynnä. Poista yhden sivuston kiinnitys ennen uuden kiinnittämistä."
+               LazyHTML.html_escape("Looks like you've hit the pinned sites limit!")
     end
 
     test "does not allow pinning site user doesn't have access to", %{conn: conn, user: user} do

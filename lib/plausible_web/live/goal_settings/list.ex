@@ -152,7 +152,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
   defp no_search_results(assigns) do
     ~H"""
     <p class="mt-12 mb-8 text-center text-sm">
-      {gettext("No goals found. Refine or")}
+      {gettext("No goals found for this site. Please refine or")}
       <.styled_link phx-click="reset-filter-text" id="reset-filter-hint">
         {gettext("reset your search.")}
       </.styled_link>
@@ -168,7 +168,7 @@ defmodule PlausibleWeb.Live.GoalSettings.List do
       </h3>
       <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
         {gettext(
-          "Define actions you want visitors to take, such as visiting a page or submitting a form."
+          "Define actions that you want your users to take, like visiting a certain page, submitting a form, etc."
         )}
         <.styled_link href="https://plausible.io/docs/goal-conversions" target="_blank">
           {gettext("Learn more")}

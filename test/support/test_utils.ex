@@ -97,6 +97,13 @@ defmodule Plausible.TestUtils do
   end
 
   def log_in(%{user: user, conn: conn}) do
+    # Most upstream browser assertions are written in English. Keep those
+    # deterministic while localization-specific tests choose Finnish directly.
+    user =
+      user
+      |> Plausible.Auth.User.locale_changeset(%{preferred_locale: "en"})
+      |> Plausible.Repo.update!()
+
     conn =
       conn
       |> init_session()
@@ -105,7 +112,7 @@ defmodule Plausible.TestUtils do
       |> Map.put(:secret_key_base, secret_key_base())
       |> init_session()
 
-    {:ok, conn: conn}
+    {:ok, conn: conn, user: user}
   end
 
   on_ee do
