@@ -72,20 +72,20 @@
             <.notice title={gettext("Integration error")} theme={:red} class="mt-8">
               <%= case error do %>
                 <% "invalid_grant" -> %>
-                  {gettext("Google returned an invalid grant error.")}
+                  {gettext("Invalid Grant error returned from Google.")}
                   <.styled_link
                     new_tab={true}
                     href="https://plausible.io/docs/google-search-console-integration#i-get-the-invalid-grant-error"
                   >
-                    {gettext("See how to fix it")}
+                    {gettext("See here on how to fix it")}
                   </.styled_link>
                 <% "google_auth_error" -> %>
                   {gettext(
-                    "Your Search Console account was not connected successfully. Unlink your Google account and try linking it again."
+                    "Your Search Console account hasn't been connected successfully. Please unlink your Google account and try linking it again."
                   )}
                 <% _ -> %>
                   {gettext(
-                    "Something went wrong, but it looks temporary. If the problem persists, try linking your Google account again."
+                    "Something went wrong, but looks temporary. If the problem persists, try re-linking your Google account."
                   )}
               <% end %>
             </.notice>
