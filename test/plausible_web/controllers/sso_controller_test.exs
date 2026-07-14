@@ -342,7 +342,7 @@ defmodule PlausibleWeb.SSOControllerTest do
         assert html =~ "Single Sign-On enforcement"
         assert html =~ "To log in as an SSO user, you must first leave all other teams"
 
-        assert html =~ "Log in"
+        assert html =~ "Kirjaudu sisään"
         assert html =~ "with your email and password"
       end
 
@@ -369,7 +369,7 @@ defmodule PlausibleWeb.SSOControllerTest do
         assert html =~
                  "To log in as an SSO user, you must either remove or transfer all sites"
 
-        assert html =~ "Log in"
+        assert html =~ "Kirjaudu sisään"
         assert html =~ "with your email and password"
       end
     end
