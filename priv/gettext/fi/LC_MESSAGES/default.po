@@ -163,3 +163,12 @@ msgstr "Yritätkö avata hallintanäkymää? Sinun on ehkä kirjauduttava uudell
 
 msgid "Go to homepage"
 msgstr "Siirry etusivulle"
+
+msgid "Site pinned"
+msgstr "Sivusto kiinnitetty"
+
+msgid "Site unpinned"
+msgstr "Sivuston kiinnitys poistettu"
+
+msgid "Looks like you've hit the pinned sites limit! Please unpin one of your pinned sites to make room for new pins"
+msgstr "Kiinnitettyjen sivustojen enimmäismäärä on täynnä. Poista yhden sivuston kiinnitys ennen uuden kiinnittämistä."

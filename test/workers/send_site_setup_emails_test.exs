@@ -123,7 +123,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Your Plausible setup: Add your website details"
+        subject: "Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot"
       )
     end
   end

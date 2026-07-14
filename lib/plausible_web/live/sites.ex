@@ -883,47 +883,45 @@ defmodule PlausibleWeb.Live.Sites do
   end
 
   def handle_event("pin-toggle", %{"domain" => domain}, socket) do
-    site = Enum.find(socket.assigns.sites.entries, &(&1.domain == domain))
+    case Enum.find(socket.assigns.sites.entries, &(&1.domain == domain)) do
+      nil ->
+        Sentry.capture_message("Attempting to toggle pin for invalid domain.",
+          extra: %{domain: domain, user: socket.assigns.current_user.id}
+        )
 
-    if site do
-      socket =
-        case Sites.toggle_pin(socket.assigns.current_user, site) do
-          {:ok, preference} ->
-            flash_message =
-              if preference.pinned_at do
-                "Site pinned"
-              else
-                "Site unpinned"
-              end
+        {:noreply, socket}
 
-            socket
-            |> put_live_flash(:success, flash_message)
-            |> load_sites()
-            |> push_event("js-exec", %{
-              to: "#site-card-#{hash_domain(site.domain)}",
-              attr: "data-pin-toggled"
-            })
+      site ->
+        {:noreply, toggle_pin(socket, site)}
+    end
+  end
 
-          {:error, :too_many_pins} ->
-            flash_message =
-              "Looks like you've hit the pinned sites limit! " <>
-                "Please unpin one of your pinned sites to make room for new pins"
+  defp toggle_pin(socket, site) do
+    case Sites.toggle_pin(socket.assigns.current_user, site) do
+      {:ok, preference} ->
+        flash_message =
+          if preference.pinned_at, do: gettext("Site pinned"), else: gettext("Site unpinned")
 
-            socket
-            |> put_live_flash(:error, flash_message)
-            |> push_event("js-exec", %{
-              to: "#site-card-#{hash_domain(site.domain)}",
-              attr: "data-pin-failed"
-            })
-        end
+        socket
+        |> put_live_flash(:success, flash_message)
+        |> load_sites()
+        |> push_event("js-exec", %{
+          to: "#site-card-#{hash_domain(site.domain)}",
+          attr: "data-pin-toggled"
+        })
 
-      {:noreply, socket}
-    else
-      Sentry.capture_message("Attempting to toggle pin for invalid domain.",
-        extra: %{domain: domain, user: socket.assigns.current_user.id}
-      )
+      {:error, :too_many_pins} ->
+        flash_message =
+          gettext(
+            "Looks like you've hit the pinned sites limit! Please unpin one of your pinned sites to make room for new pins"
+          )
 
-      {:noreply, socket}
+        socket
+        |> put_live_flash(:error, flash_message)
+        |> push_event("js-exec", %{
+          to: "#site-card-#{hash_domain(site.domain)}",
+          attr: "data-pin-failed"
+        })
     end
   end
 
