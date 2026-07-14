@@ -65,6 +65,7 @@ defmodule PlausibleWeb.TrackerPlug do
     case PlausibleWeb.Tracker.get_plausible_main_script(id) do
       script_tag when is_binary(script_tag) ->
         script_tag = endpoint_for_request_host(script_tag, conn)
+
         :telemetry.execute(
           telemetry_event(:v2),
           %{},
@@ -148,7 +149,11 @@ defmodule PlausibleWeb.TrackerPlug do
       |> Enum.find(fn url -> URI.parse(url).host == conn.host end)
 
     if legacy_url do
-      String.replace(script, canonical_endpoint, String.trim_trailing(legacy_url, "/") <> "/api/event")
+      String.replace(
+        script,
+        canonical_endpoint,
+        String.trim_trailing(legacy_url, "/") <> "/api/event"
+      )
     else
       script
     end

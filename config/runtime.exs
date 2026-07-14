@@ -81,8 +81,7 @@ legacy_base_urls =
   |> Enum.map(&String.trim/1)
   |> Enum.reject(&(&1 == ""))
 
-config :plausible, :nettipoika,
-  legacy_base_urls: legacy_base_urls
+config :plausible, :nettipoika, legacy_base_urls: legacy_base_urls
 
 secret_key_base = get_var_from_path_or_env(config_dir, "SECRET_KEY_BASE", nil)
 

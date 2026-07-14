@@ -3,7 +3,7 @@ defmodule PlausibleWeb.Site.MembershipControllerTest do
   use Plausible.Repo
   use Bamboo.Test
 
-  @subject_prefix if ee?(), do: "[Plausible Analytics] ", else: "[Plausible CE] "
+  @subject_prefix "[#{Plausible.product_name()}] "
 
   setup [:create_user, :log_in]
 

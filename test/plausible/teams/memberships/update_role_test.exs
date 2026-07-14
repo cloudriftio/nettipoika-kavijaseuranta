@@ -5,7 +5,7 @@ defmodule Plausible.Teams.Memberships.UpdateRoleTest do
 
   alias Plausible.Teams.Memberships.UpdateRole
 
-  @subject_prefix if ee?(), do: "[Plausible Analytics] ", else: "[Plausible CE] "
+  @subject_prefix "[#{Plausible.product_name()}] "
 
   test "updates a team member's role by user id" do
     user = new_user()

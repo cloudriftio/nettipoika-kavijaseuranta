@@ -5,7 +5,9 @@ defmodule PlausibleWeb.Live.Locale do
 
   def on_mount(:default, _params, session, socket) do
     locale =
-      PlausibleWeb.Locale.normalize(socket.assigns[:current_user] && socket.assigns.current_user.preferred_locale) ||
+      PlausibleWeb.Locale.normalize(
+        socket.assigns[:current_user] && socket.assigns.current_user.preferred_locale
+      ) ||
         PlausibleWeb.Locale.normalize(session["locale"]) || "fi"
 
     Gettext.put_locale(PlausibleWeb.Gettext, locale)

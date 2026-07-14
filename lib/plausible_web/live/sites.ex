@@ -135,7 +135,9 @@ defmodule PlausibleWeb.Live.Sites do
               as={&link/1}
               href={Routes.site_path(@socket, :new, %{flow: PlausibleWeb.Flows.provisioning()})}
             >
-              <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext("Add website")}
+              <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} /> {gettext(
+                "Add website"
+              )}
             </PrimaDropdown.dropdown_item>
             <PrimaDropdown.dropdown_item phx-click="consolidated-view-cta-restore">
               <Heroicons.plus class={PrimaDropdown.dropdown_item_icon_class()} />
@@ -231,7 +233,8 @@ defmodule PlausibleWeb.Live.Sites do
           page_number={@sites.page_number}
           total_pages={@sites.total_pages}
         >
-          {gettext("Total of")} <span class="font-medium">{@sites.total_entries}</span> {gettext("sites")}
+          {gettext("Total of")}
+          <span class="font-medium">{@sites.total_entries}</span> {gettext("sites")}
         </.pagination>
       </div>
     </div>

@@ -58,10 +58,13 @@ defmodule PlausibleWeb.Live.ResetPasswordForm do
         {gettext("Set password")}
       </.button>
       <p
-        :if={Keyword.fetch!(Application.get_env(:plausible, :selfhost), :disable_registration) == false}
+        :if={
+          Keyword.fetch!(Application.get_env(:plausible, :selfhost), :disable_registration) == false
+        }
         class="text-center text-gray-500 text-xs mt-4"
       >
-        {gettext("Don't have an account?")} <.styled_link href="/register">{gettext("Register")}</.styled_link>
+        {gettext("Don't have an account?")}
+        <.styled_link href="/register">{gettext("Register")}</.styled_link>
         {gettext("instead.")}
       </p>
     </.form>
