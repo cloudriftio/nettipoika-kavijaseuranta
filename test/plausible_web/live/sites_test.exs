@@ -13,9 +13,9 @@ defmodule PlausibleWeb.Live.SitesTest do
 
       text = text(html)
 
-      assert text =~ "My personal sites"
-      assert text =~ "Add your first personal site"
-      refute text =~ "Go to team sites"
+      assert text =~ "Omat sivustoni"
+      assert text =~ "Lisää ensimmäinen sivustosi"
+      refute text =~ "Siirry tiimin sivustoihin"
     end
 
     test "renders team switcher link, if on personal sites with other teams available", %{
@@ -29,10 +29,10 @@ defmodule PlausibleWeb.Live.SitesTest do
       {:ok, _lv, html} = live(conn, "/sites")
       text = text(html)
 
-      assert text =~ "My personal sites"
+      assert text =~ "Omat sivustoni"
       refute text =~ "You don't have any sites yet"
-      assert text =~ "Add your first personal site"
-      assert text =~ "Go to team sites"
+      assert text =~ "Lisää ensimmäinen sivustosi"
+      assert text =~ "Siirry tiimin sivustoihin"
     end
 
     test "renders settings link when current team is set", %{user: user, conn: conn} do
@@ -320,8 +320,8 @@ defmodule PlausibleWeb.Live.SitesTest do
         stats = text_of_element(html, ~s|[data-test-id="consolidated-view-stats-loaded"]|)
         assert stats =~ "Unique visitors 3"
         assert stats =~ "Total visits 3"
-        assert stats =~ "Total pageviews 4"
-        assert stats =~ "Views per visit 1.33"
+        assert stats =~ "Sivulataukset yhteensä 4"
+        assert stats =~ "Sivulatauksia käyntiä kohden 1.33"
       end
 
       test "consolidated view disappears when trial ends - CTA is shown instead", %{
@@ -535,7 +535,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> element(button_selector)
         |> render_click()
 
-      assert html =~ "Site pinned"
+      assert html =~ "Sivusto kiinnitetty"
 
       assert text_of_element(html, button_selector) == "Unpin site"
 
@@ -544,7 +544,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> element(button_selector)
         |> render_click()
 
-      assert html =~ "Site unpinned"
+      assert html =~ "Sivuston kiinnitys poistettu"
 
       assert text_of_element(html, button_selector) == "Pin site"
     end
