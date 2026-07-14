@@ -9,7 +9,7 @@
       </p>
     <% end %>
   </:subtitle>
-  <.form :let={f} for={@conn} action="/login">
+  <.form :let={f} id="login-form" for={@conn} action="/login">
     <div class="my-4 mt-8">
       <.input
         type="email"

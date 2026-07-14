@@ -48,6 +48,18 @@ msgstr "Rekisteröidy"
 msgid "Sign up"
 msgstr "Rekisteröidy"
 
+msgid "Want these stats for your website?"
+msgstr "Haluatko nämä tilastot omalle verkkosivustollesi?"
+
+msgid "Start today."
+msgstr "Aloita jo tänään."
+
+msgid "Get started"
+msgstr "Aloita käyttö"
+
+msgid "Learn more"
+msgstr "Lue lisää"
+
 msgid "Don't have an account?"
 msgstr "Eikö sinulla ole tiliä?"
 

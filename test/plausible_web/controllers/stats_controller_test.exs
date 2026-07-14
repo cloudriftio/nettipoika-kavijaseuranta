@@ -88,8 +88,8 @@ defmodule PlausibleWeb.StatsControllerTest do
                |> text_of_attr("content")
 
       assert text_of_element(resp, "title") == "Plausible Analytics: Live Demo"
-      assert resp =~ "Login"
-      assert resp =~ "Want these stats for your website?"
+      assert resp =~ "Kirjaudu sisään"
+      assert resp =~ "Haluatko nämä tilastot omalle verkkosivustollesi?"
       assert resp =~ "Nettipoika Kävijäseuranta"
     end
 
@@ -1384,7 +1384,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       assert text_of_attr(resp, @react_container, "data-logged-in") == "false"
       assert text_of_attr(resp, @react_container, "data-current-user-id") == "null"
       assert text_of_attr(resp, @react_container, "data-current-user-role") == "public"
-      assert resp =~ "Login"
+      assert resp =~ "Kirjaudu sisään"
       assert resp =~ "Nettipoika Kävijäseuranta"
     end
 
@@ -1422,7 +1422,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       conn = get(conn, "/share/test-site.com/?auth=#{link.slug}&embed=true")
       resp = html_response(conn, 200)
       assert text_of_attr(resp, @react_container, "data-embedded") == "true"
-      refute resp =~ "Login"
+      refute resp =~ "Kirjaudu sisään"
       refute resp =~ "Nettipoika Kävijäseuranta"
     end
 
@@ -1536,7 +1536,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       site_link = insert(:shared_link, site: site, inserted_at: ~N[2022-01-01 00:00:00])
 
       conn = get(conn, "/share/#{site_link.slug}")
-      assert response(conn, 404) =~ "nothing here"
+      assert response(conn, 404) =~ "Täällä ei ole mitään"
     end
   end
 

@@ -481,7 +481,7 @@ defmodule PlausibleWeb.AuthControllerTest do
       input_value =
         conn
         |> html_response(200)
-        |> text_of_attr("input[name=return_to]", "value")
+        |> text_of_attr("#login-form input[name=return_to]", "value")
 
       assert input_value == "/dummy.site"
     end
