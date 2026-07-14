@@ -896,35 +896,6 @@ defmodule PlausibleWeb.Live.Sites do
     end
   end
 
-  defp toggle_pin(socket, site) do
-    case Sites.toggle_pin(socket.assigns.current_user, site) do
-      {:ok, preference} ->
-        flash_message =
-          if preference.pinned_at, do: gettext("Site pinned"), else: gettext("Site unpinned")
-
-        socket
-        |> put_live_flash(:success, flash_message)
-        |> load_sites()
-        |> push_event("js-exec", %{
-          to: "#site-card-#{hash_domain(site.domain)}",
-          attr: "data-pin-toggled"
-        })
-
-      {:error, :too_many_pins} ->
-        flash_message =
-          gettext(
-            "Looks like you've hit the pinned sites limit! Please unpin one of your pinned sites to make room for new pins"
-          )
-
-        socket
-        |> put_live_flash(:error, flash_message)
-        |> push_event("js-exec", %{
-          to: "#site-card-#{hash_domain(site.domain)}",
-          attr: "data-pin-failed"
-        })
-    end
-  end
-
   def handle_event(
         "filter",
         %{"filter-text" => filter_text},
@@ -970,6 +941,35 @@ defmodule PlausibleWeb.Live.Sites do
         )
 
       {:noreply, assign(socket, :consolidated_view_cta_dismissed?, false)}
+    end
+  end
+
+  defp toggle_pin(socket, site) do
+    case Sites.toggle_pin(socket.assigns.current_user, site) do
+      {:ok, preference} ->
+        flash_message =
+          if preference.pinned_at, do: gettext("Site pinned"), else: gettext("Site unpinned")
+
+        socket
+        |> put_live_flash(:success, flash_message)
+        |> load_sites()
+        |> push_event("js-exec", %{
+          to: "#site-card-#{hash_domain(site.domain)}",
+          attr: "data-pin-toggled"
+        })
+
+      {:error, :too_many_pins} ->
+        flash_message =
+          gettext(
+            "Looks like you've hit the pinned sites limit! Please unpin one of your pinned sites to make room for new pins"
+          )
+
+        socket
+        |> put_live_flash(:error, flash_message)
+        |> push_event("js-exec", %{
+          to: "#site-card-#{hash_domain(site.domain)}",
+          attr: "data-pin-failed"
+        })
     end
   end
 
