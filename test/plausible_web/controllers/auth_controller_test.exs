@@ -738,6 +738,7 @@ defmodule PlausibleWeb.AuthControllerTest do
   describe "GET /password/request-reset" do
     test "renders the form", %{conn: conn} do
       conn = get(conn, "/password/request-reset")
+
       assert html_response(conn, 200) =~
                "Syötä sähköpostiosoitteesi, niin lähetämme salasanan vaihtolinkin"
     end
