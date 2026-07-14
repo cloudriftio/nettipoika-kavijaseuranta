@@ -8,15 +8,17 @@ defmodule PlausibleWeb.Team.Notice do
     ~H"""
     <aside class="mt-4 mb-4">
       <.notice
-        title="A Better Way of Inviting People to Your Team"
+        title={gettext("A better way to invite people to your team")}
         class="shadow-md dark:shadow-none mt-4"
       >
         <p>
-          You can also create a team and assign different roles to team members, such as admin,
-          editor, viewer or billing. Team members will gain access to all your sites. <.styled_link href={
+          {gettext(
+            "You can create a team and assign roles such as administrator, editor, viewer or billing. Team members will have access to all your sites."
+          )}
+          <.styled_link href={
             Routes.team_setup_path(PlausibleWeb.Endpoint, :setup)
           }>
-            Create your team here
+            {gettext("Create your team")}
           </.styled_link>.
         </p>
       </.notice>
@@ -28,13 +30,13 @@ defmodule PlausibleWeb.Team.Notice do
     ~H"""
     <aside class="mt-4 mb-4">
       <.notice
-        title="A Better Way of Inviting People to a Team"
+        title={gettext("A better way to invite people to a team")}
         class="shadow-md dark:shadow-none mt-4"
       >
         <p>
-          It is also possible to create a team and assign different roles to team members, such as
-          admin, editor, viewer or billing. Team members can gain access to all the sites. Please
-          contact the site owner to create your team.
+          {gettext(
+            "A team can have roles such as administrator, editor, viewer or billing. Team members can access all of its sites. Ask the site owner to create the team."
+          )}
         </p>
       </.notice>
     </aside>
@@ -46,9 +48,9 @@ defmodule PlausibleWeb.Team.Notice do
     <aside class="mt-4 mb-4">
       <.notice theme={:gray} class="mt-4">
         <p>
-          Team members automatically have access to this site.
+          {gettext("Team members automatically have access to this site.")}
           <.styled_link href={Routes.settings_path(PlausibleWeb.Endpoint, :team_general)}>
-            View team members
+            {gettext("View team members")}
           </.styled_link>
         </p>
       </.notice>

@@ -30,23 +30,23 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
     <div>
       <.settings_tiles>
         <.tile docs="excluding#exclude-visits-by-country">
-          <:title>Country block list</:title>
+          <:title>{gettext("Country block list")}</:title>
           <:subtitle :if={not Enum.empty?(@country_rules)}>
-            Reject incoming traffic from specific countries.
+            {gettext("Reject incoming traffic from specific countries.")}
           </:subtitle>
 
           <%= if Enum.empty?(@country_rules) do %>
             <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
               <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-                Block a country
+                {gettext("Block a country")}
               </h3>
               <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-                Reject incoming traffic from specific countries.
+                {gettext("Reject incoming traffic from specific countries.")}
                 <.styled_link
                   href="https://plausible.io/docs/excluding#exclude-visits-by-country"
                   target="_blank"
                 >
-                  Learn more
+                  {gettext("Learn more")}
                 </.styled_link>
               </p>
               <.button
@@ -56,7 +56,7 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                 x-on:click={Modal.JS.open("country-rule-form-modal")}
                 class="mt-4"
               >
-                Add country
+                {gettext("Add country")}
               </.button>
             </div>
           <% else %>
@@ -70,27 +70,30 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                 x-on:click={Modal.JS.open("country-rule-form-modal")}
                 mt?={false}
               >
-                Add country
+                {gettext("Add country")}
               </.button>
             </.filter_bar>
 
             <.notice
               :if={@country_rules_count >= Shields.maximum_country_rules()}
               class="mt-4"
-              title="Maximum number of countries reached"
+              title={gettext("Maximum number of countries reached")}
               theme={:gray}
             >
               <p>
-                You've reached the maximum number of countries you can block ({Shields.maximum_country_rules()}). Please remove one before adding another.
+                {gettext(
+                  "You have reached the maximum of %{count} blocked countries. Remove one before adding another.",
+                  count: Shields.maximum_country_rules()
+                )}
               </p>
             </.notice>
 
             <div class="mt-6">
               <.table rows={@country_rules}>
                 <:thead>
-                  <.th>Country</.th>
-                  <.th hide_on_mobile>Status</.th>
-                  <.th invisible>Actions</.th>
+                  <.th>{gettext("Country")}</.th>
+                  <.th hide_on_mobile>{gettext("Status")}</.th>
+                  <.th invisible>{gettext("Actions")}</.th>
                 </:thead>
                 <:tbody :let={rule}>
                   <% country = Location.Country.get_country(rule.country_code) %>
@@ -99,7 +102,10 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                       <span
                         id={"country-#{rule.id}"}
                         class="mr-4 cursor-help"
-                        title={"Added at #{format_added_at(rule.inserted_at, @site.timezone)} by #{rule.added_by}"}
+                        title={gettext("Added at %{date} by %{user}",
+                          date: format_added_at(rule.inserted_at, @site.timezone),
+                          user: rule.added_by
+                        )}
                       >
                         {country.flag} {country.name}
                       </span>
@@ -107,10 +113,10 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                   </.td>
                   <.td hide_on_mobile>
                     <span :if={rule.action == :deny}>
-                      Blocked
+                      {gettext("Blocked")}
                     </span>
                     <span :if={rule.action == :allow}>
-                      Allowed
+                      {gettext("Allowed")}
                     </span>
                   </.td>
                   <.td actions>
@@ -119,7 +125,7 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
                       phx-target={@myself}
                       phx-click="remove-country-rule"
                       phx-value-rule-id={rule.id}
-                      data-confirm="Are you sure you want to revoke this rule?"
+                      data-confirm={gettext("Are you sure you want to revoke this rule?")}
                     />
                   </.td>
                 </:tbody>
@@ -135,7 +141,7 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
               phx-target={@myself}
               class="max-w-md w-full mx-auto"
             >
-              <.title>Add country to block list</.title>
+              <.title>{gettext("Add country to block list")}</.title>
 
               <.live_component
                 class="mt-4"
@@ -150,10 +156,12 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
               />
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                Once added, we will start rejecting traffic from this country within a few minutes.
+                {gettext(
+                  "After it is added, traffic from this country will be rejected within a few minutes."
+                )}
               </p>
               <.button type="submit" class="w-full">
-                Add country
+                {gettext("Add country")}
               </.button>
             </.form>
           </.live_component>
@@ -185,7 +193,9 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
 
         send_flash(
           :success,
-          "Country rule added successfully. Traffic will be rejected within a few minutes."
+          gettext(
+            "Country rule added successfully. Traffic will be rejected within a few minutes."
+          )
         )
 
         {:noreply, socket}
@@ -200,7 +210,7 @@ defmodule PlausibleWeb.Live.Shields.CountryRules do
 
     send_flash(
       :success,
-      "Country rule removed successfully. Traffic will be resumed within a few minutes."
+      gettext("Country rule removed successfully. Traffic will resume within a few minutes.")
     )
 
     {:noreply,

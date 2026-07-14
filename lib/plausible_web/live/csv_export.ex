@@ -116,9 +116,11 @@ defmodule PlausibleWeb.Live.CSVExport do
   defp prepare_download(assigns) do
     ~H"""
     <p class="text-sm">
-      Prepare your data for download by clicking the button below. When that's done, a Zip file that you can download will appear.
+      {gettext(
+        "Prepare your data for download with the button below. A ZIP file will appear when it is ready."
+      )}
     </p>
-    <.button phx-click="export">Prepare download</.button>
+    <.button phx-click="export">{gettext("Prepare download")}</.button>
     """
   end
 
@@ -127,26 +129,28 @@ defmodule PlausibleWeb.Live.CSVExport do
     <div class="flex items-center justify-between space-x-2">
       <div class="flex items-center">
         <.spinner />
-        <span class="ml-2 text-sm">We are preparing your download ...</span>
+        <span class="ml-2 text-sm">{gettext("Preparing your download...")}</span>
       </div>
       <button
         phx-click="cancel"
         class="text-red-500 font-semibold text-sm"
-        data-confirm="Are you sure you want to cancel this export?"
+        data-confirm={gettext("Are you sure you want to cancel this export?")}
       >
-        Cancel
+        {gettext("Cancel")}
       </button>
     </div>
     <p class="text-sm mt-4">
-      The preparation of your stats might take a while. Depending on the volume of your data, it might take up to 20 minutes. Feel free to leave the page and return later.
+      {gettext(
+        "Preparing the statistics can take up to 20 minutes depending on the amount of data. You can leave this page and return later."
+      )}
     </p>
     """
   end
 
   defp fetch_export_failed(assigns) do
     ~H"""
-    <.notice title="Something went wrong when fetching exports" theme={:red}>
-      Please try again later.
+    <.notice title={gettext("Something went wrong when fetching exports")} theme={:red}>
+      {gettext("Please try again later.")}
     </.notice>
     """
   end
@@ -156,8 +160,8 @@ defmodule PlausibleWeb.Live.CSVExport do
     <div class="flex items-center">
       <Heroicons.exclamation_circle class="w-4 h-4 text-red-500" />
       <p class="ml-2 text-sm">
-        Something went wrong when preparing your download. Please
-        <button phx-click="export" class="text-indigo-500">try again.</button>
+        {gettext("Something went wrong while preparing the download. Please")}
+        <button phx-click="export" class="text-indigo-500">{gettext("try again.")}</button>
       </p>
     </div>
     """
@@ -167,8 +171,8 @@ defmodule PlausibleWeb.Live.CSVExport do
     ~H"""
     <.table rows={[@export]}>
       <:thead>
-        <.th>Export</.th>
-        <.th invisible>Actions</.th>
+        <.th>{gettext("Export")}</.th>
+        <.th invisible>{gettext("Actions")}</.th>
       </:thead>
       <:tbody :let={export}>
         <.td>
@@ -179,21 +183,21 @@ defmodule PlausibleWeb.Live.CSVExport do
         <.td actions>
           <.delete_button
             phx-click="delete"
-            data-confirm="Are you sure you want to delete this export?"
+            data-confirm={gettext("Are you sure you want to delete this export?")}
           />
         </.td>
       </:tbody>
     </.table>
 
     <p :if={@export.expires_at} class="text-sm">
-      Note: this file will expire
+      {gettext("Note: this file will expire")}
       <.hint message={@export.expires_at}>
         {Plausible.Times.humanize(@export.expires_at)}.
       </.hint>
     </p>
 
     <p :if={@storage == "local"} class="text-sm">
-      Located at
+      {gettext("Located at")}
       <.hint message={@export.path}>{format_path(@export.path)}</.hint>
       ({format_bytes(@export.size)})
     </p>
@@ -226,7 +230,7 @@ defmodule PlausibleWeb.Live.CSVExport do
 
         {:error, :no_data} ->
           socket
-          |> put_flash(:error, "There is no data to export")
+          |> put_flash(:error, gettext("There is no data to export"))
           |> redirect(
             to: Routes.site_path(socket, :settings_imports_exports, socket.assigns.site.domain)
           )

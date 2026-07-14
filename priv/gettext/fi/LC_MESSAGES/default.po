@@ -28,7 +28,8 @@ msgstr "Seuraa lomakkeiden lähetyksiä automaattisesti."
 msgid ""
 "The team cannot be deleted because it has an active subscription. Please "
 "cancel the subscription first."
-msgstr "Tiimiä ei voi poistaa aktiivisen tilauksen vuoksi. Peruuta tilaus ensin."
+msgstr ""
+"Tiimiä ei voi poistaa aktiivisen tilauksen vuoksi. Peruuta tilaus ensin."
 
 msgid "Can view statistics but cannot access settings."
 msgstr "Voi tarkastella tilastoja mutta ei pääse asetuksiin."
@@ -1089,7 +1090,8 @@ msgstr "Tiimin asetukset"
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:2
 #: lib/plausible_web/templates/settings/team_danger_zone.html.heex:2
 #: lib/plausible_web/templates/site/settings_danger_zone.html.heex:2
-msgid "Destructive actions below can result in irrecoverable data loss. Be careful."
+msgid ""
+"Destructive actions below can result in irrecoverable data loss. Be careful."
 msgstr "Alla olevat toiminnot voivat hävittää tietoja pysyvästi. Toimi varoen."
 
 #: lib/plausible_web/templates/site/settings_people.html.heex:64
@@ -1478,12 +1480,23 @@ msgid "Didn't receive the email within a few minutes?"
 msgstr "Etkö saanut viestiä muutaman minuutin kuluessa?"
 
 #: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
-msgid "You might have used an email address that's not registered in our database. Please verify the email address associated with your account and attempt the password reset once more."
-msgstr "Olet saattanut käyttää sähköpostiosoitetta, jota ei ole rekisteröity järjestelmäämme. Tarkista tiliisi liitetty sähköpostiosoite ja yritä salasanan palautusta uudelleen."
+msgid ""
+"You might have used an email address that's not registered in our database. "
+"Please verify the email address associated with your account and attempt the "
+"password reset once more."
+msgstr ""
+"Olet saattanut käyttää sähköpostiosoitetta, jota ei ole rekisteröity "
+"järjestelmäämme. Tarkista tiliisi liitetty sähköpostiosoite ja yritä "
+"salasanan palautusta uudelleen."
 
 #: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
-msgid "Certain that you're using the correct email address but still aren't receiving the password reset email? Please check your spam folder or ask on our"
-msgstr "Oletko varma, että sähköpostiosoite on oikein, mutta palautusviestiä ei silti tule? Tarkista roskapostikansiosi tai kysy neuvoa"
+msgid ""
+"Certain that you're using the correct email address but still aren't "
+"receiving the password reset email? Please check your spam folder or ask on "
+"our"
+msgstr ""
+"Oletko varma, että sähköpostiosoite on oikein, mutta palautusviestiä ei "
+"silti tule? Tarkista roskapostikansiosi tai kysy neuvoa"
 
 #: lib/plausible_web/templates/auth/password_reset_request_success.html.heex
 msgid "community-supported forum"
@@ -1502,8 +1515,12 @@ msgid "Owners"
 msgstr "Omistajat"
 
 #: lib/plausible_web/templates/stats/shared_link_password.html.heex
-msgid "This link is password-protected. Please enter the password to continue to the dashboard."
-msgstr "Tämä linkki on suojattu salasanalla. Jatka hallintanäkymään syöttämällä salasana."
+msgid ""
+"This link is password-protected. Please enter the password to continue to "
+"the dashboard."
+msgstr ""
+"Tämä linkki on suojattu salasanalla. Jatka hallintanäkymään syöttämällä "
+"salasana."
 
 #: lib/plausible_web/templates/stats/shared_link_password.html.heex
 msgid "Continue"
@@ -1514,8 +1531,12 @@ msgid "Import from Google Analytics"
 msgstr "Tuo Google Analyticsista"
 
 #: lib/plausible_web/templates/google_analytics/confirm.html.heex
-msgid "Statistics for this property and time period will be imported from your Google Analytics account to your dashboard."
-msgstr "Tämän mittauskokonaisuuden ja aikavälin tilastot tuodaan Google Analytics -tililtäsi hallintanäkymään."
+msgid ""
+"Statistics for this property and time period will be imported from your "
+"Google Analytics account to your dashboard."
+msgstr ""
+"Tämän mittauskokonaisuuden ja aikavälin tilastot tuodaan Google Analytics "
+"-tililtäsi hallintanäkymään."
 
 #: lib/plausible_web/templates/google_analytics/confirm.html.heex
 msgid "Google Analytics property"
@@ -1554,8 +1575,12 @@ msgid "our CSV format guidelines."
 msgstr "CSV-muotoiluohjeitamme."
 
 #: lib/plausible_web/templates/site/csv_import.html.heex
-msgid "You can upload multiple files simultaneously by selecting them in the file dialog or dragging and dropping them into the designated area."
-msgstr "Voit lähettää useita tiedostoja samanaikaisesti valitsemalla ne tiedostoikkunassa tai vetämällä ja pudottamalla ne varatulle alueelle."
+msgid ""
+"You can upload multiple files simultaneously by selecting them in the file "
+"dialog or dragging and dropping them into the designated area."
+msgstr ""
+"Voit lähettää useita tiedostoja samanaikaisesti valitsemalla ne "
+"tiedostoikkunassa tai vetämällä ja pudottamalla ne varatulle alueelle."
 
 #: lib/plausible_web/templates/error/server_error.html.heex
 msgid "Send feedback"
@@ -1575,7 +1600,8 @@ msgstr "Suorita CAPTCHA-tarkistus salasanan palauttamiseksi"
 
 #: lib/plausible_web/controllers/auth_controller.ex
 msgid "Your token has expired. Please request another password reset link."
-msgstr "Palautustunnisteesi on vanhentunut. Pyydä uusi salasanan palautuslinkki."
+msgstr ""
+"Palautustunnisteesi on vanhentunut. Pyydä uusi salasanan palautuslinkki."
 
 #: lib/plausible_web/controllers/auth_controller.ex
 msgid "Your token is invalid. Please request another password reset link."
@@ -1614,12 +1640,20 @@ msgid "See here on how to fix it"
 msgstr "Katso korjausohje"
 
 #: lib/plausible_web/templates/site/settings_integrations.html.heex
-msgid "Your Search Console account hasn't been connected successfully. Please unlink your Google account and try linking it again."
-msgstr "Search Console -tilin yhdistäminen epäonnistui. Irrota Google-tilisi ja yritä yhdistämistä uudelleen."
+msgid ""
+"Your Search Console account hasn't been connected successfully. Please "
+"unlink your Google account and try linking it again."
+msgstr ""
+"Search Console -tilin yhdistäminen epäonnistui. Irrota Google-tilisi ja "
+"yritä yhdistämistä uudelleen."
 
 #: lib/plausible_web/templates/site/settings_integrations.html.heex
-msgid "Something went wrong, but looks temporary. If the problem persists, try re-linking your Google account."
-msgstr "Jotakin meni vikaan, mutta häiriö vaikuttaa tilapäiseltä. Jos ongelma jatkuu, yritä yhdistää Google-tilisi uudelleen."
+msgid ""
+"Something went wrong, but looks temporary. If the problem persists, try re-"
+"linking your Google account."
+msgstr ""
+"Jotakin meni vikaan, mutta häiriö vaikuttaa tilapäiseltä. Jos ongelma "
+"jatkuu, yritä yhdistää Google-tilisi uudelleen."
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "Weekly email reports"
@@ -1643,11 +1677,13 @@ msgstr "Kuukausittaiset sähköpostiraportit"
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "Send monthly analytics reports to as many addresses as you wish."
-msgstr "Lähetä kuukausittaiset kävijäraportit haluamiisi sähköpostiosoitteisiin."
+msgstr ""
+"Lähetä kuukausittaiset kävijäraportit haluamiisi sähköpostiosoitteisiin."
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "Send a monthly email report on the first day of the month"
-msgstr "Lähetä kuukausittainen sähköpostiraportti kuukauden ensimmäisenä päivänä"
+msgstr ""
+"Lähetä kuukausittainen sähköpostiraportti kuukauden ensimmäisenä päivänä"
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "Add monthly report recipient"
@@ -1670,8 +1706,11 @@ msgid "Traffic spike notifications"
 msgstr "Liikennepiikkien ilmoitukset"
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
-msgid "Get notified when your site has an unusually high number of current visitors."
-msgstr "Saat ilmoituksen, kun sivustollasi on poikkeuksellisen paljon kävijöitä juuri nyt."
+msgid ""
+"Get notified when your site has an unusually high number of current visitors."
+msgstr ""
+"Saat ilmoituksen, kun sivustollasi on poikkeuksellisen paljon kävijöitä "
+"juuri nyt."
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "Current visitors threshold"
@@ -1686,8 +1725,12 @@ msgid "Traffic drop notifications"
 msgstr "Liikenteen laskun ilmoitukset"
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
-msgid "Get notified when your site has an unusually low number of visitors within 12 hours."
-msgstr "Saat ilmoituksen, kun sivustollasi on poikkeuksellisen vähän kävijöitä 12 tunnin aikana."
+msgid ""
+"Get notified when your site has an unusually low number of visitors within "
+"12 hours."
+msgstr ""
+"Saat ilmoituksen, kun sivustollasi on poikkeuksellisen vähän kävijöitä 12 "
+"tunnin aikana."
 
 #: lib/plausible_web/templates/site/settings_email_reports.html.heex
 msgid "12-hour visitor threshold"
@@ -1702,32 +1745,57 @@ msgid "Save threshold"
 msgstr "Tallenna raja"
 
 #: lib/plausible_web/templates/page/open_source.html.heex
-msgid "Nettipoika Visitor Analytics is based on Plausible Community Edition 3.2.1."
-msgstr "Nettipoika Kävijäseuranta perustuu Plausible Community Edition 3.2.1 -ohjelmistoon."
+msgid ""
+"Nettipoika Visitor Analytics is based on Plausible Community Edition 3.2.1."
+msgstr ""
+"Nettipoika Kävijäseuranta perustuu Plausible Community Edition 3.2.1 "
+"-ohjelmistoon."
 
 #: lib/plausible_web/templates/page/open_source.html.heex
-msgid "The modified version is published under the GNU Affero General Public License v3.0 or later."
-msgstr "Muokattu versio julkaistaan GNU Affero General Public License v3.0 or later -lisenssillä."
+msgid ""
+"The modified version is published under the GNU Affero General Public "
+"License v3.0 or later."
+msgstr ""
+"Muokattu versio julkaistaan GNU Affero General Public License v3.0 or later "
+"-lisenssillä."
 
 #: lib/plausible_web/templates/page/open_source.html.heex
 msgid "View the complete source code and build instructions on GitHub"
 msgstr "Katso täydellinen lähdekoodi ja rakennusohjeet GitHubissa"
 
 #: lib/plausible_web/templates/page/open_source.html.heex
-msgid "Nettipoika Visitor Analytics is not endorsed, maintained, or warranted by Plausible Insights OÜ."
-msgstr "Nettipoika Kävijäseuranta ei ole Plausible Insights OÜ:n hyväksymä, ylläpitämä tai takaama palvelu."
+msgid ""
+"Nettipoika Visitor Analytics is not endorsed, maintained, or warranted by "
+"Plausible Insights OÜ."
+msgstr ""
+"Nettipoika Kävijäseuranta ei ole Plausible Insights OÜ:n hyväksymä, "
+"ylläpitämä tai takaama palvelu."
 
 #: lib/plausible_web/templates/page/open_source.html.heex
-msgid "Plausible Analytics, Plausible CE, and related logos are trademarks of Plausible Insights OÜ."
-msgstr "Plausible Analytics, Plausible CE ja niihin liittyvät logot ovat Plausible Insights OÜ:n tavaramerkkejä."
+msgid ""
+"Plausible Analytics, Plausible CE, and related logos are trademarks of "
+"Plausible Insights OÜ."
+msgstr ""
+"Plausible Analytics, Plausible CE ja niihin liittyvät logot ovat Plausible "
+"Insights OÜ:n tavaramerkkejä."
 
 #: lib/plausible_web/templates/email/csv_import.html.heex
-msgid "Your CSV import completed successfully. The dashboard for %{site} now contains imported historical data from %{start_date} to %{end_date}."
-msgstr "CSV-tuontisi valmistui onnistuneesti. Sivuston %{site} hallintanäkymä sisältää nyt tuodut historiatiedot ajalta %{start_date}–%{end_date}."
+msgid ""
+"Your CSV import completed successfully. The dashboard for %{site} now "
+"contains imported historical data from %{start_date} to %{end_date}."
+msgstr ""
+"CSV-tuontisi valmistui onnistuneesti. Sivuston %{site} hallintanäkymä "
+"sisältää nyt tuodut historiatiedot ajalta %{start_date}–%{end_date}."
 
 #: lib/plausible_web/templates/email/google_analytics_import.html.heex
-msgid "Your Google Analytics import completed successfully. The dashboard for %{site} now contains imported historical data from %{start_date} to %{end_date}."
-msgstr "Google Analytics -tuontisi valmistui onnistuneesti. Sivuston %{site} hallintanäkymä sisältää nyt tuodut historiatiedot ajalta %{start_date}–%{end_date}."
+msgid ""
+"Your Google Analytics import completed successfully. The dashboard for %"
+"{site} now contains imported historical data from %{start_date} to %"
+"{end_date}."
+msgstr ""
+"Google Analytics -tuontisi valmistui onnistuneesti. Sivuston %{site} "
+"hallintanäkymä sisältää nyt tuodut historiatiedot ajalta %{start_date}–%"
+"{end_date}."
 
 #: lib/plausible_web/templates/email/csv_import.html.heex
 #: lib/plausible_web/templates/email/google_analytics_import.html.heex
@@ -1735,20 +1803,32 @@ msgid "to view your dashboard."
 msgstr "avataksesi hallintanäkymän."
 
 #: lib/plausible_web/templates/email/csv_import.html.heex
-msgid "Unfortunately, your CSV import for %{site} did not complete successfully. Sorry about that!"
-msgstr "Valitettavasti sivuston %{site} CSV-tuonti ei valmistunut onnistuneesti. Pahoittelemme!"
+msgid ""
+"Unfortunately, your CSV import for %{site} did not complete successfully. "
+"Sorry about that!"
+msgstr ""
+"Valitettavasti sivuston %{site} CSV-tuonti ei valmistunut onnistuneesti. "
+"Pahoittelemme!"
 
 #: lib/plausible_web/templates/email/csv_import.html.heex
 msgid "Please try the import again."
 msgstr "Yritä tuontia uudelleen."
 
 #: lib/plausible_web/templates/email/google_analytics_import.html.heex
-msgid "Unfortunately, your Google Analytics import for %{site} did not complete successfully. Sorry about that!"
-msgstr "Valitettavasti sivuston %{site} Google Analytics -tuonti ei valmistunut onnistuneesti. Pahoittelemme!"
+msgid ""
+"Unfortunately, your Google Analytics import for %{site} did not complete "
+"successfully. Sorry about that!"
+msgstr ""
+"Valitettavasti sivuston %{site} Google Analytics -tuonti ei valmistunut "
+"onnistuneesti. Pahoittelemme!"
 
 #: lib/plausible_web/templates/email/google_analytics_import.html.heex
-msgid "Please try the import again. The Google Analytics API can occasionally return empty data, and another attempt may return the data you need."
-msgstr "Yritä tuontia uudelleen. Google Analyticsin API voi toisinaan palauttaa tyhjän vastauksen, ja uusi yritys saattaa palauttaa tarvitsemasi tiedot."
+msgid ""
+"Please try the import again. The Google Analytics API can occasionally "
+"return empty data, and another attempt may return the data you need."
+msgstr ""
+"Yritä tuontia uudelleen. Google Analyticsin API voi toisinaan palauttaa "
+"tyhjän vastauksen, ja uusi yritys saattaa palauttaa tarvitsemasi tiedot."
 
 #: lib/plausible_web/templates/email/drop_notification.html.heex
 msgid "We've recorded one visitor"
@@ -1822,7 +1902,8 @@ msgstr "Onnittelut liikennepiikistä!"
 
 #: lib/plausible_web/templates/email/spike_notification.html.heex
 msgid "Plausible CE is funded by Plausible's cloud subscribers. If you"
-msgstr "Plausible CE:n kehitystä rahoittavat Plausiblen pilvipalvelun tilaajat. Jos"
+msgstr ""
+"Plausible CE:n kehitystä rahoittavat Plausiblen pilvipalvelun tilaajat. Jos"
 
 #: lib/plausible_web/templates/email/spike_notification.html.heex
 msgid "enjoy using Plausible"
@@ -1855,3 +1936,597 @@ msgstr "%{label}-tiedot tuotiin sivustolle %{site}"
 #: lib/plausible_web/email.ex
 msgid "%{label} import failed for %{site}"
 msgstr "%{label}-tuonti epäonnistui sivustolle %{site}"
+
+msgid "Activate account"
+msgstr "Aktivoi tili"
+
+msgid "Set up new domain"
+msgstr "Ota uusi verkkotunnus käyttöön"
+
+msgid "Install Plausible"
+msgstr "Asenna kävijäseuranta"
+
+msgid "A better way to invite people to your team"
+msgstr "Parempi tapa kutsua käyttäjiä tiimiisi"
+
+msgid ""
+"You can create a team and assign roles such as administrator, editor, viewer "
+"or billing. Team members will have access to all your sites."
+msgstr ""
+"Voit luoda tiimin ja antaa jäsenille esimerkiksi ylläpitäjän, muokkaajan, "
+"katselijan tai laskutuksen roolin. Tiimin jäsenet pääsevät kaikille "
+"sivustoillesi."
+
+msgid "Create your team"
+msgstr "Luo tiimisi"
+
+msgid "A better way to invite people to a team"
+msgstr "Parempi tapa kutsua käyttäjiä tiimiin"
+
+msgid ""
+"A team can have roles such as administrator, editor, viewer or billing. Team "
+"members can access all of its sites. Ask the site owner to create the team."
+msgstr ""
+"Tiimissä voi olla esimerkiksi ylläpitäjän, muokkaajan, katselijan tai "
+"laskutuksen rooleja. Tiimin jäsenet pääsevät kaikille sen sivustoille. Pyydä "
+"sivuston omistajaa luomaan tiimi."
+
+msgid "Team members automatically have access to this site."
+msgstr "Tiimin jäsenillä on automaattisesti pääsy tälle sivustolle."
+
+msgid "View team members"
+msgstr "Näytä tiimin jäsenet"
+
+msgid ""
+"Prepare your data for download with the button below. A ZIP file will appear "
+"when it is ready."
+msgstr ""
+"Valmistele tiedot ladattaviksi alla olevalla painikkeella. ZIP-tiedosto "
+"tulee näkyviin, kun se on valmis."
+
+msgid "Prepare download"
+msgstr "Valmistele lataus"
+
+msgid "Preparing your download..."
+msgstr "Valmistellaan latausta..."
+
+msgid "Are you sure you want to cancel this export?"
+msgstr "Haluatko varmasti peruuttaa tämän viennin?"
+
+msgid ""
+"Preparing the statistics can take up to 20 minutes depending on the amount "
+"of data. You can leave this page and return later."
+msgstr ""
+"Tilastojen valmistelu voi kestää tietomäärästä riippuen jopa 20 minuuttia. "
+"Voit poistua sivulta ja palata myöhemmin."
+
+msgid "Something went wrong when fetching exports"
+msgstr "Vientien hakeminen epäonnistui"
+
+msgid "Please try again later."
+msgstr "Yritä myöhemmin uudelleen."
+
+msgid "Something went wrong while preparing the download. Please"
+msgstr "Latauksen valmistelu epäonnistui."
+
+msgid "try again."
+msgstr "Yritä uudelleen."
+
+msgid "Export"
+msgstr "Vienti"
+
+msgid "Are you sure you want to delete this export?"
+msgstr "Haluatko varmasti poistaa tämän viennin?"
+
+msgid "Note: this file will expire"
+msgstr "Huomaa: tämä tiedosto vanhenee"
+
+msgid "Located at"
+msgstr "Sijainti"
+
+msgid "There is no data to export"
+msgstr "Vietäviä tietoja ei ole"
+
+msgid "Goal deleted successfully"
+msgstr "Tavoite poistettiin"
+
+msgid "Goal saved successfully"
+msgstr "Tavoite tallennettiin"
+
+msgid "All goals added successfully"
+msgstr "Kaikki tavoitteet lisättiin"
+
+msgid "Edit goal for %{site}"
+msgstr "Muokkaa sivuston %{site} tavoitetta"
+
+msgid "Update goal"
+msgstr "Päivitä tavoite"
+
+msgid "We detected one custom event."
+msgid_plural "We detected %{count} custom events."
+msgstr[0] "Havaitsimme yhden mukautetun tapahtuman."
+msgstr[1] "Havaitsimme %{count} mukautettua tapahtumaa."
+
+msgid ""
+"These events were sent from your site during the past six months but are not "
+"configured as goals. Add them now or configure one manually."
+msgstr ""
+"Nämä tapahtumat on lähetetty sivustoltasi viimeisen kuuden kuukauden aikana, "
+"mutta niitä ei ole määritetty tavoitteiksi. Lisää ne nyt tai määritä yksi "
+"käsin."
+
+msgid "Add manually"
+msgstr "Lisää käsin"
+
+msgid "Add one event"
+msgid_plural "Add %{count} events"
+msgstr[0] "Lisää yksi tapahtuma"
+msgstr[1] "Lisää %{count} tapahtumaa"
+
+msgid "Add goal for %{site}"
+msgstr "Lisää tavoite sivustolle %{site}"
+
+msgid ""
+"Pageview goals measure how many people visit a specific page or section of "
+"your site."
+msgstr ""
+"Sivulataustavoitteilla mitataan, kuinka moni käy tietyllä sivulla tai "
+"sivuston osassa."
+
+msgid "Page path"
+msgstr "Sivupolku"
+
+msgid "Display name"
+msgstr "Näyttönimi"
+
+msgid ""
+"Scroll depth goals show how many people scroll beyond the percentage "
+"threshold you choose."
+msgstr ""
+"Vierityssyvyystavoitteet näyttävät, kuinka moni vierittää valitsemasi "
+"prosenttirajan yli."
+
+msgid "Scroll percentage threshold (1–100)"
+msgstr "Vierityksen prosenttiraja (1–100)"
+
+msgid ""
+"Custom events are not tracked by default. Configure your site to send them "
+"to Plausible. See examples in"
+msgstr ""
+"Mukautettuja tapahtumia ei seurata oletuksena. Määritä sivustosi lähettämään "
+"ne Plausibleen. Katso esimerkkejä"
+
+msgid "our documentation"
+msgstr "ohjeistamme"
+
+msgid "Event name"
+msgstr "Tapahtuman nimi"
+
+msgid "e.g. Signup"
+msgstr "esim. Rekisteröityminen"
+
+msgid ""
+"No new imports can be started until the import in progress is completed or "
+"cancelled."
+msgstr ""
+"Uutta tuontia ei voi aloittaa ennen kuin käynnissä oleva tuonti valmistuu "
+"tai peruutetaan."
+
+msgid ""
+"The maximum of %{count} imports has been reached. Delete or cancel an "
+"existing import to start a new one."
+msgstr ""
+"Tuontien enimmäismäärä %{count} on saavutettu. Poista tai peruuta olemassa "
+"oleva tuonti ennen uuden aloittamista."
+
+msgid "Import data"
+msgstr "Tuo tietoja"
+
+msgid ""
+"Import data from external sources. Up to %{count} imports can be stored at a "
+"time."
+msgstr ""
+"Tuo tietoja ulkoisista lähteistä. Kerrallaan voidaan säilyttää enintään %"
+"{count} tuontia."
+
+msgid "Import your first data"
+msgstr "Tuo ensimmäiset tietosi"
+
+msgid "Import from"
+msgstr "Tuo palvelusta"
+
+msgid "Google Analytics import"
+msgstr "Google Analytics -tuonti"
+
+msgid "Import from CSV"
+msgstr "Tuo CSV-tiedostosta"
+
+msgid "Import"
+msgstr "Tuonti"
+
+msgid "Date range"
+msgstr "Aikaväli"
+
+msgid "%{import} created at %{date}"
+msgstr "%{import} luotu %{date}"
+
+msgid "Are you sure you want to delete this import?"
+msgstr "Haluatko varmasti poistaa tämän tuonnin?"
+
+msgid ""
+"The import may take longer because of the amount of data and Google "
+"Analytics rate limits."
+msgstr ""
+"Tuonti voi kestää tavallista pidempään tietomäärän ja Google Analyticsin "
+"nopeusrajoitusten vuoksi."
+
+msgid "Export data"
+msgstr "Vie tietoja"
+
+msgid "Export all your data in CSV format."
+msgstr "Vie kaikki tietosi CSV-muodossa."
+
+msgid ""
+"Attach custom properties when sending a pageview or an event to create "
+"custom metrics."
+msgstr ""
+"Liitä sivulatauksiin tai tapahtumiin mukautettuja ominaisuuksia omien "
+"mittareiden luomiseksi."
+
+msgid "Property removed successfully"
+msgstr "Ominaisuus poistettiin"
+
+msgid "Properties added successfully"
+msgstr "Ominaisuudet lisättiin"
+
+msgid "Property added successfully"
+msgstr "Ominaisuus lisättiin"
+
+msgid "Add property for %{site}"
+msgstr "Lisää ominaisuus sivustolle %{site}"
+
+msgid ""
+"Add existing properties from past events without entering each one manually."
+msgstr "Lisää aiempien tapahtumien ominaisuudet kirjoittamatta jokaista käsin."
+
+msgid ""
+"Already sending custom properties? Add the one existing property we found."
+msgid_plural ""
+"Already sending custom properties? Add the %{count} existing properties we "
+"found."
+msgstr[0] ""
+"Lähetätkö jo mukautettuja ominaisuuksia? Lisää löytämämme ominaisuus."
+msgstr[1] ""
+"Lähetätkö jo mukautettuja ominaisuuksia? Lisää löytämämme %{count} "
+"ominaisuutta."
+
+msgid "Search properties"
+msgstr "Hae ominaisuuksia"
+
+msgid "Add property"
+msgstr "Lisää ominaisuus"
+
+msgid "Remove %{property} property"
+msgstr "Poista ominaisuus %{property}"
+
+msgid "No properties found for this site. Please refine or"
+msgstr "Sivustolta ei löytynyt ominaisuuksia. Tarkenna tai"
+
+msgid "Create a custom property"
+msgstr "Luo mukautettu ominaisuus"
+
+msgid "Are you sure you want to remove the following property:"
+msgstr "Haluatko varmasti poistaa seuraavan ominaisuuden:"
+
+msgid ""
+"This only affects the user interface. Your analytics data will remain intact."
+msgstr ""
+"Tämä vaikuttaa vain käyttöliittymään. Analytiikkatietosi säilyvät ennallaan."
+
+msgid "Country block list"
+msgstr "Estetyt maat"
+
+msgid "Reject incoming traffic from specific countries."
+msgstr "Hylkää tietyistä maista tuleva liikenne."
+
+msgid "Block a country"
+msgstr "Estä maa"
+
+msgid "Add country"
+msgstr "Lisää maa"
+
+msgid "Maximum number of countries reached"
+msgstr "Maiden enimmäismäärä saavutettu"
+
+msgid ""
+"You have reached the maximum of %{count} blocked countries. Remove one "
+"before adding another."
+msgstr ""
+"Estettyjen maiden enimmäismäärä %{count} on saavutettu. Poista yksi ennen "
+"uuden lisäämistä."
+
+msgid "Status"
+msgstr "Tila"
+
+msgid "Added at %{date} by %{user}"
+msgstr "Lisännyt %{user} %{date}"
+
+msgid "Blocked"
+msgstr "Estetty"
+
+msgid "Allowed"
+msgstr "Sallittu"
+
+msgid "Are you sure you want to revoke this rule?"
+msgstr "Haluatko varmasti poistaa tämän säännön?"
+
+msgid "Add country to block list"
+msgstr "Lisää maa estolistalle"
+
+msgid ""
+"After it is added, traffic from this country will be rejected within a few "
+"minutes."
+msgstr ""
+"Lisäämisen jälkeen maasta tuleva liikenne estetään muutamassa minuutissa."
+
+msgid ""
+"Country rule added successfully. Traffic will be rejected within a few "
+"minutes."
+msgstr "Maasääntö lisättiin. Liikenne estetään muutamassa minuutissa."
+
+msgid ""
+"Country rule removed successfully. Traffic will resume within a few minutes."
+msgstr "Maasääntö poistettiin. Liikenne jatkuu muutamassa minuutissa."
+
+msgid "Hostname allow list"
+msgstr "Sallitut isäntänimet"
+
+msgid "Accept incoming traffic only from known hostnames."
+msgstr "Hyväksy liikenne vain tunnetuista isäntänimistä."
+
+msgid "Allow a hostname"
+msgstr "Salli isäntänimi"
+
+msgid ""
+"Accept incoming traffic only from known hostnames. Traffic from every "
+"hostname is recorded until you add the first rule."
+msgstr ""
+"Hyväksy liikenne vain tunnetuista isäntänimistä. Kaikkien isäntänimien "
+"liikenne tallennetaan, kunnes lisäät ensimmäisen säännön."
+
+msgid "Add hostname"
+msgstr "Lisää isäntänimi"
+
+msgid "Maximum number of hostnames reached"
+msgstr "Isäntänimien enimmäismäärä saavutettu"
+
+msgid ""
+"You have reached the maximum of %{count} allowed hostnames. Remove one "
+"before adding another."
+msgstr ""
+"Sallittujen isäntänimien enimmäismäärä %{count} on saavutettu. Poista yksi "
+"ennen uuden lisäämistä."
+
+msgid ""
+"This rule may be redundant because these rules can match first:\n"
+"\n"
+"%{rules}"
+msgstr ""
+"Tämä sääntö voi olla tarpeeton, koska seuraavat säännöt voivat täsmätä "
+"ensin:\n"
+"\n"
+"%{rules}"
+
+msgid "Add hostname to allow list"
+msgstr "Lisää isäntänimi sallittujen listalle"
+
+msgid "You can use a wildcard (*) to match multiple hostnames. For example,"
+msgstr ""
+"Voit käyttää jokerimerkkiä (*) useiden isäntänimien täsmäyttämiseen. "
+"Esimerkiksi"
+
+msgid "records traffic only on the main domain and its subdomains."
+msgstr ""
+"tallentaa liikenteen vain pääverkkotunnuksesta ja sen aliverkkotunnuksista."
+
+msgid ""
+"After it is added, traffic from this hostname will be accepted within a few "
+"minutes."
+msgstr ""
+"Lisäämisen jälkeen tämän isäntänimen liikenne hyväksytään muutamassa "
+"minuutissa."
+
+msgid ""
+"Note: after the first rule is added, traffic from other hostnames will be "
+"rejected within a few minutes."
+msgstr ""
+"Huomaa: ensimmäisen säännön lisäämisen jälkeen muiden isäntänimien liikenne "
+"estetään muutamassa minuutissa."
+
+msgid ""
+"Hostname rule added successfully. Traffic will be limited within a few "
+"minutes."
+msgstr "Isäntänimisääntö lisättiin. Liikenne rajataan muutamassa minuutissa."
+
+msgid ""
+"Hostname rule removed successfully. Traffic will be adjusted within a few "
+"minutes."
+msgstr "Isäntänimisääntö poistettiin. Liikenne mukautuu muutamassa minuutissa."
+
+msgid "IP block list"
+msgstr "Estetyt IP-osoitteet"
+
+msgid "Reject incoming traffic from specific IP addresses."
+msgstr "Hylkää tietyistä IP-osoitteista tuleva liikenne."
+
+msgid "Block an IP address"
+msgstr "Estä IP-osoite"
+
+msgid "Add IP address"
+msgstr "Lisää IP-osoite"
+
+msgid "Maximum number of addresses reached"
+msgstr "Osoitteiden enimmäismäärä saavutettu"
+
+msgid ""
+"You have reached the maximum of %{count} blocked IP addresses. Remove one "
+"before adding another."
+msgstr ""
+"Estettyjen IP-osoitteiden enimmäismäärä %{count} on saavutettu. Poista yksi "
+"ennen uuden lisäämistä."
+
+msgid "YOU"
+msgstr "SINÄ"
+
+msgid "Add IP to block list"
+msgstr "Lisää IP-osoite estolistalle"
+
+msgid "Your current IP address is:"
+msgstr "Nykyinen IP-osoitteesi on:"
+
+msgid "to block your own traffic, or enter a custom address below."
+msgstr "estääksesi oman liikenteesi tai kirjoita muu osoite alle."
+
+msgid "Description (optional)"
+msgstr "Kuvaus (valinnainen)"
+
+msgid "e.g. The office"
+msgstr "esim. Toimisto"
+
+msgid ""
+"After it is added, traffic from this IP address will be rejected within a "
+"few minutes."
+msgstr ""
+"Lisäämisen jälkeen tästä IP-osoitteesta tuleva liikenne estetään muutamassa "
+"minuutissa."
+
+msgid ""
+"IP rule added successfully. Traffic will be rejected within a few minutes."
+msgstr "IP-sääntö lisättiin. Liikenne estetään muutamassa minuutissa."
+
+msgid "IP rule removed successfully. Traffic will resume within a few minutes."
+msgstr "IP-sääntö poistettiin. Liikenne jatkuu muutamassa minuutissa."
+
+msgid "Pages block list"
+msgstr "Estetyt sivut"
+
+msgid "Reject incoming traffic for specific pages."
+msgstr "Hylkää tietyille sivuille tuleva liikenne."
+
+msgid "Block a page"
+msgstr "Estä sivu"
+
+msgid "Add page"
+msgstr "Lisää sivu"
+
+msgid "Maximum number of pages reached"
+msgstr "Sivujen enimmäismäärä saavutettu"
+
+msgid ""
+"You have reached the maximum of %{count} blocked pages. Remove one before "
+"adding another."
+msgstr ""
+"Estettyjen sivujen enimmäismäärä %{count} on saavutettu. Poista yksi ennen "
+"uuden lisäämistä."
+
+msgid "Add page to block list"
+msgstr "Lisää sivu estolistalle"
+
+msgid "You can use a wildcard (*) to match multiple pages. For example,"
+msgstr ""
+"Voit käyttää jokerimerkkiä (*) useiden sivujen täsmäyttämiseen. Esimerkiksi"
+
+msgid "will match"
+msgstr "täsmää osoitteeseen"
+
+msgid ""
+"After it is added, traffic from this page will be rejected within a few "
+"minutes."
+msgstr ""
+"Lisäämisen jälkeen tälle sivulle tuleva liikenne estetään muutamassa "
+"minuutissa."
+
+msgid ""
+"Page rule added successfully. Traffic will be rejected within a few minutes."
+msgstr "Sivusääntö lisättiin. Liikenne estetään muutamassa minuutissa."
+
+msgid ""
+"Page rule removed successfully. Traffic will resume within a few minutes."
+msgstr "Sivusääntö poistettiin. Liikenne jatkuu muutamassa minuutissa."
+
+msgid "Google Search Console integration"
+msgstr "Google Search Console -integraatio"
+
+msgid ""
+"Connect Google Search Console to see important search statistics, including "
+"the keyword phrases people use to find your site."
+msgstr ""
+"Yhdistä Google Search Console nähdäksesi tärkeät hakutilastot ja "
+"hakulausekkeet, joilla sivustosi löydetään."
+
+msgid "Linked Google account"
+msgstr "Yhdistetty Google-tili"
+
+msgid "Unlink Google account"
+msgstr "Poista Google-tilin yhdistäminen"
+
+msgid ""
+"Your Google account cannot access the configured property %{property}. "
+"Select a verified property below."
+msgstr ""
+"Google-tililläsi ei ole pääsyä määritettyyn kohteeseen %{property}. Valitse "
+"vahvistettu kohde alta."
+
+msgid ""
+"Select the Google Search Console property used for keyword data. If your "
+"domain is not listed,"
+msgstr ""
+"Valitse hakusanatietoihin käytettävä Google Search Console -kohde. Jos "
+"verkkotunnustasi ei näy,"
+
+msgid "set it up and verify it"
+msgstr "lisää ja vahvista se"
+
+msgid "in Search Console first."
+msgstr "ensin Search Consolessa."
+
+msgid "You must also configure your site in"
+msgstr "Sinun on määritettävä sivustosi myös palvelussa"
+
+msgid "for the integration to work."
+msgstr "jotta integraatio toimii."
+
+msgid "Read the documentation"
+msgstr "Lue ohjeet"
+
+msgid ""
+"An extra step is needed to configure %{product} for the Google Search "
+"Console integration."
+msgstr ""
+"Google Search Console -integraatio vaatii yhden lisävaiheen palvelussa %"
+"{product}."
+
+msgid "View the instructions"
+msgstr "Näytä ohjeet"
+
+msgid "Just recently"
+msgstr "Juuri äsken"
+
+msgid "1 hour ago"
+msgid_plural "%{count} hours ago"
+msgstr[0] "Tunti sitten"
+msgstr[1] "%{count} tuntia sitten"
+
+msgid "Yesterday"
+msgstr "Eilen"
+
+msgid "1 day ago"
+msgid_plural "%{count} days ago"
+msgstr[0] "Päivä sitten"
+msgstr[1] "%{count} päivää sitten"
+
+msgid "Administrator"
+msgstr "Ylläpitäjä"
+
+msgid "Billing"
+msgstr "Laskutus"

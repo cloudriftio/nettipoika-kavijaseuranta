@@ -5,10 +5,10 @@
 
   <.tile docs="export-stats">
     <:title>
-      Export data
+      {gettext("Export data")}
     </:title>
     <:subtitle>
-      Export all your data into CSV format.
+      {gettext("Export all your data in CSV format.")}
     </:subtitle>
 
     {live_render(@conn, PlausibleWeb.Live.CSVExport,

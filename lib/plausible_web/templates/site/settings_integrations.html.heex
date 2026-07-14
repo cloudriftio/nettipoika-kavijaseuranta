@@ -3,18 +3,20 @@
 <.settings_tiles>
   <.tile docs="google-search-console-integration">
     <:title>
-      Google Search Console integration
+      {gettext("Google Search Console integration")}
     </:title>
     <:subtitle>
       <p>
-        You can integrate with Google Search Console to get all of your important search results stats such as keyword phrases people find your site with.
+        {gettext(
+          "Connect Google Search Console to see important search statistics, including the keyword phrases people use to find your site."
+        )}
       </p>
     </:subtitle>
     <%= if Keyword.get(Application.get_env(:plausible, :google), :client_id) do %>
       <%= if @site.google_auth do %>
         <.input
           name="account"
-          label="Linked Google account"
+          label={gettext("Linked Google account")}
           value={@site.google_auth.email}
           disabled="disabled"
           width="w-1/2"
@@ -26,25 +28,30 @@
           href={Routes.site_path(@conn, :delete_google_auth, @site.domain)}
           method="delete"
         >
-          Unlink Google account
+          {gettext("Unlink Google account")}
         </.button_link>
 
         <%= case @search_console_domains do %>
           <% {:ok, domains} -> %>
             <%= if @site.google_auth.property && !(@site.google_auth.property in domains) do %>
               <.notice class="mt-4 mb-4">
-                Your Google account does not have access to your currently configured property, {@site.google_auth.property}. Please select a verified property from the list below.
+                {gettext(
+                  "Your Google account cannot access the configured property %{property}. Select a verified property below.",
+                  property: @site.google_auth.property
+                )}
               </.notice>
             <% else %>
               <p class="text-sm mt-4">
-                Select the Google Search Console property you would like to pull keyword data from. If you don't see your domain,
+                {gettext(
+                  "Select the Google Search Console property used for keyword data. If your domain is not listed,"
+                )}
                 <.styled_link
                   href="https://plausible.io/docs/google-search-console-integration"
                   new_tab={true}
                 >
-                  set it up and verify
+                  {gettext("set it up and verify it")}
                 </.styled_link>
-                on Search Console first.
+                {gettext("in Search Console first.")}
               </p>
             <% end %>
 
@@ -96,16 +103,16 @@
           to={Plausible.Google.API.search_console_authorize_url(@site.id)}
         />
         <div class="mt-8 text-sm">
-          NB: You also need to set up your site on
+          {gettext("You must also configure your site in")}
           <.styled_link href="https://search.google.com/search-console/about" new_tab={true}>
             Google Search Console
           </.styled_link>
-          for the integration to work.
+          {gettext("for the integration to work.")}
           <.styled_link
             href="https://plausible.io/docs/google-search-console-integration"
             new_tab={true}
           >
-            Read the docs
+            {gettext("Read the documentation")}
           </.styled_link>
         </div>
       <% end %>
@@ -127,10 +134,12 @@
           </path>
         </svg>
         <p>
-          An extra step is needed to set up your {Plausible.product_name()} for the Google Search Console integration.
-          Find instructions
+          {gettext(
+            "An extra step is needed to configure %{product} for the Google Search Console integration.",
+            product: Plausible.product_name()
+          )}
           <.styled_link href="https://github.com/plausible/community-edition/wiki/google-integration">
-            here
+            {gettext("View the instructions")}
           </.styled_link>
         </p>
       </div>

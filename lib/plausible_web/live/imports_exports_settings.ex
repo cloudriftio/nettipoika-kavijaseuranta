@@ -52,11 +52,15 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
     import_warning =
       cond do
         import_in_progress? ->
-          "No new imports can be started until the import in progress is completed or cancelled."
+          gettext(
+            "No new imports can be started until the import in progress is completed or cancelled."
+          )
 
         at_maximum? ->
-          "Maximum of #{assigns.max_imports} imports is reached. " <>
-            "Delete or cancel an existing import to start a new one."
+          gettext(
+            "The maximum of %{count} imports has been reached. Delete or cancel an existing import to start a new one.",
+            count: assigns.max_imports
+          )
 
         true ->
           nil
@@ -76,18 +80,23 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
 
     <.tile docs="google-analytics-import">
       <:title>
-        Import data
+        {gettext("Import data")}
       </:title>
       <:subtitle :if={not Enum.empty?(@site_imports)}>
-        Import data from external sources. Up to {Plausible.Imported.max_complete_imports()} imports are allowed at a time.
+        {gettext("Import data from external sources. Up to %{count} imports can be stored at a time.",
+          count: Plausible.Imported.max_complete_imports()
+        )}
       </:subtitle>
       <%= if Enum.empty?(@site_imports) do %>
         <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
           <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-            Import your first data
+            {gettext("Import your first data")}
           </h3>
           <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-            Import data from external sources. Up to {Plausible.Imported.max_complete_imports()} imports are allowed at a time.
+            {gettext(
+              "Import data from external sources. Up to %{count} imports can be stored at a time.",
+              count: Plausible.Imported.max_complete_imports()
+            )}
           </p>
           <div class="flex gap-x-4 mt-4">
             <.button_link
@@ -96,10 +105,10 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
               disabled={@import_in_progress? or @at_maximum?}
               mt?={false}
             >
-              Import from
+              {gettext("Import from")}
               <img
                 src="/images/icon/google_analytics_logo.svg"
-                alt="Google Analytics import"
+                alt={gettext("Google Analytics import")}
                 class="h-6 w-12 -my-1"
               />
             </.button_link>
@@ -108,7 +117,7 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
               href={"/#{URI.encode_www_form(@site.domain)}/settings/import"}
               mt?={false}
             >
-              Import from CSV
+              {gettext("Import from CSV")}
             </.button_link>
           </div>
         </div>
@@ -120,10 +129,10 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
             disabled={@import_in_progress? or @at_maximum?}
             mt?={false}
           >
-            Import from
+            {gettext("Import from")}
             <img
               src="/images/icon/google_analytics_logo.svg"
-              alt="Google Analytics import"
+              alt={gettext("Google Analytics import")}
               class="h-6 w-12 -my-1"
             />
           </.button_link>
@@ -132,19 +141,19 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
             href={"/#{URI.encode_www_form(@site.domain)}/settings/import"}
             mt?={false}
           >
-            Import from CSV
+            {gettext("Import from CSV")}
           </.button_link>
         </div>
 
         <div class="mt-6">
           <.table rows={@site_imports}>
             <:thead>
-              <.th>Import</.th>
-              <.th hide_on_mobile>Date Range</.th>
+              <.th>{gettext("Import")}</.th>
+              <.th hide_on_mobile>{gettext("Date range")}</.th>
               <.th hide_on_mobile>
-                <div class="text-right">Pageviews</div>
+                <div class="text-right">{gettext("Pageviews")}</div>
               </.th>
-              <.th invisible>Actions</.th>
+              <.th invisible>{gettext("Actions")}</.th>
             </:thead>
 
             <:tbody :let={entry}>
@@ -170,7 +179,10 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
                   </div>
                   <div
                     class="max-w-sm"
-                    title={"#{Plausible.Imported.SiteImport.label(entry.site_import)} created at #{format_date(entry.site_import.inserted_at)}"}
+                    title={gettext("%{import} created at %{date}",
+                      import: Plausible.Imported.SiteImport.label(entry.site_import),
+                      date: format_date(entry.site_import.inserted_at)
+                    )}
                   >
                     {Plausible.Imported.SiteImport.label(entry.site_import)}
                   </div>
@@ -194,7 +206,7 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
                 <.delete_button
                   href={"/#{URI.encode_www_form(@site.domain)}/settings/forget-import/#{entry.site_import.id}"}
                   method="delete"
-                  data-confirm="Are you sure you want to delete this import?"
+                  data-confirm={gettext("Are you sure you want to delete this import?")}
                 />
               </.td>
             </:tbody>
@@ -258,10 +270,9 @@ defmodule PlausibleWeb.Live.ImportsExportsSettings do
   end
 
   defp notice_message(:slow_import) do
-    """
-    The import process might be taking longer due to the amount of data
-    and rate limiting enforced by Google Analytics.
-    """
+    gettext(
+      "The import may take longer because of the amount of data and Google Analytics rate limits."
+    )
   end
 
   defp notice_message(_), do: nil

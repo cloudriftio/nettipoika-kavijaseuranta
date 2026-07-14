@@ -58,12 +58,12 @@ defmodule PlausibleWeb.Live.PropsSettings.Form do
           phx-click-away="cancel-allow-prop"
         >
           <.title>
-            Add property for {Plausible.Sites.display_name(@site)}
+            {gettext("Add property for %{site}", site: Plausible.Sites.display_name(@site))}
           </.title>
 
           <div class="mt-6">
             <.label for="prop_input">
-              Property
+              {gettext("Property")}
             </.label>
 
             <.live_component
@@ -102,16 +102,22 @@ defmodule PlausibleWeb.Live.PropsSettings.Form do
           </div>
 
           <.button type="submit" class="w-full">
-            Add property
+            {gettext("Add property")}
           </.button>
 
           <button
             :if={@prop_key_options_count > 0}
-            title="Use this to add any existing properties from your past events into your settings. This allows you to set up properties without having to manually enter each item."
+            title={gettext(
+              "Add existing properties from past events without entering each one manually."
+            )}
             class="mt-4 text-sm hover:underline text-indigo-600 dark:text-indigo-400 text-left"
             phx-click="allow-existing-props"
           >
-            Already sending custom properties? Click to add {@prop_key_options_count} existing properties we found.
+            {ngettext(
+              "Already sending custom properties? Add the one existing property we found.",
+              "Already sending custom properties? Add the %{count} existing properties we found.",
+              @prop_key_options_count
+            )}
           </button>
         </.form>
       </div>

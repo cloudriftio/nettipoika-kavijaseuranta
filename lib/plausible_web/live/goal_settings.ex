@@ -64,11 +64,13 @@ defmodule PlausibleWeb.Live.GoalSettings do
         current_user={@current_user}
       >
         <:title>
-          Goals
+          {gettext("Goals")}
         </:title>
         <:subtitle :if={Enum.count(@all_goals) > 0}>
           <p>
-            Define actions that you want your users to take, like visiting a certain page, submitting a form, etc.
+            {gettext(
+              "Define actions that you want your users to take, like visiting a certain page, submitting a form, etc."
+            )}
           </p>
           <p :if={ee?() and Plausible.Sites.regular?(@site)} data-test-id="setup-funnels-cta">
             You can also
@@ -162,7 +164,7 @@ defmodule PlausibleWeb.Live.GoalSettings do
 
         socket =
           socket
-          |> put_live_flash(:success, "Goal deleted successfully")
+          |> put_live_flash(:success, gettext("Goal deleted successfully"))
           |> assign(
             all_goals: Enum.reject(socket.assigns.all_goals, &(&1.id == goal_id)),
             event_name_options: event_name_options,
@@ -190,7 +192,7 @@ defmodule PlausibleWeb.Live.GoalSettings do
         form_goal: nil,
         goal_type: nil
       )
-      |> put_live_flash(:success, "Goal saved successfully")
+      |> put_live_flash(:success, gettext("Goal saved successfully"))
 
     {:noreply, socket}
   end
@@ -211,7 +213,7 @@ defmodule PlausibleWeb.Live.GoalSettings do
         event_name_options: [],
         displayed_goals: added_goals ++ socket.assigns.all_goals
       )
-      |> put_live_flash(:success, "All goals added successfully")
+      |> put_live_flash(:success, gettext("All goals added successfully"))
 
     {:noreply, socket}
   end

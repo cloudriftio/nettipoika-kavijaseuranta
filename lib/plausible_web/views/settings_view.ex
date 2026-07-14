@@ -21,6 +21,19 @@ defmodule PlausibleWeb.SettingsView do
     end)
   end
 
+  def last_used_humanize(user_session, now \\ NaiveDateTime.utc_now(:second)) do
+    hours = NaiveDateTime.diff(now, user_session.last_used_at, :hour)
+    days = NaiveDateTime.diff(now, user_session.last_used_at, :day)
+
+    cond do
+      hours < 1 -> gettext("Just recently")
+      hours == 1 -> gettext("1 hour ago")
+      hours < 24 -> ngettext("1 hour ago", "%{count} hours ago", hours)
+      hours < 48 -> gettext("Yesterday")
+      true -> ngettext("1 day ago", "%{count} days ago", days)
+    end
+  end
+
   @spec present_subscription_status(Subscription.Status.status()) :: String.t()
   def present_subscription_status(Subscription.Status.active()), do: "Active"
   def present_subscription_status(Subscription.Status.past_due()), do: "Past due"

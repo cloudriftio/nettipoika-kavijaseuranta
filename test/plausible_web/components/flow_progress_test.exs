@@ -77,4 +77,18 @@ defmodule PlausibleWeb.Components.FlowProgressTest do
     assert text_of_element(rendered, "#flow-progress") ==
              "1 Set up new domain 2 Install Plausible 3 Verify installation"
   end
+
+  test "renders Finnish labels while keeping stable flow step identifiers" do
+    Gettext.put_locale(PlausibleWeb.Gettext, "fi")
+    on_exit(fn -> Gettext.put_locale(PlausibleWeb.Gettext, "en") end)
+
+    rendered =
+      render_component(&FlowProgress.render/1,
+        flow: PlausibleWeb.Flows.provisioning(),
+        current_step: "Add site info"
+      )
+
+    assert text_of_element(rendered, "#flow-progress") ==
+             "1 Lisää sivuston tiedot 2 Asenna kävijäseuranta 3 Vahvista asennus"
+  end
 end

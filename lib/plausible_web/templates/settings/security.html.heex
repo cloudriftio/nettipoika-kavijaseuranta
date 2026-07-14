@@ -261,7 +261,7 @@
       </:thead>
       <:tbody :let={session}>
         <.td truncate max_width="max-w-40">{session.device}</.td>
-        <.td hide_on_mobile>{Plausible.Auth.UserSessions.last_used_humanize(session)}</.td>
+        <.td hide_on_mobile>{last_used_humanize(session)}</.td>
         <.td :if={@current_user_session.id == session.id} actions>
           {gettext("Current session")}
         </.td>

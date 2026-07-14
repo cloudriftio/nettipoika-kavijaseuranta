@@ -52,7 +52,7 @@ defmodule PlausibleWeb.Live.AwaitingPageviews do
     ~H"""
     <PlausibleWeb.Components.FlowProgress.render
       flow={@flow}
-      current_step={gettext("Verify installation")}
+      current_step="Verify installation"
     />
     <.awaiting_pageviews />
     """

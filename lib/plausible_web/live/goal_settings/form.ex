@@ -83,7 +83,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
   def edit_form(assigns) do
     ~H"""
     <.form :let={f} for={@form} phx-submit="save-goal" phx-target={@myself}>
-      <.title>Edit goal for {@domain}</.title>
+      <.title>{gettext("Edit goal for %{site}", site: @domain)}</.title>
 
       <.custom_event_fields
         :if={@form_type == "custom_events"}
@@ -113,7 +113,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
       />
 
       <.button type="submit" class="w-full">
-        Update goal
+        {gettext("Update goal")}
       </.button>
     </.form>
     """
@@ -123,13 +123,17 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
     ~H"""
     <div data-test-id="autoconfigure-modal">
       <.title>
-        We detected {@event_name_options_count} custom {if @event_name_options_count == 1,
-          do: "event",
-          else: "events"}.
+        {ngettext(
+          "We detected one custom event.",
+          "We detected %{count} custom events.",
+          @event_name_options_count
+        )}
       </.title>
 
       <p class="mt-2 py-2 text-sm text-gray-600 dark:text-gray-400 text-pretty">
-        These events have been sent from your site in the past 6 months but aren't yet configured as goals. Add them instantly or set one up manually.
+        {gettext(
+          "These events were sent from your site during the past six months but are not configured as goals. Add them now or configure one manually."
+        )}
       </p>
 
       <div class="flex justify-end gap-3">
@@ -138,16 +142,14 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
           phx-click="add-manually"
           phx-target={@myself}
         >
-          Add manually
+          {gettext("Add manually")}
         </.button>
         <.button
           phx-click="autoconfigure"
           phx-target={@myself}
         >
           <Heroicons.plus class="size-4" />
-          Add {@event_name_options_count} {if @event_name_options_count == 1,
-            do: "event",
-            else: "events"}
+          {ngettext("Add one event", "Add %{count} events", @event_name_options_count)}
         </.button>
       </div>
     </div>
@@ -158,7 +160,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
     ~H"""
     <.form :let={f} for={@form} phx-submit="save-goal" phx-target={@myself}>
       <.title>
-        Add goal for {Plausible.Sites.display_name(@site)}
+        {gettext("Add goal for %{site}", site: Plausible.Sites.display_name(@site))}
       </.title>
 
       <.custom_event_fields
@@ -186,7 +188,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
       />
 
       <.button type="submit" class="w-full">
-        Add goal
+        {gettext("Add goal")}
       </.button>
     </.form>
     """
@@ -202,17 +204,19 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
     ~H"""
     <div id="pageviews-form" class="py-2" {@rest}>
       <div class="text-sm pb-6 text-gray-600 dark:text-gray-400 text-pretty">
-        Pageview goals allow you to measure how many people visit a specific page or section of your site.
+        {gettext(
+          "Pageview goals measure how many people visit a specific page or section of your site."
+        )}
         <.styled_link
           href="https://plausible.io/docs/pageview-goals"
           new_tab={true}
         >
-          Learn more
+          {gettext("Learn more")}
         </.styled_link>
       </div>
 
       <.label for={"page_path_input_#{@suffix}"}>
-        Page path
+        {gettext("Page path")}
       </.label>
 
       <.live_component
@@ -233,7 +237,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
       </.error>
 
       <.input
-        label="Display name"
+        label={gettext("Display name")}
         id="pageview_display_name_input"
         field={@f[:display_name]}
         type="text"
@@ -281,17 +285,19 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
     ~H"""
     <div id="scroll-form" class="py-2" x-data={@js} {@rest}>
       <div class="text-sm pb-6 text-gray-500 dark:text-gray-400 text-justify rounded-md">
-        Scroll Depth goals allow you to see how many people scroll beyond your desired scroll depth percentage threshold.
+        {gettext(
+          "Scroll depth goals show how many people scroll beyond the percentage threshold you choose."
+        )}
         <.styled_link
           href="https://plausible.io/docs/scroll-depth"
           new_tab={true}
         >
-          Learn more
+          {gettext("Learn more")}
         </.styled_link>
       </div>
 
       <.label for={"scroll_threshold_input_#{@suffix}"}>
-        Scroll percentage threshold (1-100)
+        {gettext("Scroll percentage threshold (1–100)")}
       </.label>
 
       <.input
@@ -307,7 +313,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
       />
 
       <.label for={"scroll_page_path_input_#{@suffix}"} class="mt-3">
-        Page path
+        {gettext("Page path")}
       </.label>
 
       <.live_component
@@ -328,7 +334,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
       </.error>
 
       <.input
-        label="Display name"
+        label={gettext("Display name")}
         id="scroll_display_name_input"
         field={@f[:display_name]}
         type="text"
@@ -357,23 +363,26 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
     <div id="custom-events-form" class="py-2" {@rest}>
       <div id="event-fields">
         <div class="text-sm pb-6 text-gray-500 dark:text-gray-400 text-justify rounded-md">
-          Custom Events are not tracked by default - you have to configure them on your site to be sent to Plausible. See examples and learn more in <.styled_link
+          {gettext(
+            "Custom events are not tracked by default. Configure your site to send them to Plausible. See examples in"
+          )}
+          <.styled_link
             href="https://plausible.io/docs/custom-event-goals"
             new_tab={true}
           >
-            our docs
+            {gettext("our documentation")}
           </.styled_link>.
         </div>
 
         <div>
           <.label for={"event_name_input_#{@suffix}"}>
-            Event name
+            {gettext("Event name")}
           </.label>
 
           <.live_component
             id={"event_name_input_#{@suffix}"}
             submit_name="goal[event_name]"
-            placeholder="e.g. Signup"
+            placeholder={gettext("e.g. Signup")}
             class={[
               "py-2"
             ]}
@@ -392,7 +401,7 @@ defmodule PlausibleWeb.Live.GoalSettings.Form do
 
         <div class="mt-2">
           <.input
-            label="Display name"
+            label={gettext("Display name")}
             id="custom_event_display_name_input"
             field={@f[:display_name]}
             type="text"

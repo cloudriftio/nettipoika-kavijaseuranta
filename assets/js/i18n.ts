@@ -60,6 +60,11 @@ export const englishCatalog = {
   retry: 'Retry',
   closeNotice: 'Close notice',
   errorLoadingData: 'Error loading data. Refresh the page to try again',
+  loadingOptions: 'Loading options...',
+  filterByValue: "Filter by '{{value}}'",
+  startTypingToApplyFilter: 'Start typing to apply filter',
+  noMatchesInDashboard:
+    'No matches found in the current dashboard. Try selecting a different time range or searching for something different',
   clickToExportStats: 'Click to export stats',
   importedDataUnavailable: 'Imported data is unavailable in this view',
   importedDataExcluded: 'Imported data is excluded due to applied filters',
@@ -354,6 +359,11 @@ export const finnishCatalog: Record<TranslationKey, string> = {
   closeNotice: 'Sulje ilmoitus',
   errorLoadingData:
     'Tietojen lataaminen epäonnistui. Päivitä sivu ja yritä uudelleen',
+  loadingOptions: 'Ladataan vaihtoehtoja...',
+  filterByValue: "Suodata arvolla '{{value}}'",
+  startTypingToApplyFilter: 'Aloita kirjoittaminen käyttääksesi suodatinta',
+  noMatchesInDashboard:
+    'Nykyisestä näkymästä ei löytynyt osumia. Valitse toinen aikaväli tai kokeile eri hakua.',
   clickToExportStats: 'Vie tilastot napsauttamalla',
   importedDataUnavailable:
     'Tuodut tiedot eivät ole käytettävissä tässä näkymässä',

@@ -9,6 +9,7 @@ import { Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import classNames from 'classnames'
 import { useMountedEffect, useDebounce } from '../custom-hooks'
+import { t } from '../../i18n'
 
 function Option({ isHighlighted, onClick, onMouseEnter, text, id }) {
   const className = classNames(
@@ -296,7 +297,7 @@ export default function PlausibleCombobox({
     if (loading) {
       return (
         <div className="relative cursor-default select-none py-2 px-4 text-gray-700 dark:text-gray-300">
-          Loading options...
+          {t('loadingOptions')}
         </div>
       )
     }
@@ -306,7 +307,7 @@ export default function PlausibleCombobox({
         .filter((option) => !isOptionDisabled(option))
         .map((option, i) => {
           const text = option.freeChoice
-            ? `Filter by '${option.label}'`
+            ? t('filterByValue', { value: option.label })
             : option.label
 
           return (
@@ -325,15 +326,14 @@ export default function PlausibleCombobox({
     if (freeChoice) {
       return (
         <div className="relative cursor-default select-none py-2 px-4 text-gray-700 dark:text-gray-300">
-          Start typing to apply filter
+          {t('startTypingToApplyFilter')}
         </div>
       )
     }
 
     return (
       <div className="relative cursor-default select-none py-2 px-4 text-gray-700 dark:text-gray-300">
-        No matches found in the current dashboard. Try selecting a different
-        time range or searching for something different
+        {t('noMatchesInDashboard')}
       </div>
     )
   }

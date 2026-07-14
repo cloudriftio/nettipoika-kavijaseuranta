@@ -34,23 +34,25 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
     <div>
       <.settings_tiles>
         <.tile docs="excluding#exclude-visits-by-hostname">
-          <:title>Hostnames allow list</:title>
+          <:title>{gettext("Hostname allow list")}</:title>
           <:subtitle :if={not Enum.empty?(@hostname_rules)}>
-            Accept incoming traffic only from familiar hostnames.
+            {gettext("Accept incoming traffic only from known hostnames.")}
           </:subtitle>
 
           <%= if Enum.empty?(@hostname_rules) do %>
             <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
               <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-                Allow a hostname
+                {gettext("Allow a hostname")}
               </h3>
               <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-                Accept incoming traffic only from familiar hostnames. Traffic from all hostnames is recorded until you add your first rule.
+                {gettext(
+                  "Accept incoming traffic only from known hostnames. Traffic from every hostname is recorded until you add the first rule."
+                )}
                 <.styled_link
                   href="https://plausible.io/docs/excluding#exclude-visits-by-hostname"
                   target="_blank"
                 >
-                  Learn more
+                  {gettext("Learn more")}
                 </.styled_link>
               </p>
               <.button
@@ -60,7 +62,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                 x-on:click={Modal.JS.open("hostname-rule-form-modal")}
                 class="mt-4"
               >
-                Add hostname
+                {gettext("Add hostname")}
               </.button>
             </div>
           <% else %>
@@ -74,27 +76,30 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                 x-on:click={Modal.JS.open("hostname-rule-form-modal")}
                 mt?={false}
               >
-                Add hostname
+                {gettext("Add hostname")}
               </.button>
             </.filter_bar>
 
             <.notice
               :if={@hostname_rules_count >= Shields.maximum_hostname_rules()}
               class="mt-4"
-              title="Maximum number of hostnames reached"
+              title={gettext("Maximum number of hostnames reached")}
               theme={:gray}
             >
               <p>
-                You've reached the maximum number of hostnames you can block ({Shields.maximum_hostname_rules()}). Please remove one before adding another.
+                {gettext(
+                  "You have reached the maximum of %{count} allowed hostnames. Remove one before adding another.",
+                  count: Shields.maximum_hostname_rules()
+                )}
               </p>
             </.notice>
 
             <div class="mt-6">
               <.table rows={@hostname_rules}>
                 <:thead>
-                  <.th>Hostname</.th>
-                  <.th hide_on_mobile>Status</.th>
-                  <.th invisible>Actions</.th>
+                  <.th>{gettext("Hostname")}</.th>
+                  <.th hide_on_mobile>{gettext("Status")}</.th>
+                  <.th invisible>{gettext("Actions")}</.th>
                 </:thead>
                 <:tbody :let={rule}>
                   <.td>
@@ -102,7 +107,10 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                       <span
                         id={"hostname-#{rule.id}"}
                         class="mr-4 cursor-help text-ellipsis truncate max-w-xs"
-                        title={"Added at #{format_added_at(rule.inserted_at, @site.timezone)} by #{rule.added_by}"}
+                        title={gettext("Added at %{date} by %{user}",
+                          date: format_added_at(rule.inserted_at, @site.timezone),
+                          user: rule.added_by
+                        )}
                       >
                         {rule.hostname}
                       </span>
@@ -111,14 +119,17 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                   <.td hide_on_mobile>
                     <div class="flex items-center">
                       <span :if={rule.action == :deny}>
-                        Blocked
+                        {gettext("Blocked")}
                       </span>
                       <span :if={rule.action == :allow}>
-                        Allowed
+                        {gettext("Allowed")}
                       </span>
                       <span
                         :if={@redundant_rules[rule.id]}
-                        title={"This rule might be redundant because the following rules may match first:\n\n#{Enum.join(@redundant_rules[rule.id], "\n")}"}
+                        title={gettext(
+                          "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                          rules: Enum.join(@redundant_rules[rule.id], "\n")
+                        )}
                         class="pl-4 cursor-help"
                       >
                         <Heroicons.exclamation_triangle class="h-5 w-5 text-red-800" />
@@ -131,7 +142,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
                       phx-target={@myself}
                       phx-click="remove-hostname-rule"
                       phx-value-rule-id={rule.id}
-                      data-confirm="Are you sure you want to revoke this rule?"
+                      data-confirm={gettext("Are you sure you want to revoke this rule?")}
                     />
                   </.td>
                 </:tbody>
@@ -147,7 +158,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
               phx-target={@myself}
               class="max-w-md w-full mx-auto"
             >
-              <.title>Add hostname to allow list</.title>
+              <.title>{gettext("Add hostname to allow list")}</.title>
 
               <.live_component
                 class="mt-8"
@@ -162,18 +173,22 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
               <.error :for={msg <- f[:hostname].errors}>{translate_error(msg)}</.error>
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                You can use a wildcard (<code>*</code>) to match multiple hostnames. For example,
+                {gettext("You can use a wildcard (*) to match multiple hostnames. For example,")}
                 <code>*{@site.domain}</code>
-                will only record traffic on your main domain and all of its subdomains.<br /><br />
+                {gettext("records traffic only on the main domain and its subdomains.")}<br /><br />
 
                 <%= if @hostname_rules_count >= 1 do %>
-                  Once added, we will start accepting traffic from this hostname within a few minutes.
+                  {gettext(
+                    "After it is added, traffic from this hostname will be accepted within a few minutes."
+                  )}
                 <% else %>
-                  NB: Once added, we will start rejecting traffic from non-matching hostnames within a few minutes.
+                  {gettext(
+                    "Note: after the first rule is added, traffic from other hostnames will be rejected within a few minutes."
+                  )}
                 <% end %>
               </p>
               <.button type="submit" class="w-full">
-                Add hostname
+                {gettext("Add hostname")}
               </.button>
             </.form>
           </.live_component>
@@ -206,7 +221,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
 
         send_flash(
           :success,
-          "Hostname rule added successfully. Traffic will be limited within a few minutes."
+          gettext("Hostname rule added successfully. Traffic will be limited within a few minutes.")
         )
 
         {:noreply, socket}
@@ -221,7 +236,7 @@ defmodule PlausibleWeb.Live.Shields.HostnameRules do
 
     send_flash(
       :success,
-      "Hostname rule removed successfully. Traffic will be re-adjusted within a few minutes."
+      gettext("Hostname rule removed successfully. Traffic will be adjusted within a few minutes.")
     )
 
     hostname_rules = Enum.reject(socket.assigns.hostname_rules, &(&1.id == rule_id))

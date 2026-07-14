@@ -31,20 +31,20 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
     <div>
       <.settings_tiles>
         <.tile docs="excluding">
-          <:title>IP block list</:title>
+          <:title>{gettext("IP block list")}</:title>
           <:subtitle :if={not Enum.empty?(@ip_rules)}>
-            Reject incoming traffic from specific IP addresses.
+            {gettext("Reject incoming traffic from specific IP addresses.")}
           </:subtitle>
 
           <%= if Enum.empty?(@ip_rules) do %>
             <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
               <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-                Block an IP address
+                {gettext("Block an IP address")}
               </h3>
               <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-                Reject incoming traffic from specific IP addresses.
+                {gettext("Reject incoming traffic from specific IP addresses.")}
                 <.styled_link href="https://plausible.io/docs/excluding" target="_blank">
-                  Learn more
+                  {gettext("Learn more")}
                 </.styled_link>
               </p>
               <.button
@@ -52,7 +52,7 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                 id="add-ip-rule"
                 phx-click={Prima.Modal.JS.open("ip-rule-form-modal")}
               >
-                Add IP address
+                {gettext("Add IP address")}
               </.button>
             </div>
           <% else %>
@@ -62,28 +62,31 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                 phx-click={Prima.Modal.JS.open("ip-rule-form-modal")}
                 mt?={false}
               >
-                Add IP address
+                {gettext("Add IP address")}
               </.button>
             </.filter_bar>
 
             <.notice
               :if={@ip_rules_count >= Shields.maximum_ip_rules()}
               class="mt-4"
-              title="Maximum number of addresses reached"
+              title={gettext("Maximum number of addresses reached")}
               theme={:gray}
             >
               <p>
-                You've reached the maximum number of IP addresses you can block ({Shields.maximum_ip_rules()}). Please remove one before adding another.
+                {gettext(
+                  "You have reached the maximum of %{count} blocked IP addresses. Remove one before adding another.",
+                  count: Shields.maximum_ip_rules()
+                )}
               </p>
             </.notice>
 
             <div class="mt-6">
               <.table rows={@ip_rules}>
                 <:thead>
-                  <.th>IP address</.th>
-                  <.th hide_on_mobile>Status</.th>
-                  <.th hide_on_mobile>Description</.th>
-                  <.th invisible>Actions</.th>
+                  <.th>{gettext("IP address")}</.th>
+                  <.th hide_on_mobile>{gettext("Status")}</.th>
+                  <.th hide_on_mobile>{gettext("Description")}</.th>
+                  <.th invisible>{gettext("Actions")}</.th>
                 </:thead>
                 <:tbody :let={rule}>
                   <.td max_width="max-w-40">
@@ -95,12 +98,15 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                         <svg class="h-1.5 w-1.5 fill-green-400" viewBox="0 0 6 6" aria-hidden="true">
                           <circle cx="3" cy="3" r="3" />
                         </svg>
-                        YOU
+                        {gettext("YOU")}
                       </span>
                       <span
                         id={"inet-#{rule.id}"}
                         class="cursor-help"
-                        title={"Added at #{format_added_at(rule.inserted_at, @site.timezone)} by #{rule.added_by}"}
+                        title={gettext("Added at %{date} by %{user}",
+                          date: format_added_at(rule.inserted_at, @site.timezone),
+                          user: rule.added_by
+                        )}
                       >
                         {rule.inet}
                       </span>
@@ -108,10 +114,10 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                   </.td>
                   <.td hide_on_mobile>
                     <span :if={rule.action == :deny}>
-                      Blocked
+                      {gettext("Blocked")}
                     </span>
                     <span :if={rule.action == :allow}>
-                      Allowed
+                      {gettext("Allowed")}
                     </span>
                   </.td>
                   <.td hide_on_mobile truncate>
@@ -128,7 +134,7 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                       phx-target={@myself}
                       phx-click="remove-ip-rule"
                       phx-value-rule-id={rule.id}
-                      data-confirm="Are you sure you want to revoke this rule?"
+                      data-confirm={gettext("Are you sure you want to revoke this rule?")}
                     />
                   </.td>
                 </:tbody>
@@ -143,13 +149,13 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                   phx-click={Prima.Modal.JS.close()}
                   class="text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400"
                 >
-                  <span class="sr-only">Close</span>
+                  <span class="sr-only">{gettext("Close")}</span>
                   <Heroicons.x_mark class="size-6" />
                 </button>
               </div>
               <div class="flex flex-col gap-y-4 text-center sm:text-left">
                 <PrimaModal.modal_title>
-                  Add IP to block list
+                  {gettext("Add IP to block list")}
                 </PrimaModal.modal_title>
                 <.form
                   :let={f}
@@ -162,32 +168,35 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
                       :if={not ip_rule_present?(@ip_rules, @remote_ip)}
                       class="text-sm text-gray-500 dark:text-gray-400 mb-4"
                     >
-                      Your current IP address is: <span class="font-mono"><%= @remote_ip %></span>.
+                      {gettext("Your current IP address is:")}
+                      <span class="font-mono"><%= @remote_ip %></span>.
                       <.styled_link phx-target={@myself} phx-click="prefill-own-ip-rule">
-                        Click here
+                        {gettext("Click here")}
                       </.styled_link>
-                      to block your own traffic, or enter a custom address below.
+                      {gettext("to block your own traffic, or enter a custom address below.")}
                     </p>
 
                     <.input
                       data-autofocus
                       field={f[:inet]}
-                      label="IP address"
-                      placeholder="e.g. 192.168.127.12"
+                      label={gettext("IP address")}
+                      placeholder={gettext("e.g. 192.168.127.12")}
                     />
                   </div>
 
                   <.input
                     field={f[:description]}
-                    label="Description (optional)"
-                    placeholder="e.g. The Office"
+                    label={gettext("Description (optional)")}
+                    placeholder={gettext("e.g. The office")}
                   />
 
                   <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                    Once added, we will start rejecting traffic from this IP within a few minutes.
+                    {gettext(
+                      "After it is added, traffic from this IP address will be rejected within a few minutes."
+                    )}
                   </p>
                   <.button type="submit" class="w-full">
-                    Add IP address
+                    {gettext("Add IP address")}
                   </.button>
                 </.form>
               </div>
@@ -231,7 +240,7 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
 
         send_flash(
           :success,
-          "IP rule added successfully. Traffic will be rejected within a few minutes."
+          gettext("IP rule added successfully. Traffic will be rejected within a few minutes.")
         )
 
         {:noreply, socket}
@@ -246,7 +255,7 @@ defmodule PlausibleWeb.Live.Shields.IPRules do
 
     send_flash(
       :success,
-      "IP rule removed successfully. Traffic will be resumed within a few minutes."
+      gettext("IP rule removed successfully. Traffic will resume within a few minutes.")
     )
 
     {:noreply,

@@ -34,23 +34,23 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
     <div>
       <.settings_tiles>
         <.tile docs="top-pages#block-traffic-from-specific-pages-or-sections">
-          <:title>Pages block list</:title>
+          <:title>{gettext("Pages block list")}</:title>
           <:subtitle :if={not Enum.empty?(@page_rules)}>
-            Reject incoming traffic for specific pages.
+            {gettext("Reject incoming traffic for specific pages.")}
           </:subtitle>
 
           <%= if Enum.empty?(@page_rules) do %>
             <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
               <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-                Block a page
+                {gettext("Block a page")}
               </h3>
               <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-                Reject incoming traffic for specific pages.
+                {gettext("Reject incoming traffic for specific pages.")}
                 <.styled_link
                   href="https://plausible.io/docs/top-pages#block-traffic-from-specific-pages-or-sections"
                   target="_blank"
                 >
-                  Learn more
+                  {gettext("Learn more")}
                 </.styled_link>
               </p>
               <.button
@@ -60,7 +60,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                 x-on:click={Modal.JS.open("page-rule-form-modal")}
                 class="mt-4"
               >
-                Add page
+                {gettext("Add page")}
               </.button>
             </div>
           <% else %>
@@ -74,34 +74,40 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                 x-on:click={Modal.JS.open("page-rule-form-modal")}
                 mt?={false}
               >
-                Add page
+                {gettext("Add page")}
               </.button>
             </.filter_bar>
 
             <.notice
               :if={@page_rules_count >= Shields.maximum_page_rules()}
               class="mt-4"
-              title="Maximum number of pages reached"
+              title={gettext("Maximum number of pages reached")}
               theme={:gray}
             >
               <p>
-                You've reached the maximum number of pages you can block ({Shields.maximum_page_rules()}). Please remove one before adding another.
+                {gettext(
+                  "You have reached the maximum of %{count} blocked pages. Remove one before adding another.",
+                  count: Shields.maximum_page_rules()
+                )}
               </p>
             </.notice>
 
             <div class="mt-6">
               <.table rows={@page_rules}>
                 <:thead>
-                  <.th>Page</.th>
-                  <.th hide_on_mobile>Status</.th>
-                  <.th invisible>Actions</.th>
+                  <.th>{gettext("Page")}</.th>
+                  <.th hide_on_mobile>{gettext("Status")}</.th>
+                  <.th invisible>{gettext("Actions")}</.th>
                 </:thead>
                 <:tbody :let={rule}>
                   <.td max_width="max-w-40" truncate>
                     <span
                       id={"page-#{rule.id}"}
                       class="mr-4 cursor-help text-ellipsis truncate max-w-xs"
-                      title={"Added at #{format_added_at(rule.inserted_at, @site.timezone)} by #{rule.added_by}"}
+                      title={gettext("Added at %{date} by %{user}",
+                        date: format_added_at(rule.inserted_at, @site.timezone),
+                        user: rule.added_by
+                      )}
                     >
                       {rule.page_path}
                     </span>
@@ -109,14 +115,17 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                   <.td hide_on_mobile>
                     <div class="flex items-center">
                       <span :if={rule.action == :deny}>
-                        Blocked
+                        {gettext("Blocked")}
                       </span>
                       <span :if={rule.action == :allow}>
-                        Allowed
+                        {gettext("Allowed")}
                       </span>
                       <span
                         :if={@redundant_rules[rule.id]}
-                        title={"This rule might be redundant because the following rules may match first:\n\n#{Enum.join(@redundant_rules[rule.id], "\n")}"}
+                        title={gettext(
+                          "This rule may be redundant because these rules can match first:\n\n%{rules}",
+                          rules: Enum.join(@redundant_rules[rule.id], "\n")
+                        )}
                         class="pl-4 cursor-help"
                       >
                         <Heroicons.exclamation_triangle class="h-5 w-5 text-red-800" />
@@ -129,7 +138,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
                       phx-target={@myself}
                       phx-click="remove-page-rule"
                       phx-value-rule-id={rule.id}
-                      data-confirm="Are you sure you want to revoke this rule?"
+                      data-confirm={gettext("Are you sure you want to revoke this rule?")}
                     />
                   </.td>
                 </:tbody>
@@ -145,7 +154,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
               phx-target={@myself}
               class="max-w-md w-full mx-auto"
             >
-              <.title>Add page to block list</.title>
+              <.title>{gettext("Add page to block list")}</.title>
 
               <.live_component
                 class="mt-4"
@@ -163,13 +172,16 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
               <.error :for={msg <- f[:page_path].errors}>{translate_error(msg)}</.error>
 
               <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                You can use a wildcard (<code>*</code>) to match multiple pages. For example,
+                {gettext("You can use a wildcard (*) to match multiple pages. For example,")}
                 <code>/blog/*</code>
-                will match <code>/blog/post</code>.
-                Once added, we will start rejecting traffic from this page within a few minutes.
+                {gettext("will match")}
+                <code>/blog/post</code>.
+                {gettext(
+                  "After it is added, traffic from this page will be rejected within a few minutes."
+                )}
               </p>
               <.button type="submit" class="w-full">
-                Add page
+                {gettext("Add page")}
               </.button>
             </.form>
           </.live_component>
@@ -202,7 +214,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
 
         send_flash(
           :success,
-          "Page rule added successfully. Traffic will be rejected within a few minutes."
+          gettext("Page rule added successfully. Traffic will be rejected within a few minutes.")
         )
 
         {:noreply, socket}
@@ -217,7 +229,7 @@ defmodule PlausibleWeb.Live.Shields.PageRules do
 
     send_flash(
       :success,
-      "Page rule removed successfully. Traffic will be resumed within a few minutes."
+      gettext("Page rule removed successfully. Traffic will resume within a few minutes.")
     )
 
     page_rules = Enum.reject(socket.assigns.page_rules, &(&1.id == rule_id))

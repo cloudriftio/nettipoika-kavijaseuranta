@@ -4,7 +4,7 @@ defmodule PlausibleWeb.Components.FlowProgress do
   progress status. See `PlausibleWeb.Flows` for the list of
   flow definitions.
   """
-  use Phoenix.Component
+  use PlausibleWeb, :component
 
   attr :flow, :string, required: true, values: PlausibleWeb.Flows.valid_keys()
   attr :current_step, :string, required: true, values: PlausibleWeb.Flows.valid_values()
@@ -43,16 +43,16 @@ defmodule PlausibleWeb.Components.FlowProgress do
               {idx + 1}
             </div>
             <span :if={idx < @current_step_idx} class="ml-2 text-gray-500">
-              {step}
+              {translated_step(step)}
             </span>
             <span
               :if={idx == @current_step_idx}
               class="ml-2 font-semibold text-black dark:text-gray-300"
             >
-              {step}
+              {translated_step(step)}
             </span>
             <span :if={idx > @current_step_idx} class="ml-2 text-gray-500">
-              {step}
+              {translated_step(step)}
             </span>
           </div>
           <div :if={idx + 1 != length(@steps)} class="flex-1 h-px bg-gray-300 mx-4 dark:bg-gray-800 ">
@@ -62,4 +62,11 @@ defmodule PlausibleWeb.Components.FlowProgress do
     </div>
     """
   end
+
+  defp translated_step("Register"), do: gettext("Register")
+  defp translated_step("Activate account"), do: gettext("Activate account")
+  defp translated_step("Add site info"), do: gettext("Add site info")
+  defp translated_step("Set up new domain"), do: gettext("Set up new domain")
+  defp translated_step("Install Plausible"), do: gettext("Install Plausible")
+  defp translated_step("Verify installation"), do: gettext("Verify installation")
 end

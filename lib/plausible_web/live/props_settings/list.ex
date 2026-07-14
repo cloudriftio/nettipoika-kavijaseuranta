@@ -14,9 +14,9 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
     ~H"""
     <div>
       <%= if @searching? or Enum.count(@props) > 0 do %>
-        <.filter_bar filter_text={@filter_text} placeholder="Search Properties">
+        <.filter_bar filter_text={@filter_text} placeholder={gettext("Search properties")}>
           <.button phx-click="add-prop" mt?={false}>
-            Add property
+            {gettext("Add property")}
           </.button>
         </.filter_bar>
       <% end %>
@@ -31,7 +31,7 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
                 data-confirm={delete_confirmation_text(prop)}
                 phx-click="disallow-prop"
                 phx-value-prop={prop}
-                aria-label={"Remove #{prop} property"}
+                aria-label={gettext("Remove %{property} property", property: prop)}
               />
             </.td>
           </:tbody>
@@ -47,9 +47,9 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
   defp no_search_results(assigns) do
     ~H"""
     <p class="mt-12 mb-8 text-center text-sm">
-      No properties found for this site. Please refine or
+      {gettext("No properties found for this site. Please refine or")}
       <.styled_link phx-click="reset-filter-text" id="reset-filter-hint">
-        reset your search.
+        {gettext("reset your search.")}
       </.styled_link>
     </p>
     """
@@ -59,12 +59,14 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
     ~H"""
     <div class="flex flex-col items-center justify-center pt-5 pb-6 max-w-md mx-auto">
       <h3 class="text-center text-base font-medium text-gray-900 dark:text-gray-100 leading-7">
-        Create a custom property
+        {gettext("Create a custom property")}
       </h3>
       <p class="text-center text-sm mt-1 text-gray-500 dark:text-gray-400 leading-5 text-pretty">
-        Attach custom properties when sending a pageview or an event to create custom metrics.
+        {gettext(
+          "Attach custom properties when sending a pageview or an event to create custom metrics."
+        )}
         <.styled_link href="https://plausible.io/docs/custom-props/introduction" target="_blank">
-          Learn more
+          {gettext("Learn more")}
         </.styled_link>
       </p>
       <.button
@@ -72,7 +74,7 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
         phx-click="add-prop"
         class="mt-4"
       >
-        Add property
+        {gettext("Add property")}
       </.button>
     </div>
     """
@@ -80,11 +82,11 @@ defmodule PlausibleWeb.Live.PropsSettings.List do
 
   defp delete_confirmation_text(prop) do
     """
-    Are you sure you want to remove the following property:
+    #{gettext("Are you sure you want to remove the following property:")}
 
     #{prop}
 
-    This will just affect the UI, all of your analytics data will stay intact.
+    #{gettext("This only affects the user interface. Your analytics data will remain intact.")}
     """
   end
 end
