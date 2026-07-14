@@ -61,7 +61,7 @@ defmodule PlausibleWeb.SSOControllerTest do
 
         assert html =~ "Enter your Single Sign-On email"
         assert element_exists?(html, "input[name=email]")
-        assert text_of_attr(html, ~s|input[name="return_to"]|, "value") == nil
+        assert text_of_attr(html, ~s|#sso-login-form input[name="return_to"]|, "value") == nil
       end
 
       test "renders autosubmit js snippet when instructed", %{conn: conn} do

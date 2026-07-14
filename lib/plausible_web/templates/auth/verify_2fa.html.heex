@@ -26,6 +26,7 @@
 
   <.form
     :let={f}
+    id="verify-2fa-form"
     action={Routes.auth_path(@conn, :verify_2fa, Map.take(@conn.query_params, ["return_to"]))}
     for={@conn.params}
     onsubmit="document.getElementById('verify-button').disabled = true"

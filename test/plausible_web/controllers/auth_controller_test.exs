@@ -1343,7 +1343,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert html = html_response(conn, 200)
 
-      assert text_of_attr(html, "form", "action") ==
+      assert text_of_attr(html, "#verify-2fa-form", "action") ==
                Routes.auth_path(conn, :verify_2fa, return_to: Routes.settings_path(conn, :index))
 
       assert element_exists?(html, "input[name=code]")
@@ -1606,7 +1606,7 @@ defmodule PlausibleWeb.AuthControllerTest do
 
       assert html = html_response(conn, 200)
 
-      assert text_of_attr(html, "form", "action") ==
+      assert text_of_attr(html, "#verify-2fa-recovery-code-form", "action") ==
                Routes.auth_path(conn, :verify_2fa_recovery_code)
 
       assert element_exists?(html, "input[name=recovery_code]")

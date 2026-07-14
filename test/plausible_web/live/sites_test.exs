@@ -231,7 +231,7 @@ defmodule PlausibleWeb.Live.SitesTest do
       {:ok, _lv, html} = live(conn, "/sites")
 
       site_card = text_of_element(html, "li[data-domain=\"#{site.domain}\"]")
-      assert site_card =~ "3 visitors in last 24h"
+      assert site_card =~ "3 kävijää viimeisen 24 tunnin aikana"
       assert site_card =~ site.domain
     end
 
@@ -567,7 +567,7 @@ defmodule PlausibleWeb.Live.SitesTest do
         |> render_click()
 
       assert html =~
-               LazyHTML.html_escape("Looks like you've hit the pinned sites limit!")
+               "Kiinnitettyjen sivustojen enimmäismäärä on täynnä. Poista yhden sivuston kiinnitys ennen uuden kiinnittämistä."
     end
 
     test "does not allow pinning site user doesn't have access to", %{conn: conn, user: user} do

@@ -7,10 +7,10 @@ defmodule PlausibleWeb.Locale do
     user_locale = conn.assigns[:current_user] && conn.assigns.current_user.preferred_locale
 
     cookie_locale =
-      case conn.req_cookies do
-        %Plug.Conn.Unfetched{} -> nil
-        cookies when is_map(cookies) -> cookies["np_locale"]
-      end
+      conn
+      |> Plug.Conn.fetch_cookies()
+      |> Map.fetch!(:req_cookies)
+      |> Map.get("np_locale")
 
     normalize(user_locale || cookie_locale) || accept_language(conn)
   end

@@ -60,7 +60,8 @@ defmodule PlausibleWeb.SiteControllerTest do
       resp = html_response(conn, 200)
 
       assert resp =~ "Lisää ensimmäinen sivustosi"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
       refute resp =~ "Siirry tiimin sivustoihin"
     end
 
@@ -76,7 +77,8 @@ defmodule PlausibleWeb.SiteControllerTest do
       resp = html_response(conn, 200)
 
       assert resp =~ "Lisää tiimin ensimmäinen sivusto"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
       refute resp =~ "Siirry tiimin sivustoihin"
     end
 
@@ -94,7 +96,8 @@ defmodule PlausibleWeb.SiteControllerTest do
       resp = html_response(conn, 200)
 
       assert resp =~ "Lisää tiimin ensimmäinen sivusto"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
       refute resp =~ "Siirry tiimin sivustoihin"
     end
 
@@ -110,7 +113,8 @@ defmodule PlausibleWeb.SiteControllerTest do
       resp = html_response(conn, 200)
 
       assert resp =~ "Lisää ensimmäinen sivustosi"
-      assert resp =~ "Collect simple, privacy-friendly stats to better understand your audience."
+      assert resp =~
+               "Kerää selkeitä ja yksityisyyttä kunnioittavia tilastoja yleisösi ymmärtämiseksi."
       assert resp =~ "Siirry tiimin sivustoihin"
     end
 
