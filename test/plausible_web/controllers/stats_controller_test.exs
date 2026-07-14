@@ -221,7 +221,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       resp = html_response(conn, 200)
       assert resp =~ user.name
       assert text_of_attr(resp, @react_container, "data-logged-in") == "true"
-      refute resp =~ "Nettipoika Kävijäseuranta"
+      refute element_exists?(resp, "footer")
     end
 
     @tag :ce_build_only
