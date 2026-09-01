@@ -70,7 +70,7 @@ defmodule Plausible do
     if ee?() do
       "Plausible Analytics"
     else
-      "Nettipoika Kävijäseuranta"
+      "Nettipoika Mittari"
     end
   end
 end

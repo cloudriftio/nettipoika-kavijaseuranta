@@ -3,6 +3,21 @@ defmodule Plausible.Auth.UserTest do
 
   alias Plausible.Auth.User
 
+  test "application-created users opt in to onboarding emails" do
+    user =
+      User.new(%{
+        name: "New User",
+        email: "new-user@example.com",
+        password: "very-secret-and-very-long-123",
+        password_confirmation: "very-secret-and-very-long-123"
+      })
+      |> Plausible.Repo.insert!()
+
+    user = Plausible.Repo.reload!(user)
+    assert user.onboarding_emails_enabled
+    assert user.preferred_locale == "fi"
+  end
+
   describe "settings_changeset/2" do
     test "fails for empty input and user" do
       changeset = User.settings_changeset(%User{}, %{})

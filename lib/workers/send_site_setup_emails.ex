@@ -1,4 +1,6 @@
 defmodule Plausible.Workers.SendSiteSetupEmails do
+  @moduledoc false
+
   use Plausible.Repo
   use Oban.Worker, queue: :site_setup_emails
   require Logger
@@ -16,6 +18,7 @@ defmodule Plausible.Workers.SendSiteSetupEmails do
     q =
       from u in Plausible.Auth.User,
         as: :user,
+        where: u.onboarding_emails_enabled,
         where:
           not exists(
             from tm in Plausible.Teams.Membership,
@@ -48,7 +51,7 @@ defmodule Plausible.Workers.SendSiteSetupEmails do
       )
 
     for site <- Repo.all(q) do
-      owners = site.owners
+      owners = Enum.filter(site.owners, & &1.onboarding_emails_enabled)
       setup_completed = Plausible.Sites.has_stats?(site)
       hours_passed = NaiveDateTime.diff(DateTime.utc_now(), site.inserted_at, :hour)
 
@@ -89,7 +92,7 @@ defmodule Plausible.Workers.SendSiteSetupEmails do
   end
 
   defp send_setup_success_email(site) do
-    for owner <- site.owners do
+    for owner <- Enum.filter(site.owners, & &1.onboarding_emails_enabled) do
       PlausibleWeb.Email.site_setup_success(owner, site.team, site)
       |> Plausible.Mailer.send()
     end

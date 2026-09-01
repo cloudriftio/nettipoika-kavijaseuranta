@@ -23,8 +23,17 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics is waiting for the first pageviews"
+        subject: "Nettipoika Mittari is waiting for the first pageviews"
       )
+    end
+
+    test "does not send setup help when onboarding emails are disabled" do
+      user = new_user(onboarding_emails_enabled: false)
+      new_site(owner: user, inserted_at: hours_ago(49))
+
+      perform_job(SendSiteSetupEmails, %{})
+
+      assert_no_emails_delivered()
     end
 
     test "does not send an email more than 72 hours after signup" do
@@ -48,8 +57,18 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics is now tracking your website"
+        subject: "Nettipoika Mittari is now tracking your website"
       )
+    end
+
+    test "does not send setup success when onboarding emails are disabled" do
+      user = new_user(onboarding_emails_enabled: false)
+      site = new_site(owner: user)
+      populate_stats(site, [build(:pageview)])
+
+      perform_job(SendSiteSetupEmails, %{})
+
+      assert_no_emails_delivered()
     end
 
     test "sends the setup completed email after the help email has been sent" do
@@ -60,7 +79,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics is waiting for the first pageviews"
+        subject: "Nettipoika Mittari is waiting for the first pageviews"
       )
 
       populate_stats(site, [
@@ -71,7 +90,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics is now tracking your website"
+        subject: "Nettipoika Mittari is now tracking your website"
       )
     end
 
@@ -85,7 +104,7 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics is now tracking your website"
+        subject: "Nettipoika Mittari is now tracking your website"
       )
 
       new_site(owner: user, consolidated: true, inserted_at: hours_ago(49))
@@ -123,8 +142,16 @@ defmodule Plausible.Workers.SendSiteSetupEmailsTest do
 
       assert_email_delivered_with(
         to: [{user.name, user.email}],
-        subject: "Nettipoika Visitor Analytics: add your website details"
+        subject: "Nettipoika Mittari: add your website details"
       )
+    end
+
+    test "does not send the create site email when onboarding emails are disabled" do
+      new_user(inserted_at: hours_ago(49), onboarding_emails_enabled: false)
+
+      perform_job(SendSiteSetupEmails, %{})
+
+      assert_no_emails_delivered()
     end
   end
 

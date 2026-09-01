@@ -360,7 +360,26 @@ defmodule PlausibleWeb.SiteControllerTest do
         }
       })
 
-      assert_email_delivered_with(subject: "Welcome to Nettipoika Visitor Analytics")
+      assert_email_delivered_with(subject: "Welcome to Nettipoika Mittari")
+    end
+
+    test "does not send a welcome email when onboarding emails are disabled", %{
+      conn: conn,
+      user: user
+    } do
+      user
+      |> Ecto.Changeset.change(onboarding_emails_enabled: false)
+      |> Repo.update!()
+
+      post(conn, "/sites", %{
+        "site" => %{
+          "domain" => "example.com",
+          "timezone" => "Europe/London"
+        }
+      })
+
+      assert Repo.get_by!(Plausible.Site, domain: "example.com")
+      assert_no_emails_delivered()
     end
 
     test "does not send welcome email if user already has a previous site", %{
@@ -677,7 +696,7 @@ defmodule PlausibleWeb.SiteControllerTest do
       conn = get(conn, "/#{site.domain}/settings/general")
       resp = html_response(conn, 200)
       assert resp =~ user.name
-      assert resp =~ "Nettipoika Kävijäseuranta"
+      assert resp =~ "Nettipoika Mittari"
     end
   end
 

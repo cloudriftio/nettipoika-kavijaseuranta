@@ -90,7 +90,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       assert text_of_element(resp, "title") == "Plausible Analytics: Live Demo"
       assert resp =~ "Login"
       assert resp =~ "Want these stats for your website?"
-      assert resp =~ "Nettipoika Kävijäseuranta"
+      assert resp =~ "Nettipoika Mittari"
     end
 
     test "public site - redirect to /login when no stats because verification requires it", %{
@@ -231,7 +231,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       resp = html_response(conn, 200)
       assert resp =~ user.name
       assert text_of_attr(resp, @react_container, "data-logged-in") == "true"
-      assert resp =~ "Nettipoika Kävijäseuranta"
+      assert resp =~ "Nettipoika Mittari"
     end
 
     test "shows locked page if site is locked", %{conn: conn, user: user} do
@@ -1385,7 +1385,7 @@ defmodule PlausibleWeb.StatsControllerTest do
       assert text_of_attr(resp, @react_container, "data-current-user-id") == "null"
       assert text_of_attr(resp, @react_container, "data-current-user-role") == "public"
       assert resp =~ "Login"
-      assert resp =~ "Nettipoika Kävijäseuranta"
+      assert resp =~ "Nettipoika Mittari"
     end
 
     test "returns page with X-Frame-Options disabled so it can be embedded in an iframe", %{

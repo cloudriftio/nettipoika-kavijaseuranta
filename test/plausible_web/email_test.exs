@@ -56,7 +56,7 @@ defmodule PlausibleWeb.EmailTest do
       refute email.html_body =~ plausible_link()
 
       refute email.text_body =~ "Hello John,"
-      refute email.text_body =~ plausible_url()
+      refute email.text_body =~ "\n--"
     end
   end
 
@@ -150,8 +150,8 @@ defmodule PlausibleWeb.EmailTest do
 
       email = Email.password_reset_email(user, "https://example.test/reset")
 
-      assert email.subject == "Nettipoika Kävijäseurannan salasanan palautus"
-      assert email.html_body =~ "vaihtaaksesi Nettipoika Kävijäseurannan salasanasi"
+      assert email.subject == "Nettipoika Mittarin salasanan palautus"
+      assert email.html_body =~ "vaihtaaksesi Nettipoika Mittarin salasanasi"
     end
 
     test "uses English when the recipient prefers English" do
@@ -159,12 +159,33 @@ defmodule PlausibleWeb.EmailTest do
 
       email = Email.password_reset_email(user, "https://example.test/reset")
 
-      assert email.subject == "Password reset for Nettipoika Visitor Analytics"
-      assert email.html_body =~ "reset your Nettipoika Visitor Analytics password"
+      assert email.subject == "Password reset for Nettipoika Mittari"
+      assert email.html_body =~ "reset your Nettipoika Mittari password"
     end
 
     test "falls back to Finnish when there is no recipient locale" do
       assert Email.email_locale(%{}) == "fi"
+    end
+
+    test "renders Finnish Nettipoika Mittari onboarding by default" do
+      user = build(:user, name: "Maija Meikäläinen", preferred_locale: "fi")
+
+      email = Email.welcome_email(user)
+
+      assert email.subject == "Tervetuloa Nettipoika Mittariin"
+      assert email.html_body =~ "tarjoaa helppokäyttöisen"
+      assert email.html_body =~ "Lisää verkkosivustosi"
+      refute email.html_body =~ "Plausible dashboard"
+    end
+
+    test "renders English Nettipoika Mittari onboarding when selected" do
+      user = build(:user, name: "Jane Smith", preferred_locale: "en")
+
+      email = Email.welcome_email(user)
+
+      assert email.subject == "Welcome to Nettipoika Mittari"
+      assert email.html_body =~ "Nettipoika Mittari provides simple"
+      assert email.html_body =~ "Add your website"
     end
   end
 
@@ -369,42 +390,49 @@ defmodule PlausibleWeb.EmailTest do
   end
 
   describe "site setup emails" do
-    setup do
-      trial_user = new_user(trial_expiry_date: Date.add(Date.utc_today(), 100))
-      site = new_site(owner: trial_user)
+    test "uses Finnish copy and Nettipoika Mittari branding by default" do
+      user = new_user(preferred_locale: "fi")
+      site = new_site(owner: user)
 
       emails = [
-        PlausibleWeb.Email.create_site_email(trial_user),
-        PlausibleWeb.Email.site_setup_help(trial_user, site.team, site),
-        PlausibleWeb.Email.site_setup_success(trial_user, site.team, site)
+        PlausibleWeb.Email.create_site_email(user),
+        PlausibleWeb.Email.site_setup_help(user, site.team, site),
+        PlausibleWeb.Email.site_setup_success(user, site.team, site),
+        PlausibleWeb.Email.check_stats_email(user)
       ]
 
-      {:ok, emails: emails}
+      assert Enum.map(emails, & &1.subject) == [
+               "Nettipoika Mittari: lisää verkkosivustosi tiedot",
+               "Nettipoika Mittari odottaa ensimmäisiä sivulatauksia",
+               "Nettipoika Mittari mittaa nyt verkkosivustoasi",
+               "Tarkista verkkosivustosi kävijätilastot"
+             ]
+
+      for email <- emails do
+        assert email.html_body =~ "Nettipoika Mittari"
+        refute email.html_body =~ "Plausible dashboard"
+      end
     end
 
-    @trial_message "trial"
-    @reply_message "reply back"
+    test "uses English copy when the recipient selects English" do
+      user = new_user(preferred_locale: "en")
+      site = new_site(owner: user)
 
-    @tag :ee_only
-    test "has 'trial' and 'reply' blocks, correct product name", %{emails: emails} do
-      for email <- emails do
-        assert email.html_body =~ @trial_message
-        assert email.html_body =~ @reply_message
-        refute email.html_body =~ "Plausible CE"
-      end
+      emails = [
+        PlausibleWeb.Email.create_site_email(user),
+        PlausibleWeb.Email.site_setup_help(user, site.team, site),
+        PlausibleWeb.Email.site_setup_success(user, site.team, site),
+        PlausibleWeb.Email.check_stats_email(user)
+      ]
 
-      assert Enum.any?(emails, fn email -> email.html_body =~ "Plausible Analytics" end)
-    end
+      assert Enum.map(emails, & &1.subject) == [
+               "Nettipoika Mittari: add your website details",
+               "Nettipoika Mittari is waiting for the first pageviews",
+               "Nettipoika Mittari is now tracking your website",
+               "Check your website analytics"
+             ]
 
-    @tag :ce_build_only
-    test "no 'trial' or 'reply' blocks, correct product name", %{emails: emails} do
-      for email <- emails do
-        refute email.html_body =~ @trial_message
-        refute email.html_body =~ @reply_message
-        refute email.html_body =~ "Plausible Analytics"
-      end
-
-      assert Enum.any?(emails, fn email -> email.html_body =~ "Nettipoika Kävijäseuranta" end)
+      assert Enum.all?(emails, &String.contains?(&1.html_body, "Nettipoika Mittari"))
     end
   end
 
@@ -418,33 +446,11 @@ defmodule PlausibleWeb.EmailTest do
           code: "123"
         })
 
-      assert email.text_body == """
-             Hello John,
-
-             We are building Plausible to provide a simple and ethical approach to tracking website visitors. We're super excited to have you on board!
-
-             Here's how to get the most out of your Plausible experience:
-
-             * Enable email reports (https://plausible.io/docs/email-reports) and notifications for traffic spikes (https://plausible.io/docs/traffic-spikes)
-             * Integrate with Search Console (https://plausible.io/docs/google-search-console-integration) to get keyword phrases people find your site with
-             * Invite team members and other collaborators (https://plausible.io/docs/users-roles)
-             * Set up easy goals including form submissions (https://plausible.io/docs/form-submissions-tracking), 404 error pages (https://plausible.io/docs/error-pages-tracking-404), file downloads (https://plausible.io/docs/file-downloads-tracking) and outbound link clicks (https://plausible.io/docs/outbound-link-click-tracking)
-             * Opt out from counting your own visits (https://plausible.io/docs/excluding)
-             * If you're concerned about adblockers, set up a proxy to bypass them (https://plausible.io/docs/proxy/introduction)
-
-
-             Then you're ready to start exploring your fast loading, ethical and actionable Plausible dashboard (https://plausible.io/sites).
-
-             Have a question, feedback or need some guidance? Do reply back to this email.
-
-             Regards,
-             The Plausible Team 💌
-
-             --
-
-             http://localhost:8000
-             {{{ pm:unsubscribe }}}\
-             """
+      assert email.text_body =~ "Hello John,"
+      assert email.text_body =~ "Nettipoika Mittari provides simple"
+      assert email.text_body =~ "http://localhost:8000/sites/new"
+      assert email.text_body =~ "The Plausible Team"
+      assert email.text_body =~ "{{{ pm:unsubscribe }}}"
     end
 
     @tag :ce_build_only
@@ -456,29 +462,11 @@ defmodule PlausibleWeb.EmailTest do
           code: "123"
         })
 
-      assert email.text_body == """
-             Hello John,
-
-             We are building Plausible to provide a simple and ethical approach to tracking website visitors. We're super excited to have you on board!
-
-             Here's how to get the most out of your Plausible experience:
-
-             * Enable email reports (https://plausible.io/docs/email-reports) and notifications for traffic spikes (https://plausible.io/docs/traffic-spikes)
-             * Integrate with Search Console (https://plausible.io/docs/google-search-console-integration) to get keyword phrases people find your site with
-             * Invite team members and other collaborators (https://plausible.io/docs/users-roles)
-             * Set up easy goals including form submissions (https://plausible.io/docs/form-submissions-tracking), 404 error pages (https://plausible.io/docs/error-pages-tracking-404), file downloads (https://plausible.io/docs/file-downloads-tracking) and outbound link clicks (https://plausible.io/docs/outbound-link-click-tracking)
-             * Opt out from counting your own visits (https://plausible.io/docs/excluding)
-             * If you're concerned about adblockers, set up a proxy to bypass them (https://plausible.io/docs/proxy/introduction)
-
-
-             Then you're ready to start exploring your fast loading, ethical and actionable Plausible dashboard (https://plausible.io/sites).
-
-             Have a question, feedback or need some guidance? Do reply back to this email.
-
-             --
-
-             http://localhost:8000
-             """
+      assert email.text_body =~ "Hello John,"
+      assert email.text_body =~ "Nettipoika Mittari provides simple"
+      assert email.text_body =~ "http://localhost:8000/sites/new"
+      refute email.text_body =~ "The Plausible Team"
+      refute email.text_body =~ "{{{ pm:unsubscribe }}}"
     end
   end
 

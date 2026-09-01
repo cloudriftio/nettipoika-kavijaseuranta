@@ -48,6 +48,22 @@ defmodule Plausible.Workers.SendCheckStatsEmailsTest do
     )
   end
 
+  test "does not send an email when onboarding emails are disabled" do
+    user =
+      new_user(
+        inserted_at: days_ago(8),
+        last_seen: days_ago(8),
+        onboarding_emails_enabled: false
+      )
+
+    site = new_site(domain: "test-site.com", owner: user)
+    populate_stats(site, [build(:pageview)])
+
+    perform_job(SendCheckStatsEmails, %{})
+
+    assert_no_emails_delivered()
+  end
+
   test "team members idling will get the email" do
     user = new_user(last_seen: NaiveDateTime.utc_now(:second), inserted_at: days_ago(8))
     site = new_site(owner: user)
