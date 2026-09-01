@@ -8,7 +8,7 @@
       name="description"
       content={
         gettext(
-          "Nettipoika Visitor Analytics is lightweight, open-source and privacy-friendly website analytics."
+          "Nettipoika Mittari is lightweight, open-source and privacy-friendly website analytics."
         )
       }
     />
@@ -28,7 +28,7 @@
 
     <title>
       {assigns[:title] ||
-        gettext("Nettipoika Visitor Analytics · Clear analytics without cookies")}
+        gettext("Nettipoika Mittari · Clear analytics without cookies")}
     </title>
     <link rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")} />
     <PlausibleWeb.Components.Layout.theme_script {Map.take(assigns, [:current_user, :theme])} />

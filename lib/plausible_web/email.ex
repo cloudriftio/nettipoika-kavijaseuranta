@@ -1,4 +1,6 @@
 defmodule PlausibleWeb.Email do
+  @moduledoc false
+
   use Plausible
   use Gettext, backend: PlausibleWeb.Gettext
   import Bamboo.Email
@@ -12,7 +14,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("activation-email")
-    |> subject("#{code} on Nettipoika Kävijäseurannan vahvistuskoodisi")
+    |> subject("#{code} on Nettipoika Mittarin vahvistuskoodisi")
     |> render("activation_email.html", user: user, code: code)
   end
 
@@ -20,7 +22,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("welcome-email")
-    |> subject("Tervetuloa Nettipoika Kävijäseurantaan")
+    |> subject("Tervetuloa Nettipoika Mittariin")
     |> render("welcome_email.html", user: user)
   end
 
@@ -28,7 +30,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("create-site-email")
-    |> subject("Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot")
+    |> subject("Nettipoika Mittari: lisää verkkosivustosi tiedot")
     |> render("create_site_email.html", user: user)
   end
 
@@ -36,7 +38,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("help-email")
-    |> subject("Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia")
+    |> subject("Nettipoika Mittari odottaa ensimmäisiä sivulatauksia")
     |> render("site_setup_help_email.html",
       user: user,
       site: site,
@@ -48,7 +50,7 @@ defmodule PlausibleWeb.Email do
     base_email()
     |> to(user)
     |> tag("setup-success-email")
-    |> subject("Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi")
+    |> subject("Nettipoika Mittari mittaa nyt verkkosivustoasi")
     |> render("site_setup_success_email.html",
       user: user,
       site: site,
@@ -68,7 +70,7 @@ defmodule PlausibleWeb.Email do
     priority_email(%{layout: nil})
     |> to(user)
     |> tag("password-reset-email")
-    |> subject("Password reset for Nettipoika Visitor Analytics")
+    |> subject("Password reset for Nettipoika Mittari")
     |> render("password_reset_email.html", user: user, reset_link: reset_link)
   end
 
@@ -76,7 +78,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-enabled-email")
-    |> subject("Nettipoika Kävijäseurannan kaksivaiheinen tunnistautuminen otettiin käyttöön")
+    |> subject("Nettipoika Mittarin kaksivaiheinen tunnistautuminen otettiin käyttöön")
     |> render("two_factor_enabled_email.html", user: user)
   end
 
@@ -84,7 +86,7 @@ defmodule PlausibleWeb.Email do
     priority_email()
     |> to(user)
     |> tag("two-factor-disabled-email")
-    |> subject("Nettipoika Kävijäseurannan kaksivaiheinen tunnistautuminen poistettiin käytöstä")
+    |> subject("Nettipoika Mittarin kaksivaiheinen tunnistautuminen poistettiin käytöstä")
     |> render("two_factor_disabled_email.html", user: user)
   end
 
@@ -638,25 +640,25 @@ defmodule PlausibleWeb.Email do
   end
 
   defp localized_subject("activation_email.html", %{code: code}, _subject),
-    do: gettext("%{code} is your Nettipoika Visitor Analytics verification code", code: code)
+    do: gettext("%{code} is your Nettipoika Mittari verification code", code: code)
 
   defp localized_subject("welcome_email.html", _assigns, _subject),
-    do: gettext("Welcome to Nettipoika Visitor Analytics")
+    do: gettext("Welcome to Nettipoika Mittari")
 
   defp localized_subject("create_site_email.html", _assigns, _subject),
-    do: gettext("Nettipoika Visitor Analytics: add your website details")
+    do: gettext("Nettipoika Mittari: add your website details")
 
   defp localized_subject("site_setup_help_email.html", _assigns, _subject),
-    do: gettext("Nettipoika Visitor Analytics is waiting for the first pageviews")
+    do: gettext("Nettipoika Mittari is waiting for the first pageviews")
 
   defp localized_subject("site_setup_success_email.html", _assigns, _subject),
-    do: gettext("Nettipoika Visitor Analytics is now tracking your website")
+    do: gettext("Nettipoika Mittari is now tracking your website")
 
   defp localized_subject("check_stats_email.html", _assigns, _subject),
     do: gettext("Check your website analytics")
 
   defp localized_subject("password_reset_email.html", _assigns, _subject),
-    do: gettext("Password reset for Nettipoika Visitor Analytics")
+    do: gettext("Password reset for Nettipoika Mittari")
 
   defp localized_subject("two_factor_enabled_email.html", _assigns, _subject),
     do: gettext("Two-factor authentication was enabled")

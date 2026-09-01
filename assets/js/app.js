@@ -116,7 +116,7 @@ if (embedButton) {
       }
 
       embedCode.value = `<iframe plausible-embed src="${embedLink.toString()}" scrolling="no" frameborder="0" loading="lazy" style="width: 1px; min-width: 100%; height: 1600px; color-scheme: auto;"></iframe>
-<div style="font-size: 14px; padding-bottom: 14px;">Tilastot tarjoaa <a target="_blank" style="color: #4F46E5; text-decoration: underline;" href="https://mittari.nettipoika.fi">Nettipoika Kävijäseuranta</a></div>
+<div style="font-size: 14px; padding-bottom: 14px;">Tilastot tarjoaa <a target="_blank" style="color: #4F46E5; text-decoration: underline;" href="https://mittari.nettipoika.fi">Nettipoika Mittari</a></div>
 <script async src="${baseUrl}/js/embed.host.js"></script>`
     } catch (e) {
       console.error(e)

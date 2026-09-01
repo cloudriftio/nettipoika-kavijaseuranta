@@ -44,7 +44,7 @@ defmodule PlausibleWeb.SiteController do
 
     case Sites.create(user, site_params, team) do
       {:ok, %{site: site}} ->
-        if first_site? do
+        if first_site? and user.onboarding_emails_enabled do
           PlausibleWeb.Email.welcome_email(user)
           |> Plausible.Mailer.send()
         end

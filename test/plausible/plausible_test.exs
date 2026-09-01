@@ -4,7 +4,7 @@ defmodule PlausibleTest do
   describe "product_name/0" do
     @tag :ce_build_only
     test "returns the correct name in CE" do
-      assert Plausible.product_name() == "Nettipoika Kävijäseuranta"
+      assert Plausible.product_name() == "Nettipoika Mittari"
     end
 
     @tag :ee_only

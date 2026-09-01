@@ -270,8 +270,8 @@ msgid "to"
 msgstr "osoitteeseen"
 
 #: lib/plausible_web/email.ex:641
-msgid "%{code} is your Nettipoika Visitor Analytics verification code"
-msgstr "%{code} on Nettipoika Kävijäseurannan vahvistuskoodisi"
+msgid "%{code} is your Nettipoika Mittari verification code"
+msgstr "%{code} on Nettipoika Mittarin vahvistuskoodisi"
 
 #: lib/plausible_web/templates/email/new_user_invitation.html.heex:1
 msgid "%{inviter} invited you to join the site %{site} in %{product}."
@@ -550,10 +550,10 @@ msgstr ""
 
 #: lib/plausible_web/templates/layout/_footer.html.heex:37
 msgid ""
-"Derived from Plausible Community Edition. Nettipoika Visitor Analytics is "
+"Derived from Plausible Community Edition. Nettipoika Mittari is "
 "not affiliated with or endorsed by Plausible Insights OÜ."
 msgstr ""
-"Palvelu perustuu Plausible Community Editioniin. Nettipoika Kävijäseuranta "
+"Palvelu perustuu Plausible Community Editioniin. Nettipoika Mittari "
 "ei ole Plausible Insights OÜ:n yhteydessä eikä sen hyväksymä palvelu."
 
 #: lib/plausible_web/live/components/dashboard/report_list.ex:210
@@ -824,22 +824,22 @@ msgstr "Nimi"
 
 #: lib/plausible_web/templates/layout/_footer.html.heex:12
 #: lib/plausible_web/templates/page/index.html.heex:3
-msgid "Nettipoika Visitor Analytics"
-msgstr "Nettipoika Kävijäseuranta"
+msgid "Nettipoika Mittari"
+msgstr "Nettipoika Mittari"
 
 #: lib/plausible_web/templates/email/new_user_invitation.html.heex:16
 #: lib/plausible_web/templates/email/new_user_team_invitation.html.heex:16
 #: lib/plausible_web/templates/layout/app.html.heex:10
 msgid ""
-"Nettipoika Visitor Analytics is lightweight, open-source and privacy-"
+"Nettipoika Mittari is lightweight, open-source and privacy-"
 "friendly website analytics."
 msgstr ""
-"Nettipoika Kävijäseuranta on kevyt, avoimen lähdekoodin ja yksityisyyttä "
+"Nettipoika Mittari on kevyt, avoimen lähdekoodin ja yksityisyyttä "
 "kunnioittava verkkosivujen kävijäseuranta."
 
 #: lib/plausible_web/templates/layout/app.html.heex:31
-msgid "Nettipoika Visitor Analytics · Clear analytics without cookies"
-msgstr "Nettipoika Kävijäseuranta · Selkeät kävijätilastot ilman evästeitä"
+msgid "Nettipoika Mittari · Clear analytics without cookies"
+msgstr "Nettipoika Mittari · Selkeät kävijätilastot ilman evästeitä"
 
 #: lib/plausible_web/templates/settings/security.html.heex:25
 msgid "New email"
@@ -883,8 +883,8 @@ msgid "Password"
 msgstr "Salasana"
 
 #: lib/plausible_web/email.ex:647
-msgid "Password reset for Nettipoika Visitor Analytics"
-msgstr "Nettipoika Kävijäseurannan salasanan palautus"
+msgid "Password reset for Nettipoika Mittari"
+msgstr "Nettipoika Mittarin salasanan palautus"
 
 #: lib/plausible_web/templates/site/settings_people.html.heex:131
 msgid "Pending invitations"
@@ -1207,20 +1207,20 @@ msgid "Check your website analytics"
 msgstr "Tarkista verkkosivustosi kävijätilastot"
 
 #: lib/plausible_web/email.ex
-msgid "Nettipoika Visitor Analytics: add your website details"
-msgstr "Nettipoika Kävijäseuranta: lisää verkkosivustosi tiedot"
+msgid "Nettipoika Mittari: add your website details"
+msgstr "Nettipoika Mittari: lisää verkkosivustosi tiedot"
 
 #: lib/plausible_web/email.ex
-msgid "Nettipoika Visitor Analytics is now tracking your website"
-msgstr "Nettipoika Kävijäseuranta mittaa nyt verkkosivustoasi"
+msgid "Nettipoika Mittari is now tracking your website"
+msgstr "Nettipoika Mittari mittaa nyt verkkosivustoasi"
 
 #: lib/plausible_web/email.ex
-msgid "Nettipoika Visitor Analytics is waiting for the first pageviews"
-msgstr "Nettipoika Kävijäseuranta odottaa ensimmäisiä sivulatauksia"
+msgid "Nettipoika Mittari is waiting for the first pageviews"
+msgstr "Nettipoika Mittari odottaa ensimmäisiä sivulatauksia"
 
 #: lib/plausible_web/email.ex:644
-msgid "Welcome to Nettipoika Visitor Analytics"
-msgstr "Tervetuloa Nettipoika Kävijäseurantaan"
+msgid "Welcome to Nettipoika Mittari"
+msgstr "Tervetuloa Nettipoika Mittariin"
 
 #: lib/plausible_web/templates/settings/danger_zone.html.heex:15
 msgid ""
@@ -1299,8 +1299,8 @@ msgid "to reset it."
 msgstr "vaihtaaksesi sen."
 
 #: lib/plausible_web/templates/email/password_reset_email.html.heex:2
-msgid "to reset your Nettipoika Visitor Analytics password."
-msgstr "vaihtaaksesi Nettipoika Kävijäseurannan salasanasi."
+msgid "to reset your Nettipoika Mittari password."
+msgstr "vaihtaaksesi Nettipoika Mittarin salasanasi."
 
 #: lib/plausible_web/templates/email/existing_user_invitation.html.heex:9
 #: lib/plausible_web/templates/email/existing_user_team_invitation.html.heex:7
@@ -1746,9 +1746,9 @@ msgstr "Tallenna raja"
 
 #: lib/plausible_web/templates/page/open_source.html.heex
 msgid ""
-"Nettipoika Visitor Analytics is based on Plausible Community Edition 3.2.1."
+"Nettipoika Mittari is based on Plausible Community Edition 3.2.1."
 msgstr ""
-"Nettipoika Kävijäseuranta perustuu Plausible Community Edition 3.2.1 "
+"Nettipoika Mittari perustuu Plausible Community Edition 3.2.1 "
 "-ohjelmistoon."
 
 #: lib/plausible_web/templates/page/open_source.html.heex
@@ -1765,10 +1765,10 @@ msgstr "Katso täydellinen lähdekoodi ja rakennusohjeet GitHubissa"
 
 #: lib/plausible_web/templates/page/open_source.html.heex
 msgid ""
-"Nettipoika Visitor Analytics is not endorsed, maintained, or warranted by "
+"Nettipoika Mittari is not endorsed, maintained, or warranted by "
 "Plausible Insights OÜ."
 msgstr ""
-"Nettipoika Kävijäseuranta ei ole Plausible Insights OÜ:n hyväksymä, "
+"Nettipoika Mittari ei ole Plausible Insights OÜ:n hyväksymä, "
 "ylläpitämä tai takaama palvelu."
 
 #: lib/plausible_web/templates/page/open_source.html.heex
@@ -2854,3 +2854,69 @@ msgstr "Onko ongelmia?"
 
 msgid "Start over"
 msgstr "Aloita alusta"
+
+#: lib/plausible_web/templates/email/welcome_email.html.heex
+msgid "%{product} provides simple and privacy-friendly website analytics."
+msgstr "%{product} tarjoaa helppokäyttöisen ja yksityisyyttä kunnioittavan verkkosivuston kävijäseurannan."
+
+#: lib/plausible_web/templates/email/welcome_email.html.heex
+msgid "Your account is ready. Add your website and install the tracking script to begin collecting visitor statistics."
+msgstr "Tilisi on valmis. Lisää verkkosivustosi ja asenna seurantakoodi, jotta kävijätilastojen kerääminen alkaa."
+
+#: lib/plausible_web/templates/email/welcome_email.html.heex
+#: lib/plausible_web/templates/email/create_site_email.html.heex
+msgid "Add your website"
+msgstr "Lisää verkkosivustosi"
+
+#: lib/plausible_web/templates/email/welcome_email.html.heex
+msgid "After installation, you can view traffic sources, popular pages, goals and other useful statistics in your dashboard."
+msgstr "Asennuksen jälkeen näet hallintapaneelissa liikenteen lähteet, suositut sivut, tavoitteet ja muut hyödylliset tilastot."
+
+#: lib/plausible_web/templates/email/welcome_email.html.heex
+#: lib/plausible_web/templates/email/check_stats_email.html.heex
+msgid "Open %{product}"
+msgstr "Avaa %{product}"
+
+#: lib/plausible_web/templates/email/create_site_email.html.heex
+msgid "Your %{product} account is ready."
+msgstr "%{product}-tilisi on valmis."
+
+#: lib/plausible_web/templates/email/create_site_email.html.heex
+msgid "Add your website address and timezone, then install the tracking script to begin collecting visitor statistics."
+msgstr "Lisää verkkosivustosi osoite ja aikavyöhyke. Asenna sen jälkeen seurantakoodi, jotta kävijätilastojen kerääminen alkaa."
+
+#: lib/plausible_web/templates/email/site_setup_help_email.html.heex
+msgid "The installation for %{site} is not complete yet."
+msgstr "Sivuston %{site} asennus ei ole vielä valmis."
+
+#: lib/plausible_web/templates/email/site_setup_help_email.html.heex
+msgid "Review the installation instructions and make sure the tracking script is present on your website."
+msgstr "Tarkista asennusohjeet ja varmista, että seurantakoodi on verkkosivustollasi."
+
+#: lib/plausible_web/templates/email/site_setup_help_email.html.heex
+msgid "Visitor statistics will appear in %{product} after the first pageview is received."
+msgstr "Kävijätilastot näkyvät palvelussa %{product}, kun ensimmäinen sivulataus on vastaanotettu."
+
+#: lib/plausible_web/templates/email/site_setup_success_email.html.heex
+msgid "Good news! %{product} has received the first pageview from %{site}."
+msgstr "Hyviä uutisia! %{product} on vastaanottanut sivuston %{site} ensimmäisen sivulatauksen."
+
+#: lib/plausible_web/templates/email/site_setup_success_email.html.heex
+msgid "Visitor statistics are now being collected without compromising your visitors' privacy."
+msgstr "Kävijätilastoja kerätään nyt vaarantamatta kävijöidesi yksityisyyttä."
+
+#: lib/plausible_web/templates/email/site_setup_success_email.html.heex
+msgid "Open the dashboard"
+msgstr "Avaa hallintapaneeli"
+
+#: lib/plausible_web/templates/email/site_setup_success_email.html.heex
+msgid "If the numbers do not look right, review the installation in the site settings."
+msgstr "Jos luvut eivät näytä oikeilta, tarkista asennus sivuston asetuksista."
+
+#: lib/plausible_web/templates/email/check_stats_email.html.heex
+msgid "%{product} is collecting visitor statistics for your website."
+msgstr "%{product} kerää verkkosivustosi kävijätilastoja."
+
+#: lib/plausible_web/templates/email/check_stats_email.html.heex
+msgid "Open your dashboard to review traffic sources, popular pages, goals and other useful statistics."
+msgstr "Avaa hallintapaneeli ja tarkastele liikenteen lähteitä, suosittuja sivuja, tavoitteita ja muita hyödyllisiä tilastoja."

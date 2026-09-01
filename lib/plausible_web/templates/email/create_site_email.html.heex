@@ -1,11 +1,7 @@
-You've activated
-<%= if ee?() do %>
-  your free 30-day trial of
-<% end %>
-{Plausible.product_name()}, an easy-to-use and privacy-friendly website analytics tool.
+{gettext("Your %{product} account is ready.", product: "Nettipoika Mittari")}
 <br /><br />
-<a href={"#{plausible_url()}/sites/new"}>Click here</a>
-to add your website URL, your timezone and install our JavaScript snippet to start collecting visitor statistics.
-<%= if ee?() do %>
-  <br /><br />Do reply back to this email if you have any questions or need some guidance.
-<% end %>
+{gettext(
+  "Add your website address and timezone, then install the tracking script to begin collecting visitor statistics."
+)}
+<br /><br />
+<a href={"#{plausible_url()}/sites/new"}>{gettext("Add your website")}</a>

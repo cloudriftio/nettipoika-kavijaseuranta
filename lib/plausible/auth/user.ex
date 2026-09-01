@@ -1,4 +1,6 @@
 defmodule Plausible.Auth.User do
+  @moduledoc false
+
   use Plausible
   use Ecto.Schema
   import Ecto.Changeset
@@ -32,6 +34,7 @@ defmodule Plausible.Auth.User do
     field :last_seen, :naive_datetime
     field :theme, Ecto.Enum, values: [:system, :light, :dark]
     field :preferred_locale, :string, default: "fi"
+    field :onboarding_emails_enabled, :boolean, default: true
     field :email_verified, :boolean
     field :previous_email, :string
 

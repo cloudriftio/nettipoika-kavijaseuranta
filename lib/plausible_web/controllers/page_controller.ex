@@ -14,6 +14,6 @@ defmodule PlausibleWeb.PageController do
   end
 
   def open_source(conn, _params) do
-    render(conn, "open_source.html", title: "Avoin lähdekoodi · Nettipoika Kävijäseuranta")
+    render(conn, "open_source.html", title: "Avoin lähdekoodi · Nettipoika Mittari")
   end
 end

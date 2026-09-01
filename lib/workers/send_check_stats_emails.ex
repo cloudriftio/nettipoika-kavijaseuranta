@@ -1,4 +1,6 @@
 defmodule Plausible.Workers.SendCheckStatsEmails do
+  @moduledoc false
+
   use Plausible.Repo
   use Oban.Worker, queue: :check_stats_emails
 
@@ -9,6 +11,7 @@ defmodule Plausible.Workers.SendCheckStatsEmails do
         left_join: ce in "check_stats_emails",
         on: ce.user_id == u.id,
         where: is_nil(ce.id),
+        where: u.onboarding_emails_enabled,
         where:
           u.inserted_at > fragment("(now() at time zone 'utc') - '14 days'::interval") and
             u.inserted_at < fragment("(now() at time zone 'utc') - '7 days'::interval") and

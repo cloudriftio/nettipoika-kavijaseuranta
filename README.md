@@ -1,7 +1,7 @@
-# Nettipoika Kävijäseuranta
+# Nettipoika Mittari
 
 This repository contains the complete corresponding source for
-[Nettipoika Kävijäseuranta](https://mittari.nettipoika.fi), a Finnish and English
+[Nettipoika Mittari](https://mittari.nettipoika.fi), a Finnish and English
 managed analytics product derived from Plausible Community Edition 3.2.1.
 
 The service is maintained by Cloud Rift Oy under the Nettipoika brand. It is not
